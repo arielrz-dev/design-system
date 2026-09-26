@@ -12,6 +12,7 @@
 
 .ds-popover {
   box-sizing: border-box;
+  z-index: var(--ds-z-dropdown);
   min-width: 12rem;
   max-width: min(20rem, calc(100vw - 2rem));
   padding: 0.25rem;
@@ -22,6 +23,9 @@
   font-family: var(--ds-primitive-font-family-sans);
   box-shadow: var(--ds-shadow-md);
   overflow: hidden;
+  transition:
+    opacity var(--ds-duration-normal) var(--ds-ease-standard),
+    transform var(--ds-duration-normal) var(--ds-ease-standard);
 }
 
 .ds-popover:popover-open {
@@ -58,7 +62,9 @@
   text-align: left;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 140ms ease-out, color 140ms ease-out;
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-ease-standard),
+    color var(--ds-duration-fast) var(--ds-ease-standard);
   -webkit-font-smoothing: antialiased;
 }
 

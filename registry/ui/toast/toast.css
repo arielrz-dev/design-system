@@ -7,7 +7,7 @@
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
-  z-index: 9999;
+  z-index: var(--ds-z-toast);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -35,7 +35,7 @@
   box-shadow: var(--ds-shadow-md);
   opacity: 0;
   transform: translateY(1rem);
-  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all var(--ds-duration-normal) var(--ds-ease-standard);
 }
 
 .ds-toast--visible {
@@ -88,7 +88,7 @@
   color: var(--ds-semantic-content-muted);
   font: inherit;
   cursor: pointer;
-  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--ds-duration-fast) var(--ds-ease-standard);
 }
 
 .ds-toast__close:hover {

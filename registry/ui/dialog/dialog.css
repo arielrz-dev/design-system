@@ -19,10 +19,10 @@ dialog.ds-dialog {
   opacity: 0;
   transform: scale(0.96);
   transition:
-    opacity 180ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 180ms cubic-bezier(0.4, 0, 0.2, 1),
-    overlay 180ms cubic-bezier(0.4, 0, 0.2, 1) allow-discrete,
-    display 180ms cubic-bezier(0.4, 0, 0.2, 1) allow-discrete;
+    opacity var(--ds-duration-normal) var(--ds-ease-standard),
+    transform var(--ds-duration-normal) var(--ds-ease-standard),
+    overlay var(--ds-duration-normal) var(--ds-ease-standard) allow-discrete,
+    display var(--ds-duration-normal) var(--ds-ease-standard) allow-discrete;
 }
 
 dialog.ds-dialog[open] {
@@ -46,7 +46,7 @@ dialog.ds-dialog::backdrop {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   opacity: 0;
-  transition: opacity 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--ds-duration-normal) var(--ds-ease-standard);
 }
 
 dialog.ds-dialog[open]::backdrop {

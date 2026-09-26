@@ -12,7 +12,7 @@
   position: absolute;
   left: 50%;
   bottom: calc(100% + 0.5rem);
-  z-index: 50;
+  z-index: var(--ds-z-tooltip);
   box-sizing: border-box;
   max-width: 16rem;
   padding: 0.25rem 0.5rem;
@@ -38,7 +38,7 @@
   position: absolute;
   left: 50%;
   bottom: calc(100% + 0.2rem);
-  z-index: 51;
+  z-index: calc(var(--ds-z-tooltip) + 1);
   width: 0.4rem;
   height: 0.4rem;
   border-right: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
