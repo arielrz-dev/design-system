@@ -1,0 +1,29 @@
+<!--
+  ds-floating — label flotante.
+  Requiere: dist/css/variables.css + floating-label-input.css
+  Tip: placeholder=" " (espacio) habilita :placeholder-shown.
+-->
+
+<div class="ds-floating">
+  <input
+    id="floating-email"
+    class="ds-floating__input"
+    type="email"
+    name="email"
+    placeholder=" "
+    autocomplete="email"
+  />
+  <label class="ds-floating__label" for="floating-email">Correo electrónico</label>
+</div>
+
+<div class="ds-floating" style="margin-top: 1rem">
+  <input
+    id="floating-name"
+    class="ds-floating__input"
+    type="text"
+    name="name"
+    placeholder=" "
+    autocomplete="name"
+  />
+  <label class="ds-floating__label" for="floating-name">Nombre completo</label>
+</div>

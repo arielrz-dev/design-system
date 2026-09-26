@@ -1,0 +1,57 @@
+/**
+ * .ds-pin — OTP / código segmentado.
+ * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ */
+
+.ds-pin {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-primitive-spacing-8);
+  margin: 0;
+  font-family: var(--ds-primitive-font-family-sans);
+}
+
+.ds-pin__cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-primitive-spacing-8);
+}
+
+.ds-pin__cell {
+  box-sizing: border-box;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
+  border-radius: var(--ds-primitive-radius-md);
+  background-color: var(--ds-semantic-surface-card);
+  color: var(--ds-semantic-content-primary);
+  font-family: var(--ds-primitive-font-family-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  font-size: var(--ds-primitive-font-size-md-font-size);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  box-shadow: var(--ds-shadow-xs);
+  transition: border-color 140ms ease-out, box-shadow 140ms ease-out;
+  appearance: none;
+}
+
+.ds-pin__cell:hover:not(:disabled):not(:focus-visible) {
+  border-color: color-mix(in srgb, var(--ds-semantic-content-primary) 20%, transparent);
+}
+
+.ds-pin__cell:focus {
+  outline: none;
+}
+
+.ds-pin__cell:focus-visible {
+  border-color: var(--ds-semantic-border-focus);
+  outline: 2px solid var(--ds-semantic-border-focus);
+  outline-offset: 2px;
+}
+
+.ds-pin--error .ds-pin__cell {
+  border-color: color-mix(in srgb, var(--ds-semantic-action-danger-default) 55%, transparent);
+}

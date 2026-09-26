@@ -1,0 +1,30 @@
+<!--
+  ds-search-kbd — búsqueda global + ⌘K / Ctrl+K.
+  Requiere: dist/css/variables.css + search-kbd-input.css + search-kbd-input.js
+-->
+
+<div class="ds-search-kbd" data-ds-search-kbd>
+  <span class="ds-search-kbd__icon" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <circle cx="7" cy="7" r="4.25" stroke="currentColor" stroke-width="1.5" />
+      <path d="M10.5 10.5L13.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  </span>
+  <input
+    id="global-search"
+    class="ds-search-kbd__input"
+    type="search"
+    name="q"
+    placeholder="Buscar…"
+    autocomplete="off"
+    aria-label="Búsqueda global"
+  />
+  <button type="button" class="ds-search-kbd__clear" aria-label="Limpiar búsqueda">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+      <path d="M3 3l6 6M9 3L3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  </button>
+  <span class="ds-search-kbd__shortcut" aria-hidden="true">
+    <kbd>⌘</kbd><kbd>K</kbd>
+  </span>
+</div>

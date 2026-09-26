@@ -1,0 +1,37 @@
+<!--
+  ds-currency + ds-counter — importe y contador de caracteres.
+  Requiere: variables.css + input.css (label) + currency-counter-input.css/.js
+-->
+
+<div class="ds-field">
+  <label class="ds-label" for="amount">Importe</label>
+  <div class="ds-currency">
+    <span class="ds-currency__prefix" aria-hidden="true">USD</span>
+    <input
+      id="amount"
+      class="ds-currency__input"
+      type="text"
+      name="amount"
+      inputmode="decimal"
+      placeholder="0.00"
+      autocomplete="off"
+      aria-describedby="amount-hint"
+    />
+  </div>
+  <p id="amount-hint" class="ds-field__hint">Usá punto como decimal.</p>
+</div>
+
+<div class="ds-field ds-counter" data-ds-counter data-max="120" style="margin-top: 1.25rem">
+  <div class="ds-counter__meta">
+    <label class="ds-label" for="bio-counter">Bio corta</label>
+    <span class="ds-counter__count" data-ds-counter-value aria-live="polite">0/120</span>
+  </div>
+  <textarea
+    id="bio-counter"
+    class="ds-input ds-input--md"
+    name="bio"
+    rows="3"
+    maxlength="120"
+    placeholder="Máximo 120 caracteres"
+  ></textarea>
+</div>
