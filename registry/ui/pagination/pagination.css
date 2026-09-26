@@ -1,0 +1,111 @@
+/**
+ * .ds-pagination — navegación de páginas.
+ * Solo consume variables CSS `--ds-*`.
+ */
+
+.ds-pagination {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-primitive-spacing-8);
+  margin: 0;
+  font-family: var(--ds-primitive-font-family-sans);
+}
+
+.ds-pagination__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-pagination__page,
+.ds-pagination__nav {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  min-height: 2rem;
+  margin: 0;
+  padding: 0 0.55rem;
+  border: 1px solid var(--ds-semantic-border-subtle);
+  border-radius: var(--ds-primitive-radius-md);
+  background-color: var(--ds-semantic-surface-card);
+  color: var(--ds-semantic-content-secondary);
+  font-family: inherit;
+  font-size: var(--ds-primitive-font-size-sm-font-size);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--ds-shadow-xs);
+  transition:
+    color 120ms ease,
+    background-color 120ms ease,
+    border-color 120ms ease;
+}
+
+.ds-pagination__page:hover,
+.ds-pagination__nav:hover {
+  color: var(--ds-semantic-content-primary);
+  background-color: var(--ds-semantic-surface-elevated);
+  border-color: color-mix(in srgb, var(--ds-semantic-content-primary) 16%, transparent);
+}
+
+.ds-pagination__page:focus,
+.ds-pagination__nav:focus {
+  outline: none;
+}
+
+.ds-pagination__page:focus-visible,
+.ds-pagination__nav:focus-visible {
+  outline: 2px solid var(--ds-semantic-border-focus);
+  outline-offset: 2px;
+}
+
+.ds-pagination__page--active {
+  color: var(--ds-semantic-content-inverse);
+  background-color: var(--ds-semantic-action-primary-default);
+  border-color: var(--ds-semantic-action-primary-default);
+  box-shadow: none;
+  pointer-events: none;
+}
+
+[data-theme='dark'] .ds-pagination__page--active {
+  color: var(--ds-semantic-content-primary);
+}
+
+.ds-pagination__page--active:hover {
+  color: var(--ds-semantic-content-inverse);
+  background-color: var(--ds-semantic-action-primary-default);
+  border-color: var(--ds-semantic-action-primary-default);
+}
+
+[data-theme='dark'] .ds-pagination__page--active:hover {
+  color: var(--ds-semantic-content-primary);
+}
+
+.ds-pagination__nav:disabled,
+.ds-pagination__page:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.ds-pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  color: var(--ds-semantic-content-muted);
+  font-size: var(--ds-primitive-font-size-sm-font-size);
+  user-select: none;
+}

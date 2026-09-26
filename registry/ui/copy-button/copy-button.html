@@ -1,0 +1,38 @@
+<!--
+  ds-copy-button — copiar API key / valor.
+  Requiere: variables.css + copy-button.css + copy-button.js
+-->
+
+<div class="ds-copy-field">
+  <code id="api-key-demo" class="ds-copy-field__value">ds_live_9f3a2c8e1b7d4a60</code>
+  <button
+    type="button"
+    class="ds-copy-button"
+    data-ds-copy-target="#api-key-demo"
+    aria-label="Copiar API key"
+  >
+    <span class="ds-copy-button__icon ds-copy-button__icon--copy" aria-hidden="true">
+      <svg viewBox="0 0 16 16" fill="none">
+        <rect x="5" y="5" width="7" height="8" rx="1.25" stroke="currentColor" stroke-width="1.5" />
+        <path
+          d="M4 10.5H3.25A1.25 1.25 0 012 9.25v-6A1.25 1.25 0 013.25 2h6A1.25 1.25 0 0110.5 3.25V4"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+      </svg>
+    </span>
+    <span class="ds-copy-button__icon ds-copy-button__icon--check" aria-hidden="true">
+      <svg viewBox="0 0 16 16" fill="none">
+        <path
+          d="M3.5 8.5l3 3 6-6.5"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </span>
+    <span>Copiar</span>
+  </button>
+</div>
