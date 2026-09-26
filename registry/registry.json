@@ -746,6 +746,48 @@
       "dependencies": [],
       "registryDependencies": [],
       "docs": "Marcá la página actual con --active y aria-current=\"page\"."
+    },
+    {
+      "name": "banner",
+      "type": "registry:ui",
+      "title": "Banner",
+      "description": "Anuncio global sticky con variantes info/warning/danger y cierre accesible.",
+      "files": [
+        {
+          "path": "ui/banner/banner.css",
+          "type": "registry:style",
+          "target": "banner.css"
+        },
+        {
+          "path": "ui/banner/banner.html",
+          "type": "registry:snippet",
+          "target": "banner.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Usa z-index var(--ds-z-banner). Variantes: --info, --warning, --danger."
+    },
+    {
+      "name": "timeline",
+      "type": "registry:ui",
+      "title": "Timeline",
+      "description": "Activity feed vertical con nodo, autor/acción, timestamp y meta.",
+      "files": [
+        {
+          "path": "ui/timeline/timeline.css",
+          "type": "registry:style",
+          "target": "timeline.css"
+        },
+        {
+          "path": "ui/timeline/timeline.html",
+          "type": "registry:snippet",
+          "target": "timeline.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Línea continua via ::before; nodos --success/--info/--warning."
     }
   ]
 }
