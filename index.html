@@ -39,6 +39,11 @@
     <link rel="stylesheet" href="src/components/ui/avatar-group/avatar-group.css" />
     <link rel="stylesheet" href="src/components/ui/setting-row/setting-row.css" />
     <link rel="stylesheet" href="src/components/ui/radio-card/radio-card.css" />
+    <link rel="stylesheet" href="src/components/ui/sheet/sheet.css" />
+    <link rel="stylesheet" href="src/components/ui/empty-state/empty-state.css" />
+    <link rel="stylesheet" href="src/components/ui/stat-card/stat-card.css" />
+    <link rel="stylesheet" href="src/components/ui/copy-button/copy-button.css" />
+    <link rel="stylesheet" href="src/components/ui/pagination/pagination.css" />
     <style>
       *,
       *::before,
@@ -405,6 +410,32 @@
       }
 
       .playground__settings-demo > p {
+        margin: 0 0 var(--ds-primitive-spacing-12);
+        color: var(--ds-semantic-content-muted);
+        font-size: var(--ds-primitive-font-size-xs-font-size);
+        line-height: var(--ds-primitive-font-size-xs-line-height);
+      }
+
+      .playground__saas-demo {
+        display: grid;
+        gap: var(--ds-primitive-spacing-24);
+        padding: var(--ds-primitive-spacing-20);
+        border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
+        border-radius: var(--ds-primitive-radius-lg);
+        background-color: var(--ds-semantic-surface-card);
+        box-shadow: var(--ds-shadow-xs);
+        max-width: 52rem;
+      }
+
+      .playground__saas-demo h3 {
+        margin: 0 0 var(--ds-primitive-spacing-8);
+        color: var(--ds-semantic-content-primary);
+        font-size: var(--ds-primitive-font-size-sm-font-size);
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .playground__saas-demo > div > p {
         margin: 0 0 var(--ds-primitive-spacing-12);
         color: var(--ds-semantic-content-muted);
         font-size: var(--ds-primitive-font-size-xs-font-size);
@@ -2173,6 +2204,224 @@
           </div>
         </div>
       </section>
+
+      <section class="playground__section" aria-labelledby="saas-pro-heading">
+        <h2 id="saas-pro-heading">Pack SaaS Pro</h2>
+        <div class="playground__saas-demo">
+          <div>
+            <h3>Sheet / Drawer</h3>
+            <p>Panel lateral con showModal, Escape y backdrop blur.</p>
+            <button
+              type="button"
+              class="ds-button ds-button--secondary ds-button--md"
+              data-ds-sheet-open="pg-saas-sheet"
+            >
+              Abrir panel de filtros
+            </button>
+            <dialog id="pg-saas-sheet" class="ds-sheet" aria-labelledby="pg-saas-sheet-title">
+              <div class="ds-sheet__header">
+                <h2 id="pg-saas-sheet-title" class="ds-sheet__title">Filtros</h2>
+                <p class="ds-sheet__description">Ajustá el alcance de la vista actual.</p>
+                <button
+                  type="button"
+                  class="ds-button ds-button--ghost ds-button--sm ds-sheet__close"
+                  data-ds-sheet-close
+                  aria-label="Cerrar panel"
+                >
+                  ✕
+                </button>
+              </div>
+              <div class="ds-sheet__body">
+                <p style="margin: 0; color: var(--ds-semantic-content-secondary)">
+                  Contenido scrollable. Probá Escape o clic fuera del panel.
+                </p>
+                <label class="ds-setting-row">
+                  <span class="ds-setting-row__left">
+                    <span class="ds-setting-row__meta">
+                      <span class="ds-setting-row__title">Solo activos</span>
+                      <span class="ds-setting-row__description">Oculta registros archivados.</span>
+                    </span>
+                  </span>
+                  <span class="ds-setting-row__control">
+                    <span class="ds-switch__control">
+                      <input class="ds-switch__input" type="checkbox" role="switch" checked />
+                      <span class="ds-switch__track" aria-hidden="true">
+                        <span class="ds-switch__thumb"></span>
+                      </span>
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <div class="ds-sheet__footer">
+                <button type="button" class="ds-button ds-button--ghost ds-button--md" data-ds-sheet-close>
+                  Cancelar
+                </button>
+                <button
+                  type="button"
+                  class="ds-button ds-button--primary ds-button--md"
+                  data-ds-sheet-close="confirm"
+                >
+                  Aplicar
+                </button>
+              </div>
+            </dialog>
+          </div>
+
+          <div>
+            <h3>Empty State</h3>
+            <p>Placeholder de lista vacía con CTA.</p>
+            <div class="ds-empty-state" role="status">
+              <span class="ds-empty-state__icon" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="none">
+                  <rect
+                    x="2.5"
+                    y="3.5"
+                    width="11"
+                    height="9"
+                    rx="1.5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M5 7.5h6M5 10h4"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+              <h3 class="ds-empty-state__title">Todavía no hay proyectos</h3>
+              <p class="ds-empty-state__description">
+                Creá tu primer proyecto para empezar a invitar al equipo y ver métricas en vivo.
+              </p>
+              <div class="ds-empty-state__action">
+                <button type="button" class="ds-button ds-button--primary ds-button--md">
+                  Crear proyecto
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3>Stat Cards</h3>
+            <p>KPIs con tendencia y sparkline tokenizado.</p>
+            <div class="ds-stat-grid">
+              <article class="ds-stat-card">
+                <div class="ds-stat-card__header">
+                  <h3 class="ds-stat-card__label">Ingresos MRR</h3>
+                  <span class="ds-stat-card__range">30 días</span>
+                </div>
+                <p class="ds-stat-card__value">$48.2k</p>
+                <div class="ds-stat-card__footer">
+                  <span class="ds-stat-card__trend ds-stat-card__trend--up">+12.5%</span>
+                  <svg class="ds-stat-card__sparkline" viewBox="0 0 88 28" aria-hidden="true">
+                    <path d="M2 22 C12 20, 18 14, 28 16 S44 24, 54 12 S72 4, 86 8" />
+                  </svg>
+                </div>
+              </article>
+              <article class="ds-stat-card">
+                <div class="ds-stat-card__header">
+                  <h3 class="ds-stat-card__label">Churn</h3>
+                  <span class="ds-stat-card__range">30 días</span>
+                </div>
+                <p class="ds-stat-card__value">2.4%</p>
+                <div class="ds-stat-card__footer">
+                  <span class="ds-stat-card__trend ds-stat-card__trend--down">-3.2%</span>
+                  <svg
+                    class="ds-stat-card__sparkline ds-stat-card__sparkline--down"
+                    viewBox="0 0 88 28"
+                    aria-hidden="true"
+                  >
+                    <path d="M2 8 C14 10, 22 18, 34 14 S52 6, 64 16 S78 24, 86 20" />
+                  </svg>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div>
+            <h3>Copy Button</h3>
+            <p>Clipboard API + check success 2s con aria-live.</p>
+            <div class="ds-copy-field">
+              <code id="pg-api-key" class="ds-copy-field__value">ds_live_9f3a2c8e1b7d4a60</code>
+              <button
+                type="button"
+                class="ds-copy-button"
+                data-ds-copy-target="#pg-api-key"
+                aria-label="Copiar API key"
+              >
+                <span class="ds-copy-button__icon ds-copy-button__icon--copy" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none">
+                    <rect
+                      x="5"
+                      y="5"
+                      width="7"
+                      height="8"
+                      rx="1.25"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <path
+                      d="M4 10.5H3.25A1.25 1.25 0 012 9.25v-6A1.25 1.25 0 013.25 2h6A1.25 1.25 0 0110.5 3.25V4"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </span>
+                <span class="ds-copy-button__icon ds-copy-button__icon--check" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M3.5 8.5l3 3 6-6.5"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <span>Copiar</span>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <h3>Pagination</h3>
+            <p>Navegación numerada con estado activo.</p>
+            <nav class="ds-pagination" aria-label="Paginación de ejemplo">
+              <button type="button" class="ds-pagination__nav" disabled aria-label="Página anterior">
+                Anterior
+              </button>
+              <ul class="ds-pagination__list">
+                <li>
+                  <button
+                    type="button"
+                    class="ds-pagination__page ds-pagination__page--active"
+                    aria-current="page"
+                  >
+                    1
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="ds-pagination__page">2</button>
+                </li>
+                <li>
+                  <button type="button" class="ds-pagination__page">3</button>
+                </li>
+                <li>
+                  <span class="ds-pagination__ellipsis" aria-hidden="true">…</span>
+                </li>
+                <li>
+                  <button type="button" class="ds-pagination__page">12</button>
+                </li>
+              </ul>
+              <button type="button" class="ds-pagination__nav" aria-label="Página siguiente">
+                Siguiente
+              </button>
+            </nav>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script>
@@ -2209,6 +2458,8 @@
     </script>
     <script type="module" src="src/components/ui/dialog/dialog.js"></script>
     <script type="module" src="src/components/ui/tabs/tabs.js"></script>
+    <script type="module" src="src/components/ui/sheet/sheet.js"></script>
+    <script type="module" src="src/components/ui/copy-button/copy-button.js"></script>
     <script type="module" src="src/components/ui/search-kbd-input/search-kbd-input.js"></script>
     <script type="module" src="src/components/ui/currency-counter-input/currency-counter-input.js"></script>
     <script type="module" src="src/components/ui/password-strength-input/password-strength-input.js"></script>
