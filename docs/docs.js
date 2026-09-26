@@ -2,7 +2,7 @@
  * Docs site interactions: theme, Cmd/Ctrl+K search, Preview/Code tabs, copy.
  */
 
-const THEME_KEY = 'ds-docs-theme';
+const THEME_KEY = 'rzz-docs-theme';
 
 function applyTheme(theme) {
   const root = document.documentElement;
@@ -49,7 +49,12 @@ function initSearchHotkey() {
     const q = input.value.trim().toLowerCase();
     document.querySelectorAll('[data-docs-searchable]').forEach((el) => {
       if (!(el instanceof HTMLElement)) return;
-      const hay = (el.getAttribute('data-docs-searchable') || '').toLowerCase();
+      const hay = [
+        el.getAttribute('data-docs-searchable') || '',
+        el.textContent || '',
+      ]
+        .join(' ')
+        .toLowerCase();
       el.hidden = q.length > 0 && !hay.includes(q);
     });
   });
@@ -165,7 +170,16 @@ function initNavCurrent() {
   sections.forEach(({ section }) => observer.observe(section));
 }
 
+function initFileProtocolBanner() {
+  const banner = document.getElementById('docs-file-protocol');
+  if (!(banner instanceof HTMLElement)) return;
+  if (window.location.protocol === 'file:') {
+    banner.hidden = false;
+  }
+}
+
 function boot() {
+  initFileProtocolBanner();
   initTheme();
   initSearchHotkey();
   initCardTabs();

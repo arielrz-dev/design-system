@@ -1,6 +1,6 @@
 /**
  * .ds-timeline — activity feed / registro cronológico.
- * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
 .ds-timeline {
@@ -11,7 +11,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  font-family: var(--ds-primitive-font-family-sans);
+  font-family: var(--rzz-font-sans);
 }
 
 .ds-timeline::before {
@@ -21,7 +21,7 @@
   bottom: 0.75rem;
   left: 0.75rem;
   width: 1px;
-  background-color: var(--ds-semantic-border-subtle);
+  background-color: var(--rzz-border-subtle);
   transform: translateX(-50%);
 }
 
@@ -41,17 +41,17 @@
 .ds-timeline__node {
   box-sizing: border-box;
   position: relative;
-  z-index: var(--ds-z-base);
+  z-index: var(--rzz-z-base);
   display: grid;
   place-items: center;
   flex-shrink: 0;
   width: 1.5rem;
   height: 1.5rem;
-  border: 1px solid var(--ds-semantic-border-subtle);
-  border-radius: var(--ds-primitive-radius-full);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-muted);
-  box-shadow: var(--ds-shadow-xs);
+  border: 1px solid var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-full);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-muted);
+  box-shadow: var(--rzz-shadow-xs);
 }
 
 .ds-timeline__node svg {
@@ -60,21 +60,21 @@
 }
 
 .ds-timeline__node--success {
-  color: var(--ds-semantic-feedback-success-foreground);
-  border-color: var(--ds-semantic-feedback-success-border);
-  background-color: var(--ds-semantic-feedback-success-subtle);
+  color: var(--rzz-feedback-success-foreground);
+  border-color: var(--rzz-feedback-success-border);
+  background-color: var(--rzz-feedback-success-subtle);
 }
 
 .ds-timeline__node--warning {
-  color: var(--ds-semantic-feedback-warning-foreground);
-  border-color: var(--ds-semantic-feedback-warning-border);
-  background-color: var(--ds-semantic-feedback-warning-subtle);
+  color: var(--rzz-feedback-warning-foreground);
+  border-color: var(--rzz-feedback-warning-border);
+  background-color: var(--rzz-feedback-warning-subtle);
 }
 
 .ds-timeline__node--info {
-  color: var(--ds-semantic-feedback-info-foreground);
-  border-color: var(--ds-semantic-feedback-info-border);
-  background-color: var(--ds-semantic-feedback-info-subtle);
+  color: var(--rzz-feedback-info-foreground);
+  border-color: var(--rzz-feedback-info-border);
+  background-color: var(--rzz-feedback-info-subtle);
 }
 
 .ds-timeline__content {
@@ -95,36 +95,36 @@
 
 .ds-timeline__title {
   margin: 0;
-  color: var(--ds-semantic-content-primary);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  color: var(--rzz-content-primary);
+  font-size: var(--rzz-text-sm);
   font-weight: 500;
   letter-spacing: -0.01em;
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  line-height: var(--rzz-leading-sm);
 }
 
 .ds-timeline__time {
   margin: 0;
-  color: var(--ds-semantic-content-muted);
-  font-size: var(--ds-primitive-font-size-xs-font-size);
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-xs);
   font-weight: 400;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
-  line-height: var(--ds-primitive-font-size-xs-line-height);
+  line-height: var(--rzz-leading-xs);
 }
 
 .ds-timeline__description {
   margin: 0;
-  color: var(--ds-semantic-content-secondary);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  color: var(--rzz-content-secondary);
+  font-size: var(--rzz-text-sm);
   font-weight: 400;
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  line-height: var(--rzz-leading-sm);
 }
 
 .ds-timeline__meta {
   margin: 0;
-  color: var(--ds-semantic-content-muted);
-  font-size: var(--ds-primitive-font-size-xs-font-size);
-  font-family: var(--ds-primitive-font-family-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-xs);
+  font-family: var(--rzz-font-mono);
   font-variant-numeric: tabular-nums;
   line-height: 1.4;
 }

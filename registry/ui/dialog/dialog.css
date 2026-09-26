@@ -1,28 +1,28 @@
 /**
  * dialog.ds-dialog — modal nativo del design system.
- * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
 dialog.ds-dialog {
   box-sizing: border-box;
-  width: min(100% - var(--ds-primitive-spacing-32), 28rem);
+  width: min(100% - var(--rzz-space-32), 28rem);
   max-height: min(90vh, 40rem);
   margin: auto;
   padding: 0;
-  border: 1px solid var(--ds-semantic-border-subtle);
-  border-radius: var(--ds-primitive-radius-lg);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-primary);
-  font-family: var(--ds-primitive-font-family-sans);
-  box-shadow: var(--ds-shadow-md);
+  border: 1px solid var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-lg);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
+  box-shadow: var(--rzz-shadow-md);
   overflow: hidden;
   opacity: 0;
   transform: scale(0.96);
   transition:
-    opacity var(--ds-duration-normal) var(--ds-ease-standard),
-    transform var(--ds-duration-normal) var(--ds-ease-standard),
-    overlay var(--ds-duration-normal) var(--ds-ease-standard) allow-discrete,
-    display var(--ds-duration-normal) var(--ds-ease-standard) allow-discrete;
+    opacity var(--rzz-duration-normal) var(--rzz-ease-standard),
+    transform var(--rzz-duration-normal) var(--rzz-ease-standard),
+    overlay var(--rzz-duration-normal) var(--rzz-ease-standard) allow-discrete,
+    display var(--rzz-duration-normal) var(--rzz-ease-standard) allow-discrete;
 }
 
 dialog.ds-dialog[open] {
@@ -40,13 +40,13 @@ dialog.ds-dialog[open] {
 dialog.ds-dialog::backdrop {
   background-color: color-mix(
     in srgb,
-    var(--ds-primitive-color-slate-950) 55%,
+    var(--rzz-surface-scrim) 55%,
     transparent
   );
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   opacity: 0;
-  transition: opacity var(--ds-duration-normal) var(--ds-ease-standard);
+  transition: opacity var(--rzz-duration-normal) var(--rzz-ease-standard);
 }
 
 dialog.ds-dialog[open]::backdrop {
@@ -62,46 +62,46 @@ dialog.ds-dialog[open]::backdrop {
 .ds-dialog__header {
   display: flex;
   flex-direction: column;
-  gap: var(--ds-primitive-spacing-4);
-  padding: var(--ds-primitive-spacing-24);
-  padding-block-end: var(--ds-primitive-spacing-12);
+  gap: var(--rzz-space-4);
+  padding: var(--rzz-space-24);
+  padding-block-end: var(--rzz-space-12);
   position: relative;
 }
 
 .ds-dialog__close {
   position: absolute;
-  top: var(--ds-primitive-spacing-16);
-  right: var(--ds-primitive-spacing-16);
+  top: var(--rzz-space-16);
+  right: var(--rzz-space-16);
 }
 
 .ds-dialog__title {
   margin: 0;
-  padding-inline-end: var(--ds-primitive-spacing-32);
-  color: var(--ds-semantic-content-primary);
-  font-size: var(--ds-primitive-font-size-lg-font-size);
+  padding-inline-end: var(--rzz-space-32);
+  color: var(--rzz-content-primary);
+  font-size: var(--rzz-text-lg);
   font-weight: 600;
   letter-spacing: -0.01em;
-  line-height: var(--ds-primitive-font-size-lg-line-height);
+  line-height: var(--rzz-leading-lg);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
 .ds-dialog__description {
   margin: 0;
-  color: var(--ds-semantic-content-muted);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-sm);
   font-weight: 400;
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  line-height: var(--rzz-leading-sm);
 }
 
 .ds-dialog__body {
   display: flex;
   flex-direction: column;
-  gap: var(--ds-primitive-spacing-12);
-  padding: var(--ds-primitive-spacing-12) var(--ds-primitive-spacing-24);
-  color: var(--ds-semantic-content-secondary);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  gap: var(--rzz-space-12);
+  padding: var(--rzz-space-12) var(--rzz-space-24);
+  color: var(--rzz-content-secondary);
+  font-size: var(--rzz-text-sm);
+  line-height: var(--rzz-leading-sm);
   overflow: auto;
 }
 
@@ -110,9 +110,9 @@ dialog.ds-dialog[open]::backdrop {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  gap: var(--ds-primitive-spacing-8);
-  padding: var(--ds-primitive-spacing-16) var(--ds-primitive-spacing-24)
-    var(--ds-primitive-spacing-24);
-  border-block-start: 1px solid var(--ds-semantic-border-subtle);
-  background-color: var(--ds-semantic-surface-elevated);
+  gap: var(--rzz-space-8);
+  padding: var(--rzz-space-16) var(--rzz-space-24)
+    var(--rzz-space-24);
+  border-block-start: 1px solid var(--rzz-border-subtle);
+  background-color: var(--rzz-surface-elevated);
 }

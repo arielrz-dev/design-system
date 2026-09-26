@@ -1,6 +1,6 @@
 /**
  * .ds-alert — mensaje de feedback en contexto.
- * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
 .ds-alert {
@@ -9,12 +9,12 @@
   gap: 0.75rem;
   margin: 0;
   padding: 1rem;
-  border: 1px solid var(--ds-semantic-border-subtle);
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-primary);
-  font-family: var(--ds-primitive-font-family-sans);
-  box-shadow: var(--ds-shadow-xs);
+  border: 1px solid var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
+  box-shadow: var(--rzz-shadow-xs);
 }
 
 .ds-alert__icon {
@@ -34,7 +34,7 @@
 .ds-alert__content {
   display: flex;
   flex-direction: column;
-  gap: var(--ds-primitive-spacing-4);
+  gap: var(--rzz-space-4);
   min-width: 0;
   flex: 1 1 auto;
 }
@@ -42,60 +42,60 @@
 .ds-alert__title {
   margin: 0;
   color: inherit;
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  font-size: var(--rzz-text-sm);
   font-weight: 600;
   letter-spacing: -0.01em;
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  line-height: var(--rzz-leading-sm);
 }
 
 .ds-alert__description {
   margin: 0;
-  color: var(--ds-semantic-content-muted);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-sm);
   font-weight: 400;
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  line-height: var(--rzz-leading-sm);
 }
 
 .ds-alert--info {
-  border-color: var(--ds-semantic-feedback-info-border);
-  background-color: var(--ds-semantic-feedback-info-subtle);
-  color: var(--ds-semantic-feedback-info-foreground);
+  border-color: var(--rzz-feedback-info-border);
+  background-color: var(--rzz-feedback-info-subtle);
+  color: var(--rzz-feedback-info-foreground);
 }
 
 .ds-alert--info .ds-alert__description {
-  color: var(--ds-semantic-feedback-info-foreground);
+  color: var(--rzz-feedback-info-foreground);
   opacity: 0.85;
 }
 
 .ds-alert--success {
-  border-color: var(--ds-semantic-feedback-success-border);
-  background-color: var(--ds-semantic-feedback-success-subtle);
-  color: var(--ds-semantic-feedback-success-foreground);
+  border-color: var(--rzz-feedback-success-border);
+  background-color: var(--rzz-feedback-success-subtle);
+  color: var(--rzz-feedback-success-foreground);
 }
 
 .ds-alert--success .ds-alert__description {
-  color: var(--ds-semantic-feedback-success-foreground);
+  color: var(--rzz-feedback-success-foreground);
   opacity: 0.85;
 }
 
 .ds-alert--warning {
-  border-color: var(--ds-semantic-feedback-warning-border);
-  background-color: var(--ds-semantic-feedback-warning-subtle);
-  color: var(--ds-semantic-feedback-warning-foreground);
+  border-color: var(--rzz-feedback-warning-border);
+  background-color: var(--rzz-feedback-warning-subtle);
+  color: var(--rzz-feedback-warning-foreground);
 }
 
 .ds-alert--warning .ds-alert__description {
-  color: var(--ds-semantic-feedback-warning-foreground);
+  color: var(--rzz-feedback-warning-foreground);
   opacity: 0.85;
 }
 
 .ds-alert--danger {
-  border-color: var(--ds-semantic-feedback-danger-border);
-  background-color: var(--ds-semantic-feedback-danger-subtle);
-  color: var(--ds-semantic-feedback-danger-foreground);
+  border-color: var(--rzz-feedback-danger-border);
+  background-color: var(--rzz-feedback-danger-subtle);
+  color: var(--rzz-feedback-danger-foreground);
 }
 
 .ds-alert--danger .ds-alert__description {
-  color: var(--ds-semantic-feedback-danger-foreground);
+  color: var(--rzz-feedback-danger-foreground);
   opacity: 0.85;
 }

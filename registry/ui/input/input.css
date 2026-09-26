@@ -1,25 +1,25 @@
 /**
  * .ds-field / .ds-input — formularios craft Linear/Geist.
- * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
 .ds-field {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: var(--ds-primitive-spacing-8);
+  gap: var(--rzz-space-8);
   margin: 0;
-  font-family: var(--ds-primitive-font-family-sans);
+  font-family: var(--rzz-font-sans);
 }
 
 .ds-label {
   display: inline-block;
   margin: 0;
-  color: var(--ds-semantic-content-primary);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  color: var(--rzz-content-primary);
+  font-size: var(--rzz-text-sm);
   font-weight: 500;
   letter-spacing: -0.01em;
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  line-height: var(--rzz-leading-sm);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -29,28 +29,28 @@
   display: block;
   width: 100%;
   margin: 0;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-primary);
-  font-family: var(--ds-primitive-font-family-sans);
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
   font-weight: 500;
   letter-spacing: -0.01em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  box-shadow: var(--ds-shadow-xs);
+  box-shadow: var(--rzz-shadow-xs);
   transition: all 140ms ease-out;
   appearance: none;
 }
 
 .ds-input::placeholder {
-  color: var(--ds-semantic-content-muted);
+  color: var(--rzz-content-muted);
   font-weight: 400;
   opacity: 1;
 }
 
 .ds-input:hover:not(:disabled):not(:focus-visible) {
-  border-color: color-mix(in srgb, var(--ds-semantic-content-primary) 20%, transparent);
+  border-color: color-mix(in srgb, var(--rzz-content-primary) 20%, transparent);
 }
 
 .ds-input:focus {
@@ -58,77 +58,77 @@
 }
 
 .ds-input:focus-visible {
-  border-color: var(--ds-semantic-border-focus);
-  outline: 2px solid var(--ds-semantic-border-focus);
+  border-color: var(--rzz-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
-  box-shadow: var(--ds-shadow-xs);
+  box-shadow: var(--rzz-shadow-xs);
 }
 
 .ds-input:disabled {
   cursor: not-allowed;
   opacity: 0.5;
-  background-color: var(--ds-semantic-surface-subtle);
-  color: var(--ds-semantic-content-muted);
+  background-color: var(--rzz-surface-subtle);
+  color: var(--rzz-content-muted);
   box-shadow: none;
 }
 
 .ds-input--error,
 .ds-input[aria-invalid="true"] {
-  border-color: color-mix(in srgb, var(--ds-semantic-action-danger-default) 55%, transparent);
+  border-color: color-mix(in srgb, var(--rzz-action-danger-default) 55%, transparent);
 }
 
 .ds-input--error:focus-visible,
 .ds-input[aria-invalid="true"]:focus-visible {
-  border-color: var(--ds-semantic-action-danger-default);
-  outline-color: var(--ds-semantic-action-danger-default);
+  border-color: var(--rzz-action-danger-default);
+  outline-color: var(--rzz-action-danger-default);
 }
 
 /* --- Tamaños --- */
 
 .ds-input--sm {
-  min-height: var(--ds-primitive-spacing-32);
-  padding: var(--ds-primitive-spacing-4) var(--ds-primitive-spacing-8);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  min-height: var(--rzz-space-32);
+  padding: var(--rzz-space-4) var(--rzz-space-8);
+  font-size: var(--rzz-text-sm);
+  line-height: var(--rzz-leading-sm);
 }
 
 .ds-input--md {
-  min-height: var(--ds-primitive-spacing-40);
-  padding: var(--ds-primitive-spacing-8) var(--ds-primitive-spacing-12);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  min-height: var(--rzz-space-40);
+  padding: var(--rzz-space-8) var(--rzz-space-12);
+  font-size: var(--rzz-text-sm);
+  line-height: var(--rzz-leading-sm);
 }
 
 .ds-input--lg {
-  min-height: var(--ds-primitive-spacing-48);
-  padding: var(--ds-primitive-spacing-12) var(--ds-primitive-spacing-16);
-  font-size: var(--ds-primitive-font-size-md-font-size);
-  line-height: var(--ds-primitive-font-size-md-line-height);
-  border-radius: var(--ds-primitive-radius-lg);
+  min-height: var(--rzz-space-48);
+  padding: var(--rzz-space-12) var(--rzz-space-16);
+  font-size: var(--rzz-text-md);
+  line-height: var(--rzz-leading-md);
+  border-radius: var(--rzz-radius-lg);
 }
 
 .ds-input:not(.ds-input--sm):not(.ds-input--md):not(.ds-input--lg) {
-  min-height: var(--ds-primitive-spacing-40);
-  padding: var(--ds-primitive-spacing-8) var(--ds-primitive-spacing-12);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  min-height: var(--rzz-space-40);
+  padding: var(--rzz-space-8) var(--rzz-space-12);
+  font-size: var(--rzz-text-sm);
+  line-height: var(--rzz-leading-sm);
 }
 
 .ds-field__hint {
   margin: 0;
-  color: var(--ds-semantic-content-muted);
-  font-size: var(--ds-primitive-font-size-xs-font-size);
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-xs);
   font-weight: 400;
-  line-height: var(--ds-primitive-font-size-xs-line-height);
+  line-height: var(--rzz-leading-xs);
 }
 
 .ds-field__error {
   margin: 0;
-  color: var(--ds-semantic-action-danger-default);
-  font-size: var(--ds-primitive-font-size-xs-font-size);
+  color: var(--rzz-action-danger-default);
+  font-size: var(--rzz-text-xs);
   font-weight: 500;
   letter-spacing: -0.01em;
-  line-height: var(--ds-primitive-font-size-xs-line-height);
+  line-height: var(--rzz-leading-xs);
 }
 
 .ds-field__error[hidden] {

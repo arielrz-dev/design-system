@@ -1,6 +1,6 @@
 /**
  * .ds-button — craft Linear/Geist.
- * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
 .ds-button {
@@ -8,12 +8,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--ds-primitive-spacing-8);
+  gap: var(--rzz-space-8);
   margin: 0;
   border-style: solid;
   border-width: 1px;
-  border-radius: var(--ds-primitive-radius-md);
-  font-family: var(--ds-primitive-font-family-sans);
+  border-radius: var(--rzz-radius-md);
+  font-family: var(--rzz-font-sans);
   font-weight: 500;
   letter-spacing: -0.01em;
   text-decoration: none;
@@ -31,7 +31,7 @@
 }
 
 .ds-button:focus-visible {
-  outline: 2px solid var(--ds-semantic-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
 }
 
@@ -51,27 +51,27 @@
 /* --- Tamaños --- */
 
 .ds-button--sm {
-  min-height: var(--ds-primitive-spacing-32);
-  padding-block: var(--ds-primitive-spacing-4);
-  padding-inline: var(--ds-primitive-spacing-12);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  min-height: var(--rzz-space-32);
+  padding-block: var(--rzz-space-4);
+  padding-inline: var(--rzz-space-12);
+  font-size: var(--rzz-text-sm);
+  line-height: var(--rzz-leading-sm);
 }
 
 .ds-button--md {
-  min-height: var(--ds-primitive-spacing-40);
-  padding-block: var(--ds-primitive-spacing-8);
-  padding-inline: var(--ds-primitive-spacing-16);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  min-height: var(--rzz-space-40);
+  padding-block: var(--rzz-space-8);
+  padding-inline: var(--rzz-space-16);
+  font-size: var(--rzz-text-sm);
+  line-height: var(--rzz-leading-sm);
 }
 
 .ds-button--lg {
-  min-height: var(--ds-primitive-spacing-48);
-  padding-block: var(--ds-primitive-spacing-12);
-  padding-inline: var(--ds-primitive-spacing-24);
-  font-size: var(--ds-primitive-font-size-md-font-size);
-  line-height: var(--ds-primitive-font-size-md-line-height);
+  min-height: var(--rzz-space-48);
+  padding-block: var(--rzz-space-12);
+  padding-inline: var(--rzz-space-24);
+  font-size: var(--rzz-text-md);
+  line-height: var(--rzz-leading-md);
 }
 
 /* --- Variantes --- */
@@ -79,99 +79,99 @@
 .ds-button--primary {
   border-color: color-mix(
     in srgb,
-    var(--ds-semantic-action-primary-default) 85%,
-    var(--ds-semantic-content-primary)
+    var(--rzz-action-primary-default) 85%,
+    var(--rzz-content-primary)
   );
-  background-color: var(--ds-semantic-action-primary-default);
-  color: var(--ds-primitive-color-white);
+  background-color: var(--rzz-action-primary-default);
+  color: var(--rzz-content-inverse);
   box-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
-    var(--ds-shadow-xs);
+    var(--rzz-shadow-xs);
 }
 
 .ds-button--primary:hover {
   border-color: color-mix(
     in srgb,
-    var(--ds-semantic-action-primary-hover) 85%,
-    var(--ds-semantic-content-primary)
+    var(--rzz-action-primary-hover) 85%,
+    var(--rzz-content-primary)
   );
-  background-color: var(--ds-semantic-action-primary-hover);
+  background-color: var(--rzz-action-primary-hover);
 }
 
 .ds-button--primary:active,
 .ds-button--primary[aria-pressed="true"] {
-  background-color: var(--ds-semantic-action-primary-active);
-  box-shadow: var(--ds-shadow-xs);
+  background-color: var(--rzz-action-primary-active);
+  box-shadow: var(--rzz-shadow-xs);
 }
 
 .ds-button--primary:focus-visible {
   box-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
-    var(--ds-shadow-xs);
+    var(--rzz-shadow-xs);
 }
 
 .ds-button--secondary {
-  border-color: color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-primary);
-  box-shadow: var(--ds-shadow-xs);
+  border-color: color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  box-shadow: var(--rzz-shadow-xs);
 }
 
 .ds-button--secondary:hover {
-  border-color: color-mix(in srgb, var(--ds-semantic-content-primary) 18%, transparent);
-  background-color: var(--ds-semantic-surface-subtle);
-  color: var(--ds-semantic-content-primary);
+  border-color: color-mix(in srgb, var(--rzz-content-primary) 18%, transparent);
+  background-color: var(--rzz-surface-subtle);
+  color: var(--rzz-content-primary);
 }
 
 .ds-button--secondary:active,
 .ds-button--secondary[aria-pressed="true"] {
-  background-color: var(--ds-semantic-surface-subtle);
+  background-color: var(--rzz-surface-subtle);
   box-shadow: none;
 }
 
 .ds-button--danger {
   border-color: color-mix(
     in srgb,
-    var(--ds-semantic-action-danger-default) 80%,
-    var(--ds-semantic-content-primary)
+    var(--rzz-action-danger-default) 80%,
+    var(--rzz-content-primary)
   );
-  background-color: var(--ds-semantic-action-danger-default);
-  color: var(--ds-primitive-color-white);
+  background-color: var(--rzz-action-danger-default);
+  color: var(--rzz-content-inverse);
   box-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.18),
-    var(--ds-shadow-xs);
+    var(--rzz-shadow-xs);
 }
 
 .ds-button--danger:hover {
-  background-color: var(--ds-semantic-action-danger-hover);
+  background-color: var(--rzz-action-danger-hover);
 }
 
 .ds-button--danger:active,
 .ds-button--danger[aria-pressed="true"] {
-  background-color: var(--ds-semantic-action-danger-active);
-  box-shadow: var(--ds-shadow-xs);
+  background-color: var(--rzz-action-danger-active);
+  box-shadow: var(--rzz-shadow-xs);
 }
 
 .ds-button--danger:focus-visible {
   box-shadow:
     inset 0 1px 0 0 rgba(255, 255, 255, 0.18),
-    var(--ds-shadow-xs);
+    var(--rzz-shadow-xs);
 }
 
 .ds-button--ghost {
   border-color: transparent;
   background-color: transparent;
-  color: var(--ds-semantic-content-primary);
+  color: var(--rzz-content-primary);
   box-shadow: none;
 }
 
 .ds-button--ghost:hover {
-  background-color: color-mix(in srgb, var(--ds-semantic-content-primary) 6%, transparent);
-  color: var(--ds-semantic-content-primary);
+  background-color: color-mix(in srgb, var(--rzz-content-primary) 6%, transparent);
+  color: var(--rzz-content-primary);
 }
 
 .ds-button--ghost:active,
 .ds-button--ghost[aria-pressed="true"] {
-  background-color: color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
-  color: var(--ds-semantic-content-secondary);
+  background-color: color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+  color: var(--rzz-content-secondary);
 }

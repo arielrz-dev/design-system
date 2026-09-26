@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "rzz-ui",
   "homepage": "https://github.com/arielrz-dev/design-system",
-  "description": "Registro copy-paste agnóstico de rzz-ui. Componentes HTML/CSS con BEM y tokens --ds-*.",
+  "description": "Registro copy-paste agnóstico de rzz-ui. Componentes HTML/CSS con BEM y tokens --rzz-*.",
   "items": [
     {
       "name": "button",
@@ -65,7 +65,7 @@
       ],
       "dependencies": [],
       "registryDependencies": [],
-      "docs": "Requiere dist/css/variables.css. Usa --ds-semantic-border-*, --ds-shadow-xs y --ds-semantic-action-danger-*."
+      "docs": "Requiere dist/css/variables.css. Usa --rzz-semantic-border-*, --rzz-shadow-xs y --rzz-semantic-action-danger-*."
     },
     {
       "name": "dialog",
@@ -275,12 +275,17 @@
       "name": "popover",
       "type": "registry:ui",
       "title": "Popover",
-      "description": "Menú flotante nativo (Popover API) con items, separator y variante danger. Sin JavaScript.",
+      "description": "Menú flotante nativo (Popover API) con items, separator, danger y teclado vía popover.js.",
       "files": [
         {
           "path": "ui/popover/popover.css",
           "type": "registry:style",
           "target": "popover.css"
+        },
+        {
+          "path": "ui/popover/popover.js",
+          "type": "registry:script",
+          "target": "popover.js"
         },
         {
           "path": "ui/popover/popover.html",
@@ -290,7 +295,7 @@
       ],
       "dependencies": [],
       "registryDependencies": ["button"],
-      "docs": "Requiere Popover API del navegador (popover / popovertarget)."
+      "docs": "Popover API + popover.js (aria-expanded, flechas, Escape). Incluí el script en la página."
     },
     {
       "name": "accordion",
@@ -380,12 +385,17 @@
       "name": "tooltip",
       "type": "registry:ui",
       "title": "Tooltip",
-      "description": "Tooltip CSS-only con data-tooltip y flecha; aparece en hover/focus-visible.",
+      "description": "Tooltip CSS con data-tooltip; tooltip.js añade role=tooltip y aria-describedby.",
       "files": [
         {
           "path": "ui/tooltip/tooltip.css",
           "type": "registry:style",
           "target": "tooltip.css"
+        },
+        {
+          "path": "ui/tooltip/tooltip.js",
+          "type": "registry:script",
+          "target": "tooltip.js"
         },
         {
           "path": "ui/tooltip/tooltip.html",
@@ -395,7 +405,7 @@
       ],
       "dependencies": [],
       "registryDependencies": ["button"],
-      "docs": "Complementar con aria-label en el trigger para lectores de pantalla."
+      "docs": "Visual CSS-only; cargá tooltip.js para SR. Preferí aria-label en icon buttons."
     },
     {
       "name": "textarea",
@@ -588,7 +598,7 @@
       ],
       "dependencies": [],
       "registryDependencies": ["avatar"],
-      "docs": "El borde del stack usa --ds-semantic-surface-card para separar del fondo."
+      "docs": "El borde del stack usa --rzz-semantic-surface-card para separar del fondo."
     },
     {
       "name": "setting-row",
@@ -766,7 +776,7 @@
       ],
       "dependencies": [],
       "registryDependencies": [],
-      "docs": "Usa z-index var(--ds-z-banner). Variantes: --info, --warning, --danger."
+      "docs": "Usa z-index var(--rzz-z-banner). Variantes: --info, --warning, --danger."
     },
     {
       "name": "timeline",

@@ -1,6 +1,6 @@
 /**
  * .ds-currency / .ds-counter — importe + contador de caracteres.
- * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
 .ds-currency {
@@ -9,33 +9,33 @@
   align-items: stretch;
   width: 100%;
   margin: 0;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-card);
-  box-shadow: var(--ds-shadow-xs);
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  box-shadow: var(--rzz-shadow-xs);
   overflow: hidden;
   transition: border-color 140ms ease-out, box-shadow 140ms ease-out;
-  font-family: var(--ds-primitive-font-family-sans);
+  font-family: var(--rzz-font-sans);
 }
 
 .ds-currency:hover:not(:focus-within) {
-  border-color: color-mix(in srgb, var(--ds-semantic-content-primary) 20%, transparent);
+  border-color: color-mix(in srgb, var(--rzz-content-primary) 20%, transparent);
 }
 
 .ds-currency:focus-within {
-  border-color: var(--ds-semantic-border-focus);
-  outline: 2px solid var(--ds-semantic-border-focus);
+  border-color: var(--rzz-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
 }
 
 .ds-currency__prefix {
   display: inline-flex;
   align-items: center;
-  padding: 0 var(--ds-primitive-spacing-12);
-  border-right: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
-  background-color: var(--ds-semantic-surface-subtle);
-  color: var(--ds-semantic-content-secondary);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  padding: 0 var(--rzz-space-12);
+  border-right: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+  background-color: var(--rzz-surface-subtle);
+  color: var(--rzz-content-secondary);
+  font-size: var(--rzz-text-sm);
   font-weight: 600;
   letter-spacing: -0.01em;
   user-select: none;
@@ -45,18 +45,18 @@
   box-sizing: border-box;
   flex: 1 1 auto;
   min-width: 0;
-  min-height: var(--ds-primitive-spacing-40);
+  min-height: var(--rzz-space-40);
   margin: 0;
-  padding: var(--ds-primitive-spacing-8) var(--ds-primitive-spacing-12);
+  padding: var(--rzz-space-8) var(--rzz-space-12);
   border: 0;
   background: transparent;
-  color: var(--ds-semantic-content-primary);
+  color: var(--rzz-content-primary);
   font-family: inherit;
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  font-size: var(--rzz-text-sm);
   font-weight: 500;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  line-height: var(--rzz-leading-sm);
   appearance: none;
 }
 
@@ -65,39 +65,39 @@
 }
 
 .ds-currency__input::placeholder {
-  color: var(--ds-semantic-content-muted);
+  color: var(--rzz-content-muted);
   font-weight: 400;
 }
 
 .ds-counter {
   display: flex;
   flex-direction: column;
-  gap: var(--ds-primitive-spacing-8);
+  gap: var(--rzz-space-8);
   margin: 0;
-  font-family: var(--ds-primitive-font-family-sans);
+  font-family: var(--rzz-font-sans);
 }
 
 .ds-counter__meta {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: var(--ds-primitive-spacing-8);
+  gap: var(--rzz-space-8);
 }
 
 .ds-counter__count {
-  color: var(--ds-semantic-content-muted);
-  font-size: var(--ds-primitive-font-size-xs-font-size);
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-xs);
   font-weight: 500;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
-  line-height: var(--ds-primitive-font-size-xs-line-height);
+  line-height: var(--rzz-leading-xs);
   transition: color 160ms ease-out;
 }
 
 .ds-counter__count--warn {
-  color: var(--ds-semantic-feedback-warning-foreground);
+  color: var(--rzz-feedback-warning-foreground);
 }
 
 .ds-counter__count--danger {
-  color: var(--ds-semantic-feedback-danger-foreground);
+  color: var(--rzz-feedback-danger-foreground);
 }

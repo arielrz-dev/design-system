@@ -1,0 +1,31 @@
+/**
+ * Reduced motion — cargar después de los CSS de componentes.
+ * Respeta prefers-reduced-motion sin anular completamente el layout.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-button,
+  .ds-input,
+  .ds-select,
+  .ds-textarea,
+  .ds-tabs__trigger,
+  .ds-dialog,
+  .ds-sheet,
+  .ds-toast,
+  .ds-popover,
+  .ds-menu-item,
+  .ds-banner,
+  .ds-accordion,
+  .ds-skeleton,
+  [data-tooltip]::before,
+  [data-tooltip]::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .ds-dialog,
+  .ds-sheet,
+  .ds-popover {
+    transform: none !important;
+  }
+}

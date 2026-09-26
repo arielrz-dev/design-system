@@ -1,6 +1,6 @@
 /**
  * .ds-copy-button — copiar al portapapeles con feedback.
- * Solo consume variables CSS `--ds-*`.
+ * Solo consume variables CSS `--rzz-*`.
  */
 
 .ds-copy-button {
@@ -9,21 +9,21 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--ds-primitive-spacing-8);
-  min-height: var(--ds-primitive-spacing-32);
+  gap: var(--rzz-space-8);
+  min-height: var(--rzz-space-32);
   margin: 0;
-  padding: var(--ds-primitive-spacing-4) var(--ds-primitive-spacing-8);
-  border: 1px solid var(--ds-semantic-border-subtle);
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-secondary);
-  font-family: var(--ds-primitive-font-family-sans);
-  font-size: var(--ds-primitive-font-size-xs-font-size);
+  padding: var(--rzz-space-4) var(--rzz-space-8);
+  border: 1px solid var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-secondary);
+  font-family: var(--rzz-font-sans);
+  font-size: var(--rzz-text-xs);
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1;
   cursor: pointer;
-  box-shadow: var(--ds-shadow-xs);
+  box-shadow: var(--rzz-shadow-xs);
   transition:
     color 160ms ease,
     background-color 160ms ease,
@@ -31,9 +31,9 @@
 }
 
 .ds-copy-button:hover {
-  color: var(--ds-semantic-content-primary);
-  background-color: var(--ds-semantic-surface-elevated);
-  border-color: color-mix(in srgb, var(--ds-semantic-content-primary) 18%, transparent);
+  color: var(--rzz-content-primary);
+  background-color: var(--rzz-surface-elevated);
+  border-color: color-mix(in srgb, var(--rzz-content-primary) 18%, transparent);
 }
 
 .ds-copy-button:focus {
@@ -41,7 +41,7 @@
 }
 
 .ds-copy-button:focus-visible {
-  outline: 2px solid var(--ds-semantic-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
 }
 
@@ -59,13 +59,13 @@
 
 .ds-copy-button__icon--check {
   display: none;
-  color: var(--ds-semantic-feedback-success-foreground);
+  color: var(--rzz-feedback-success-foreground);
 }
 
 .ds-copy-button--copied {
-  color: var(--ds-semantic-feedback-success-foreground);
-  border-color: var(--ds-semantic-feedback-success-border);
-  background-color: var(--ds-semantic-feedback-success-subtle);
+  color: var(--rzz-feedback-success-foreground);
+  border-color: var(--rzz-feedback-success-border);
+  background-color: var(--rzz-feedback-success-subtle);
 }
 
 .ds-copy-button--copied .ds-copy-button__icon--copy {
@@ -91,23 +91,23 @@
 .ds-copy-field {
   display: inline-flex;
   align-items: center;
-  gap: var(--ds-primitive-spacing-8);
+  gap: var(--rzz-space-8);
   max-width: 100%;
-  padding: var(--ds-primitive-spacing-4) var(--ds-primitive-spacing-4) var(--ds-primitive-spacing-4)
-    var(--ds-primitive-spacing-12);
-  border: 1px solid var(--ds-semantic-border-subtle);
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-elevated);
-  box-shadow: var(--ds-shadow-xs);
+  padding: var(--rzz-space-4) var(--rzz-space-4) var(--rzz-space-4)
+    var(--rzz-space-12);
+  border: 1px solid var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-elevated);
+  box-shadow: var(--rzz-shadow-xs);
 }
 
 .ds-copy-field__value {
   margin: 0;
   min-width: 0;
   overflow: hidden;
-  color: var(--ds-semantic-content-secondary);
-  font-family: var(--ds-primitive-font-family-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
-  font-size: var(--ds-primitive-font-size-xs-font-size);
+  color: var(--rzz-content-secondary);
+  font-family: var(--rzz-font-mono);
+  font-size: var(--rzz-text-xs);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
   text-overflow: ellipsis;

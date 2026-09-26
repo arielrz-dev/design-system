@@ -1,174 +1,6 @@
 {
   "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
-  "$description": "Overrides semánticos exclusivos para Dark Mode. Fusionar sobre tokens.json; los primitive no se redefinen.",
-  "semantic": {
-    "$description": "Remapeo de intención para dark: superficies oscuras e inversión de contraste de contenido.",
-    "surface": {
-      "$type": "color",
-      "$description": "Fondos invertidos para dark.",
-      "canvas": {
-        "$value": "{primitive.color.slate.950}",
-        "$type": "color",
-        "$description": "Fondo de página / viewport en dark."
-      },
-      "card": {
-        "$value": "{primitive.color.slate.900}",
-        "$type": "color",
-        "$description": "Superficie de tarjeta sobre el canvas dark."
-      },
-      "elevated": {
-        "$value": "{primitive.color.slate.800}",
-        "$type": "color",
-        "$description": "Superficie elevada (modales, popovers) en dark."
-      },
-      "subtle": {
-        "$value": "{primitive.color.slate.800}",
-        "$type": "color",
-        "$description": "Fondo tenue neutro en dark (secondary, chips)."
-      }
-    },
-    "content": {
-      "$type": "color",
-      "$description": "Contraste de contenido invertido para dark.",
-      "primary": {
-        "$value": "{primitive.color.slate.50}",
-        "$type": "color",
-        "$description": "Texto principal claro sobre superficies oscuras."
-      },
-      "secondary": {
-        "$value": "{primitive.color.slate.300}",
-        "$type": "color",
-        "$description": "Texto secundario en dark."
-      },
-      "muted": {
-        "$value": "{primitive.color.slate.400}",
-        "$type": "color",
-        "$description": "Texto atenuado en dark."
-      },
-      "inverse": {
-        "$value": "{primitive.color.slate.900}",
-        "$type": "color",
-        "$description": "Texto sobre fondos claros o chips claros en dark."
-      }
-    },
-    "border": {
-      "$type": "color",
-      "$description": "Bordes adaptados a superficies oscuras.",
-      "subtle": {
-        "$value": "{primitive.color.slate.700}",
-        "$type": "color",
-        "$description": "Borde discreto en dark."
-      },
-      "strong": {
-        "$value": "{primitive.color.slate.500}",
-        "$type": "color",
-        "$description": "Borde enfatizado en dark."
-      },
-      "focus": {
-        "$value": "{primitive.color.blue.400}",
-        "$type": "color",
-        "$description": "Anillo de foco más luminoso sobre fondos oscuros."
-      }
-    },
-    "action": {
-      "$type": "color",
-      "$description": "Acciones con tonos más claros para contraste en dark.",
-      "primary-default": {
-        "$value": "{primitive.color.blue.500}",
-        "$type": "color",
-        "$description": "Acción primaria por defecto en dark."
-      },
-      "primary-hover": {
-        "$value": "{primitive.color.blue.400}",
-        "$type": "color",
-        "$description": "Acción primaria hover en dark."
-      },
-      "primary-active": {
-        "$value": "{primitive.color.blue.300}",
-        "$type": "color",
-        "$description": "Acción primaria active en dark."
-      },
-      "danger-default": {
-        "$value": "{primitive.color.red.500}",
-        "$type": "color",
-        "$description": "Acción destructiva por defecto en dark."
-      },
-      "danger-hover": {
-        "$value": "{primitive.color.red.600}",
-        "$type": "color",
-        "$description": "Acción destructiva hover en dark."
-      },
-      "danger-active": {
-        "$value": "{primitive.color.red.600}",
-        "$type": "color",
-        "$description": "Acción destructiva active en dark."
-      }
-    },
-    "feedback": {
-      "$type": "color",
-      "$description": "Tintes de feedback adaptados a dark.",
-      "info-subtle": {
-        "$value": "{primitive.color.blue.900}",
-        "$type": "color",
-        "$description": "Fondo tenue info en dark."
-      },
-      "info-foreground": {
-        "$value": "{primitive.color.blue.300}",
-        "$type": "color",
-        "$description": "Texto info en dark."
-      },
-      "info-border": {
-        "$value": "{primitive.color.blue.800}",
-        "$type": "color",
-        "$description": "Borde info en dark."
-      },
-      "success-subtle": {
-        "$value": "{primitive.color.green.950}",
-        "$type": "color",
-        "$description": "Fondo tenue success en dark."
-      },
-      "success-foreground": {
-        "$value": "{primitive.color.green.300}",
-        "$type": "color",
-        "$description": "Texto success en dark."
-      },
-      "success-border": {
-        "$value": "{primitive.color.green.700}",
-        "$type": "color",
-        "$description": "Borde success en dark."
-      },
-      "warning-subtle": {
-        "$value": "{primitive.color.amber.950}",
-        "$type": "color",
-        "$description": "Fondo tenue warning en dark."
-      },
-      "warning-foreground": {
-        "$value": "{primitive.color.amber.300}",
-        "$type": "color",
-        "$description": "Texto warning en dark."
-      },
-      "warning-border": {
-        "$value": "{primitive.color.amber.700}",
-        "$type": "color",
-        "$description": "Borde warning en dark."
-      },
-      "danger-subtle": {
-        "$value": "{primitive.color.red.950}",
-        "$type": "color",
-        "$description": "Fondo tenue danger en dark."
-      },
-      "danger-foreground": {
-        "$value": "{primitive.color.red.500}",
-        "$type": "color",
-        "$description": "Texto danger en dark."
-      },
-      "danger-border": {
-        "$value": "{primitive.color.red.700}",
-        "$type": "color",
-        "$description": "Borde danger en dark."
-      }
-    }
-  },
+  "$description": "Overrides de API pública para Dark Mode (surface/content/border/action/feedback/shadow).",
   "shadow": {
     "$type": "shadow",
     "$description": "Elevaciones dark: contacto + diffuse con más presencia.",
@@ -413,6 +245,176 @@
       ],
       "$type": "shadow",
       "$description": "Sombra md en dark."
+    }
+  },
+  "surface": {
+    "$type": "color",
+    "$description": "Fondos invertidos para dark.",
+    "canvas": {
+      "$value": "{primitive.color.slate.950}",
+      "$type": "color",
+      "$description": "Fondo de página / viewport en dark."
+    },
+    "card": {
+      "$value": "{primitive.color.slate.900}",
+      "$type": "color",
+      "$description": "Superficie de tarjeta sobre el canvas dark."
+    },
+    "elevated": {
+      "$value": "{primitive.color.slate.800}",
+      "$type": "color",
+      "$description": "Superficie elevada (modales, popovers) en dark."
+    },
+    "subtle": {
+      "$value": "{primitive.color.slate.800}",
+      "$type": "color",
+      "$description": "Fondo tenue neutro en dark (secondary, chips)."
+    },
+    "scrim": {
+      "$value": "{primitive.color.slate.950}",
+      "$type": "color",
+      "$description": "Base de overlay/scrim en dark."
+    }
+  },
+  "content": {
+    "$type": "color",
+    "$description": "Contraste de contenido invertido para dark.",
+    "primary": {
+      "$value": "{primitive.color.slate.50}",
+      "$type": "color",
+      "$description": "Texto principal claro sobre superficies oscuras."
+    },
+    "secondary": {
+      "$value": "{primitive.color.slate.300}",
+      "$type": "color",
+      "$description": "Texto secundario en dark."
+    },
+    "muted": {
+      "$value": "{primitive.color.slate.400}",
+      "$type": "color",
+      "$description": "Texto atenuado en dark."
+    },
+    "inverse": {
+      "$value": "{primitive.color.slate.950}",
+      "$type": "color",
+      "$description": "Texto sobre fondos claros / acciones claras en dark."
+    }
+  },
+  "border": {
+    "$type": "color",
+    "$description": "Bordes adaptados a superficies oscuras.",
+    "subtle": {
+      "$value": "{primitive.color.slate.700}",
+      "$type": "color",
+      "$description": "Borde discreto en dark."
+    },
+    "strong": {
+      "$value": "{primitive.color.slate.500}",
+      "$type": "color",
+      "$description": "Borde enfatizado en dark."
+    },
+    "focus": {
+      "$value": "{primitive.color.blue.400}",
+      "$type": "color",
+      "$description": "Anillo de foco más luminoso sobre fondos oscuros."
+    }
+  },
+  "action": {
+    "$type": "color",
+    "$description": "Acciones con tonos más claros para contraste en dark.",
+    "primary-default": {
+      "$value": "{primitive.color.blue.500}",
+      "$type": "color",
+      "$description": "Acción primaria por defecto en dark."
+    },
+    "primary-hover": {
+      "$value": "{primitive.color.blue.400}",
+      "$type": "color",
+      "$description": "Acción primaria hover en dark."
+    },
+    "primary-active": {
+      "$value": "{primitive.color.blue.300}",
+      "$type": "color",
+      "$description": "Acción primaria active en dark."
+    },
+    "danger-default": {
+      "$value": "{primitive.color.red.500}",
+      "$type": "color",
+      "$description": "Acción destructiva por defecto en dark."
+    },
+    "danger-hover": {
+      "$value": "{primitive.color.red.600}",
+      "$type": "color",
+      "$description": "Acción destructiva hover en dark."
+    },
+    "danger-active": {
+      "$value": "{primitive.color.red.600}",
+      "$type": "color",
+      "$description": "Acción destructiva active en dark."
+    }
+  },
+  "feedback": {
+    "$type": "color",
+    "$description": "Tintes de feedback adaptados a dark.",
+    "info-subtle": {
+      "$value": "{primitive.color.blue.900}",
+      "$type": "color",
+      "$description": "Fondo tenue info en dark."
+    },
+    "info-foreground": {
+      "$value": "{primitive.color.blue.300}",
+      "$type": "color",
+      "$description": "Texto info en dark."
+    },
+    "info-border": {
+      "$value": "{primitive.color.blue.800}",
+      "$type": "color",
+      "$description": "Borde info en dark."
+    },
+    "success-subtle": {
+      "$value": "{primitive.color.green.950}",
+      "$type": "color",
+      "$description": "Fondo tenue success en dark."
+    },
+    "success-foreground": {
+      "$value": "{primitive.color.green.300}",
+      "$type": "color",
+      "$description": "Texto success en dark."
+    },
+    "success-border": {
+      "$value": "{primitive.color.green.700}",
+      "$type": "color",
+      "$description": "Borde success en dark."
+    },
+    "warning-subtle": {
+      "$value": "{primitive.color.amber.950}",
+      "$type": "color",
+      "$description": "Fondo tenue warning en dark."
+    },
+    "warning-foreground": {
+      "$value": "{primitive.color.amber.300}",
+      "$type": "color",
+      "$description": "Texto warning en dark."
+    },
+    "warning-border": {
+      "$value": "{primitive.color.amber.700}",
+      "$type": "color",
+      "$description": "Borde warning en dark."
+    },
+    "danger-subtle": {
+      "$value": "{primitive.color.red.950}",
+      "$type": "color",
+      "$description": "Fondo tenue danger en dark."
+    },
+    "danger-foreground": {
+      "$value": "{primitive.color.red.500}",
+      "$type": "color",
+      "$description": "Texto danger en dark."
+    },
+    "danger-border": {
+      "$value": "{primitive.color.red.700}",
+      "$type": "color",
+      "$description": "Borde danger en dark."
     }
   }
 }

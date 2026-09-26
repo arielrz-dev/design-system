@@ -1,6 +1,6 @@
 <!--
-  ds-tooltip — CSS-only con data-tooltip.
-  Requiere: dist/css/variables.css + tooltip.css + button.css
+  ds-tooltip — CSS visual + tooltip.js (role="tooltip" / aria-describedby).
+  Requiere: dist/css/variables.css + tooltip.css + button.css + tooltip.js
 -->
 
 <button
@@ -28,3 +28,8 @@
     <path d="M4 10.5H3.25A1.25 1.25 0 012 9.25v-6A1.25 1.25 0 013.25 2h6A1.25 1.25 0 0110.5 3.25V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
   </svg>
 </button>
+
+<script type="module">
+  import { bindTooltips } from './tooltip.js';
+  bindTooltips();
+</script>

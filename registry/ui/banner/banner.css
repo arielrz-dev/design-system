@@ -1,13 +1,13 @@
 /**
  * .ds-banner — anuncio global sticky.
- * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
 .ds-banner {
   box-sizing: border-box;
   position: sticky;
   top: 0;
-  z-index: var(--ds-z-banner);
+  z-index: var(--rzz-z-banner);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,33 +15,33 @@
   width: 100%;
   margin: 0;
   padding: 0.625rem 1rem;
-  border-bottom: 1px solid var(--ds-semantic-border-subtle);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-primary);
-  font-family: var(--ds-primitive-font-family-sans);
+  border-bottom: 1px solid var(--rzz-border-subtle);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.4;
-  box-shadow: var(--ds-shadow-xs);
+  box-shadow: var(--rzz-shadow-xs);
 }
 
 .ds-banner--info {
-  background-color: var(--ds-semantic-feedback-info-subtle);
-  border-bottom-color: var(--ds-semantic-feedback-info-border);
-  color: var(--ds-semantic-feedback-info-foreground);
+  background-color: var(--rzz-feedback-info-subtle);
+  border-bottom-color: var(--rzz-feedback-info-border);
+  color: var(--rzz-feedback-info-foreground);
 }
 
 .ds-banner--warning {
-  background-color: var(--ds-semantic-feedback-warning-subtle);
-  border-bottom-color: var(--ds-semantic-feedback-warning-border);
-  color: var(--ds-semantic-feedback-warning-foreground);
+  background-color: var(--rzz-feedback-warning-subtle);
+  border-bottom-color: var(--rzz-feedback-warning-border);
+  color: var(--rzz-feedback-warning-foreground);
 }
 
 .ds-banner--danger {
-  background-color: var(--ds-semantic-feedback-danger-subtle);
-  border-bottom-color: var(--ds-semantic-feedback-danger-border);
-  color: var(--ds-semantic-feedback-danger-foreground);
+  background-color: var(--rzz-feedback-danger-subtle);
+  border-bottom-color: var(--rzz-feedback-danger-border);
+  color: var(--rzz-feedback-danger-foreground);
 }
 
 .ds-banner__message {
@@ -65,9 +65,9 @@
 }
 
 .ds-banner__link:focus-visible {
-  outline: 2px solid var(--ds-semantic-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
-  border-radius: var(--ds-primitive-radius-sm);
+  border-radius: var(--rzz-radius-sm);
 }
 
 .ds-banner__close {
@@ -82,19 +82,19 @@
   margin-inline-start: auto;
   padding: 0;
   border: 0;
-  border-radius: var(--ds-primitive-radius-sm);
+  border-radius: var(--rzz-radius-sm);
   background: transparent;
   color: inherit;
   cursor: pointer;
   opacity: 0.75;
   transition:
-    opacity var(--ds-duration-fast) var(--ds-ease-standard),
-    background-color var(--ds-duration-fast) var(--ds-ease-standard);
+    opacity var(--rzz-duration-fast) var(--rzz-ease-standard),
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .ds-banner__close:hover {
   opacity: 1;
-  background-color: color-mix(in srgb, var(--ds-semantic-content-primary) 8%, transparent);
+  background-color: color-mix(in srgb, var(--rzz-content-primary) 8%, transparent);
 }
 
 .ds-banner__close:focus {
@@ -102,7 +102,7 @@
 }
 
 .ds-banner__close:focus-visible {
-  outline: 2px solid var(--ds-semantic-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
   opacity: 1;
 }

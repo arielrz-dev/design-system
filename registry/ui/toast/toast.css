@@ -1,13 +1,13 @@
 /**
  * .ds-toast — notificaciones temporales (viewport + ítems).
- * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
 .ds-toast-viewport {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
-  z-index: var(--ds-z-toast);
+  z-index: var(--rzz-z-toast);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -27,15 +27,15 @@
   gap: 0.75rem;
   margin: 0;
   padding: 0.875rem 1rem;
-  border: 1px solid var(--ds-semantic-border-subtle);
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-primary);
-  font-family: var(--ds-primitive-font-family-sans);
-  box-shadow: var(--ds-shadow-md);
+  border: 1px solid var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
+  box-shadow: var(--rzz-shadow-md);
   opacity: 0;
   transform: translateY(1rem);
-  transition: all var(--ds-duration-normal) var(--ds-ease-standard);
+  transition: all var(--rzz-duration-normal) var(--rzz-ease-standard);
 }
 
 .ds-toast--visible {
@@ -51,25 +51,25 @@
 .ds-toast__body {
   display: flex;
   flex-direction: column;
-  gap: var(--ds-primitive-spacing-4);
+  gap: var(--rzz-space-4);
   min-width: 0;
   flex: 1 1 auto;
 }
 
 .ds-toast__title {
   margin: 0;
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  font-size: var(--rzz-text-sm);
   font-weight: 600;
   letter-spacing: -0.01em;
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  line-height: var(--rzz-leading-sm);
 }
 
 .ds-toast__description {
   margin: 0;
-  color: var(--ds-semantic-content-muted);
-  font-size: var(--ds-primitive-font-size-xs-font-size);
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-xs);
   font-weight: 400;
-  line-height: var(--ds-primitive-font-size-xs-line-height);
+  line-height: var(--rzz-leading-xs);
 }
 
 .ds-toast__close {
@@ -83,17 +83,17 @@
   margin: -0.25rem -0.25rem 0 0;
   padding: 0;
   border: 1px solid transparent;
-  border-radius: var(--ds-primitive-radius-md);
+  border-radius: var(--rzz-radius-md);
   background: transparent;
-  color: var(--ds-semantic-content-muted);
+  color: var(--rzz-content-muted);
   font: inherit;
   cursor: pointer;
-  transition: all var(--ds-duration-fast) var(--ds-ease-standard);
+  transition: all var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .ds-toast__close:hover {
-  background-color: var(--ds-semantic-surface-subtle);
-  color: var(--ds-semantic-content-primary);
+  background-color: var(--rzz-surface-subtle);
+  color: var(--rzz-content-primary);
 }
 
 .ds-toast__close:focus {
@@ -101,34 +101,34 @@
 }
 
 .ds-toast__close:focus-visible {
-  outline: 2px solid var(--ds-semantic-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
 }
 
 .ds-toast--default {
-  border-color: var(--ds-semantic-border-subtle);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-primary);
+  border-color: var(--rzz-border-subtle);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
 }
 
 .ds-toast--success {
-  border-color: var(--ds-semantic-feedback-success-border);
-  background-color: var(--ds-semantic-feedback-success-subtle);
-  color: var(--ds-semantic-feedback-success-foreground);
+  border-color: var(--rzz-feedback-success-border);
+  background-color: var(--rzz-feedback-success-subtle);
+  color: var(--rzz-feedback-success-foreground);
 }
 
 .ds-toast--success .ds-toast__description {
-  color: var(--ds-semantic-feedback-success-foreground);
+  color: var(--rzz-feedback-success-foreground);
   opacity: 0.85;
 }
 
 .ds-toast--danger {
-  border-color: var(--ds-semantic-feedback-danger-border);
-  background-color: var(--ds-semantic-feedback-danger-subtle);
-  color: var(--ds-semantic-feedback-danger-foreground);
+  border-color: var(--rzz-feedback-danger-border);
+  background-color: var(--rzz-feedback-danger-subtle);
+  color: var(--rzz-feedback-danger-foreground);
 }
 
 .ds-toast--danger .ds-toast__description {
-  color: var(--ds-semantic-feedback-danger-foreground);
+  color: var(--rzz-feedback-danger-foreground);
   opacity: 0.85;
 }

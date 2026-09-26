@@ -13,6 +13,30 @@ const TOKEN_SOURCE_DARK = ['tokens/tokens.dark.json'];
 const CSS_OUT = 'dist/css/variables.css';
 const TS_OUT = 'dist/ts/tokens.ts';
 
+const DARK_OVERRIDE_ROOTS = [
+  'surface',
+  'content',
+  'border',
+  'action',
+  'feedback',
+  'shadow',
+];
+
+/** DTCG duration `{ value, unit }` → CSS (`120ms`). SD 5 no lo serializa solo. */
+StyleDictionary.registerTransform({
+  name: 'rzz/duration/css',
+  type: 'value',
+  transitive: true,
+  filter: (token) => (token.$type ?? token.type) === 'duration',
+  transform: (token) => {
+    const raw = token.$value ?? token.value;
+    if (raw && typeof raw === 'object' && 'value' in raw && 'unit' in raw) {
+      return `${raw.value}${raw.unit}`;
+    }
+    return raw;
+  },
+});
+
 /**
  * @param {object} config
  * @param {'css' | 'js'} platform
@@ -21,22 +45,33 @@ async function getTransformedDictionary(config, platform) {
   const transformGroup =
     platform === 'css' ? transformGroups.css : transformGroups.js;
 
+  /** @type {import('style-dictionary/types').PlatformConfig} */
+  const platformConfig = {
+    transformGroup,
+    prefix: 'rzz',
+    buildPath: 'dist/',
+    files: [
+      {
+        destination: '_noop',
+        format: platform === 'css' ? formats.cssVariables : formats.javascriptEsm,
+      },
+    ],
+  };
+
+  if (platform === 'css') {
+    // Append after group so DTCG duration objects become `120ms`.
+    const groupTransforms =
+      StyleDictionary.hooks.transformGroups[transformGroups.css] ?? [];
+    platformConfig.transforms = [...groupTransforms, 'rzz/duration/css'];
+    delete platformConfig.transformGroup;
+  }
+
   const sd = new StyleDictionary({
     usesDtcg: true,
     log: { verbosity: 'silent' },
     ...config,
     platforms: {
-      [platform]: {
-        transformGroup,
-        prefix: 'ds',
-        buildPath: 'dist/',
-        files: [
-          {
-            destination: '_noop',
-            format: platform === 'css' ? formats.cssVariables : formats.javascriptEsm,
-          },
-        ],
-      },
+      [platform]: platformConfig,
     },
   });
 
@@ -123,7 +158,9 @@ export type TokensDark = typeof tokensDark;
 function buildCssFile(lightBlock, darkBlock) {
   return `/**
  * Design tokens CSS variables — generado por \`build-tokens.mjs\`.
- * Prefijo: --ds- (kebab-case). Light en :root; dark en [data-theme="dark"].
+ * Prefijo: --rzz- (kebab-case). Light en :root; dark en [data-theme="dark"].
+ * API pública: surface/content/border/action/feedback/space/radius/font/text/leading/shadow/z/duration/ease.
+ * primitive queda en dist solo como fuente interna del build.
  * No editar a mano; ejecutar \`npm run build:tokens\`.
  */
 
@@ -172,9 +209,7 @@ async function main() {
   });
 
   const darkOverrideTokens = darkCssDict.allTokens.filter(
-    (token) =>
-      token.isSource &&
-      (token.path[0] === 'semantic' || token.path[0] === 'shadow'),
+    (token) => token.isSource && DARK_OVERRIDE_ROOTS.includes(token.path[0]),
   );
 
   const darkVars = formattedVariables({
@@ -190,9 +225,7 @@ async function main() {
   const lightTree = nestTokens(lightJsDict.allTokens);
   const darkTree = nestTokens(
     darkJsDict.allTokens.filter(
-      (token) =>
-        token.isSource &&
-        (token.path[0] === 'semantic' || token.path[0] === 'shadow'),
+      (token) => token.isSource && DARK_OVERRIDE_ROOTS.includes(token.path[0]),
     ),
   );
 

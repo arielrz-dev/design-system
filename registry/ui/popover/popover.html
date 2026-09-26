@@ -1,6 +1,6 @@
 <!--
-  ds-popover — menú nativo sin JavaScript (Popover API).
-  Requiere: dist/css/variables.css + popover.css + button.css
+  ds-popover — menú nativo (Popover API) + a11y vía popover.js
+  Requiere: dist/css/variables.css + popover.css + button.css + popover.js
 -->
 
 <button
@@ -8,6 +8,9 @@
   class="ds-button ds-button--secondary ds-button--sm"
   popovertarget="demo-menu"
   popovertargetaction="toggle"
+  aria-haspopup="menu"
+  aria-controls="demo-menu"
+  aria-expanded="false"
 >
   Opciones
 </button>
@@ -29,3 +32,8 @@
     </button>
   </div>
 </div>
+
+<script type="module">
+  import { bindPopoverMenus } from './popover.js';
+  bindPopoverMenus();
+</script>

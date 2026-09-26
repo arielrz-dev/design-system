@@ -1,10 +1,23 @@
 /**
- * Tooltip CSS-only vía [data-tooltip].
- * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ * Tooltip CSS-only vía [data-tooltip] (+ tooltip.js para role="tooltip" SR).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
 [data-tooltip] {
   position: relative;
+}
+
+/* Texto accesible generado por tooltip.js — oculto visualmente */
+.ds-tooltip-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 [data-tooltip]::after {
@@ -12,25 +25,27 @@
   position: absolute;
   left: 50%;
   bottom: calc(100% + 0.5rem);
-  z-index: var(--ds-z-tooltip);
+  z-index: var(--rzz-z-tooltip);
   box-sizing: border-box;
   max-width: 16rem;
   padding: 0.25rem 0.5rem;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  border-radius: var(--ds-primitive-radius-sm);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-primary);
-  font-family: var(--ds-primitive-font-family-sans);
-  font-size: 0.75rem;
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-radius: var(--rzz-radius-sm);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
+  font-size: var(--rzz-text-xs);
   font-weight: 500;
   letter-spacing: -0.01em;
-  line-height: 1.25;
+  line-height: var(--rzz-leading-xs);
   white-space: nowrap;
-  box-shadow: var(--ds-shadow-xs);
+  box-shadow: var(--rzz-shadow-xs);
   pointer-events: none;
   opacity: 0;
   transform: translateX(-50%) translateY(0.15rem);
-  transition: opacity 120ms ease-out, transform 120ms ease-out;
+  transition:
+    opacity var(--rzz-duration-fast) var(--rzz-ease-standard),
+    transform var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 [data-tooltip]::before {
@@ -38,16 +53,16 @@
   position: absolute;
   left: 50%;
   bottom: calc(100% + 0.2rem);
-  z-index: calc(var(--ds-z-tooltip) + 1);
+  z-index: calc(var(--rzz-z-tooltip) + 1);
   width: 0.4rem;
   height: 0.4rem;
-  border-right: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  border-bottom: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  background-color: var(--ds-semantic-surface-card);
+  border-right: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  background-color: var(--rzz-surface-card);
   pointer-events: none;
   opacity: 0;
   transform: translateX(-50%) rotate(45deg);
-  transition: opacity 120ms ease-out;
+  transition: opacity var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 [data-tooltip]:hover::after,
@@ -73,8 +88,8 @@
   bottom: auto;
   border-right: 0;
   border-bottom: 0;
-  border-left: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  border-top: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
+  border-left: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
 }
 
 [data-tooltip][data-tooltip-side="bottom"]:hover::after,

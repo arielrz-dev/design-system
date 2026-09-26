@@ -1,21 +1,21 @@
 /**
  * .ds-pin — OTP / código segmentado.
- * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
 .ds-pin {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: var(--ds-primitive-spacing-8);
+  gap: var(--rzz-space-8);
   margin: 0;
-  font-family: var(--ds-primitive-font-family-sans);
+  font-family: var(--rzz-font-sans);
 }
 
 .ds-pin__cells {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--ds-primitive-spacing-8);
+  gap: var(--rzz-space-8);
 }
 
 .ds-pin__cell {
@@ -24,22 +24,22 @@
   height: 2.75rem;
   margin: 0;
   padding: 0;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-primary);
-  font-family: var(--ds-primitive-font-family-mono, ui-monospace, SFMono-Regular, Menlo, monospace);
-  font-size: var(--ds-primitive-font-size-md-font-size);
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-mono);
+  font-size: var(--rzz-text-md);
   font-weight: 600;
   font-variant-numeric: tabular-nums;
   text-align: center;
-  box-shadow: var(--ds-shadow-xs);
+  box-shadow: var(--rzz-shadow-xs);
   transition: border-color 140ms ease-out, box-shadow 140ms ease-out;
   appearance: none;
 }
 
 .ds-pin__cell:hover:not(:disabled):not(:focus-visible) {
-  border-color: color-mix(in srgb, var(--ds-semantic-content-primary) 20%, transparent);
+  border-color: color-mix(in srgb, var(--rzz-content-primary) 20%, transparent);
 }
 
 .ds-pin__cell:focus {
@@ -47,11 +47,11 @@
 }
 
 .ds-pin__cell:focus-visible {
-  border-color: var(--ds-semantic-border-focus);
-  outline: 2px solid var(--ds-semantic-border-focus);
+  border-color: var(--rzz-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
 }
 
 .ds-pin--error .ds-pin__cell {
-  border-color: color-mix(in srgb, var(--ds-semantic-action-danger-default) 55%, transparent);
+  border-color: color-mix(in srgb, var(--rzz-action-danger-default) 55%, transparent);
 }

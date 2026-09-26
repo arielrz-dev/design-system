@@ -1,185 +1,209 @@
 /**
  * Design tokens CSS variables — generado por `build-tokens.mjs`.
- * Prefijo: --ds- (kebab-case). Light en :root; dark en [data-theme="dark"].
+ * Prefijo: --rzz- (kebab-case). Light en :root; dark en [data-theme="dark"].
+ * API pública: surface/content/border/action/feedback/space/radius/font/text/leading/shadow/z/duration/ease.
+ * primitive queda en dist solo como fuente interna del build.
  * No editar a mano; ejecutar `npm run build:tokens`.
  */
 
 :root {
-  --ds-primitive-color-slate-50: #fafafa; /** Neutral más claro. */
-  --ds-primitive-color-slate-100: #f4f4f5; /** Neutral muy claro. */
-  --ds-primitive-color-slate-200: #e4e4e7; /** Neutral claro. */
-  --ds-primitive-color-slate-300: #d4d4d8; /** Neutral medio-claro. */
-  --ds-primitive-color-slate-400: #a1a1aa; /** Neutral medio. */
-  --ds-primitive-color-slate-500: #71717a; /** Neutral de referencia (punto medio). */
-  --ds-primitive-color-slate-600: #52525b; /** Neutral medio-oscuro. */
-  --ds-primitive-color-slate-700: #3f3f46; /** Neutral oscuro. */
-  --ds-primitive-color-slate-800: #27272a; /** Neutral muy oscuro. */
-  --ds-primitive-color-slate-900: #18181b; /** Neutral casi negro. */
-  --ds-primitive-color-slate-950: #09090b; /** Neutral más oscuro. */
-  --ds-primitive-color-blue-50: #eff6ff; /** Primario más claro. */
-  --ds-primitive-color-blue-100: #dbeafe; /** Primario muy claro. */
-  --ds-primitive-color-blue-200: #bfdbfe; /** Primario claro. */
-  --ds-primitive-color-blue-300: #93c5fd; /** Primario medio-claro. */
-  --ds-primitive-color-blue-400: #60a5fa; /** Primario medio. */
-  --ds-primitive-color-blue-500: #3b82f6; /** Primario de referencia. */
-  --ds-primitive-color-blue-600: #2563eb; /** Primario medio-oscuro (acción por defecto en light). */
-  --ds-primitive-color-blue-700: #1d4ed8; /** Primario oscuro (hover en light). */
-  --ds-primitive-color-blue-800: #1e40af; /** Primario muy oscuro (active en light). */
-  --ds-primitive-color-blue-900: #1e3a8a; /** Primario más oscuro. */
-  --ds-primitive-color-red-50: #fff1f3; /** Carmesí más claro (tinte danger). */
-  --ds-primitive-color-red-100: #ffe4e8; /** Carmesí muy claro. */
-  --ds-primitive-color-red-200: #fecdd5; /** Carmesí claro (borde danger). */
-  --ds-primitive-color-red-500: #f43f5e; /** Carmesí medio (peligro en dark). */
-  --ds-primitive-color-red-600: #e11d48; /** Carmesí medio-oscuro (peligro en light). */
-  --ds-primitive-color-red-700: #be123c; /** Carmesí oscuro (hover/active danger). */
-  --ds-primitive-color-red-950: #4c0519; /** Carmesí más oscuro (tinte danger dark). */
-  --ds-primitive-color-green-50: #f0fdf4; /** Verde más claro. */
-  --ds-primitive-color-green-100: #dcfce7; /** Verde muy claro (tinte success). */
-  --ds-primitive-color-green-200: #bbf7d0; /** Verde claro (borde success). */
-  --ds-primitive-color-green-300: #86efac; /** Verde medio-claro (texto success dark). */
-  --ds-primitive-color-green-600: #16a34a; /** Verde medio. */
-  --ds-primitive-color-green-700: #15803d; /** Verde oscuro (texto success light). */
-  --ds-primitive-color-green-950: #052e16; /** Verde más oscuro (tinte success dark). */
-  --ds-primitive-color-amber-50: #fffbeb; /** Ámbar más claro. */
-  --ds-primitive-color-amber-100: #fef3c7; /** Ámbar muy claro (tinte warning). */
-  --ds-primitive-color-amber-200: #fde68a; /** Ámbar claro (borde warning). */
-  --ds-primitive-color-amber-300: #fcd34d; /** Ámbar medio-claro (texto warning dark). */
-  --ds-primitive-color-amber-600: #d97706; /** Ámbar medio. */
-  --ds-primitive-color-amber-700: #b45309; /** Ámbar oscuro (texto warning light). */
-  --ds-primitive-color-amber-950: #451a03; /** Ámbar más oscuro (tinte warning dark). */
-  --ds-primitive-color-white: #ffffff; /** Blanco puro (superficies elevadas sobre canvas). */
-  --ds-primitive-shadow-xs: 0px 0px 0px 1px rgb(0% 0% 0% / 0.04), 0px 1px 2px 0px rgb(0% 0% 0% / 0.06); /** Contacto 1px + diffuse corta (botones/inputs). */
-  --ds-primitive-shadow-sm: 0px 0px 0px 1px rgb(0% 0% 0% / 0.04), 0px 2px 4px 0px rgb(0% 0% 0% / 0.05), 0px 4px 12px 0px rgb(0% 0% 0% / 0.04); /** Contacto + diffuse media (tarjetas). */
-  --ds-primitive-shadow-md: 0px 0px 0px 1px rgb(0% 0% 0% / 0.05), 0px 4px 8px 0px rgb(0% 0% 0% / 0.06), 0px 12px 24px 0px rgb(0% 0% 0% / 0.08); /** Contacto + diffuse amplia (popovers/toasts). */
-  --ds-primitive-spacing-4: 0.25rem; /** 4px → 0.25rem. */
-  --ds-primitive-spacing-8: 0.5rem; /** 8px → 0.5rem. */
-  --ds-primitive-spacing-12: 0.75rem; /** 12px → 0.75rem. */
-  --ds-primitive-spacing-16: 1rem; /** 16px → 1rem. */
-  --ds-primitive-spacing-20: 1.25rem; /** 20px → 1.25rem. */
-  --ds-primitive-spacing-24: 1.5rem; /** 24px → 1.5rem. */
-  --ds-primitive-spacing-32: 2rem; /** 32px → 2rem. */
-  --ds-primitive-spacing-40: 2.5rem; /** 40px → 2.5rem. */
-  --ds-primitive-spacing-48: 3rem; /** 48px → 3rem. */
-  --ds-primitive-spacing-56: 3.5rem; /** 56px → 3.5rem. */
-  --ds-primitive-spacing-64: 4rem; /** 64px → 4rem. */
-  --ds-primitive-radius-sm: 0.25rem; /** Radio pequeño (4px / 0.25rem). */
-  --ds-primitive-radius-md: 0.375rem; /** Radio base botones/inputs (6px / 0.375rem). */
-  --ds-primitive-radius-lg: 0.625rem; /** Radio grande (10px / 0.625rem). */
-  --ds-primitive-radius-full: 9999px; /** Radio píldora / circular (9999px). */
-  --ds-primitive-font-family-sans: Inter, ui-sans-serif, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; /** Familia sans-serif del sistema. */
-  --ds-primitive-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; /** Familia monoespaciada del sistema. */
-  --ds-primitive-font-size-xs-font-size: 0.75rem; /** 12px → 0.75rem. */
-  --ds-primitive-font-size-xs-line-height: 1.333; /** Line-height relativo (~16px sobre 12px). */
-  --ds-primitive-font-size-sm-font-size: 0.875rem; /** 14px → 0.875rem. */
-  --ds-primitive-font-size-sm-line-height: 1.429; /** Line-height relativo (~20px sobre 14px). */
-  --ds-primitive-font-size-md-font-size: 1rem; /** 16px → 1rem (base). */
-  --ds-primitive-font-size-md-line-height: 1.5; /** Line-height relativo (24px sobre 16px). */
-  --ds-primitive-font-size-lg-font-size: 1.125rem; /** 18px → 1.125rem. */
-  --ds-primitive-font-size-lg-line-height: 1.556; /** Line-height relativo (~28px sobre 18px). */
-  --ds-primitive-font-size-xl-font-size: 1.25rem; /** 20px → 1.25rem. */
-  --ds-primitive-font-size-xl-line-height: 1.4; /** Line-height relativo (28px sobre 20px). */
-  --ds-primitive-font-size-2xl-font-size: 1.5rem; /** 24px → 1.5rem. */
-  --ds-primitive-font-size-2xl-line-height: 1.333; /** Line-height relativo (32px sobre 24px). */
-  --ds-primitive-font-size-3xl-font-size: 1.875rem; /** 30px → 1.875rem. */
-  --ds-primitive-font-size-3xl-line-height: 1.2; /** Line-height relativo (36px sobre 30px). */
-  --ds-primitive-z-index-base: 0; /** Capa base / contenido. */
-  --ds-primitive-z-index-sticky: 100; /** Headers y columnas sticky. */
-  --ds-primitive-z-index-banner: 200; /** Banner global de anuncio. */
-  --ds-primitive-z-index-dropdown: 1000; /** Menus, popovers y dropdowns. */
-  --ds-primitive-z-index-modal: 1050; /** Modales y sheets. */
-  --ds-primitive-z-index-toast: 1070; /** Toasts / notificaciones. */
-  --ds-primitive-z-index-tooltip: 1080; /** Tooltips sobre overlays. */
-  --ds-primitive-motion-duration-fast: 120ms; /** Microinteracciones rápidas. */
-  --ds-primitive-motion-duration-normal: 200ms; /** Apertura/cierre estándar. */
-  --ds-primitive-motion-duration-slow: 300ms; /** Transiciones enfatizadas. */
-  --ds-primitive-motion-easing-standard: cubic-bezier(0.16, 1, 0.3, 1); /** Easing craft (ease-out expresivo). */
-  --ds-semantic-surface-canvas: var(--ds-primitive-color-slate-50); /** Fondo de página (#fafafa zinc-50). */
-  --ds-semantic-surface-card: var(--ds-primitive-color-white); /** Superficie de tarjeta sobre el canvas. */
-  --ds-semantic-surface-elevated: var(--ds-primitive-color-white); /** Superficie elevada (modales, popovers, drawers). */
-  --ds-semantic-surface-subtle: var(--ds-primitive-color-slate-100); /** Fondo tenue neutro (botones secondary, chips). */
-  --ds-semantic-content-primary: var(--ds-primitive-color-slate-900); /** Texto principal de alto contraste. */
-  --ds-semantic-content-secondary: var(--ds-primitive-color-slate-700); /** Texto secundario. */
-  --ds-semantic-content-muted: var(--ds-primitive-color-slate-500); /** Texto atenuado / placeholder. */
-  --ds-semantic-content-inverse: var(--ds-primitive-color-slate-50); /** Texto sobre fondos oscuros o de acción. */
-  --ds-semantic-border-subtle: var(--ds-primitive-color-slate-200); /** Borde discreto / divisores. */
-  --ds-semantic-border-strong: var(--ds-primitive-color-slate-400); /** Borde con mayor énfasis. */
-  --ds-semantic-border-focus: var(--ds-primitive-color-blue-500); /** Anillo o borde de foco accesible. */
-  --ds-semantic-action-primary-default: var(--ds-primitive-color-blue-600); /** Acción primaria en estado por defecto. */
-  --ds-semantic-action-primary-hover: var(--ds-primitive-color-blue-700); /** Acción primaria en hover. */
-  --ds-semantic-action-primary-active: var(--ds-primitive-color-blue-800); /** Acción primaria en pressed/active. */
-  --ds-semantic-action-danger-default: var(--ds-primitive-color-red-600); /** Acción destructiva en estado por defecto. */
-  --ds-semantic-action-danger-hover: var(--ds-primitive-color-red-700); /** Acción destructiva en hover. */
-  --ds-semantic-action-danger-active: var(--ds-primitive-color-red-700); /** Acción destructiva en pressed/active. */
-  --ds-semantic-feedback-info-subtle: var(--ds-primitive-color-blue-50); /** Fondo tenue info. */
-  --ds-semantic-feedback-info-foreground: var(--ds-primitive-color-blue-700); /** Texto/icono info. */
-  --ds-semantic-feedback-info-border: var(--ds-primitive-color-blue-200); /** Borde info. */
-  --ds-semantic-feedback-success-subtle: var(--ds-primitive-color-green-100); /** Fondo tenue success. */
-  --ds-semantic-feedback-success-foreground: var(--ds-primitive-color-green-700); /** Texto/icono success. */
-  --ds-semantic-feedback-success-border: var(--ds-primitive-color-green-200); /** Borde success. */
-  --ds-semantic-feedback-warning-subtle: var(--ds-primitive-color-amber-100); /** Fondo tenue warning. */
-  --ds-semantic-feedback-warning-foreground: var(--ds-primitive-color-amber-700); /** Texto/icono warning. */
-  --ds-semantic-feedback-warning-border: var(--ds-primitive-color-amber-200); /** Borde warning. */
-  --ds-semantic-feedback-danger-subtle: var(--ds-primitive-color-red-100); /** Fondo tenue danger. */
-  --ds-semantic-feedback-danger-foreground: var(--ds-primitive-color-red-700); /** Texto/icono danger. */
-  --ds-semantic-feedback-danger-border: var(--ds-primitive-color-red-200); /** Borde danger. */
-  --ds-semantic-layer-base: var(--ds-primitive-z-index-base); /** Capa base. */
-  --ds-semantic-layer-sticky: var(--ds-primitive-z-index-sticky); /** Sticky. */
-  --ds-semantic-layer-banner: var(--ds-primitive-z-index-banner); /** Banner. */
-  --ds-semantic-layer-dropdown: var(--ds-primitive-z-index-dropdown); /** Dropdown. */
-  --ds-semantic-layer-modal: var(--ds-primitive-z-index-modal); /** Modal/sheet. */
-  --ds-semantic-layer-toast: var(--ds-primitive-z-index-toast); /** Toast. */
-  --ds-semantic-layer-tooltip: var(--ds-primitive-z-index-tooltip); /** Tooltip. */
-  --ds-semantic-motion-duration-fast: var(--ds-primitive-motion-duration-fast); /** Duración rápida. */
-  --ds-semantic-motion-duration-normal: var(--ds-primitive-motion-duration-normal); /** Duración normal. */
-  --ds-semantic-motion-duration-slow: var(--ds-primitive-motion-duration-slow); /** Duración lenta. */
-  --ds-semantic-motion-ease-standard: var(--ds-primitive-motion-easing-standard); /** Easing estándar. */
-  --ds-shadow-xs: var(--ds-primitive-shadow-xs); /** Elevación xs — botones e inputs. */
-  --ds-shadow-sm: var(--ds-primitive-shadow-sm); /** Elevación sm — tarjetas. */
-  --ds-shadow-md: var(--ds-primitive-shadow-md); /** Elevación md — popovers y overlays. */
-  --ds-z-base: var(--ds-primitive-z-index-base); /** Capa base. */
-  --ds-z-sticky: var(--ds-primitive-z-index-sticky); /** Sticky. */
-  --ds-z-banner: var(--ds-primitive-z-index-banner); /** Banner. */
-  --ds-z-dropdown: var(--ds-primitive-z-index-dropdown); /** Dropdown. */
-  --ds-z-modal: var(--ds-primitive-z-index-modal); /** Modal/sheet. */
-  --ds-z-toast: var(--ds-primitive-z-index-toast); /** Toast. */
-  --ds-z-tooltip: var(--ds-primitive-z-index-tooltip); /** Tooltip. */
-  --ds-duration-fast: var(--ds-primitive-motion-duration-fast); /** Rápida. */
-  --ds-duration-normal: var(--ds-primitive-motion-duration-normal); /** Normal. */
-  --ds-duration-slow: var(--ds-primitive-motion-duration-slow); /** Lenta. */
-  --ds-ease-standard: var(--ds-primitive-motion-easing-standard); /** Estándar craft. */
+  --rzz-primitive-color-slate-50: #fafafa; /** Neutral más claro. */
+  --rzz-primitive-color-slate-100: #f4f4f5; /** Neutral muy claro. */
+  --rzz-primitive-color-slate-200: #e4e4e7; /** Neutral claro. */
+  --rzz-primitive-color-slate-300: #d4d4d8; /** Neutral medio-claro. */
+  --rzz-primitive-color-slate-400: #a1a1aa; /** Neutral medio. */
+  --rzz-primitive-color-slate-500: #71717a; /** Neutral de referencia (punto medio). */
+  --rzz-primitive-color-slate-600: #52525b; /** Neutral medio-oscuro. */
+  --rzz-primitive-color-slate-700: #3f3f46; /** Neutral oscuro. */
+  --rzz-primitive-color-slate-800: #27272a; /** Neutral muy oscuro. */
+  --rzz-primitive-color-slate-900: #18181b; /** Neutral casi negro. */
+  --rzz-primitive-color-slate-950: #09090b; /** Neutral más oscuro. */
+  --rzz-primitive-color-blue-50: #eff6ff; /** Primario más claro. */
+  --rzz-primitive-color-blue-100: #dbeafe; /** Primario muy claro. */
+  --rzz-primitive-color-blue-200: #bfdbfe; /** Primario claro. */
+  --rzz-primitive-color-blue-300: #93c5fd; /** Primario medio-claro. */
+  --rzz-primitive-color-blue-400: #60a5fa; /** Primario medio. */
+  --rzz-primitive-color-blue-500: #3b82f6; /** Primario de referencia. */
+  --rzz-primitive-color-blue-600: #2563eb; /** Primario medio-oscuro (acción por defecto en light). */
+  --rzz-primitive-color-blue-700: #1d4ed8; /** Primario oscuro (hover en light). */
+  --rzz-primitive-color-blue-800: #1e40af; /** Primario muy oscuro (active en light). */
+  --rzz-primitive-color-blue-900: #1e3a8a; /** Primario más oscuro. */
+  --rzz-primitive-color-red-50: #fff1f3; /** Carmesí más claro (tinte danger). */
+  --rzz-primitive-color-red-100: #ffe4e8; /** Carmesí muy claro. */
+  --rzz-primitive-color-red-200: #fecdd5; /** Carmesí claro (borde danger). */
+  --rzz-primitive-color-red-500: #f43f5e; /** Carmesí medio (peligro en dark). */
+  --rzz-primitive-color-red-600: #e11d48; /** Carmesí medio-oscuro (peligro en light). */
+  --rzz-primitive-color-red-700: #be123c; /** Carmesí oscuro (hover/active danger). */
+  --rzz-primitive-color-red-950: #4c0519; /** Carmesí más oscuro (tinte danger dark). */
+  --rzz-primitive-color-green-50: #f0fdf4; /** Verde más claro. */
+  --rzz-primitive-color-green-100: #dcfce7; /** Verde muy claro (tinte success). */
+  --rzz-primitive-color-green-200: #bbf7d0; /** Verde claro (borde success). */
+  --rzz-primitive-color-green-300: #86efac; /** Verde medio-claro (texto success dark). */
+  --rzz-primitive-color-green-600: #16a34a; /** Verde medio. */
+  --rzz-primitive-color-green-700: #15803d; /** Verde oscuro (texto success light). */
+  --rzz-primitive-color-green-950: #052e16; /** Verde más oscuro (tinte success dark). */
+  --rzz-primitive-color-amber-50: #fffbeb; /** Ámbar más claro. */
+  --rzz-primitive-color-amber-100: #fef3c7; /** Ámbar muy claro (tinte warning). */
+  --rzz-primitive-color-amber-200: #fde68a; /** Ámbar claro (borde warning). */
+  --rzz-primitive-color-amber-300: #fcd34d; /** Ámbar medio-claro (texto warning dark). */
+  --rzz-primitive-color-amber-600: #d97706; /** Ámbar medio. */
+  --rzz-primitive-color-amber-700: #b45309; /** Ámbar oscuro (texto warning light). */
+  --rzz-primitive-color-amber-950: #451a03; /** Ámbar más oscuro (tinte warning dark). */
+  --rzz-primitive-color-white: #ffffff; /** Blanco puro (superficies elevadas sobre canvas). */
+  --rzz-primitive-shadow-xs: 0px 0px 0px 1px rgb(0% 0% 0% / 0.04), 0px 1px 2px 0px rgb(0% 0% 0% / 0.06); /** Contacto 1px + diffuse corta (botones/inputs). */
+  --rzz-primitive-shadow-sm: 0px 0px 0px 1px rgb(0% 0% 0% / 0.04), 0px 2px 4px 0px rgb(0% 0% 0% / 0.05), 0px 4px 12px 0px rgb(0% 0% 0% / 0.04); /** Contacto + diffuse media (tarjetas). */
+  --rzz-primitive-shadow-md: 0px 0px 0px 1px rgb(0% 0% 0% / 0.05), 0px 4px 8px 0px rgb(0% 0% 0% / 0.06), 0px 12px 24px 0px rgb(0% 0% 0% / 0.08); /** Contacto + diffuse amplia (popovers/toasts). */
+  --rzz-primitive-spacing-4: 0.25rem; /** 4px → 0.25rem. */
+  --rzz-primitive-spacing-8: 0.5rem; /** 8px → 0.5rem. */
+  --rzz-primitive-spacing-12: 0.75rem; /** 12px → 0.75rem. */
+  --rzz-primitive-spacing-16: 1rem; /** 16px → 1rem. */
+  --rzz-primitive-spacing-20: 1.25rem; /** 20px → 1.25rem. */
+  --rzz-primitive-spacing-24: 1.5rem; /** 24px → 1.5rem. */
+  --rzz-primitive-spacing-32: 2rem; /** 32px → 2rem. */
+  --rzz-primitive-spacing-40: 2.5rem; /** 40px → 2.5rem. */
+  --rzz-primitive-spacing-48: 3rem; /** 48px → 3rem. */
+  --rzz-primitive-spacing-56: 3.5rem; /** 56px → 3.5rem. */
+  --rzz-primitive-spacing-64: 4rem; /** 64px → 4rem. */
+  --rzz-primitive-radius-sm: 0.25rem; /** Radio pequeño (4px / 0.25rem). */
+  --rzz-primitive-radius-md: 0.375rem; /** Radio base botones/inputs (6px / 0.375rem). */
+  --rzz-primitive-radius-lg: 0.625rem; /** Radio grande (10px / 0.625rem). */
+  --rzz-primitive-radius-full: 9999px; /** Radio píldora / circular (9999px). */
+  --rzz-primitive-font-family-sans: Inter, ui-sans-serif, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; /** Familia sans-serif del sistema. */
+  --rzz-primitive-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; /** Familia monoespaciada del sistema. */
+  --rzz-primitive-font-size-xs-font-size: 0.75rem; /** 12px → 0.75rem. */
+  --rzz-primitive-font-size-xs-line-height: 1.333; /** Line-height relativo (~16px sobre 12px). */
+  --rzz-primitive-font-size-sm-font-size: 0.875rem; /** 14px → 0.875rem. */
+  --rzz-primitive-font-size-sm-line-height: 1.429; /** Line-height relativo (~20px sobre 14px). */
+  --rzz-primitive-font-size-md-font-size: 1rem; /** 16px → 1rem (base). */
+  --rzz-primitive-font-size-md-line-height: 1.5; /** Line-height relativo (24px sobre 16px). */
+  --rzz-primitive-font-size-lg-font-size: 1.125rem; /** 18px → 1.125rem. */
+  --rzz-primitive-font-size-lg-line-height: 1.556; /** Line-height relativo (~28px sobre 18px). */
+  --rzz-primitive-font-size-xl-font-size: 1.25rem; /** 20px → 1.25rem. */
+  --rzz-primitive-font-size-xl-line-height: 1.4; /** Line-height relativo (28px sobre 20px). */
+  --rzz-primitive-font-size-2xl-font-size: 1.5rem; /** 24px → 1.5rem. */
+  --rzz-primitive-font-size-2xl-line-height: 1.333; /** Line-height relativo (32px sobre 24px). */
+  --rzz-primitive-font-size-3xl-font-size: 1.875rem; /** 30px → 1.875rem. */
+  --rzz-primitive-font-size-3xl-line-height: 1.2; /** Line-height relativo (36px sobre 30px). */
+  --rzz-primitive-z-index-base: 0; /** Capa base / contenido. */
+  --rzz-primitive-z-index-sticky: 100; /** Headers y columnas sticky. */
+  --rzz-primitive-z-index-banner: 200; /** Banner global de anuncio. */
+  --rzz-primitive-z-index-dropdown: 1000; /** Menus, popovers y dropdowns. */
+  --rzz-primitive-z-index-modal: 1050; /** Modales y sheets. */
+  --rzz-primitive-z-index-toast: 1070; /** Toasts / notificaciones. */
+  --rzz-primitive-z-index-tooltip: 1080; /** Tooltips sobre overlays. */
+  --rzz-primitive-motion-duration-fast: 120ms; /** Microinteracciones rápidas. */
+  --rzz-primitive-motion-duration-normal: 200ms; /** Apertura/cierre estándar. */
+  --rzz-primitive-motion-duration-slow: 300ms; /** Transiciones enfatizadas. */
+  --rzz-primitive-motion-easing-standard: cubic-bezier(0.16, 1, 0.3, 1); /** Easing craft (ease-out expresivo). */
+  --rzz-shadow-xs: var(--rzz-primitive-shadow-xs); /** Elevación xs — botones e inputs. */
+  --rzz-shadow-sm: var(--rzz-primitive-shadow-sm); /** Elevación sm — tarjetas. */
+  --rzz-shadow-md: var(--rzz-primitive-shadow-md); /** Elevación md — popovers y overlays. */
+  --rzz-z-base: var(--rzz-primitive-z-index-base); /** Capa base. */
+  --rzz-z-sticky: var(--rzz-primitive-z-index-sticky); /** Sticky. */
+  --rzz-z-banner: var(--rzz-primitive-z-index-banner); /** Banner. */
+  --rzz-z-dropdown: var(--rzz-primitive-z-index-dropdown); /** Dropdown. */
+  --rzz-z-modal: var(--rzz-primitive-z-index-modal); /** Modal/sheet. */
+  --rzz-z-toast: var(--rzz-primitive-z-index-toast); /** Toast. */
+  --rzz-z-tooltip: var(--rzz-primitive-z-index-tooltip); /** Tooltip. */
+  --rzz-duration-fast: var(--rzz-primitive-motion-duration-fast); /** Rápida. */
+  --rzz-duration-normal: var(--rzz-primitive-motion-duration-normal); /** Normal. */
+  --rzz-duration-slow: var(--rzz-primitive-motion-duration-slow); /** Lenta. */
+  --rzz-ease-standard: var(--rzz-primitive-motion-easing-standard); /** Estándar craft. */
+  --rzz-surface-canvas: var(--rzz-primitive-color-slate-50); /** Fondo de página (#fafafa zinc-50). */
+  --rzz-surface-card: var(--rzz-primitive-color-white); /** Superficie de tarjeta sobre el canvas. */
+  --rzz-surface-elevated: var(--rzz-primitive-color-white); /** Superficie elevada (modales, popovers, drawers). */
+  --rzz-surface-subtle: var(--rzz-primitive-color-slate-100); /** Fondo tenue neutro (botones secondary, chips). */
+  --rzz-surface-scrim: var(--rzz-primitive-color-slate-950); /** Base de overlay/scrim (usar con color-mix/opacity). */
+  --rzz-content-primary: var(--rzz-primitive-color-slate-900); /** Texto principal de alto contraste. */
+  --rzz-content-secondary: var(--rzz-primitive-color-slate-700); /** Texto secundario. */
+  --rzz-content-muted: var(--rzz-primitive-color-slate-500); /** Texto atenuado / placeholder. */
+  --rzz-content-inverse: var(--rzz-primitive-color-white); /** Texto/icono sobre superficies de acción o fondos oscuros. */
+  --rzz-border-subtle: var(--rzz-primitive-color-slate-200); /** Borde discreto / divisores. */
+  --rzz-border-strong: var(--rzz-primitive-color-slate-400); /** Borde con mayor énfasis. */
+  --rzz-border-focus: var(--rzz-primitive-color-blue-500); /** Anillo o borde de foco accesible. */
+  --rzz-action-primary-default: var(--rzz-primitive-color-blue-600); /** Acción primaria en estado por defecto. */
+  --rzz-action-primary-hover: var(--rzz-primitive-color-blue-700); /** Acción primaria en hover. */
+  --rzz-action-primary-active: var(--rzz-primitive-color-blue-800); /** Acción primaria en pressed/active. */
+  --rzz-action-danger-default: var(--rzz-primitive-color-red-600); /** Acción destructiva en estado por defecto. */
+  --rzz-action-danger-hover: var(--rzz-primitive-color-red-700); /** Acción destructiva en hover. */
+  --rzz-action-danger-active: var(--rzz-primitive-color-red-700); /** Acción destructiva en pressed/active. */
+  --rzz-feedback-info-subtle: var(--rzz-primitive-color-blue-50); /** Fondo tenue info. */
+  --rzz-feedback-info-foreground: var(--rzz-primitive-color-blue-700); /** Texto/icono info. */
+  --rzz-feedback-info-border: var(--rzz-primitive-color-blue-200); /** Borde info. */
+  --rzz-feedback-success-subtle: var(--rzz-primitive-color-green-100); /** Fondo tenue success. */
+  --rzz-feedback-success-foreground: var(--rzz-primitive-color-green-700); /** Texto/icono success. */
+  --rzz-feedback-success-border: var(--rzz-primitive-color-green-200); /** Borde success. */
+  --rzz-feedback-warning-subtle: var(--rzz-primitive-color-amber-100); /** Fondo tenue warning. */
+  --rzz-feedback-warning-foreground: var(--rzz-primitive-color-amber-700); /** Texto/icono warning. */
+  --rzz-feedback-warning-border: var(--rzz-primitive-color-amber-200); /** Borde warning. */
+  --rzz-feedback-danger-subtle: var(--rzz-primitive-color-red-100); /** Fondo tenue danger. */
+  --rzz-feedback-danger-foreground: var(--rzz-primitive-color-red-700); /** Texto/icono danger. */
+  --rzz-feedback-danger-border: var(--rzz-primitive-color-red-200); /** Borde danger. */
+  --rzz-space-4: var(--rzz-primitive-spacing-4); /** Espacio 4. */
+  --rzz-space-8: var(--rzz-primitive-spacing-8); /** Espacio 8. */
+  --rzz-space-12: var(--rzz-primitive-spacing-12); /** Espacio 12. */
+  --rzz-space-16: var(--rzz-primitive-spacing-16); /** Espacio 16. */
+  --rzz-space-20: var(--rzz-primitive-spacing-20); /** Espacio 20. */
+  --rzz-space-24: var(--rzz-primitive-spacing-24); /** Espacio 24. */
+  --rzz-space-32: var(--rzz-primitive-spacing-32); /** Espacio 32. */
+  --rzz-space-40: var(--rzz-primitive-spacing-40); /** Espacio 40. */
+  --rzz-space-48: var(--rzz-primitive-spacing-48); /** Espacio 48. */
+  --rzz-space-56: var(--rzz-primitive-spacing-56); /** Espacio 56. */
+  --rzz-space-64: var(--rzz-primitive-spacing-64); /** Espacio 64. */
+  --rzz-radius-sm: var(--rzz-primitive-radius-sm); /** Radio sm. */
+  --rzz-radius-md: var(--rzz-primitive-radius-md); /** Radio md. */
+  --rzz-radius-lg: var(--rzz-primitive-radius-lg); /** Radio lg. */
+  --rzz-radius-full: var(--rzz-primitive-radius-full); /** Radio full. */
+  --rzz-font-sans: var(--rzz-primitive-font-family-sans); /** Sans. */
+  --rzz-font-mono: var(--rzz-primitive-font-family-mono); /** Mono. */
+  --rzz-text-xs: var(--rzz-primitive-font-size-xs-font-size); /** Font-size xs. */
+  --rzz-text-sm: var(--rzz-primitive-font-size-sm-font-size); /** Font-size sm. */
+  --rzz-text-md: var(--rzz-primitive-font-size-md-font-size); /** Font-size md. */
+  --rzz-text-lg: var(--rzz-primitive-font-size-lg-font-size); /** Font-size lg. */
+  --rzz-text-xl: var(--rzz-primitive-font-size-xl-font-size); /** Font-size xl. */
+  --rzz-text-2xl: var(--rzz-primitive-font-size-2xl-font-size); /** Font-size 2xl. */
+  --rzz-text-3xl: var(--rzz-primitive-font-size-3xl-font-size); /** Font-size 3xl. */
+  --rzz-leading-xs: var(--rzz-primitive-font-size-xs-line-height); /** Line-height xs. */
+  --rzz-leading-sm: var(--rzz-primitive-font-size-sm-line-height); /** Line-height sm. */
+  --rzz-leading-md: var(--rzz-primitive-font-size-md-line-height); /** Line-height md. */
+  --rzz-leading-lg: var(--rzz-primitive-font-size-lg-line-height); /** Line-height lg. */
+  --rzz-leading-xl: var(--rzz-primitive-font-size-xl-line-height); /** Line-height xl. */
+  --rzz-leading-2xl: var(--rzz-primitive-font-size-2xl-line-height); /** Line-height 2xl. */
+  --rzz-leading-3xl: var(--rzz-primitive-font-size-3xl-line-height); /** Line-height 3xl. */
 }
 
 [data-theme="dark"] {
-  --ds-shadow-xs: 0px 0px 0px 1px rgb(0% 0% 0% / 0.5), 0px 1px 2px 0px rgb(0% 0% 0% / 0.35); /** Sombra xs en dark. */
-  --ds-shadow-sm: 0px 0px 0px 1px rgb(0% 0% 0% / 0.55), 0px 2px 4px 0px rgb(0% 0% 0% / 0.4), 0px 8px 16px 0px rgb(0% 0% 0% / 0.3); /** Sombra sm en dark. */
-  --ds-shadow-md: 0px 0px 0px 1px rgb(0% 0% 0% / 0.6), 0px 4px 8px 0px rgb(0% 0% 0% / 0.45), 0px 16px 32px 0px rgb(0% 0% 0% / 0.35); /** Sombra md en dark. */
-  --ds-semantic-surface-canvas: var(--ds-primitive-color-slate-950); /** Fondo de página / viewport en dark. */
-  --ds-semantic-surface-card: var(--ds-primitive-color-slate-900); /** Superficie de tarjeta sobre el canvas dark. */
-  --ds-semantic-surface-elevated: var(--ds-primitive-color-slate-800); /** Superficie elevada (modales, popovers) en dark. */
-  --ds-semantic-surface-subtle: var(--ds-primitive-color-slate-800); /** Fondo tenue neutro en dark (secondary, chips). */
-  --ds-semantic-content-primary: var(--ds-primitive-color-slate-50); /** Texto principal claro sobre superficies oscuras. */
-  --ds-semantic-content-secondary: var(--ds-primitive-color-slate-300); /** Texto secundario en dark. */
-  --ds-semantic-content-muted: var(--ds-primitive-color-slate-400); /** Texto atenuado en dark. */
-  --ds-semantic-content-inverse: var(--ds-primitive-color-slate-900); /** Texto sobre fondos claros o chips claros en dark. */
-  --ds-semantic-border-subtle: var(--ds-primitive-color-slate-700); /** Borde discreto en dark. */
-  --ds-semantic-border-strong: var(--ds-primitive-color-slate-500); /** Borde enfatizado en dark. */
-  --ds-semantic-border-focus: var(--ds-primitive-color-blue-400); /** Anillo de foco más luminoso sobre fondos oscuros. */
-  --ds-semantic-action-primary-default: var(--ds-primitive-color-blue-500); /** Acción primaria por defecto en dark. */
-  --ds-semantic-action-primary-hover: var(--ds-primitive-color-blue-400); /** Acción primaria hover en dark. */
-  --ds-semantic-action-primary-active: var(--ds-primitive-color-blue-300); /** Acción primaria active en dark. */
-  --ds-semantic-action-danger-default: var(--ds-primitive-color-red-500); /** Acción destructiva por defecto en dark. */
-  --ds-semantic-action-danger-hover: var(--ds-primitive-color-red-600); /** Acción destructiva hover en dark. */
-  --ds-semantic-action-danger-active: var(--ds-primitive-color-red-600); /** Acción destructiva active en dark. */
-  --ds-semantic-feedback-info-subtle: var(--ds-primitive-color-blue-900); /** Fondo tenue info en dark. */
-  --ds-semantic-feedback-info-foreground: var(--ds-primitive-color-blue-300); /** Texto info en dark. */
-  --ds-semantic-feedback-info-border: var(--ds-primitive-color-blue-800); /** Borde info en dark. */
-  --ds-semantic-feedback-success-subtle: var(--ds-primitive-color-green-950); /** Fondo tenue success en dark. */
-  --ds-semantic-feedback-success-foreground: var(--ds-primitive-color-green-300); /** Texto success en dark. */
-  --ds-semantic-feedback-success-border: var(--ds-primitive-color-green-700); /** Borde success en dark. */
-  --ds-semantic-feedback-warning-subtle: var(--ds-primitive-color-amber-950); /** Fondo tenue warning en dark. */
-  --ds-semantic-feedback-warning-foreground: var(--ds-primitive-color-amber-300); /** Texto warning en dark. */
-  --ds-semantic-feedback-warning-border: var(--ds-primitive-color-amber-700); /** Borde warning en dark. */
-  --ds-semantic-feedback-danger-subtle: var(--ds-primitive-color-red-950); /** Fondo tenue danger en dark. */
-  --ds-semantic-feedback-danger-foreground: var(--ds-primitive-color-red-500); /** Texto danger en dark. */
-  --ds-semantic-feedback-danger-border: var(--ds-primitive-color-red-700); /** Borde danger en dark. */
+  --rzz-shadow-xs: 0px 0px 0px 1px rgb(0% 0% 0% / 0.5), 0px 1px 2px 0px rgb(0% 0% 0% / 0.35); /** Sombra xs en dark. */
+  --rzz-shadow-sm: 0px 0px 0px 1px rgb(0% 0% 0% / 0.55), 0px 2px 4px 0px rgb(0% 0% 0% / 0.4), 0px 8px 16px 0px rgb(0% 0% 0% / 0.3); /** Sombra sm en dark. */
+  --rzz-shadow-md: 0px 0px 0px 1px rgb(0% 0% 0% / 0.6), 0px 4px 8px 0px rgb(0% 0% 0% / 0.45), 0px 16px 32px 0px rgb(0% 0% 0% / 0.35); /** Sombra md en dark. */
+  --rzz-surface-canvas: var(--rzz-primitive-color-slate-950); /** Fondo de página / viewport en dark. */
+  --rzz-surface-card: var(--rzz-primitive-color-slate-900); /** Superficie de tarjeta sobre el canvas dark. */
+  --rzz-surface-elevated: var(--rzz-primitive-color-slate-800); /** Superficie elevada (modales, popovers) en dark. */
+  --rzz-surface-subtle: var(--rzz-primitive-color-slate-800); /** Fondo tenue neutro en dark (secondary, chips). */
+  --rzz-surface-scrim: var(--rzz-primitive-color-slate-950); /** Base de overlay/scrim en dark. */
+  --rzz-content-primary: var(--rzz-primitive-color-slate-50); /** Texto principal claro sobre superficies oscuras. */
+  --rzz-content-secondary: var(--rzz-primitive-color-slate-300); /** Texto secundario en dark. */
+  --rzz-content-muted: var(--rzz-primitive-color-slate-400); /** Texto atenuado en dark. */
+  --rzz-content-inverse: var(--rzz-primitive-color-slate-950); /** Texto sobre fondos claros / acciones claras en dark. */
+  --rzz-border-subtle: var(--rzz-primitive-color-slate-700); /** Borde discreto en dark. */
+  --rzz-border-strong: var(--rzz-primitive-color-slate-500); /** Borde enfatizado en dark. */
+  --rzz-border-focus: var(--rzz-primitive-color-blue-400); /** Anillo de foco más luminoso sobre fondos oscuros. */
+  --rzz-action-primary-default: var(--rzz-primitive-color-blue-500); /** Acción primaria por defecto en dark. */
+  --rzz-action-primary-hover: var(--rzz-primitive-color-blue-400); /** Acción primaria hover en dark. */
+  --rzz-action-primary-active: var(--rzz-primitive-color-blue-300); /** Acción primaria active en dark. */
+  --rzz-action-danger-default: var(--rzz-primitive-color-red-500); /** Acción destructiva por defecto en dark. */
+  --rzz-action-danger-hover: var(--rzz-primitive-color-red-600); /** Acción destructiva hover en dark. */
+  --rzz-action-danger-active: var(--rzz-primitive-color-red-600); /** Acción destructiva active en dark. */
+  --rzz-feedback-info-subtle: var(--rzz-primitive-color-blue-900); /** Fondo tenue info en dark. */
+  --rzz-feedback-info-foreground: var(--rzz-primitive-color-blue-300); /** Texto info en dark. */
+  --rzz-feedback-info-border: var(--rzz-primitive-color-blue-800); /** Borde info en dark. */
+  --rzz-feedback-success-subtle: var(--rzz-primitive-color-green-950); /** Fondo tenue success en dark. */
+  --rzz-feedback-success-foreground: var(--rzz-primitive-color-green-300); /** Texto success en dark. */
+  --rzz-feedback-success-border: var(--rzz-primitive-color-green-700); /** Borde success en dark. */
+  --rzz-feedback-warning-subtle: var(--rzz-primitive-color-amber-950); /** Fondo tenue warning en dark. */
+  --rzz-feedback-warning-foreground: var(--rzz-primitive-color-amber-300); /** Texto warning en dark. */
+  --rzz-feedback-warning-border: var(--rzz-primitive-color-amber-700); /** Borde warning en dark. */
+  --rzz-feedback-danger-subtle: var(--rzz-primitive-color-red-950); /** Fondo tenue danger en dark. */
+  --rzz-feedback-danger-foreground: var(--rzz-primitive-color-red-500); /** Texto danger en dark. */
+  --rzz-feedback-danger-border: var(--rzz-primitive-color-red-700); /** Borde danger en dark. */
 }

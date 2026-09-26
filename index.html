@@ -11,41 +11,42 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="dist/css/variables.css" />
-    <link rel="stylesheet" href="src/components/ui/button/button.css" />
-    <link rel="stylesheet" href="src/components/ui/card/card.css" />
-    <link rel="stylesheet" href="src/components/ui/input/input.styles.css" />
-    <link rel="stylesheet" href="src/components/ui/dialog/dialog.css" />
-    <link rel="stylesheet" href="src/components/ui/checkbox/checkbox.css" />
-    <link rel="stylesheet" href="src/components/ui/switch/switch.css" />
-    <link rel="stylesheet" href="src/components/ui/select/select.css" />
-    <link rel="stylesheet" href="src/components/ui/badge/badge.css" />
-    <link rel="stylesheet" href="src/components/ui/alert/alert.css" />
-    <link rel="stylesheet" href="src/components/ui/toast/toast.css" />
-    <link rel="stylesheet" href="src/components/ui/breadcrumb/breadcrumb.css" />
-    <link rel="stylesheet" href="src/components/ui/tabs/tabs.css" />
-    <link rel="stylesheet" href="src/components/ui/popover/popover.css" />
-    <link rel="stylesheet" href="src/components/ui/accordion/accordion.css" />
-    <link rel="stylesheet" href="src/components/ui/data-table/data-table.css" />
-    <link rel="stylesheet" href="src/components/ui/avatar/avatar.styles.css" />
-    <link rel="stylesheet" href="src/components/ui/skeleton/skeleton.css" />
-    <link rel="stylesheet" href="src/components/ui/tooltip/tooltip.css" />
-    <link rel="stylesheet" href="src/components/ui/textarea/textarea.css" />
-    <link rel="stylesheet" href="src/components/ui/search-kbd-input/search-kbd-input.css" />
-    <link rel="stylesheet" href="src/components/ui/floating-label-input/floating-label-input.css" />
-    <link rel="stylesheet" href="src/components/ui/currency-counter-input/currency-counter-input.css" />
-    <link rel="stylesheet" href="src/components/ui/password-strength-input/password-strength-input.css" />
-    <link rel="stylesheet" href="src/components/ui/pin-code-input/pin-code-input.css" />
-    <link rel="stylesheet" href="src/components/ui/async-validation-input/async-validation-input.css" />
-    <link rel="stylesheet" href="src/components/ui/avatar-group/avatar-group.css" />
-    <link rel="stylesheet" href="src/components/ui/setting-row/setting-row.css" />
-    <link rel="stylesheet" href="src/components/ui/radio-card/radio-card.css" />
-    <link rel="stylesheet" href="src/components/ui/sheet/sheet.css" />
-    <link rel="stylesheet" href="src/components/ui/empty-state/empty-state.css" />
-    <link rel="stylesheet" href="src/components/ui/stat-card/stat-card.css" />
-    <link rel="stylesheet" href="src/components/ui/copy-button/copy-button.css" />
-    <link rel="stylesheet" href="src/components/ui/pagination/pagination.css" />
-    <link rel="stylesheet" href="src/components/ui/banner/banner.css" />
-    <link rel="stylesheet" href="src/components/ui/timeline/timeline.css" />
+    <link rel="stylesheet" href="registry/ui/button/button.css" />
+    <link rel="stylesheet" href="registry/ui/card/card.css" />
+    <link rel="stylesheet" href="registry/ui/input/input.css" />
+    <link rel="stylesheet" href="registry/ui/dialog/dialog.css" />
+    <link rel="stylesheet" href="registry/ui/checkbox/checkbox.css" />
+    <link rel="stylesheet" href="registry/ui/switch/switch.css" />
+    <link rel="stylesheet" href="registry/ui/select/select.css" />
+    <link rel="stylesheet" href="registry/ui/badge/badge.css" />
+    <link rel="stylesheet" href="registry/ui/alert/alert.css" />
+    <link rel="stylesheet" href="registry/ui/toast/toast.css" />
+    <link rel="stylesheet" href="registry/ui/breadcrumb/breadcrumb.css" />
+    <link rel="stylesheet" href="registry/ui/tabs/tabs.css" />
+    <link rel="stylesheet" href="registry/ui/popover/popover.css" />
+    <link rel="stylesheet" href="registry/ui/accordion/accordion.css" />
+    <link rel="stylesheet" href="registry/ui/data-table/data-table.css" />
+    <link rel="stylesheet" href="registry/ui/avatar/avatar.css" />
+    <link rel="stylesheet" href="registry/ui/skeleton/skeleton.css" />
+    <link rel="stylesheet" href="registry/ui/tooltip/tooltip.css" />
+    <link rel="stylesheet" href="registry/ui/textarea/textarea.css" />
+    <link rel="stylesheet" href="registry/ui/search-kbd-input/search-kbd-input.css" />
+    <link rel="stylesheet" href="registry/ui/floating-label-input/floating-label-input.css" />
+    <link rel="stylesheet" href="registry/ui/currency-counter-input/currency-counter-input.css" />
+    <link rel="stylesheet" href="registry/ui/password-strength-input/password-strength-input.css" />
+    <link rel="stylesheet" href="registry/ui/pin-code-input/pin-code-input.css" />
+    <link rel="stylesheet" href="registry/ui/async-validation-input/async-validation-input.css" />
+    <link rel="stylesheet" href="registry/ui/avatar-group/avatar-group.css" />
+    <link rel="stylesheet" href="registry/ui/setting-row/setting-row.css" />
+    <link rel="stylesheet" href="registry/ui/radio-card/radio-card.css" />
+    <link rel="stylesheet" href="registry/ui/sheet/sheet.css" />
+    <link rel="stylesheet" href="registry/ui/empty-state/empty-state.css" />
+    <link rel="stylesheet" href="registry/ui/stat-card/stat-card.css" />
+    <link rel="stylesheet" href="registry/ui/copy-button/copy-button.css" />
+    <link rel="stylesheet" href="registry/ui/pagination/pagination.css" />
+    <link rel="stylesheet" href="registry/ui/banner/banner.css" />
+    <link rel="stylesheet" href="registry/ui/timeline/timeline.css" />
+    <link rel="stylesheet" href="registry/foundation/reduced-motion.css" />
     <style>
       *,
       *::before,
@@ -56,8 +57,8 @@
       body {
         margin: 0;
         min-height: 100vh;
-        background-color: var(--ds-semantic-surface-canvas);
-        color: var(--ds-semantic-content-primary);
+        background-color: var(--rzz-surface-canvas);
+        color: var(--rzz-content-primary);
         font-family:
           Inter,
           ui-sans-serif,
@@ -67,8 +68,8 @@
           'Segoe UI',
           Roboto,
           sans-serif;
-        font-size: var(--ds-primitive-font-size-md-font-size);
-        line-height: var(--ds-primitive-font-size-md-line-height);
+        font-size: var(--rzz-text-md);
+        line-height: var(--rzz-leading-md);
         letter-spacing: -0.011em;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -78,54 +79,54 @@
       .playground {
         max-width: 72rem;
         margin-inline: auto;
-        padding: var(--ds-primitive-spacing-64) var(--ds-primitive-spacing-24)
-          var(--ds-primitive-spacing-48);
+        padding: var(--rzz-space-64) var(--rzz-space-24)
+          var(--rzz-space-48);
       }
 
       .playground__theme-toggle {
         position: fixed;
-        top: var(--ds-primitive-spacing-16);
-        right: var(--ds-primitive-spacing-16);
+        top: var(--rzz-space-16);
+        right: var(--rzz-space-16);
         z-index: 10;
       }
 
       .playground__intro {
-        margin-block-end: var(--ds-primitive-spacing-40);
+        margin-block-end: var(--rzz-space-40);
       }
 
       .playground__intro h1 {
-        margin: 0 0 var(--ds-primitive-spacing-8);
-        font-size: var(--ds-primitive-font-size-3xl-font-size);
+        margin: 0 0 var(--rzz-space-8);
+        font-size: var(--rzz-text-3xl);
         font-weight: 600;
         letter-spacing: -0.02em;
-        line-height: var(--ds-primitive-font-size-3xl-line-height);
+        line-height: var(--rzz-leading-3xl);
       }
 
       .playground__intro p {
         margin: 0;
         max-width: 40rem;
-        color: var(--ds-semantic-content-muted);
-        font-size: var(--ds-primitive-font-size-sm-font-size);
-        line-height: var(--ds-primitive-font-size-sm-line-height);
+        color: var(--rzz-content-muted);
+        font-size: var(--rzz-text-sm);
+        line-height: var(--rzz-leading-sm);
       }
 
       .playground__section {
-        margin-block-end: var(--ds-primitive-spacing-48);
+        margin-block-end: var(--rzz-space-48);
       }
 
       .playground__section h2 {
-        margin: 0 0 var(--ds-primitive-spacing-16);
-        font-size: var(--ds-primitive-font-size-lg-font-size);
+        margin: 0 0 var(--rzz-space-16);
+        font-size: var(--rzz-text-lg);
         font-weight: 500;
         letter-spacing: -0.01em;
-        line-height: var(--ds-primitive-font-size-lg-line-height);
-        color: var(--ds-semantic-content-secondary);
+        line-height: var(--rzz-leading-lg);
+        color: var(--rzz-content-secondary);
       }
 
       .playground__grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
-        gap: var(--ds-primitive-spacing-12);
+        gap: var(--rzz-space-12);
       }
 
       .playground__cell {
@@ -133,19 +134,19 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: space-between;
-        gap: var(--ds-primitive-spacing-16);
+        gap: var(--rzz-space-16);
         min-height: 6.5rem;
-        padding: var(--ds-primitive-spacing-20);
-        border: 1px solid var(--ds-semantic-border-subtle);
-        border-radius: var(--ds-primitive-radius-lg);
-        background-color: var(--ds-semantic-surface-card);
-        box-shadow: var(--ds-shadow-xs);
+        padding: var(--rzz-space-20);
+        border: 1px solid var(--rzz-border-subtle);
+        border-radius: var(--rzz-radius-lg);
+        background-color: var(--rzz-surface-card);
+        box-shadow: var(--rzz-shadow-xs);
       }
 
       .playground__label {
-        color: var(--ds-semantic-content-muted);
-        font-size: var(--ds-primitive-font-size-xs-font-size);
-        line-height: var(--ds-primitive-font-size-xs-line-height);
+        color: var(--rzz-content-muted);
+        font-size: var(--rzz-text-xs);
+        line-height: var(--rzz-leading-xs);
         font-weight: 500;
         letter-spacing: 0.01em;
       }
@@ -153,28 +154,28 @@
       /* Hover simulado sin interacción real (validación visual estática). */
       .ds-button--primary.is-hover-sim {
         border-color: transparent;
-        background-color: var(--ds-semantic-action-primary-hover);
-        color: var(--ds-primitive-color-slate-50);
-        box-shadow: var(--ds-shadow-xs);
+        background-color: var(--rzz-action-primary-hover);
+        color: var(--rzz-primitive-color-slate-50);
+        box-shadow: var(--rzz-shadow-xs);
       }
 
       .ds-button--secondary.is-hover-sim {
-        border-color: var(--ds-semantic-border-subtle);
-        background-color: var(--ds-semantic-surface-elevated);
-        color: var(--ds-semantic-content-primary);
+        border-color: var(--rzz-border-subtle);
+        background-color: var(--rzz-surface-elevated);
+        color: var(--rzz-content-primary);
       }
 
       .ds-button--danger.is-hover-sim {
         border-color: transparent;
-        background-color: var(--ds-semantic-action-danger-hover);
-        color: var(--ds-primitive-color-slate-50);
-        box-shadow: var(--ds-shadow-xs);
+        background-color: var(--rzz-action-danger-hover);
+        color: var(--rzz-primitive-color-slate-50);
+        box-shadow: var(--rzz-shadow-xs);
       }
 
       .ds-button--ghost.is-hover-sim {
         border-color: transparent;
-        background-color: var(--ds-semantic-surface-subtle);
-        color: var(--ds-semantic-content-primary);
+        background-color: var(--rzz-surface-subtle);
+        color: var(--rzz-content-primary);
       }
 
       .playground__card-wrap {
@@ -184,40 +185,40 @@
       .playground__stack {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-        gap: var(--ds-primitive-spacing-16);
+        gap: var(--rzz-space-16);
       }
 
       .playground__stack-item {
-        padding: var(--ds-primitive-spacing-20);
-        border: 1px solid var(--ds-semantic-border-subtle);
-        border-radius: var(--ds-primitive-radius-lg);
-        background-color: var(--ds-semantic-surface-card);
-        box-shadow: var(--ds-shadow-xs);
+        padding: var(--rzz-space-20);
+        border: 1px solid var(--rzz-border-subtle);
+        border-radius: var(--rzz-radius-lg);
+        background-color: var(--rzz-surface-card);
+        box-shadow: var(--rzz-shadow-xs);
       }
 
       .playground__dialog-demo {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: var(--ds-primitive-spacing-12);
-        padding: var(--ds-primitive-spacing-20);
-        border: 1px solid var(--ds-semantic-border-subtle);
-        border-radius: var(--ds-primitive-radius-lg);
-        background-color: var(--ds-semantic-surface-card);
-        box-shadow: var(--ds-shadow-xs);
+        gap: var(--rzz-space-12);
+        padding: var(--rzz-space-20);
+        border: 1px solid var(--rzz-border-subtle);
+        border-radius: var(--rzz-radius-lg);
+        background-color: var(--rzz-surface-card);
+        box-shadow: var(--rzz-shadow-xs);
         max-width: 28rem;
       }
 
       .playground__dialog-demo p {
         margin: 0;
         flex: 1 1 100%;
-        color: var(--ds-semantic-content-muted);
-        font-size: var(--ds-primitive-font-size-sm-font-size);
-        line-height: var(--ds-primitive-font-size-sm-line-height);
+        color: var(--rzz-content-muted);
+        font-size: var(--rzz-text-sm);
+        line-height: var(--rzz-leading-sm);
       }
 
       .playground__subsection {
-        margin-block-end: var(--ds-primitive-spacing-24);
+        margin-block-end: var(--rzz-space-24);
       }
 
       .playground__subsection:last-child {
@@ -225,85 +226,85 @@
       }
 
       .playground__subsection-title {
-        margin: 0 0 var(--ds-primitive-spacing-12);
-        color: var(--ds-semantic-content-muted);
-        font-size: var(--ds-primitive-font-size-sm-font-size);
+        margin: 0 0 var(--rzz-space-12);
+        color: var(--rzz-content-muted);
+        font-size: var(--rzz-text-sm);
         font-weight: 500;
         letter-spacing: 0.01em;
-        line-height: var(--ds-primitive-font-size-sm-line-height);
+        line-height: var(--rzz-leading-sm);
       }
 
       .playground__controls-row {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--ds-primitive-spacing-16);
-        padding: var(--ds-primitive-spacing-20);
-        border: 1px solid var(--ds-semantic-border-subtle);
-        border-radius: var(--ds-primitive-radius-lg);
-        background-color: var(--ds-semantic-surface-card);
-        box-shadow: var(--ds-shadow-xs);
+        gap: var(--rzz-space-16);
+        padding: var(--rzz-space-20);
+        border: 1px solid var(--rzz-border-subtle);
+        border-radius: var(--rzz-radius-lg);
+        background-color: var(--rzz-surface-card);
+        box-shadow: var(--rzz-shadow-xs);
       }
 
       .playground__badge-row {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: var(--ds-primitive-spacing-8);
-        padding: var(--ds-primitive-spacing-20);
-        border: 1px solid var(--ds-semantic-border-subtle);
-        border-radius: var(--ds-primitive-radius-lg);
-        background-color: var(--ds-semantic-surface-card);
-        box-shadow: var(--ds-shadow-xs);
+        gap: var(--rzz-space-8);
+        padding: var(--rzz-space-20);
+        border: 1px solid var(--rzz-border-subtle);
+        border-radius: var(--rzz-radius-lg);
+        background-color: var(--rzz-surface-card);
+        box-shadow: var(--rzz-shadow-xs);
       }
 
       .playground__alerts {
         display: flex;
         flex-direction: column;
-        gap: var(--ds-primitive-spacing-12);
+        gap: var(--rzz-space-12);
         max-width: 40rem;
       }
 
       .playground__toast-actions {
         display: flex;
         flex-wrap: wrap;
-        gap: var(--ds-primitive-spacing-8);
-        padding: var(--ds-primitive-spacing-20);
-        border: 1px solid var(--ds-semantic-border-subtle);
-        border-radius: var(--ds-primitive-radius-lg);
-        background-color: var(--ds-semantic-surface-card);
-        box-shadow: var(--ds-shadow-xs);
+        gap: var(--rzz-space-8);
+        padding: var(--rzz-space-20);
+        border: 1px solid var(--rzz-border-subtle);
+        border-radius: var(--rzz-radius-lg);
+        background-color: var(--rzz-surface-card);
+        box-shadow: var(--rzz-shadow-xs);
         max-width: 40rem;
       }
 
       .playground__nav-demo,
       .playground__tabs-demo {
-        padding: var(--ds-primitive-spacing-20);
-        border: 1px solid var(--ds-semantic-border-subtle);
-        border-radius: var(--ds-primitive-radius-lg);
-        background-color: var(--ds-semantic-surface-card);
-        box-shadow: var(--ds-shadow-xs);
+        padding: var(--rzz-space-20);
+        border: 1px solid var(--rzz-border-subtle);
+        border-radius: var(--rzz-radius-lg);
+        background-color: var(--rzz-surface-card);
+        box-shadow: var(--rzz-shadow-xs);
         max-width: 40rem;
       }
 
       .playground__tabs-demo .ds-tabs__content .ds-field {
-        margin-block-end: var(--ds-primitive-spacing-16);
+        margin-block-end: var(--rzz-space-16);
       }
 
       .playground__tabs-demo .ds-tabs__actions {
         display: flex;
         justify-content: flex-end;
-        gap: var(--ds-primitive-spacing-8);
+        gap: var(--rzz-space-8);
       }
 
       .playground__popover-demo,
       .playground__accordion-demo,
       .playground__table-demo {
-        padding: var(--ds-primitive-spacing-20);
-        border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
-        border-radius: var(--ds-primitive-radius-lg);
-        background-color: var(--ds-semantic-surface-card);
-        box-shadow: var(--ds-shadow-xs);
+        padding: var(--rzz-space-20);
+        border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+        border-radius: var(--rzz-radius-lg);
+        background-color: var(--rzz-surface-card);
+        box-shadow: var(--rzz-shadow-xs);
         max-width: 48rem;
       }
 
@@ -311,7 +312,7 @@
         display: inline-flex;
         width: 1rem;
         height: 1rem;
-        color: var(--ds-semantic-content-muted);
+        color: var(--rzz-content-muted);
         flex-shrink: 0;
       }
 
@@ -333,11 +334,11 @@
       }
 
       .playground__complement-demo {
-        padding: var(--ds-primitive-spacing-20);
-        border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
-        border-radius: var(--ds-primitive-radius-lg);
-        background-color: var(--ds-semantic-surface-card);
-        box-shadow: var(--ds-shadow-xs);
+        padding: var(--rzz-space-20);
+        border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+        border-radius: var(--rzz-radius-lg);
+        background-color: var(--rzz-surface-card);
+        box-shadow: var(--rzz-shadow-xs);
         max-width: 40rem;
       }
 
@@ -346,11 +347,11 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        gap: var(--ds-primitive-spacing-12);
+        gap: var(--rzz-space-12);
       }
 
       .playground__skeleton-block + .playground__skeleton-block {
-        margin-block-start: var(--ds-primitive-spacing-16);
+        margin-block-start: var(--rzz-space-16);
       }
 
       .playground__skeleton-actions {
@@ -361,120 +362,120 @@
 
       .playground__advanced-demo {
         display: grid;
-        gap: var(--ds-primitive-spacing-24);
-        padding: var(--ds-primitive-spacing-20);
-        border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
-        border-radius: var(--ds-primitive-radius-lg);
-        background-color: var(--ds-semantic-surface-card);
-        box-shadow: var(--ds-shadow-xs);
+        gap: var(--rzz-space-24);
+        padding: var(--rzz-space-20);
+        border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+        border-radius: var(--rzz-radius-lg);
+        background-color: var(--rzz-surface-card);
+        box-shadow: var(--rzz-shadow-xs);
         max-width: 40rem;
       }
 
       .playground__advanced-block {
         display: flex;
         flex-direction: column;
-        gap: var(--ds-primitive-spacing-8);
+        gap: var(--rzz-space-8);
         margin: 0;
       }
 
       .playground__advanced-block h3 {
         margin: 0;
-        color: var(--ds-semantic-content-primary);
-        font-size: var(--ds-primitive-font-size-sm-font-size);
+        color: var(--rzz-content-primary);
+        font-size: var(--rzz-text-sm);
         font-weight: 600;
         letter-spacing: -0.01em;
       }
 
       .playground__advanced-block p {
         margin: 0;
-        color: var(--ds-semantic-content-muted);
-        font-size: var(--ds-primitive-font-size-xs-font-size);
-        line-height: var(--ds-primitive-font-size-xs-line-height);
+        color: var(--rzz-content-muted);
+        font-size: var(--rzz-text-xs);
+        line-height: var(--rzz-leading-xs);
       }
 
       .playground__settings-demo {
         display: grid;
-        gap: var(--ds-primitive-spacing-24);
-        padding: var(--ds-primitive-spacing-20);
-        border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
-        border-radius: var(--ds-primitive-radius-lg);
-        background-color: var(--ds-semantic-surface-card);
-        box-shadow: var(--ds-shadow-xs);
+        gap: var(--rzz-space-24);
+        padding: var(--rzz-space-20);
+        border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+        border-radius: var(--rzz-radius-lg);
+        background-color: var(--rzz-surface-card);
+        box-shadow: var(--rzz-shadow-xs);
         max-width: 48rem;
       }
 
       .playground__settings-demo h3 {
-        margin: 0 0 var(--ds-primitive-spacing-8);
-        color: var(--ds-semantic-content-primary);
-        font-size: var(--ds-primitive-font-size-sm-font-size);
+        margin: 0 0 var(--rzz-space-8);
+        color: var(--rzz-content-primary);
+        font-size: var(--rzz-text-sm);
         font-weight: 600;
         letter-spacing: -0.01em;
       }
 
       .playground__settings-demo > p {
-        margin: 0 0 var(--ds-primitive-spacing-12);
-        color: var(--ds-semantic-content-muted);
-        font-size: var(--ds-primitive-font-size-xs-font-size);
-        line-height: var(--ds-primitive-font-size-xs-line-height);
+        margin: 0 0 var(--rzz-space-12);
+        color: var(--rzz-content-muted);
+        font-size: var(--rzz-text-xs);
+        line-height: var(--rzz-leading-xs);
       }
 
       .playground__saas-demo {
         display: grid;
-        gap: var(--ds-primitive-spacing-24);
-        padding: var(--ds-primitive-spacing-20);
-        border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
-        border-radius: var(--ds-primitive-radius-lg);
-        background-color: var(--ds-semantic-surface-card);
-        box-shadow: var(--ds-shadow-xs);
+        gap: var(--rzz-space-24);
+        padding: var(--rzz-space-20);
+        border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+        border-radius: var(--rzz-radius-lg);
+        background-color: var(--rzz-surface-card);
+        box-shadow: var(--rzz-shadow-xs);
         max-width: 52rem;
       }
 
       .playground__saas-demo h3 {
-        margin: 0 0 var(--ds-primitive-spacing-8);
-        color: var(--ds-semantic-content-primary);
-        font-size: var(--ds-primitive-font-size-sm-font-size);
+        margin: 0 0 var(--rzz-space-8);
+        color: var(--rzz-content-primary);
+        font-size: var(--rzz-text-sm);
         font-weight: 600;
         letter-spacing: -0.01em;
       }
 
       .playground__saas-demo > div > p {
-        margin: 0 0 var(--ds-primitive-spacing-12);
-        color: var(--ds-semantic-content-muted);
-        font-size: var(--ds-primitive-font-size-xs-font-size);
-        line-height: var(--ds-primitive-font-size-xs-line-height);
+        margin: 0 0 var(--rzz-space-12);
+        color: var(--rzz-content-muted);
+        font-size: var(--rzz-text-xs);
+        line-height: var(--rzz-leading-xs);
       }
 
       .playground__arch-demo {
         display: grid;
-        gap: var(--ds-primitive-spacing-24);
-        padding: var(--ds-primitive-spacing-20);
-        border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
-        border-radius: var(--ds-primitive-radius-lg);
-        background-color: var(--ds-semantic-surface-card);
-        box-shadow: var(--ds-shadow-xs);
+        gap: var(--rzz-space-24);
+        padding: var(--rzz-space-20);
+        border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+        border-radius: var(--rzz-radius-lg);
+        background-color: var(--rzz-surface-card);
+        box-shadow: var(--rzz-shadow-xs);
         max-width: 48rem;
       }
 
       .playground__arch-demo h3 {
-        margin: 0 0 var(--ds-primitive-spacing-8);
-        color: var(--ds-semantic-content-primary);
-        font-size: var(--ds-primitive-font-size-sm-font-size);
+        margin: 0 0 var(--rzz-space-8);
+        color: var(--rzz-content-primary);
+        font-size: var(--rzz-text-sm);
         font-weight: 600;
         letter-spacing: -0.01em;
       }
 
       .playground__arch-demo > div > p {
-        margin: 0 0 var(--ds-primitive-spacing-12);
-        color: var(--ds-semantic-content-muted);
-        font-size: var(--ds-primitive-font-size-xs-font-size);
-        line-height: var(--ds-primitive-font-size-xs-line-height);
+        margin: 0 0 var(--rzz-space-12);
+        color: var(--rzz-content-muted);
+        font-size: var(--rzz-text-xs);
+        line-height: var(--rzz-leading-xs);
       }
 
       .playground__banner-frame {
         overflow: hidden;
-        border: 1px solid var(--ds-semantic-border-subtle);
-        border-radius: var(--ds-primitive-radius-md);
-        background-color: var(--ds-semantic-surface-canvas);
+        border: 1px solid var(--rzz-border-subtle);
+        border-radius: var(--rzz-radius-md);
+        background-color: var(--rzz-surface-canvas);
       }
     </style>
   </head>
@@ -493,7 +494,7 @@
       <header class="playground__intro">
         <h1>Playground de rzz-ui</h1>
         <p>
-          Validación de tokens compilados (<code>--ds-*</code>), componentes del
+          Validación de tokens compilados (<code>--rzz-*</code>), componentes del
           registry y contraste en light / dark.
         </p>
       </header>
@@ -638,8 +639,8 @@
             <div class="ds-card__body">
               <p>
                 El fondo de la tarjeta usa
-                <code>--ds-semantic-surface-card</code>; el canvas de la página
-                usa <code>--ds-semantic-surface-canvas</code>. Ambos deben
+                <code>--rzz-semantic-surface-card</code>; el canvas de la página
+                usa <code>--rzz-semantic-surface-canvas</code>. Ambos deben
                 invertirse al activar dark mode.
               </p>
             </div>
@@ -1318,6 +1319,9 @@
             class="ds-button ds-button--secondary ds-button--md"
             popovertarget="pg-account-menu"
             popovertargetaction="toggle"
+            aria-haspopup="menu"
+            aria-controls="pg-account-menu"
+            aria-expanded="false"
           >
             Opciones de cuenta
           </button>
@@ -1397,7 +1401,7 @@
               <div class="ds-accordion__content">
                 <p>
                   Ejecutá <code>node scripts/add.mjs &lt;nombre&gt;</code>. El
-                  CLI copia los archivos a <code>src/components/ui/</code>.
+                  CLI copia los archivos a <code>registry/ui/</code>.
                 </p>
               </div>
             </details>
@@ -1797,7 +1801,7 @@
             ></textarea>
             <p id="pg-bio-hint" class="ds-field__hint">Máximo 280 caracteres.</p>
           </div>
-          <div class="ds-field" style="margin-block-start: var(--ds-primitive-spacing-16)">
+          <div class="ds-field" style="margin-block-start: var(--rzz-space-16)">
             <label class="ds-label" for="pg-notes-error">Notas internas</label>
             <textarea
               id="pg-notes-error"
@@ -1811,7 +1815,7 @@
               Completá al menos 20 caracteres.
             </p>
           </div>
-          <div class="ds-field" style="margin-block-start: var(--ds-primitive-spacing-16)">
+          <div class="ds-field" style="margin-block-start: var(--rzz-space-16)">
             <label class="ds-label" for="pg-notes-disabled">Comentario (disabled)</label>
             <textarea
               id="pg-notes-disabled"
@@ -2267,7 +2271,7 @@
                 </button>
               </div>
               <div class="ds-sheet__body">
-                <p style="margin: 0; color: var(--ds-semantic-content-secondary)">
+                <p style="margin: 0; color: var(--rzz-content-secondary)">
                   Contenido scrollable. Probá Escape o clic fuera del panel.
                 </p>
                 <label class="ds-setting-row">
@@ -2463,7 +2467,7 @@
         <div class="playground__arch-demo">
           <div>
             <h3>Banner global</h3>
-            <p>Sticky con <code>z-index: var(--ds-z-banner)</code> y variantes semánticas.</p>
+            <p>Sticky con <code>z-index: var(--rzz-z-banner)</code> y variantes semánticas.</p>
             <div class="playground__banner-frame">
               <aside
                 class="ds-banner ds-banner--warning"
@@ -2491,7 +2495,7 @@
                   </svg>
                 </button>
               </aside>
-              <div style="padding: 1rem; color: var(--ds-semantic-content-muted); font-size: 0.8125rem">
+              <div style="padding: 1rem; color: var(--rzz-content-muted); font-size: 0.8125rem">
                 Contenido de página debajo del banner sticky…
               </div>
             </div>
@@ -2607,17 +2611,19 @@
         });
       })();
     </script>
-    <script type="module" src="src/components/ui/dialog/dialog.js"></script>
-    <script type="module" src="src/components/ui/tabs/tabs.js"></script>
-    <script type="module" src="src/components/ui/sheet/sheet.js"></script>
-    <script type="module" src="src/components/ui/copy-button/copy-button.js"></script>
-    <script type="module" src="src/components/ui/search-kbd-input/search-kbd-input.js"></script>
-    <script type="module" src="src/components/ui/currency-counter-input/currency-counter-input.js"></script>
-    <script type="module" src="src/components/ui/password-strength-input/password-strength-input.js"></script>
-    <script type="module" src="src/components/ui/pin-code-input/pin-code-input.js"></script>
-    <script type="module" src="src/components/ui/async-validation-input/async-validation-input.js"></script>
+    <script type="module" src="registry/ui/dialog/dialog.js"></script>
+    <script type="module" src="registry/ui/tabs/tabs.js"></script>
+    <script type="module" src="registry/ui/popover/popover.js"></script>
+    <script type="module" src="registry/ui/tooltip/tooltip.js"></script>
+    <script type="module" src="registry/ui/sheet/sheet.js"></script>
+    <script type="module" src="registry/ui/copy-button/copy-button.js"></script>
+    <script type="module" src="registry/ui/search-kbd-input/search-kbd-input.js"></script>
+    <script type="module" src="registry/ui/currency-counter-input/currency-counter-input.js"></script>
+    <script type="module" src="registry/ui/password-strength-input/password-strength-input.js"></script>
+    <script type="module" src="registry/ui/pin-code-input/pin-code-input.js"></script>
+    <script type="module" src="registry/ui/async-validation-input/async-validation-input.js"></script>
     <script type="module">
-      import { toast } from './src/components/ui/toast/toast.js';
+      import { toast } from './registry/ui/toast/toast.js';
 
       document.querySelectorAll('.ds-switch__input[role="switch"]').forEach((el) => {
         const sync = () => el.setAttribute('aria-checked', String(el.checked));

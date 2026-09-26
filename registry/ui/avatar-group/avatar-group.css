@@ -1,6 +1,6 @@
 /**
  * .ds-avatar-group + .ds-status-dot — avatares apilados e indicador de estado.
- * Extiende .ds-avatar (instalar avatar). Solo `--ds-*`.
+ * Extiende .ds-avatar (instalar avatar). Solo `--rzz-*`.
  */
 
 .ds-avatar-group {
@@ -10,7 +10,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  font-family: var(--ds-primitive-font-family-sans);
+  font-family: var(--rzz-font-sans);
 }
 
 .ds-avatar-group > .ds-avatar,
@@ -26,8 +26,8 @@
 
 .ds-avatar-group > .ds-avatar,
 .ds-avatar-group .ds-avatar {
-  border: 2px solid var(--ds-semantic-surface-card);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ds-semantic-content-primary) 6%, transparent);
+  border: 2px solid var(--rzz-surface-card);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--rzz-content-primary) 6%, transparent);
 }
 
 .ds-avatar-group__more {
@@ -38,21 +38,21 @@
   height: 2.5rem;
   margin-left: -0.5rem;
   padding: 0 0.5rem;
-  border: 2px solid var(--ds-semantic-surface-card);
-  border-radius: var(--ds-primitive-radius-full);
-  background-color: var(--ds-semantic-surface-subtle);
-  color: var(--ds-semantic-content-secondary);
-  font-size: var(--ds-primitive-font-size-xs-font-size);
+  border: 2px solid var(--rzz-surface-card);
+  border-radius: var(--rzz-radius-full);
+  background-color: var(--rzz-surface-subtle);
+  color: var(--rzz-content-secondary);
+  font-size: var(--rzz-text-xs);
   font-weight: 600;
   letter-spacing: -0.01em;
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ds-semantic-content-primary) 6%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--rzz-content-primary) 6%, transparent);
 }
 
 .ds-avatar-group--sm > .ds-avatar,
 .ds-avatar-group--sm .ds-avatar {
   width: 2rem;
   height: 2rem;
-  font-size: var(--ds-primitive-font-size-xs-font-size);
+  font-size: var(--rzz-text-xs);
 }
 
 .ds-avatar-group--sm .ds-avatar-group__more {
@@ -67,27 +67,27 @@
   display: inline-block;
   width: 0.625rem;
   height: 0.625rem;
-  border: 2px solid var(--ds-semantic-surface-card);
-  border-radius: var(--ds-primitive-radius-full);
-  background-color: var(--ds-semantic-content-muted);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ds-semantic-content-primary) 8%, transparent);
+  border: 2px solid var(--rzz-surface-card);
+  border-radius: var(--rzz-radius-full);
+  background-color: var(--rzz-content-muted);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--rzz-content-primary) 8%, transparent);
   vertical-align: middle;
 }
 
 .ds-status-dot--online {
-  background-color: var(--ds-semantic-feedback-success-foreground);
+  background-color: var(--rzz-feedback-success-foreground);
 }
 
 .ds-status-dot--offline {
-  background-color: var(--ds-semantic-content-muted);
+  background-color: var(--rzz-content-muted);
 }
 
 .ds-status-dot--busy {
-  background-color: var(--ds-semantic-feedback-danger-foreground);
+  background-color: var(--rzz-feedback-danger-foreground);
 }
 
 .ds-status-dot--away {
-  background-color: var(--ds-semantic-feedback-warning-foreground);
+  background-color: var(--rzz-feedback-warning-foreground);
 }
 
 .ds-avatar--with-status .ds-status-dot,

@@ -1,6 +1,6 @@
 /**
  * .ds-badge — etiqueta de estado / categoría.
- * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
 .ds-badge {
@@ -11,8 +11,8 @@
   margin: 0;
   border-style: solid;
   border-width: 1px;
-  border-radius: var(--ds-primitive-radius-full);
-  font-family: var(--ds-primitive-font-family-sans);
+  border-radius: var(--rzz-radius-full);
+  font-family: var(--rzz-font-sans);
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1;
@@ -25,51 +25,51 @@
 
 .ds-badge--sm {
   padding: 0.125rem 0.5rem;
-  font-size: var(--ds-primitive-font-size-xs-font-size);
+  font-size: var(--rzz-text-xs);
 }
 
 .ds-badge--md {
   padding: 0.25rem 0.625rem;
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  font-size: var(--rzz-text-sm);
 }
 
 .ds-badge:not(.ds-badge--sm):not(.ds-badge--md) {
   padding: 0.25rem 0.625rem;
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  font-size: var(--rzz-text-sm);
 }
 
 .ds-badge--default {
-  border-color: var(--ds-semantic-border-subtle);
-  background-color: var(--ds-semantic-surface-elevated);
-  color: var(--ds-semantic-content-primary);
+  border-color: var(--rzz-border-subtle);
+  background-color: var(--rzz-surface-elevated);
+  color: var(--rzz-content-primary);
 }
 
 .ds-badge--primary {
   border-color: transparent;
-  background-color: var(--ds-semantic-action-primary-default);
-  color: var(--ds-primitive-color-slate-50);
+  background-color: var(--rzz-action-primary-default);
+  color: var(--rzz-content-inverse);
 }
 
 .ds-badge--success {
-  border-color: var(--ds-semantic-feedback-success-border);
-  background-color: var(--ds-semantic-feedback-success-subtle);
-  color: var(--ds-semantic-feedback-success-foreground);
+  border-color: var(--rzz-feedback-success-border);
+  background-color: var(--rzz-feedback-success-subtle);
+  color: var(--rzz-feedback-success-foreground);
 }
 
 .ds-badge--warning {
-  border-color: var(--ds-semantic-feedback-warning-border);
-  background-color: var(--ds-semantic-feedback-warning-subtle);
-  color: var(--ds-semantic-feedback-warning-foreground);
+  border-color: var(--rzz-feedback-warning-border);
+  background-color: var(--rzz-feedback-warning-subtle);
+  color: var(--rzz-feedback-warning-foreground);
 }
 
 .ds-badge--danger {
-  border-color: var(--ds-semantic-feedback-danger-border);
-  background-color: var(--ds-semantic-feedback-danger-subtle);
-  color: var(--ds-semantic-feedback-danger-foreground);
+  border-color: var(--rzz-feedback-danger-border);
+  background-color: var(--rzz-feedback-danger-subtle);
+  color: var(--rzz-feedback-danger-foreground);
 }
 
 .ds-badge--outline {
-  border-color: var(--ds-semantic-border-strong);
+  border-color: var(--rzz-border-strong);
   background-color: transparent;
-  color: var(--ds-semantic-content-primary);
+  color: var(--rzz-content-primary);
 }

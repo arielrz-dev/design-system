@@ -1,6 +1,6 @@
 /**
  * Docs site — estética Linear / Geist.
- * Consume --ds-* desde ../dist/css/variables.css
+ * Consume --rzz-* desde ../dist/css/variables.css
  */
 
 :root {
@@ -25,15 +25,33 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: var(--ds-semantic-surface-canvas);
-  color: var(--ds-semantic-content-primary);
-  font-family: var(--ds-primitive-font-family-sans);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  background-color: var(--rzz-surface-canvas);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
+  font-size: var(--rzz-text-sm);
   font-weight: 400;
   letter-spacing: -0.015em;
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  line-height: var(--rzz-leading-sm);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+.docs-file-banner {
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--rzz-feedback-warning-border);
+  background: var(--rzz-feedback-warning-subtle);
+  color: var(--rzz-feedback-warning-foreground);
+  font-size: var(--rzz-text-sm);
+  line-height: var(--rzz-leading-sm);
+}
+
+.docs-file-banner[hidden] {
+  display: none;
+}
+
+.docs-file-banner code {
+  font-family: var(--rzz-font-mono);
+  font-size: 0.92em;
 }
 
 a {
@@ -44,7 +62,7 @@ a {
 code,
 kbd,
 pre {
-  font-family: var(--ds-primitive-font-family-mono);
+  font-family: var(--rzz-font-mono);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
 }
@@ -66,14 +84,14 @@ pre {
 .docs-header {
   position: sticky;
   top: 0;
-  z-index: var(--ds-z-sticky);
+  z-index: var(--rzz-z-sticky);
   display: flex;
   align-items: center;
   gap: 1rem;
   height: 3.5rem;
   padding: 0 1.25rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
-  background-color: color-mix(in srgb, var(--ds-semantic-surface-canvas) 86%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+  background-color: color-mix(in srgb, var(--rzz-surface-canvas) 86%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -83,7 +101,7 @@ pre {
   align-items: center;
   gap: 0.5rem;
   flex-shrink: 0;
-  color: var(--ds-semantic-content-primary);
+  color: var(--rzz-content-primary);
   font-weight: 600;
   font-size: 0.875rem;
   letter-spacing: -0.02em;
@@ -94,9 +112,9 @@ pre {
   place-items: center;
   width: 1.5rem;
   height: 1.5rem;
-  border-radius: var(--ds-primitive-radius-sm);
-  background-color: var(--ds-semantic-content-primary);
-  color: var(--ds-semantic-content-inverse);
+  border-radius: var(--rzz-radius-sm);
+  background-color: var(--rzz-content-primary);
+  color: var(--rzz-content-inverse);
   font-size: 0.6875rem;
   font-weight: 700;
 }
@@ -105,10 +123,10 @@ pre {
   display: inline-flex;
   align-items: center;
   padding: 0.1rem 0.4rem;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  border-radius: var(--ds-primitive-radius-full);
-  background-color: var(--ds-semantic-surface-elevated);
-  color: var(--ds-semantic-content-muted);
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-radius: var(--rzz-radius-full);
+  background-color: var(--rzz-surface-elevated);
+  color: var(--rzz-content-muted);
   font-size: 0.6875rem;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
@@ -128,18 +146,18 @@ pre {
   min-height: 2rem;
   margin: 0;
   padding: 0.35rem 4.5rem 0.35rem 2.15rem;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-primary);
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
   font: inherit;
   font-weight: 500;
-  box-shadow: var(--ds-shadow-xs);
+  box-shadow: var(--rzz-shadow-xs);
   appearance: none;
 }
 
 .docs-header__search-input::placeholder {
-  color: var(--ds-semantic-content-muted);
+  color: var(--rzz-content-muted);
   font-weight: 400;
 }
 
@@ -148,8 +166,8 @@ pre {
 }
 
 .docs-header__search-input:focus-visible {
-  border-color: var(--ds-semantic-border-focus);
-  outline: 2px solid var(--ds-semantic-border-focus);
+  border-color: var(--rzz-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
 }
 
@@ -158,7 +176,7 @@ pre {
   left: 0.65rem;
   top: 50%;
   display: inline-flex;
-  color: var(--ds-semantic-content-muted);
+  color: var(--rzz-content-muted);
   pointer-events: none;
   transform: translateY(-50%);
 }
@@ -171,10 +189,10 @@ pre {
   align-items: center;
   gap: 0.15rem;
   padding: 0.12rem 0.35rem;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  border-radius: var(--ds-primitive-radius-sm);
-  background-color: var(--ds-semantic-surface-subtle);
-  color: var(--ds-semantic-content-muted);
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-radius: var(--rzz-radius-sm);
+  background-color: var(--rzz-surface-subtle);
+  color: var(--rzz-content-muted);
   font-size: 0.625rem;
   font-weight: 500;
   line-height: 1;
@@ -205,18 +223,18 @@ pre {
   margin: 0;
   padding: 0;
   border: 0;
-  border-radius: var(--ds-primitive-radius-md);
+  border-radius: var(--rzz-radius-md);
   background: transparent;
-  color: var(--ds-semantic-content-secondary);
+  color: var(--rzz-content-secondary);
   cursor: pointer;
   transition:
-    color var(--ds-duration-fast) var(--ds-ease-standard),
-    background-color var(--ds-duration-fast) var(--ds-ease-standard);
+    color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .docs-icon-btn:hover {
-  color: var(--ds-semantic-content-primary);
-  background-color: var(--ds-semantic-surface-subtle);
+  color: var(--rzz-content-primary);
+  background-color: var(--rzz-surface-subtle);
 }
 
 .docs-icon-btn:focus {
@@ -224,7 +242,7 @@ pre {
 }
 
 .docs-icon-btn:focus-visible {
-  outline: 2px solid var(--ds-semantic-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
 }
 
@@ -237,16 +255,16 @@ pre {
   display: none;
   align-items: center;
   padding: 0.35rem 0.55rem;
-  border-radius: var(--ds-primitive-radius-md);
-  color: var(--ds-semantic-content-secondary);
+  border-radius: var(--rzz-radius-md);
+  color: var(--rzz-content-secondary);
   font-size: 0.8125rem;
   font-weight: 500;
-  transition: background-color var(--ds-duration-fast) var(--ds-ease-standard);
+  transition: background-color var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .docs-link-quiet:hover {
-  color: var(--ds-semantic-content-primary);
-  background-color: var(--ds-semantic-surface-subtle);
+  color: var(--rzz-content-primary);
+  background-color: var(--rzz-surface-subtle);
 }
 
 @media (min-width: 768px) {
@@ -279,7 +297,7 @@ pre {
   height: calc(100vh - 3.5rem);
   padding: 1.25rem 0.75rem 2rem 1.25rem;
   overflow: auto;
-  border-right: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 8%, transparent);
+  border-right: 1px solid color-mix(in srgb, var(--rzz-content-primary) 8%, transparent);
 }
 
 @media (min-width: 960px) {
@@ -294,7 +312,7 @@ pre {
 
 .docs-nav__label {
   margin: 0 0 0.4rem 0.5rem;
-  color: var(--ds-semantic-content-muted);
+  color: var(--rzz-content-muted);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -313,19 +331,19 @@ pre {
 .docs-nav__link {
   display: block;
   padding: 0.35rem 0.55rem;
-  border-radius: var(--ds-primitive-radius-sm);
-  color: var(--ds-semantic-content-secondary);
+  border-radius: var(--rzz-radius-sm);
+  color: var(--rzz-content-secondary);
   font-size: 0.8125rem;
   font-weight: 500;
   transition:
-    color var(--ds-duration-fast) var(--ds-ease-standard),
-    background-color var(--ds-duration-fast) var(--ds-ease-standard);
+    color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .docs-nav__link:hover,
 .docs-nav__link[aria-current='true'] {
-  color: var(--ds-semantic-content-primary);
-  background-color: var(--ds-semantic-surface-subtle);
+  color: var(--rzz-content-primary);
+  background-color: var(--rzz-surface-subtle);
 }
 
 .docs-main {
@@ -346,7 +364,7 @@ pre {
 
 .docs-section__title {
   margin: 0 0 0.5rem;
-  color: var(--ds-semantic-content-primary);
+  color: var(--rzz-content-primary);
   font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: -0.025em;
@@ -356,7 +374,7 @@ pre {
 .docs-section__lead {
   margin: 0 0 1.5rem;
   max-width: 40rem;
-  color: var(--ds-semantic-content-muted);
+  color: var(--rzz-content-muted);
   font-size: 0.9375rem;
   line-height: 1.55;
 }
@@ -364,16 +382,16 @@ pre {
 .docs-prose p {
   margin: 0 0 0.85rem;
   max-width: 42rem;
-  color: var(--ds-semantic-content-secondary);
+  color: var(--rzz-content-secondary);
   font-size: 0.9375rem;
   line-height: 1.6;
 }
 
 .docs-prose code {
   padding: 0.1rem 0.3rem;
-  border-radius: var(--ds-primitive-radius-sm);
-  background-color: var(--ds-semantic-surface-subtle);
-  color: var(--ds-semantic-content-primary);
+  border-radius: var(--rzz-radius-sm);
+  background-color: var(--rzz-surface-subtle);
+  color: var(--rzz-content-primary);
   font-size: 0.8125rem;
 }
 
@@ -382,12 +400,12 @@ pre {
 .docs-hero {
   margin-bottom: 3rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 8%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--rzz-content-primary) 8%, transparent);
 }
 
 .docs-hero__eyebrow {
   margin: 0 0 0.75rem;
-  color: var(--ds-semantic-content-muted);
+  color: var(--rzz-content-muted);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -397,7 +415,7 @@ pre {
 .docs-hero__title {
   margin: 0 0 0.75rem;
   max-width: 18ch;
-  color: var(--ds-semantic-content-primary);
+  color: var(--rzz-content-primary);
   font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 600;
   letter-spacing: -0.04em;
@@ -407,7 +425,7 @@ pre {
 .docs-hero__subtitle {
   margin: 0 0 1.5rem;
   max-width: 36rem;
-  color: var(--ds-semantic-content-muted);
+  color: var(--rzz-content-muted);
   font-size: 1rem;
   line-height: 1.55;
 }
@@ -418,23 +436,23 @@ pre {
   gap: 0.75rem;
   max-width: 100%;
   padding: 0.4rem 0.4rem 0.4rem 0.85rem;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-card);
-  box-shadow: var(--ds-shadow-xs);
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  box-shadow: var(--rzz-shadow-xs);
 }
 
 .docs-command__code {
   margin: 0;
   overflow: hidden;
-  color: var(--ds-semantic-content-secondary);
+  color: var(--rzz-content-secondary);
   font-size: 0.8125rem;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .docs-command__code span {
-  color: var(--ds-semantic-content-muted);
+  color: var(--rzz-content-muted);
 }
 
 /* ——— Token swatches ——— */
@@ -449,15 +467,15 @@ pre {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-card);
-  box-shadow: var(--ds-shadow-xs);
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  box-shadow: var(--rzz-shadow-xs);
 }
 
 .docs-swatch__preview {
   height: 4rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 8%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--rzz-content-primary) 8%, transparent);
 }
 
 .docs-swatch__meta {
@@ -469,8 +487,8 @@ pre {
 
 .docs-swatch__name {
   margin: 0;
-  color: var(--ds-semantic-content-primary);
-  font-family: var(--ds-primitive-font-family-mono);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-mono);
   font-size: 0.6875rem;
   font-weight: 500;
   line-height: 1.35;
@@ -479,8 +497,8 @@ pre {
 
 .docs-swatch__value {
   margin: 0;
-  color: var(--ds-semantic-content-muted);
-  font-family: var(--ds-primitive-font-family-mono);
+  color: var(--rzz-content-muted);
+  font-family: var(--rzz-font-mono);
   font-size: 0.625rem;
   font-variant-numeric: tabular-nums;
 }
@@ -507,14 +525,14 @@ pre {
   justify-content: space-between;
   gap: 0.75rem;
   padding: 0.85rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-card);
-  box-shadow: var(--ds-shadow-xs);
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  box-shadow: var(--rzz-shadow-xs);
 }
 
 .docs-type-row__sample {
-  color: var(--ds-semantic-content-primary);
+  color: var(--rzz-content-primary);
   font-weight: 500;
   letter-spacing: -0.02em;
 }
@@ -522,16 +540,16 @@ pre {
 .docs-type-row__meta,
 .docs-elevation-row__meta,
 .docs-z-row__meta {
-  color: var(--ds-semantic-content-muted);
-  font-family: var(--ds-primitive-font-family-mono);
+  color: var(--rzz-content-muted);
+  font-family: var(--rzz-font-mono);
   font-size: 0.6875rem;
 }
 
 .docs-elevation-row__chip {
   width: 3.5rem;
   height: 2.25rem;
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-elevated);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-elevated);
 }
 
 .docs-space-row {
@@ -539,7 +557,7 @@ pre {
   align-items: center;
   gap: 1rem;
   padding: 0.65rem 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 8%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--rzz-content-primary) 8%, transparent);
 }
 
 .docs-space-row:last-child {
@@ -548,15 +566,15 @@ pre {
 
 .docs-space-row__bar {
   height: 0.5rem;
-  border-radius: var(--ds-primitive-radius-full);
-  background-color: var(--ds-semantic-action-primary-default);
+  border-radius: var(--rzz-radius-full);
+  background-color: var(--rzz-action-primary-default);
   opacity: 0.85;
 }
 
 .docs-space-row__label {
   min-width: 5rem;
-  color: var(--ds-semantic-content-muted);
-  font-family: var(--ds-primitive-font-family-mono);
+  color: var(--rzz-content-muted);
+  font-family: var(--rzz-font-mono);
   font-size: 0.6875rem;
 }
 
@@ -564,10 +582,10 @@ pre {
 
 .docs-card {
   margin: 0 0 1.5rem;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
-  border-radius: var(--ds-primitive-radius-lg);
-  background-color: var(--ds-semantic-surface-card);
-  box-shadow: var(--ds-shadow-sm);
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+  border-radius: var(--rzz-radius-lg);
+  background-color: var(--rzz-surface-card);
+  box-shadow: var(--rzz-shadow-sm);
   overflow: hidden;
 }
 
@@ -577,12 +595,12 @@ pre {
   align-items: center;
   gap: 0.65rem;
   padding: 0.85rem 1rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 8%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--rzz-content-primary) 8%, transparent);
 }
 
 .docs-card__title {
   margin: 0;
-  color: var(--ds-semantic-content-primary);
+  color: var(--rzz-content-primary);
   font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -593,31 +611,31 @@ pre {
   gap: 0.15rem;
   margin-inline-start: auto;
   padding: 0.15rem;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-subtle);
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-subtle);
 }
 
 .docs-card__tab {
   margin: 0;
   padding: 0.3rem 0.65rem;
   border: 0;
-  border-radius: var(--ds-primitive-radius-sm);
+  border-radius: var(--rzz-radius-sm);
   background: transparent;
-  color: var(--ds-semantic-content-muted);
+  color: var(--rzz-content-muted);
   font: inherit;
   font-size: 0.75rem;
   font-weight: 500;
   cursor: pointer;
   transition:
-    color var(--ds-duration-fast) var(--ds-ease-standard),
-    background-color var(--ds-duration-fast) var(--ds-ease-standard);
+    color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .docs-card__tab[aria-selected='true'] {
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-primary);
-  box-shadow: var(--ds-shadow-xs);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  box-shadow: var(--rzz-shadow-xs);
 }
 
 .docs-card__tab:focus {
@@ -625,7 +643,7 @@ pre {
 }
 
 .docs-card__tab:focus-visible {
-  outline: 2px solid var(--ds-semantic-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
   outline-offset: 1px;
 }
 
@@ -635,9 +653,9 @@ pre {
 
 .docs-preview {
   padding: 1.5rem;
-  background-color: var(--ds-semantic-surface-canvas);
+  background-color: var(--rzz-surface-canvas);
   background-image: radial-gradient(
-    color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent) 1px,
+    color-mix(in srgb, var(--rzz-content-primary) 12%, transparent) 1px,
     transparent 1px
   );
   background-size: 12px 12px;
@@ -662,8 +680,8 @@ pre {
   margin: 0;
   padding: 1rem 1rem 1.25rem;
   overflow: auto;
-  background-color: var(--ds-semantic-surface-elevated);
-  color: var(--ds-semantic-content-secondary);
+  background-color: var(--rzz-surface-elevated);
+  color: var(--rzz-content-secondary);
   font-size: 0.75rem;
   line-height: 1.55;
 }
@@ -682,24 +700,24 @@ pre {
   min-height: 1.75rem;
   margin: 0;
   padding: 0.25rem 0.5rem;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-secondary);
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-secondary);
   font: inherit;
   font-size: 0.6875rem;
   font-weight: 500;
   cursor: pointer;
-  box-shadow: var(--ds-shadow-xs);
+  box-shadow: var(--rzz-shadow-xs);
   transition:
-    color var(--ds-duration-fast) var(--ds-ease-standard),
-    background-color var(--ds-duration-fast) var(--ds-ease-standard),
-    border-color var(--ds-duration-fast) var(--ds-ease-standard);
+    color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    border-color var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .docs-copy:hover {
-  color: var(--ds-semantic-content-primary);
-  background-color: var(--ds-semantic-surface-subtle);
+  color: var(--rzz-content-primary);
+  background-color: var(--rzz-surface-subtle);
 }
 
 .docs-copy:focus {
@@ -707,14 +725,14 @@ pre {
 }
 
 .docs-copy:focus-visible {
-  outline: 2px solid var(--ds-semantic-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
 }
 
 .docs-copy--copied {
-  color: var(--ds-semantic-feedback-success-foreground);
-  border-color: var(--ds-semantic-feedback-success-border);
-  background-color: var(--ds-semantic-feedback-success-subtle);
+  color: var(--rzz-feedback-success-foreground);
+  border-color: var(--rzz-feedback-success-border);
+  background-color: var(--rzz-feedback-success-subtle);
 }
 
 .docs-copy__status {
@@ -728,8 +746,52 @@ pre {
 .docs-footer {
   margin-top: 3rem;
   padding-top: 1.25rem;
-  border-top: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 8%, transparent);
-  color: var(--ds-semantic-content-muted);
+  border-top: 1px solid color-mix(in srgb, var(--rzz-content-primary) 8%, transparent);
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-xs);
+}
+
+.docs-catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.docs-catalog__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+  border-radius: var(--rzz-radius-md);
+  background: var(--rzz-surface-card);
+}
+
+.docs-catalog__item[hidden] {
+  display: none;
+}
+
+.docs-catalog__link {
+  color: var(--rzz-content-primary);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.docs-catalog__link:hover {
+  color: var(--rzz-action-primary-default);
+}
+
+.docs-catalog__cmd {
+  color: var(--rzz-content-muted);
+  font-family: var(--rzz-font-mono);
+  font-size: 0.7rem;
+  overflow-wrap: anywhere;
+}
+  color: var(--rzz-content-muted);
   font-size: 0.75rem;
 }
 
@@ -748,10 +810,10 @@ pre {
 
   .docs-mobile-nav a {
     padding: 0.3rem 0.55rem;
-    border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
-    border-radius: var(--ds-primitive-radius-full);
-    background-color: var(--ds-semantic-surface-card);
-    color: var(--ds-semantic-content-secondary);
+    border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+    border-radius: var(--rzz-radius-full);
+    background-color: var(--rzz-surface-card);
+    color: var(--rzz-content-secondary);
     font-size: 0.75rem;
     font-weight: 500;
   }

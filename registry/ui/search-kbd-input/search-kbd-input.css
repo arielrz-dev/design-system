@@ -1,6 +1,6 @@
 /**
  * .ds-search-kbd — búsqueda global con atajo ⌘K / Ctrl+K.
- * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
 .ds-search-kbd {
@@ -10,45 +10,45 @@
   align-items: center;
   width: 100%;
   margin: 0;
-  font-family: var(--ds-primitive-font-family-sans);
+  font-family: var(--rzz-font-sans);
 }
 
 .ds-search-kbd__icon {
   position: absolute;
-  left: var(--ds-primitive-spacing-12);
+  left: var(--rzz-space-12);
   display: inline-flex;
-  color: var(--ds-semantic-content-muted);
+  color: var(--rzz-content-muted);
   pointer-events: none;
 }
 
 .ds-search-kbd__input {
   box-sizing: border-box;
   width: 100%;
-  min-height: var(--ds-primitive-spacing-40);
+  min-height: var(--rzz-space-40);
   margin: 0;
-  padding: var(--ds-primitive-spacing-8) 5.5rem var(--ds-primitive-spacing-8) 2.5rem;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  border-radius: var(--ds-primitive-radius-md);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-primary);
+  padding: var(--rzz-space-8) 5.5rem var(--rzz-space-8) 2.5rem;
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
   font-family: inherit;
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  font-size: var(--rzz-text-sm);
   font-weight: 500;
   letter-spacing: -0.01em;
-  line-height: var(--ds-primitive-font-size-sm-line-height);
-  box-shadow: var(--ds-shadow-xs);
+  line-height: var(--rzz-leading-sm);
+  box-shadow: var(--rzz-shadow-xs);
   transition: border-color 140ms ease-out, box-shadow 140ms ease-out;
   appearance: none;
 }
 
 .ds-search-kbd__input::placeholder {
-  color: var(--ds-semantic-content-muted);
+  color: var(--rzz-content-muted);
   font-weight: 400;
   opacity: 1;
 }
 
 .ds-search-kbd__input:hover:not(:disabled):not(:focus-visible) {
-  border-color: color-mix(in srgb, var(--ds-semantic-content-primary) 20%, transparent);
+  border-color: color-mix(in srgb, var(--rzz-content-primary) 20%, transparent);
 }
 
 .ds-search-kbd__input:focus {
@@ -56,8 +56,8 @@
 }
 
 .ds-search-kbd__input:focus-visible {
-  border-color: var(--ds-semantic-border-focus);
-  outline: 2px solid var(--ds-semantic-border-focus);
+  border-color: var(--rzz-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
 }
 
@@ -72,9 +72,9 @@
   margin: 0;
   padding: 0;
   border: 0;
-  border-radius: var(--ds-primitive-radius-full);
+  border-radius: var(--rzz-radius-full);
   background-color: transparent;
-  color: var(--ds-semantic-content-muted);
+  color: var(--rzz-content-muted);
   cursor: pointer;
   opacity: 0;
   pointer-events: none;
@@ -87,8 +87,8 @@
 }
 
 .ds-search-kbd__clear:hover {
-  color: var(--ds-semantic-content-primary);
-  background-color: var(--ds-semantic-surface-subtle);
+  color: var(--rzz-content-primary);
+  background-color: var(--rzz-surface-subtle);
 }
 
 .ds-search-kbd__clear:focus {
@@ -96,7 +96,7 @@
 }
 
 .ds-search-kbd__clear:focus-visible {
-  outline: 2px solid var(--ds-semantic-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
   opacity: 1;
   pointer-events: auto;
@@ -110,22 +110,22 @@
 
 .ds-search-kbd__shortcut {
   position: absolute;
-  right: var(--ds-primitive-spacing-8);
+  right: var(--rzz-space-8);
   display: none;
   align-items: center;
   gap: 0.2rem;
   margin: 0;
   padding: 0.15rem 0.4rem;
-  border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 12%, transparent);
-  border-radius: var(--ds-primitive-radius-sm);
-  background-color: var(--ds-semantic-surface-subtle);
-  color: var(--ds-semantic-content-muted);
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-radius: var(--rzz-radius-sm);
+  background-color: var(--rzz-surface-subtle);
+  color: var(--rzz-content-muted);
   font-family: inherit;
   font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.2;
-  box-shadow: var(--ds-shadow-xs);
+  box-shadow: var(--rzz-shadow-xs);
 }
 
 @media (min-width: 640px) {

@@ -9,7 +9,8 @@
   "scripts": {
     "build:tokens": "node build-tokens.mjs",
     "add": "node scripts/add.mjs",
-    "rzz-ui": "node scripts/rzz-ui.mjs"
+    "rzz-ui": "node scripts/rzz-ui.mjs",
+    "docs:dev": "npx --yes serve . -p 4173"
   },
   "devDependencies": {
     "style-dictionary": "^5.0.0",

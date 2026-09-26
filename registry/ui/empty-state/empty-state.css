@@ -1,6 +1,6 @@
 /**
  * .ds-empty-state — estado vacío de listas / dashboards.
- * Solo consume variables CSS `--ds-*`.
+ * Solo consume variables CSS `--rzz-*`.
  */
 
 .ds-empty-state {
@@ -9,15 +9,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--ds-primitive-spacing-12);
+  gap: var(--rzz-space-12);
   width: 100%;
   margin: 0;
   padding: 3rem 1.5rem;
-  border: 1px dashed var(--ds-semantic-border-subtle);
-  border-radius: var(--ds-primitive-radius-lg);
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-primary);
-  font-family: var(--ds-primitive-font-family-sans);
+  border: 1px dashed var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-lg);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
   text-align: center;
 }
 
@@ -32,11 +32,11 @@
   place-items: center;
   width: 3rem;
   height: 3rem;
-  margin-block-end: var(--ds-primitive-spacing-4);
-  border-radius: var(--ds-primitive-radius-full);
-  background-color: var(--ds-semantic-surface-elevated);
-  color: var(--ds-semantic-content-muted);
-  box-shadow: inset 0 0 0 1px var(--ds-semantic-border-subtle);
+  margin-block-end: var(--rzz-space-4);
+  border-radius: var(--rzz-radius-full);
+  background-color: var(--rzz-surface-elevated);
+  color: var(--rzz-content-muted);
+  box-shadow: inset 0 0 0 1px var(--rzz-border-subtle);
 }
 
 .ds-empty-state__icon svg {
@@ -46,22 +46,22 @@
 
 .ds-empty-state__title {
   margin: 0;
-  color: var(--ds-semantic-content-primary);
-  font-size: var(--ds-primitive-font-size-md-font-size);
+  color: var(--rzz-content-primary);
+  font-size: var(--rzz-text-md);
   font-weight: 600;
   letter-spacing: -0.015em;
-  line-height: var(--ds-primitive-font-size-md-line-height);
+  line-height: var(--rzz-leading-md);
 }
 
 .ds-empty-state__description {
   margin: 0;
   max-width: 28rem;
-  color: var(--ds-semantic-content-muted);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-sm);
   font-weight: 400;
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  line-height: var(--rzz-leading-sm);
 }
 
 .ds-empty-state__action {
-  margin-block-start: var(--ds-primitive-spacing-8);
+  margin-block-start: var(--rzz-space-8);
 }

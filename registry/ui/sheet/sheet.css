@@ -1,6 +1,6 @@
 /**
  * dialog.ds-sheet — panel lateral (drawer) nativo.
- * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
 dialog.ds-sheet {
@@ -13,20 +13,20 @@ dialog.ds-sheet {
   margin: 0 0 0 auto;
   padding: 0;
   border: none;
-  border-left: 1px solid var(--ds-semantic-border-subtle);
+  border-left: 1px solid var(--rzz-border-subtle);
   border-radius: 0;
-  background-color: var(--ds-semantic-surface-card);
-  color: var(--ds-semantic-content-primary);
-  font-family: var(--ds-primitive-font-family-sans);
-  box-shadow: var(--ds-shadow-md);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
+  box-shadow: var(--rzz-shadow-md);
   overflow: hidden;
   opacity: 0;
   transform: translateX(100%);
   transition:
-    opacity var(--ds-duration-normal) var(--ds-ease-standard),
-    transform var(--ds-duration-normal) var(--ds-ease-standard),
-    overlay var(--ds-duration-normal) var(--ds-ease-standard) allow-discrete,
-    display var(--ds-duration-normal) var(--ds-ease-standard) allow-discrete;
+    opacity var(--rzz-duration-normal) var(--rzz-ease-standard),
+    transform var(--rzz-duration-normal) var(--rzz-ease-standard),
+    overlay var(--rzz-duration-normal) var(--rzz-ease-standard) allow-discrete,
+    display var(--rzz-duration-normal) var(--rzz-ease-standard) allow-discrete;
 }
 
 dialog.ds-sheet[open] {
@@ -45,13 +45,13 @@ dialog.ds-sheet[open] {
 dialog.ds-sheet::backdrop {
   background-color: color-mix(
     in srgb,
-    var(--ds-primitive-color-slate-950) 55%,
+    var(--rzz-surface-scrim) 55%,
     transparent
   );
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   opacity: 0;
-  transition: opacity var(--ds-duration-normal) var(--ds-ease-standard);
+  transition: opacity var(--rzz-duration-normal) var(--rzz-ease-standard);
 }
 
 dialog.ds-sheet[open]::backdrop {
@@ -67,45 +67,45 @@ dialog.ds-sheet[open]::backdrop {
 .ds-sheet__header {
   display: flex;
   flex-direction: column;
-  gap: var(--ds-primitive-spacing-4);
+  gap: var(--rzz-space-4);
   flex-shrink: 0;
-  padding: var(--ds-primitive-spacing-20) var(--ds-primitive-spacing-24);
-  padding-block-end: var(--ds-primitive-spacing-12);
-  border-bottom: 1px solid var(--ds-semantic-border-subtle);
+  padding: var(--rzz-space-20) var(--rzz-space-24);
+  padding-block-end: var(--rzz-space-12);
+  border-bottom: 1px solid var(--rzz-border-subtle);
   position: relative;
 }
 
 .ds-sheet__close {
   position: absolute;
-  top: var(--ds-primitive-spacing-16);
-  right: var(--ds-primitive-spacing-16);
+  top: var(--rzz-space-16);
+  right: var(--rzz-space-16);
 }
 
 .ds-sheet__title {
   margin: 0;
-  padding-inline-end: var(--ds-primitive-spacing-32);
-  color: var(--ds-semantic-content-primary);
-  font-size: var(--ds-primitive-font-size-lg-font-size);
+  padding-inline-end: var(--rzz-space-32);
+  color: var(--rzz-content-primary);
+  font-size: var(--rzz-text-lg);
   font-weight: 600;
   letter-spacing: -0.01em;
-  line-height: var(--ds-primitive-font-size-lg-line-height);
+  line-height: var(--rzz-leading-lg);
 }
 
 .ds-sheet__description {
   margin: 0;
-  color: var(--ds-semantic-content-muted);
-  font-size: var(--ds-primitive-font-size-sm-font-size);
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-sm);
   font-weight: 400;
-  line-height: var(--ds-primitive-font-size-sm-line-height);
+  line-height: var(--rzz-leading-sm);
 }
 
 .ds-sheet__body {
   display: flex;
   flex-direction: column;
-  gap: var(--ds-primitive-spacing-16);
+  gap: var(--rzz-space-16);
   flex: 1 1 auto;
   min-height: 0;
-  padding: var(--ds-primitive-spacing-20) var(--ds-primitive-spacing-24);
+  padding: var(--rzz-space-20) var(--rzz-space-24);
   overflow: auto;
 }
 
@@ -113,9 +113,9 @@ dialog.ds-sheet[open]::backdrop {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: var(--ds-primitive-spacing-8);
+  gap: var(--rzz-space-8);
   flex-shrink: 0;
-  padding: var(--ds-primitive-spacing-16) var(--ds-primitive-spacing-24);
-  border-top: 1px solid var(--ds-semantic-border-subtle);
-  background-color: var(--ds-semantic-surface-card);
+  padding: var(--rzz-space-16) var(--rzz-space-24);
+  border-top: 1px solid var(--rzz-border-subtle);
+  background-color: var(--rzz-surface-card);
 }
