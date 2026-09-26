@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="dist/css/variables.css" />
     <link rel="stylesheet" href="src/components/ui/button/button.css" />
     <link rel="stylesheet" href="src/components/ui/card/card.css" />
-    <link rel="stylesheet" href="src/components/ui/input/input.css" />
+    <link rel="stylesheet" href="src/components/ui/input/input.styles.css" />
     <link rel="stylesheet" href="src/components/ui/dialog/dialog.css" />
     <link rel="stylesheet" href="src/components/ui/checkbox/checkbox.css" />
     <link rel="stylesheet" href="src/components/ui/switch/switch.css" />
@@ -26,10 +26,19 @@
     <link rel="stylesheet" href="src/components/ui/popover/popover.css" />
     <link rel="stylesheet" href="src/components/ui/accordion/accordion.css" />
     <link rel="stylesheet" href="src/components/ui/data-table/data-table.css" />
-    <link rel="stylesheet" href="src/components/ui/avatar/avatar.css" />
+    <link rel="stylesheet" href="src/components/ui/avatar/avatar.styles.css" />
     <link rel="stylesheet" href="src/components/ui/skeleton/skeleton.css" />
     <link rel="stylesheet" href="src/components/ui/tooltip/tooltip.css" />
     <link rel="stylesheet" href="src/components/ui/textarea/textarea.css" />
+    <link rel="stylesheet" href="src/components/ui/search-kbd-input/search-kbd-input.css" />
+    <link rel="stylesheet" href="src/components/ui/floating-label-input/floating-label-input.css" />
+    <link rel="stylesheet" href="src/components/ui/currency-counter-input/currency-counter-input.css" />
+    <link rel="stylesheet" href="src/components/ui/password-strength-input/password-strength-input.css" />
+    <link rel="stylesheet" href="src/components/ui/pin-code-input/pin-code-input.css" />
+    <link rel="stylesheet" href="src/components/ui/async-validation-input/async-validation-input.css" />
+    <link rel="stylesheet" href="src/components/ui/avatar-group/avatar-group.css" />
+    <link rel="stylesheet" href="src/components/ui/setting-row/setting-row.css" />
+    <link rel="stylesheet" href="src/components/ui/radio-card/radio-card.css" />
     <style>
       *,
       *::before,
@@ -341,6 +350,65 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.75rem;
+      }
+
+      .playground__advanced-demo {
+        display: grid;
+        gap: var(--ds-primitive-spacing-24);
+        padding: var(--ds-primitive-spacing-20);
+        border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
+        border-radius: var(--ds-primitive-radius-lg);
+        background-color: var(--ds-semantic-surface-card);
+        box-shadow: var(--ds-shadow-xs);
+        max-width: 40rem;
+      }
+
+      .playground__advanced-block {
+        display: flex;
+        flex-direction: column;
+        gap: var(--ds-primitive-spacing-8);
+        margin: 0;
+      }
+
+      .playground__advanced-block h3 {
+        margin: 0;
+        color: var(--ds-semantic-content-primary);
+        font-size: var(--ds-primitive-font-size-sm-font-size);
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .playground__advanced-block p {
+        margin: 0;
+        color: var(--ds-semantic-content-muted);
+        font-size: var(--ds-primitive-font-size-xs-font-size);
+        line-height: var(--ds-primitive-font-size-xs-line-height);
+      }
+
+      .playground__settings-demo {
+        display: grid;
+        gap: var(--ds-primitive-spacing-24);
+        padding: var(--ds-primitive-spacing-20);
+        border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
+        border-radius: var(--ds-primitive-radius-lg);
+        background-color: var(--ds-semantic-surface-card);
+        box-shadow: var(--ds-shadow-xs);
+        max-width: 48rem;
+      }
+
+      .playground__settings-demo h3 {
+        margin: 0 0 var(--ds-primitive-spacing-8);
+        color: var(--ds-semantic-content-primary);
+        font-size: var(--ds-primitive-font-size-sm-font-size);
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .playground__settings-demo > p {
+        margin: 0 0 var(--ds-primitive-spacing-12);
+        color: var(--ds-semantic-content-muted);
+        font-size: var(--ds-primitive-font-size-xs-font-size);
+        line-height: var(--ds-primitive-font-size-xs-line-height);
       }
     </style>
   </head>
@@ -1690,6 +1758,421 @@
           </div>
         </div>
       </section>
+
+      <section class="playground__section" aria-labelledby="advanced-forms-heading">
+        <h2 id="advanced-forms-heading">Formularios Avanzados</h2>
+        <div class="playground__advanced-demo">
+          <div class="playground__advanced-block">
+            <h3>SearchKbdInput</h3>
+            <p>Atajo global <kbd>Ctrl</kbd>+<kbd>K</kbd> / <kbd>⌘</kbd>+<kbd>K</kbd>. El badge se oculta en mobile.</p>
+            <div class="ds-search-kbd" data-ds-search-kbd>
+              <span class="ds-search-kbd__icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <circle cx="7" cy="7" r="4.25" stroke="currentColor" stroke-width="1.5" />
+                  <path d="M10.5 10.5L13.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </span>
+              <input
+                id="pg-global-search"
+                class="ds-search-kbd__input"
+                type="search"
+                name="q"
+                placeholder="Buscar en el sistema…"
+                autocomplete="off"
+                aria-label="Búsqueda global"
+              />
+              <button type="button" class="ds-search-kbd__clear" aria-label="Limpiar búsqueda">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M3 3l6 6M9 3L3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+              </button>
+              <span class="ds-search-kbd__shortcut" aria-hidden="true">
+                <kbd>Ctrl</kbd><kbd>K</kbd>
+              </span>
+            </div>
+          </div>
+
+          <div class="playground__advanced-block">
+            <h3>FloatingLabelInput</h3>
+            <p>Label como placeholder; se eleva en focus o con valor / autofill.</p>
+            <div class="ds-floating">
+              <input
+                id="pg-floating-email"
+                class="ds-floating__input"
+                type="email"
+                name="email"
+                placeholder=" "
+                autocomplete="email"
+              />
+              <label class="ds-floating__label" for="pg-floating-email">Correo electrónico</label>
+            </div>
+            <div class="ds-floating">
+              <input
+                id="pg-floating-name"
+                class="ds-floating__input"
+                type="text"
+                name="fullname"
+                placeholder=" "
+                autocomplete="name"
+              />
+              <label class="ds-floating__label" for="pg-floating-name">Nombre completo</label>
+            </div>
+          </div>
+
+          <div class="playground__advanced-block">
+            <h3>CurrencyCounterInput</h3>
+            <p>Prefijo monetario + contador con umbral 90% → danger.</p>
+            <div class="ds-field">
+              <label class="ds-label" for="pg-amount">Importe</label>
+              <div class="ds-currency">
+                <span class="ds-currency__prefix" aria-hidden="true">USD</span>
+                <input
+                  id="pg-amount"
+                  class="ds-currency__input"
+                  type="text"
+                  name="amount"
+                  inputmode="decimal"
+                  placeholder="0.00"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+            <div class="ds-field ds-counter" data-ds-counter data-max="120">
+              <div class="ds-counter__meta">
+                <label class="ds-label" for="pg-bio-counter">Bio corta</label>
+                <span class="ds-counter__count" data-ds-counter-value aria-live="polite">0/120</span>
+              </div>
+              <textarea
+                id="pg-bio-counter"
+                class="ds-input ds-input--md"
+                name="bio"
+                rows="3"
+                maxlength="120"
+                placeholder="Máximo 120 caracteres"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="playground__advanced-block">
+            <h3>PasswordStrengthInput</h3>
+            <p>Toggle accesible + medidor role=meter (4 niveles).</p>
+            <div class="ds-password">
+              <label class="ds-label" for="pg-new-password">Contraseña</label>
+              <div class="ds-password__control">
+                <input
+                  id="pg-new-password"
+                  class="ds-password__input"
+                  type="password"
+                  name="password"
+                  autocomplete="new-password"
+                  aria-describedby="pg-password-strength-status"
+                />
+                <button
+                  type="button"
+                  class="ds-password__toggle"
+                  aria-label="Mostrar contraseña"
+                  aria-pressed="false"
+                >
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path
+                      d="M1.5 8s2.5-4.5 6.5-4.5S14.5 8 14.5 8s-2.5 4.5-6.5 4.5S1.5 8 1.5 8z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    />
+                    <circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.5" />
+                  </svg>
+                </button>
+              </div>
+              <div
+                class="ds-password__meter"
+                role="meter"
+                aria-label="Fuerza de contraseña"
+                aria-valuemin="0"
+                aria-valuemax="4"
+                aria-valuenow="0"
+                aria-valuetext="Vacía"
+                data-strength="0"
+              >
+                <span class="ds-password__segment" aria-hidden="true"></span>
+                <span class="ds-password__segment" aria-hidden="true"></span>
+                <span class="ds-password__segment" aria-hidden="true"></span>
+                <span class="ds-password__segment" aria-hidden="true"></span>
+              </div>
+              <p
+                id="pg-password-strength-status"
+                class="ds-password__status"
+                data-strength="0"
+                aria-live="polite"
+              >
+                Ingresá una contraseña
+              </p>
+            </div>
+          </div>
+
+          <div class="playground__advanced-block">
+            <h3>PinCodeInput / OTP</h3>
+            <p>inputMode numeric, paste de 6 dígitos y autofill SMS.</p>
+            <div class="ds-pin" role="group" aria-labelledby="pg-otp-label">
+              <span id="pg-otp-label" class="ds-label">Código de verificación</span>
+              <div class="ds-pin__cells">
+                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="one-time-code" aria-label="Dígito 1" />
+                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Dígito 2" />
+                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Dígito 3" />
+                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Dígito 4" />
+                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Dígito 5" />
+                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Dígito 6" />
+              </div>
+            </div>
+          </div>
+
+          <div class="playground__advanced-block">
+            <h3>AsyncValidationInput</h3>
+            <p>Debounce 400ms. Probá <code>admin</code> / <code>taken</code> vs un username libre.</p>
+            <div class="ds-async" data-state="idle">
+              <label class="ds-label" for="pg-username-async">Nombre de usuario</label>
+              <div class="ds-async__control">
+                <input
+                  id="pg-username-async"
+                  class="ds-async__input"
+                  type="text"
+                  name="username"
+                  autocomplete="username"
+                  spellcheck="false"
+                  placeholder="ej. ariel"
+                  aria-describedby="pg-username-async-msg"
+                />
+                <span class="ds-async__status" aria-hidden="true">
+                  <svg class="ds-async__icon ds-async__icon--spinner" viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" opacity="0.25" />
+                    <path d="M14 8a6 6 0 00-6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                  <svg class="ds-async__icon ds-async__icon--success" viewBox="0 0 16 16" fill="none">
+                    <path d="M3.5 8.5l3 3 6-6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <svg class="ds-async__icon ds-async__icon--error" viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M8 5v3.5M8 11h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                </span>
+              </div>
+              <p id="pg-username-async-msg" class="ds-async__message" aria-live="polite">
+                <span class="ds-async__message-text"></span>
+              </p>
+            </div>
+          </div>
+
+          <div class="playground__advanced-block">
+            <h3>AvatarGroup &amp; StatusDot</h3>
+            <p>Overlap −0.5rem y anillo con surface-card.</p>
+            <ul class="ds-avatar-group" aria-label="Equipo en línea">
+              <li>
+                <span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="Ana Ruiz (en línea)">
+                  <img
+                    class="ds-avatar__image"
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=faces"
+                    alt=""
+                    width="40"
+                    height="40"
+                  />
+                  <span class="ds-status-dot ds-status-dot--online" title="En línea"></span>
+                </span>
+              </li>
+              <li>
+                <span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="Luis Gómez (ausente)">
+                  <span class="ds-avatar__fallback" aria-hidden="true">LG</span>
+                  <span class="ds-status-dot ds-status-dot--away" title="Ausente"></span>
+                </span>
+              </li>
+              <li>
+                <span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="María Sol (ocupada)">
+                  <img
+                    class="ds-avatar__image"
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=faces"
+                    alt=""
+                    width="40"
+                    height="40"
+                  />
+                  <span class="ds-status-dot ds-status-dot--busy" title="Ocupada"></span>
+                </span>
+              </li>
+              <li>
+                <span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="Carla Díaz (offline)">
+                  <span class="ds-avatar__fallback" aria-hidden="true">CD</span>
+                  <span class="ds-status-dot ds-status-dot--offline" title="Desconectada"></span>
+                </span>
+              </li>
+              <li>
+                <span class="ds-avatar-group__more" aria-label="3 personas más">+3</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="settings-patterns-heading">
+        <h2 id="settings-patterns-heading">Patrones de Ajustes y Configuración</h2>
+        <div class="playground__settings-demo">
+          <div>
+            <h3>Toggle Rows</h3>
+            <p>Toda el área de la fila activa el switch o checkbox (sin JS).</p>
+            <div class="ds-setting-list" role="list">
+              <label class="ds-setting-row" role="listitem">
+                <span class="ds-setting-row__left">
+                  <span class="ds-setting-row__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M8 2.5v2M8 11.5v2M2.5 8h2M11.5 8h2M4.2 4.2l1.4 1.4M10.4 10.4l1.4 1.4M11.8 4.2l-1.4 1.4M5.6 10.4l-1.4 1.4"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                      />
+                      <circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </span>
+                  <span class="ds-setting-row__meta">
+                    <span class="ds-setting-row__title">Modo Turbo</span>
+                    <span class="ds-setting-row__description">
+                      Acelera sincronización y reduce latencia percibida.
+                    </span>
+                  </span>
+                </span>
+                <span class="ds-setting-row__control">
+                  <span class="ds-switch__control">
+                    <input
+                      class="ds-switch__input"
+                      type="checkbox"
+                      role="switch"
+                      name="pg-turbo-mode"
+                      aria-checked="false"
+                    />
+                    <span class="ds-switch__track" aria-hidden="true">
+                      <span class="ds-switch__thumb"></span>
+                    </span>
+                  </span>
+                </span>
+              </label>
+
+              <label class="ds-setting-row" role="listitem">
+                <span class="ds-setting-row__left">
+                  <span class="ds-setting-row__icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M8 13.25a1.25 1.25 0 001.25-1.25H6.75A1.25 1.25 0 008 13.25zM12.5 10.5V7.25a4.5 4.5 0 10-9 0V10.5l-1 1v.75h11v-.75l-1-1z"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                  <span class="ds-setting-row__meta">
+                    <span class="ds-setting-row__title">Notificaciones push</span>
+                    <span class="ds-setting-row__description">
+                      Alertas en tiempo real para menciones y despliegues.
+                    </span>
+                  </span>
+                </span>
+                <span class="ds-setting-row__control">
+                  <input
+                    class="ds-checkbox"
+                    type="checkbox"
+                    name="pg-push-notifications"
+                    checked
+                  />
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <h3>Radio Cards — Densidad de Interfaz</h3>
+            <p>Opciones mutuamente excluyentes; clic en cualquier parte de la tarjeta.</p>
+            <div class="ds-radio-grid" role="radiogroup" aria-label="Densidad de interfaz">
+              <label class="ds-radio-card">
+                <input
+                  class="ds-radio-card__input"
+                  type="radio"
+                  name="pg-density-option"
+                  value="comfortable"
+                  checked
+                />
+                <span class="ds-radio-card__header">
+                  <span class="ds-radio-card__title">Cómoda</span>
+                  <span class="ds-radio-card__indicator" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M3.5 8.5l3 3 6-6.5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span class="ds-radio-card__description">
+                  Más aire entre bloques. Ideal para lectura y onboarding.
+                </span>
+                <span class="ds-radio-card__value">Spacing 1.0×</span>
+              </label>
+
+              <label class="ds-radio-card">
+                <input
+                  class="ds-radio-card__input"
+                  type="radio"
+                  name="pg-density-option"
+                  value="compact"
+                />
+                <span class="ds-radio-card__header">
+                  <span class="ds-radio-card__title">Compacta</span>
+                  <span class="ds-radio-card__badge">Popular</span>
+                  <span class="ds-radio-card__indicator" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M3.5 8.5l3 3 6-6.5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span class="ds-radio-card__description">
+                  Densidad equilibrada para dashboards y listas densas.
+                </span>
+                <span class="ds-radio-card__value">Spacing 0.85×</span>
+              </label>
+
+              <label class="ds-radio-card">
+                <input
+                  class="ds-radio-card__input"
+                  type="radio"
+                  name="pg-density-option"
+                  value="ultra"
+                />
+                <span class="ds-radio-card__header">
+                  <span class="ds-radio-card__title">Ultra</span>
+                  <span class="ds-radio-card__indicator" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M3.5 8.5l3 3 6-6.5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span class="ds-radio-card__description">
+                  Máxima densidad. Pensado para power users y tablas.
+                </span>
+                <span class="ds-radio-card__value">Spacing 0.7×</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script>
@@ -1726,6 +2209,11 @@
     </script>
     <script type="module" src="src/components/ui/dialog/dialog.js"></script>
     <script type="module" src="src/components/ui/tabs/tabs.js"></script>
+    <script type="module" src="src/components/ui/search-kbd-input/search-kbd-input.js"></script>
+    <script type="module" src="src/components/ui/currency-counter-input/currency-counter-input.js"></script>
+    <script type="module" src="src/components/ui/password-strength-input/password-strength-input.js"></script>
+    <script type="module" src="src/components/ui/pin-code-input/pin-code-input.js"></script>
+    <script type="module" src="src/components/ui/async-validation-input/async-validation-input.js"></script>
     <script type="module">
       import { toast } from './src/components/ui/toast/toast.js';
 
