@@ -417,6 +417,220 @@
       "dependencies": [],
       "registryDependencies": ["input"],
       "docs": "Requiere input.css para .ds-field / .ds-label / hints."
+    },
+    {
+      "name": "search-kbd-input",
+      "type": "registry:ui",
+      "title": "Search Kbd Input",
+      "description": "Búsqueda global con badge kbd, clear animado y hotkey Cmd/Ctrl+K.",
+      "files": [
+        {
+          "path": "ui/search-kbd-input/search-kbd-input.css",
+          "type": "registry:style",
+          "target": "search-kbd-input.css"
+        },
+        {
+          "path": "ui/search-kbd-input/search-kbd-input.html",
+          "type": "registry:snippet",
+          "target": "search-kbd-input.html"
+        },
+        {
+          "path": "ui/search-kbd-input/search-kbd-input.js",
+          "type": "registry:script",
+          "target": "search-kbd-input.js"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Incluí el script como type=module. El kbd se oculta bajo 640px."
+    },
+    {
+      "name": "floating-label-input",
+      "type": "registry:ui",
+      "title": "Floating Label Input",
+      "description": "Label flotante con curva Bézier y manejo de webkit-autofill.",
+      "files": [
+        {
+          "path": "ui/floating-label-input/floating-label-input.css",
+          "type": "registry:style",
+          "target": "floating-label-input.css"
+        },
+        {
+          "path": "ui/floating-label-input/floating-label-input.html",
+          "type": "registry:snippet",
+          "target": "floating-label-input.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Usá placeholder=\" \" (espacio) para activar :placeholder-shown."
+    },
+    {
+      "name": "currency-counter-input",
+      "type": "registry:ui",
+      "title": "Currency & Counter Input",
+      "description": "Prefijo monetario tabular-nums y contador current/max con umbral 90%.",
+      "files": [
+        {
+          "path": "ui/currency-counter-input/currency-counter-input.css",
+          "type": "registry:style",
+          "target": "currency-counter-input.css"
+        },
+        {
+          "path": "ui/currency-counter-input/currency-counter-input.html",
+          "type": "registry:snippet",
+          "target": "currency-counter-input.html"
+        },
+        {
+          "path": "ui/currency-counter-input/currency-counter-input.js",
+          "type": "registry:script",
+          "target": "currency-counter-input.js"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["input"],
+      "docs": "Marcá el contenedor con data-ds-counter y maxlength en el control."
+    },
+    {
+      "name": "password-strength-input",
+      "type": "registry:ui",
+      "title": "Password Strength Input",
+      "description": "Toggle de visibilidad y medidor de 4 niveles con role=meter y aria-live.",
+      "files": [
+        {
+          "path": "ui/password-strength-input/password-strength-input.css",
+          "type": "registry:style",
+          "target": "password-strength-input.css"
+        },
+        {
+          "path": "ui/password-strength-input/password-strength-input.html",
+          "type": "registry:snippet",
+          "target": "password-strength-input.html"
+        },
+        {
+          "path": "ui/password-strength-input/password-strength-input.js",
+          "type": "registry:script",
+          "target": "password-strength-input.js"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["input"],
+      "docs": "Colores vía feedback-danger/warning/success y action-primary."
+    },
+    {
+      "name": "pin-code-input",
+      "type": "registry:ui",
+      "title": "Pin Code / OTP Input",
+      "description": "Celdas OTP con autofill SMS, navegación de foco y paste masivo.",
+      "files": [
+        {
+          "path": "ui/pin-code-input/pin-code-input.css",
+          "type": "registry:style",
+          "target": "pin-code-input.css"
+        },
+        {
+          "path": "ui/pin-code-input/pin-code-input.html",
+          "type": "registry:snippet",
+          "target": "pin-code-input.html"
+        },
+        {
+          "path": "ui/pin-code-input/pin-code-input.js",
+          "type": "registry:script",
+          "target": "pin-code-input.js"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["input"],
+      "docs": "Escuchá ds-pin:change para valor completo."
+    },
+    {
+      "name": "async-validation-input",
+      "type": "registry:ui",
+      "title": "Async Validation Input",
+      "description": "Validación con debounce 400ms, spinner y estados success/error animados.",
+      "files": [
+        {
+          "path": "ui/async-validation-input/async-validation-input.css",
+          "type": "registry:style",
+          "target": "async-validation-input.css"
+        },
+        {
+          "path": "ui/async-validation-input/async-validation-input.html",
+          "type": "registry:snippet",
+          "target": "async-validation-input.html"
+        },
+        {
+          "path": "ui/async-validation-input/async-validation-input.js",
+          "type": "registry:script",
+          "target": "async-validation-input.js"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["input"],
+      "docs": "Pasá validate custom a bindAsyncValidation(root, { validate })."
+    },
+    {
+      "name": "avatar-group",
+      "type": "registry:ui",
+      "title": "Avatar Group & Status Dot",
+      "description": "Avatares apilados con overlap y status dots online/offline/busy/away.",
+      "files": [
+        {
+          "path": "ui/avatar-group/avatar-group.css",
+          "type": "registry:style",
+          "target": "avatar-group.css"
+        },
+        {
+          "path": "ui/avatar-group/avatar-group.html",
+          "type": "registry:snippet",
+          "target": "avatar-group.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["avatar"],
+      "docs": "El borde del stack usa --ds-semantic-surface-card para separar del fondo."
+    },
+    {
+      "name": "setting-row",
+      "type": "registry:ui",
+      "title": "Setting Row",
+      "description": "Fila de ajustes clickeable (label) con icono, meta y switch/checkbox sin JS.",
+      "files": [
+        {
+          "path": "ui/setting-row/setting-row.css",
+          "type": "registry:style",
+          "target": "setting-row.css"
+        },
+        {
+          "path": "ui/setting-row/setting-row.html",
+          "type": "registry:snippet",
+          "target": "setting-row.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["switch", "checkbox"],
+      "docs": "El row es el <label>; anidá .ds-switch__control o .ds-checkbox (no otro label)."
+    },
+    {
+      "name": "radio-card",
+      "type": "registry:ui",
+      "title": "Radio Card",
+      "description": "Tarjetas radio mutuamente excluyentes con :has(:checked) y foco accesible.",
+      "files": [
+        {
+          "path": "ui/radio-card/radio-card.css",
+          "type": "registry:style",
+          "target": "radio-card.css"
+        },
+        {
+          "path": "ui/radio-card/radio-card.html",
+          "type": "registry:snippet",
+          "target": "radio-card.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Usá el mismo name en todos los radios del grupo."
     }
   ]
 }
