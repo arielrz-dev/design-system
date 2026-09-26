@@ -15,9 +15,21 @@ Design system agnóstico (sin framework): tokens DTCG, variables CSS `--ds-*`, y
 |-------|-----|
 | `tokens/` | Fuentes DTCG 2025.10 (light + dark) |
 | `build-tokens.mjs` | Compila a CSS y TypeScript con Style Dictionary |
-| `registry/` | Catálogo de UI (HTML + CSS BEM, tokens `--ds-*`) |
+| `registry/` | Catálogo UI (~35 componentes HTML/CSS BEM) |
 | `scripts/add.mjs` | Copia un componente a `src/components/ui/` |
-| `index.html` | Playground visual de tokens y componentes |
+| `index.html` | Playground visual (light/dark) |
+
+El índice vivo de componentes está en `registry/registry.json` (formularios avanzados, SaaS Pro, banner, timeline, etc.).
+
+## Capas y motion
+
+Además de color, tipografía y sombra, el build expone:
+
+- **Z-index:** `--ds-z-base` … `--ds-z-tooltip` (banner, dropdown, modal, toast…)
+- **Duración:** `--ds-duration-fast` / `--ds-duration-normal` / `--ds-duration-slow`
+- **Easing:** `--ds-ease-standard`
+
+Los overlays del registry (dialog, sheet, toast, popover, tooltip) consumen estas variables.
 
 ## Temas
 
