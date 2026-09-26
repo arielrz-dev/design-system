@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>rzz-ui — Docs</title>
+    <meta
+      name="description"
+      content="Documentación técnica de rzz-ui: tokens --ds-*, foundations y playground de componentes."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../dist/css/variables.css" />
+    <link rel="stylesheet" href="../src/components/ui/button/button.css" />
+    <link rel="stylesheet" href="../src/components/ui/input/input.styles.css" />
+    <link rel="stylesheet" href="../src/components/ui/select/select.css" />
+    <link rel="stylesheet" href="../src/components/ui/dialog/dialog.css" />
+    <link rel="stylesheet" href="../src/components/ui/tabs/tabs.css" />
+    <link rel="stylesheet" href="../src/components/ui/badge/badge.css" />
+    <link rel="stylesheet" href="../src/components/ui/alert/alert.css" />
+    <link rel="stylesheet" href="../src/components/ui/checkbox/checkbox.css" />
+    <link rel="stylesheet" href="../src/components/ui/data-table/data-table.css" />
+    <link rel="stylesheet" href="docs.css" />
+  </head>
+  <body>
+    <header class="docs-header">
+      <a class="docs-brand" href="#introduccion">
+        <span class="docs-brand__mark" aria-hidden="true">rz</span>
+        <span>rzz-ui</span>
+        <span class="docs-badge">v1.0.0</span>
+      </a>
+
+      <div class="docs-header__search">
+        <span class="docs-header__search-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+            <circle cx="7" cy="7" r="4.25" stroke="currentColor" stroke-width="1.5" />
+            <path
+              d="M10.5 10.5L13.5 13.5"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+        </span>
+        <label class="docs-visually-hidden" for="docs-search">Buscar componentes</label>
+        <input
+          id="docs-search"
+          class="docs-header__search-input"
+          type="search"
+          placeholder="Buscar componentes…"
+          autocomplete="off"
+        />
+        <span class="docs-header__kbd" aria-hidden="true"><kbd>⌘</kbd><kbd>K</kbd></span>
+      </div>
+
+      <div class="docs-header__actions">
+        <a
+          class="docs-link-quiet"
+          href="https://github.com/arielrz-dev/design-system"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+        <a
+          class="docs-icon-btn"
+          href="https://github.com/arielrz-dev/design-system"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Abrir repositorio en GitHub"
+        >
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.68 7.68 0 018 3.91c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+            />
+          </svg>
+        </a>
+        <button type="button" class="docs-icon-btn" id="docs-theme-toggle" aria-pressed="false">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path
+              d="M8 1.5v1.25M8 13.25V14.5M1.5 8h1.25M13.25 8H14.5M3.4 3.4l.9.9M11.7 11.7l.9.9M12.6 3.4l-.9.9M4.3 11.7l-.9.9"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+            />
+            <circle cx="8" cy="8" r="2.75" stroke="currentColor" stroke-width="1.4" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="docs-shell">
+      <aside class="docs-sidebar" aria-label="Navegación de documentación">
+        <nav>
+          <div class="docs-nav__group">
+            <p class="docs-nav__label">Comenzar</p>
+            <ul class="docs-nav__list">
+              <li><a class="docs-nav__link" href="#introduccion">Introducción</a></li>
+              <li><a class="docs-nav__link" href="#instalacion">Instalación CLI</a></li>
+              <li><a class="docs-nav__link" href="#arquitectura">Arquitectura de Tokens</a></li>
+            </ul>
+          </div>
+          <div class="docs-nav__group">
+            <p class="docs-nav__label">Foundations</p>
+            <ul class="docs-nav__list">
+              <li><a class="docs-nav__link" href="#colores">Colores &amp; Superficies</a></li>
+              <li><a class="docs-nav__link" href="#tipografia">Tipografía</a></li>
+              <li><a class="docs-nav__link" href="#espaciado">Espaciado</a></li>
+              <li><a class="docs-nav__link" href="#sombras">Sombras &amp; Z-Index</a></li>
+            </ul>
+          </div>
+          <div class="docs-nav__group">
+            <p class="docs-nav__label">Componentes</p>
+            <ul class="docs-nav__list">
+              <li><a class="docs-nav__link" href="#button">Button</a></li>
+              <li><a class="docs-nav__link" href="#input">Input &amp; Select</a></li>
+              <li><a class="docs-nav__link" href="#dialog">Dialog</a></li>
+              <li><a class="docs-nav__link" href="#tabs">Tabs</a></li>
+              <li><a class="docs-nav__link" href="#badges">Badges &amp; Alerts</a></li>
+              <li><a class="docs-nav__link" href="#data-table">Data Table</a></li>
+              <li><a class="docs-nav__link" href="#catalogo">Catálogo completo</a></li>
+            </ul>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="docs-main">
+        <nav class="docs-mobile-nav" aria-label="Secciones">
+          <a href="#introduccion">Intro</a>
+          <a href="#colores">Foundations</a>
+          <a href="#button">Components</a>
+          <a href="#catalogo">Catálogo</a>
+        </nav>
+
+        <header class="docs-hero" id="introduccion">
+          <p class="docs-hero__eyebrow">Agnóstico · HTML/CSS · DTCG</p>
+          <h1 class="docs-hero__title">Design System Agnóstico</h1>
+          <p class="docs-hero__subtitle">
+            Tokens semánticos <code>--ds-*</code>, registry copy-paste y playground vivo —
+            sin runtime de framework. Pensado para productos con la densidad visual de Linear
+            y la claridad tipográfica de Geist.
+          </p>
+          <div class="docs-command">
+            <code class="docs-command__code" id="docs-install-cmd"
+              ><span>$</span> npx rzz-ui add button</code
+            >
+            <button
+              type="button"
+              class="docs-copy"
+              data-docs-copy="npx rzz-ui add button"
+              aria-label="Copiar comando de instalación"
+            >
+              <span data-docs-copy-label>Copiar</span>
+            </button>
+          </div>
+        </header>
+
+        <section class="docs-section" id="instalacion" aria-labelledby="instalacion-title">
+          <h2 class="docs-section__title" id="instalacion-title">Instalación CLI</h2>
+          <p class="docs-section__lead">
+            Localmente usá el CLI del monorepo. El comando público es
+            <code>npx rzz-ui add …</code>.
+          </p>
+          <div class="docs-prose">
+            <p>
+              1. <code>npm install</code> · 2. <code>npm run build:tokens</code> · 3.
+              <code>npx rzz-ui add button</code> (o <code>npm run rzz-ui -- add button</code>)
+              copia el componente a
+              <code>src/components/ui/</code>.
+            </p>
+            <p>
+              Incluí <code>dist/css/variables.css</code> en tu página antes de los CSS del
+              registry. El playground de desarrollo sigue en <code>index.html</code> en la raíz.
+            </p>
+          </div>
+        </section>
+
+        <section class="docs-section" id="arquitectura" aria-labelledby="arquitectura-title">
+          <h2 class="docs-section__title" id="arquitectura-title">Arquitectura de Tokens</h2>
+          <p class="docs-section__lead">
+            Pipeline DTCG → Style Dictionary → CSS/TS. Capas primitive + semantic; aliases
+            cortos para sombra, z-index y motion.
+          </p>
+          <div class="docs-prose">
+            <p>
+              <strong>Color / superficie:</strong>
+              <code>--ds-semantic-surface-*</code>, <code>--ds-semantic-content-*</code>,
+              <code>--ds-semantic-action-*</code>.
+            </p>
+            <p>
+              <strong>Elevación:</strong> <code>--ds-shadow-xs|sm|md</code>.
+              <strong>Capas:</strong> <code>--ds-z-banner</code> …
+              <code>--ds-z-tooltip</code>.
+              <strong>Motion:</strong> <code>--ds-duration-*</code>,
+              <code>--ds-ease-standard</code>.
+            </p>
+          </div>
+        </section>
+
+        <!-- Foundations -->
+        <section class="docs-section" id="colores" aria-labelledby="colores-title">
+          <h2 class="docs-section__title" id="colores-title">Colores &amp; Superficies</h2>
+          <p class="docs-section__lead">
+            Tokens vivos sobre el tema activo. Copiá el nombre CSS para usarlo en componentes.
+          </p>
+          <div class="docs-swatch-grid">
+            <article class="docs-swatch" data-docs-searchable="surface canvas">
+              <div
+                class="docs-swatch__preview"
+                style="background: var(--ds-semantic-surface-canvas)"
+              ></div>
+              <div class="docs-swatch__meta">
+                <p class="docs-swatch__name">--ds-semantic-surface-canvas</p>
+                <p class="docs-swatch__value">surface / página</p>
+                <button
+                  type="button"
+                  class="docs-copy docs-swatch__copy"
+                  data-docs-copy="var(--ds-semantic-surface-canvas)"
+                >
+                  <span data-docs-copy-label>Copiar</span>
+                </button>
+              </div>
+            </article>
+            <article class="docs-swatch" data-docs-searchable="surface card">
+              <div
+                class="docs-swatch__preview"
+                style="background: var(--ds-semantic-surface-card)"
+              ></div>
+              <div class="docs-swatch__meta">
+                <p class="docs-swatch__name">--ds-semantic-surface-card</p>
+                <p class="docs-swatch__value">surface / card</p>
+                <button
+                  type="button"
+                  class="docs-copy docs-swatch__copy"
+                  data-docs-copy="var(--ds-semantic-surface-card)"
+                >
+                  <span data-docs-copy-label>Copiar</span>
+                </button>
+              </div>
+            </article>
+            <article class="docs-swatch" data-docs-searchable="surface elevated">
+              <div
+                class="docs-swatch__preview"
+                style="background: var(--ds-semantic-surface-elevated)"
+              ></div>
+              <div class="docs-swatch__meta">
+                <p class="docs-swatch__name">--ds-semantic-surface-elevated</p>
+                <p class="docs-swatch__value">surface / elevated</p>
+                <button
+                  type="button"
+                  class="docs-copy docs-swatch__copy"
+                  data-docs-copy="var(--ds-semantic-surface-elevated)"
+                >
+                  <span data-docs-copy-label>Copiar</span>
+                </button>
+              </div>
+            </article>
+            <article class="docs-swatch" data-docs-searchable="action primary">
+              <div
+                class="docs-swatch__preview"
+                style="background: var(--ds-semantic-action-primary-default)"
+              ></div>
+              <div class="docs-swatch__meta">
+                <p class="docs-swatch__name">--ds-semantic-action-primary-default</p>
+                <p class="docs-swatch__value">action / primary</p>
+                <button
+                  type="button"
+                  class="docs-copy docs-swatch__copy"
+                  data-docs-copy="var(--ds-semantic-action-primary-default)"
+                >
+                  <span data-docs-copy-label>Copiar</span>
+                </button>
+              </div>
+            </article>
+            <article class="docs-swatch" data-docs-searchable="action danger">
+              <div
+                class="docs-swatch__preview"
+                style="background: var(--ds-semantic-action-danger-default)"
+              ></div>
+              <div class="docs-swatch__meta">
+                <p class="docs-swatch__name">--ds-semantic-action-danger-default</p>
+                <p class="docs-swatch__value">action / danger</p>
+                <button
+                  type="button"
+                  class="docs-copy docs-swatch__copy"
+                  data-docs-copy="var(--ds-semantic-action-danger-default)"
+                >
+                  <span data-docs-copy-label>Copiar</span>
+                </button>
+              </div>
+            </article>
+            <article class="docs-swatch" data-docs-searchable="border subtle">
+              <div
+                class="docs-swatch__preview"
+                style="background: var(--ds-semantic-border-subtle)"
+              ></div>
+              <div class="docs-swatch__meta">
+                <p class="docs-swatch__name">--ds-semantic-border-subtle</p>
+                <p class="docs-swatch__value">border / subtle</p>
+                <button
+                  type="button"
+                  class="docs-copy docs-swatch__copy"
+                  data-docs-copy="var(--ds-semantic-border-subtle)"
+                >
+                  <span data-docs-copy-label>Copiar</span>
+                </button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="docs-section" id="tipografia" aria-labelledby="tipografia-title">
+          <h2 class="docs-section__title" id="tipografia-title">Tipografía</h2>
+          <p class="docs-section__lead">Escala Inter con tracking negativo. Mono para código.</p>
+          <div class="docs-type-scale">
+            <div class="docs-type-row">
+              <span
+                class="docs-type-row__sample"
+                style="font-size: var(--ds-primitive-font-size-3xl-font-size); font-weight: 600"
+                >Display 3xl</span
+              >
+              <span class="docs-type-row__meta">--ds-primitive-font-size-3xl-font-size</span>
+            </div>
+            <div class="docs-type-row">
+              <span
+                class="docs-type-row__sample"
+                style="font-size: var(--ds-primitive-font-size-xl-font-size); font-weight: 600"
+                >Heading xl</span
+              >
+              <span class="docs-type-row__meta">--ds-primitive-font-size-xl-font-size</span>
+            </div>
+            <div class="docs-type-row">
+              <span
+                class="docs-type-row__sample"
+                style="font-size: var(--ds-primitive-font-size-md-font-size)"
+                >Body md — texto de interfaz</span
+              >
+              <span class="docs-type-row__meta">--ds-primitive-font-size-md-font-size</span>
+            </div>
+            <div class="docs-type-row">
+              <span
+                class="docs-type-row__sample"
+                style="
+                  font-size: var(--ds-primitive-font-size-xs-font-size);
+                  font-family: var(--ds-primitive-font-family-mono);
+                "
+                >Mono xs — tokens &amp; snippets</span
+              >
+              <span class="docs-type-row__meta">--ds-primitive-font-family-mono</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="espaciado" aria-labelledby="espaciado-title">
+          <h2 class="docs-section__title" id="espaciado-title">Espaciado</h2>
+          <p class="docs-section__lead">Escala en rem vía <code>--ds-primitive-spacing-*</code>.</p>
+          <div>
+            <div class="docs-space-row">
+              <span class="docs-space-row__label">spacing-8</span>
+              <span class="docs-space-row__bar" style="width: var(--ds-primitive-spacing-8)"></span>
+            </div>
+            <div class="docs-space-row">
+              <span class="docs-space-row__label">spacing-12</span>
+              <span
+                class="docs-space-row__bar"
+                style="width: var(--ds-primitive-spacing-12)"
+              ></span>
+            </div>
+            <div class="docs-space-row">
+              <span class="docs-space-row__label">spacing-16</span>
+              <span
+                class="docs-space-row__bar"
+                style="width: var(--ds-primitive-spacing-16)"
+              ></span>
+            </div>
+            <div class="docs-space-row">
+              <span class="docs-space-row__label">spacing-24</span>
+              <span
+                class="docs-space-row__bar"
+                style="width: var(--ds-primitive-spacing-24)"
+              ></span>
+            </div>
+            <div class="docs-space-row">
+              <span class="docs-space-row__label">spacing-32</span>
+              <span
+                class="docs-space-row__bar"
+                style="width: var(--ds-primitive-spacing-32)"
+              ></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="docs-section" id="sombras" aria-labelledby="sombras-title">
+          <h2 class="docs-section__title" id="sombras-title">Sombras &amp; Z-Index</h2>
+          <p class="docs-section__lead">
+            Elevación estratificada y capas de apilamiento para overlays.
+          </p>
+          <div class="docs-elevation-scale" style="margin-bottom: 1.25rem">
+            <div class="docs-elevation-row">
+              <span class="docs-elevation-row__chip" style="box-shadow: var(--ds-shadow-xs)"></span>
+              <span class="docs-elevation-row__meta">--ds-shadow-xs</span>
+            </div>
+            <div class="docs-elevation-row">
+              <span class="docs-elevation-row__chip" style="box-shadow: var(--ds-shadow-sm)"></span>
+              <span class="docs-elevation-row__meta">--ds-shadow-sm</span>
+            </div>
+            <div class="docs-elevation-row">
+              <span class="docs-elevation-row__chip" style="box-shadow: var(--ds-shadow-md)"></span>
+              <span class="docs-elevation-row__meta">--ds-shadow-md</span>
+            </div>
+          </div>
+          <div class="docs-z-scale">
+            <div class="docs-z-row">
+              <span>Banner</span>
+              <span class="docs-z-row__meta">--ds-z-banner · 200</span>
+            </div>
+            <div class="docs-z-row">
+              <span>Dropdown</span>
+              <span class="docs-z-row__meta">--ds-z-dropdown · 1000</span>
+            </div>
+            <div class="docs-z-row">
+              <span>Modal / Sheet</span>
+              <span class="docs-z-row__meta">--ds-z-modal · 1050</span>
+            </div>
+            <div class="docs-z-row">
+              <span>Toast</span>
+              <span class="docs-z-row__meta">--ds-z-toast · 1070</span>
+            </div>
+            <div class="docs-z-row">
+              <span>Tooltip</span>
+              <span class="docs-z-row__meta">--ds-z-tooltip · 1080</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Components playground -->
+        <section class="docs-section" id="button" aria-labelledby="button-title" data-docs-searchable="button">
+          <h2 class="docs-section__title" id="button-title">Component Playground</h2>
+          <p class="docs-section__lead">
+            Preview real + snippet listo para copiar. Alterná pestañas por tarjeta.
+          </p>
+
+          <article class="docs-card" data-docs-searchable="button">
+            <header class="docs-card__header">
+              <h3 class="docs-card__title">Button</h3>
+              <span class="docs-badge">Estable</span>
+              <div class="docs-card__tabs" role="tablist" aria-label="Button vistas">
+                <button
+                  type="button"
+                  class="docs-card__tab"
+                  role="tab"
+                  data-docs-tab="preview"
+                  aria-selected="true"
+                >
+                  Preview
+                </button>
+                <button
+                  type="button"
+                  class="docs-card__tab"
+                  role="tab"
+                  data-docs-tab="code"
+                  aria-selected="false"
+                >
+                  Code
+                </button>
+              </div>
+            </header>
+            <div class="docs-card__panel" data-docs-panel="preview">
+              <div class="docs-preview">
+                <div class="docs-preview__row">
+                  <button type="button" class="ds-button ds-button--primary ds-button--md">
+                    Primary
+                  </button>
+                  <button type="button" class="ds-button ds-button--secondary ds-button--md">
+                    Secondary
+                  </button>
+                  <button type="button" class="ds-button ds-button--danger ds-button--md">
+                    Danger
+                  </button>
+                  <button type="button" class="ds-button ds-button--ghost ds-button--md">
+                    Ghost
+                  </button>
+                  <button type="button" class="ds-button ds-button--primary ds-button--sm">
+                    Small
+                  </button>
+                  <button type="button" class="ds-button ds-button--primary ds-button--lg">
+                    Large
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="docs-card__panel" data-docs-panel="code" hidden>
+              <button
+                type="button"
+                class="docs-copy docs-code__copy"
+                data-docs-copy-target="#code-button"
+              >
+                <span data-docs-copy-label>Copiar</span>
+              </button>
+              <pre class="docs-code" id="code-button"><code>&lt;button type="button" class="ds-button ds-button--primary ds-button--md"&gt;
+  Guardar cambios
+&lt;/button&gt;
+
+&lt;!-- npx rzz-ui add button --&gt;</code></pre>
+            </div>
+          </article>
+        </section>
+
+        <section class="docs-section" id="input" data-docs-searchable="input select">
+          <article class="docs-card">
+            <header class="docs-card__header">
+              <h3 class="docs-card__title">Input &amp; Select</h3>
+              <span class="docs-badge">Estable</span>
+              <div class="docs-card__tabs" role="tablist" aria-label="Input vistas">
+                <button
+                  type="button"
+                  class="docs-card__tab"
+                  role="tab"
+                  data-docs-tab="preview"
+                  aria-selected="true"
+                >
+                  Preview
+                </button>
+                <button
+                  type="button"
+                  class="docs-card__tab"
+                  role="tab"
+                  data-docs-tab="code"
+                  aria-selected="false"
+                >
+                  Code
+                </button>
+              </div>
+            </header>
+            <div class="docs-card__panel" data-docs-panel="preview">
+              <div class="docs-preview">
+                <div class="docs-preview__stack">
+                  <div class="ds-field">
+                    <label class="ds-label" for="docs-email">Email</label>
+                    <input
+                      id="docs-email"
+                      class="ds-input ds-input--md"
+                      type="email"
+                      placeholder="ana@acme.com"
+                    />
+                  </div>
+                  <div class="ds-field">
+                    <label class="ds-label" for="docs-role">Rol</label>
+                    <select id="docs-role" class="ds-select ds-select--md">
+                      <option value="">Seleccionar…</option>
+                      <option>Admin</option>
+                      <option selected>Member</option>
+                      <option>Viewer</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="docs-card__panel" data-docs-panel="code" hidden>
+              <button
+                type="button"
+                class="docs-copy docs-code__copy"
+                data-docs-copy-target="#code-input"
+              >
+                <span data-docs-copy-label>Copiar</span>
+              </button>
+              <pre class="docs-code" id="code-input"><code>&lt;div class="ds-field"&gt;
+  &lt;label class="ds-label" for="email"&gt;Email&lt;/label&gt;
+  &lt;input id="email" class="ds-input ds-input--md" type="email" /&gt;
+&lt;/div&gt;
+
+&lt;select class="ds-select ds-select--md"&gt;…&lt;/select&gt;</code></pre>
+            </div>
+          </article>
+        </section>
+
+        <section class="docs-section" id="dialog" data-docs-searchable="dialog modal">
+          <article class="docs-card">
+            <header class="docs-card__header">
+              <h3 class="docs-card__title">Dialog</h3>
+              <span class="docs-badge">Estable</span>
+              <div class="docs-card__tabs" role="tablist" aria-label="Dialog vistas">
+                <button
+                  type="button"
+                  class="docs-card__tab"
+                  role="tab"
+                  data-docs-tab="preview"
+                  aria-selected="true"
+                >
+                  Preview
+                </button>
+                <button
+                  type="button"
+                  class="docs-card__tab"
+                  role="tab"
+                  data-docs-tab="code"
+                  aria-selected="false"
+                >
+                  Code
+                </button>
+              </div>
+            </header>
+            <div class="docs-card__panel" data-docs-panel="preview">
+              <div class="docs-preview">
+                <button
+                  type="button"
+                  class="ds-button ds-button--danger ds-button--md"
+                  data-ds-dialog-open="docs-confirm"
+                >
+                  Abrir diálogo
+                </button>
+                <dialog
+                  id="docs-confirm"
+                  class="ds-dialog"
+                  aria-labelledby="docs-confirm-title"
+                  aria-describedby="docs-confirm-desc"
+                >
+                  <header class="ds-dialog__header">
+                    <button
+                      type="button"
+                      class="ds-button ds-button--ghost ds-button--sm ds-dialog__close"
+                      data-ds-dialog-close
+                      aria-label="Cerrar"
+                    >
+                      ✕
+                    </button>
+                    <h2 id="docs-confirm-title" class="ds-dialog__title">¿Eliminar proyecto?</h2>
+                    <p id="docs-confirm-desc" class="ds-dialog__description">
+                      Esta acción no se puede deshacer.
+                    </p>
+                  </header>
+                  <div class="ds-dialog__body">
+                    <p style="margin: 0; color: var(--ds-semantic-content-secondary)">
+                      Confirmá para borrar el workspace y sus datos asociados.
+                    </p>
+                  </div>
+                  <footer class="ds-dialog__footer">
+                    <button
+                      type="button"
+                      class="ds-button ds-button--secondary ds-button--md"
+                      data-ds-dialog-close
+                    >
+                      Cancelar
+                    </button>
+                    <button
+                      type="button"
+                      class="ds-button ds-button--danger ds-button--md"
+                      data-ds-dialog-close="confirm"
+                    >
+                      Eliminar
+                    </button>
+                  </footer>
+                </dialog>
+              </div>
+            </div>
+            <div class="docs-card__panel" data-docs-panel="code" hidden>
+              <button
+                type="button"
+                class="docs-copy docs-code__copy"
+                data-docs-copy-target="#code-dialog"
+              >
+                <span data-docs-copy-label>Copiar</span>
+              </button>
+              <pre class="docs-code" id="code-dialog"><code>&lt;button data-ds-dialog-open="confirm-delete" class="ds-button ds-button--danger"&gt;
+  Eliminar
+&lt;/button&gt;
+&lt;dialog id="confirm-delete" class="ds-dialog"&gt;…&lt;/dialog&gt;
+&lt;script type="module" src="dialog.js"&gt;&lt;/script&gt;</code></pre>
+            </div>
+          </article>
+        </section>
+
+        <section class="docs-section" id="tabs" data-docs-searchable="tabs">
+          <article class="docs-card">
+            <header class="docs-card__header">
+              <h3 class="docs-card__title">Tabs</h3>
+              <span class="docs-badge">Estable</span>
+              <div class="docs-card__tabs" role="tablist" aria-label="Tabs vistas">
+                <button
+                  type="button"
+                  class="docs-card__tab"
+                  role="tab"
+                  data-docs-tab="preview"
+                  aria-selected="true"
+                >
+                  Preview
+                </button>
+                <button
+                  type="button"
+                  class="docs-card__tab"
+                  role="tab"
+                  data-docs-tab="code"
+                  aria-selected="false"
+                >
+                  Code
+                </button>
+              </div>
+            </header>
+            <div class="docs-card__panel" data-docs-panel="preview">
+              <div class="docs-preview">
+                <div class="ds-tabs" data-ds-tabs>
+                  <div class="ds-tabs__list" role="tablist" aria-label="Ejemplo">
+                    <button
+                      type="button"
+                      class="ds-tabs__trigger"
+                      role="tab"
+                      id="docs-tab-a"
+                      aria-controls="docs-panel-a"
+                      aria-selected="true"
+                    >
+                      Overview
+                    </button>
+                    <button
+                      type="button"
+                      class="ds-tabs__trigger"
+                      role="tab"
+                      id="docs-tab-b"
+                      aria-controls="docs-panel-b"
+                      aria-selected="false"
+                      tabindex="-1"
+                    >
+                      Analytics
+                    </button>
+                    <button
+                      type="button"
+                      class="ds-tabs__trigger"
+                      role="tab"
+                      id="docs-tab-c"
+                      aria-controls="docs-panel-c"
+                      aria-selected="false"
+                      tabindex="-1"
+                    >
+                      Settings
+                    </button>
+                  </div>
+                  <div
+                    class="ds-tabs__content"
+                    role="tabpanel"
+                    id="docs-panel-a"
+                    aria-labelledby="docs-tab-a"
+                  >
+                    <p style="margin: 0; color: var(--ds-semantic-content-secondary)">
+                      Resumen del workspace y actividad reciente.
+                    </p>
+                  </div>
+                  <div
+                    class="ds-tabs__content"
+                    role="tabpanel"
+                    id="docs-panel-b"
+                    aria-labelledby="docs-tab-b"
+                    hidden
+                  >
+                    <p style="margin: 0; color: var(--ds-semantic-content-secondary)">
+                      Métricas y retención.
+                    </p>
+                  </div>
+                  <div
+                    class="ds-tabs__content"
+                    role="tabpanel"
+                    id="docs-panel-c"
+                    aria-labelledby="docs-tab-c"
+                    hidden
+                  >
+                    <p style="margin: 0; color: var(--ds-semantic-content-secondary)">
+                      Preferencias del equipo.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="docs-card__panel" data-docs-panel="code" hidden>
+              <button
+                type="button"
+                class="docs-copy docs-code__copy"
+                data-docs-copy-target="#code-tabs"
+              >
+                <span data-docs-copy-label>Copiar</span>
+              </button>
+              <pre class="docs-code" id="code-tabs"><code>&lt;div class="ds-tabs" data-ds-tabs&gt;
+  &lt;div class="ds-tabs__list" role="tablist"&gt;…&lt;/div&gt;
+  &lt;div class="ds-tabs__content" role="tabpanel"&gt;…&lt;/div&gt;
+&lt;/div&gt;
+&lt;script type="module" src="tabs.js"&gt;&lt;/script&gt;</code></pre>
+            </div>
+          </article>
+        </section>
+
+        <section class="docs-section" id="badges" data-docs-searchable="badge alert">
+          <article class="docs-card">
+            <header class="docs-card__header">
+              <h3 class="docs-card__title">Badges &amp; Alerts</h3>
+              <span class="docs-badge">Estable</span>
+              <div class="docs-card__tabs" role="tablist" aria-label="Feedback vistas">
+                <button
+                  type="button"
+                  class="docs-card__tab"
+                  role="tab"
+                  data-docs-tab="preview"
+                  aria-selected="true"
+                >
+                  Preview
+                </button>
+                <button
+                  type="button"
+                  class="docs-card__tab"
+                  role="tab"
+                  data-docs-tab="code"
+                  aria-selected="false"
+                >
+                  Code
+                </button>
+              </div>
+            </header>
+            <div class="docs-card__panel" data-docs-panel="preview">
+              <div class="docs-preview">
+                <div class="docs-preview__row" style="margin-bottom: 1rem">
+                  <span class="ds-badge ds-badge--default ds-badge--sm">Default</span>
+                  <span class="ds-badge ds-badge--primary ds-badge--sm">Primary</span>
+                  <span class="ds-badge ds-badge--success ds-badge--sm">Success</span>
+                  <span class="ds-badge ds-badge--warning ds-badge--sm">Warning</span>
+                  <span class="ds-badge ds-badge--danger ds-badge--sm">Danger</span>
+                </div>
+                <div class="ds-alert ds-alert--info" role="status">
+                  <div class="ds-alert__content">
+                    <p class="ds-alert__title">Despliegue listo</p>
+                    <p class="ds-alert__description">
+                      La release v1.0.0 está en staging. Revisá el changelog antes de promover.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="docs-card__panel" data-docs-panel="code" hidden>
+              <button
+                type="button"
+                class="docs-copy docs-code__copy"
+                data-docs-copy-target="#code-badges"
+              >
+                <span data-docs-copy-label>Copiar</span>
+              </button>
+              <pre class="docs-code" id="code-badges"><code>&lt;span class="ds-badge ds-badge--success ds-badge--sm"&gt;Success&lt;/span&gt;
+&lt;div class="ds-alert ds-alert--info" role="status"&gt;…&lt;/div&gt;</code></pre>
+            </div>
+          </article>
+        </section>
+
+        <section class="docs-section" id="data-table" data-docs-searchable="table data-table">
+          <article class="docs-card">
+            <header class="docs-card__header">
+              <h3 class="docs-card__title">Data Table</h3>
+              <span class="docs-badge">Estable</span>
+              <div class="docs-card__tabs" role="tablist" aria-label="Table vistas">
+                <button
+                  type="button"
+                  class="docs-card__tab"
+                  role="tab"
+                  data-docs-tab="preview"
+                  aria-selected="true"
+                >
+                  Preview
+                </button>
+                <button
+                  type="button"
+                  class="docs-card__tab"
+                  role="tab"
+                  data-docs-tab="code"
+                  aria-selected="false"
+                >
+                  Code
+                </button>
+              </div>
+            </header>
+            <div class="docs-card__panel" data-docs-panel="preview">
+              <div class="docs-preview">
+                <div
+                  class="ds-table-container"
+                  role="region"
+                  aria-label="Clientes"
+                  tabindex="0"
+                >
+                  <table class="ds-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">
+                          <span class="ds-table__checkbox">
+                            <input class="ds-checkbox" type="checkbox" aria-label="Seleccionar todo" />
+                          </span>
+                        </th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col" class="ds-table__cell--numeric">Monto</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="ds-table__row">
+                        <td>
+                          <span class="ds-table__checkbox">
+                            <input class="ds-checkbox" type="checkbox" aria-label="Ana Ruiz" />
+                          </span>
+                        </td>
+                        <td>Ana Ruiz</td>
+                        <td>
+                          <span class="ds-badge ds-badge--success ds-badge--sm">Completado</span>
+                        </td>
+                        <td class="ds-table__cell--numeric">$1.240,00</td>
+                      </tr>
+                      <tr class="ds-table__row">
+                        <td>
+                          <span class="ds-table__checkbox">
+                            <input class="ds-checkbox" type="checkbox" aria-label="Luis Gómez" />
+                          </span>
+                        </td>
+                        <td>Luis Gómez</td>
+                        <td>
+                          <span class="ds-badge ds-badge--warning ds-badge--sm">Pendiente</span>
+                        </td>
+                        <td class="ds-table__cell--numeric">$380,50</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="docs-card__panel" data-docs-panel="code" hidden>
+              <button
+                type="button"
+                class="docs-copy docs-code__copy"
+                data-docs-copy-target="#code-table"
+              >
+                <span data-docs-copy-label>Copiar</span>
+              </button>
+              <pre class="docs-code" id="code-table"><code>&lt;div class="ds-table-container" role="region" tabindex="0"&gt;
+  &lt;table class="ds-table"&gt;…&lt;/table&gt;
+&lt;/div&gt;
+&lt;!-- npx rzz-ui add data-table --&gt;</code></pre>
+            </div>
+          </article>
+        </section>
+
+        <section class="docs-section" id="catalogo" aria-labelledby="catalogo-title">
+          <h2 class="docs-section__title" id="catalogo-title">Catálogo completo</h2>
+          <p class="docs-section__lead">
+            Índice del registry (~35). Instalá con
+            <code>npx rzz-ui add &lt;name&gt;</code>. Fuente de verdad:
+            <code>registry/registry.json</code>.
+          </p>
+          <div class="docs-prose">
+            <p>
+              button, card, input, dialog, checkbox, switch, select, badge, alert, toast,
+              breadcrumb, tabs, popover, accordion, data-table, avatar, skeleton, tooltip,
+              textarea, search-kbd-input, floating-label-input, currency-counter-input,
+              password-strength-input, pin-code-input, async-validation-input, avatar-group,
+              setting-row, radio-card, sheet, empty-state, stat-card, copy-button, pagination,
+              banner, timeline.
+            </p>
+          </div>
+        </section>
+
+        <footer class="docs-footer">
+          rzz-ui v1.0.0 ·
+          <a href="https://github.com/arielrz-dev/design-system">GitHub</a>
+          · playground raíz
+          <a href="../index.html">index.html</a>
+        </footer>
+      </main>
+    </div>
+
+    <script type="module" src="../src/components/ui/dialog/dialog.js"></script>
+    <script type="module" src="../src/components/ui/tabs/tabs.js"></script>
+    <script type="module" src="docs.js"></script>
+  </body>
+</html>

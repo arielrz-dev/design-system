@@ -1,4 +1,4 @@
-# design-system
+# rzz-ui
 
 Design system agnóstico (sin framework): tokens DTCG, variables CSS `--ds-*`, y componentes HTML/CSS copy-paste estilo shadcn.
 
@@ -6,8 +6,9 @@ Design system agnóstico (sin framework): tokens DTCG, variables CSS `--ds-*`, y
 
 1. `npm install`
 2. `npm run build:tokens` — genera `dist/css/variables.css` y `dist/ts/tokens.ts`
-3. Abrí `index.html` en el navegador para ver el playground
-4. Instalá un componente: `npm run add -- button`
+3. Abrí `docs/index.html` para la documentación / showcase
+4. O `index.html` en la raíz para el playground de desarrollo
+5. Instalá un componente: `npx rzz-ui add button`
 
 ## Qué incluye
 
@@ -16,8 +17,10 @@ Design system agnóstico (sin framework): tokens DTCG, variables CSS `--ds-*`, y
 | `tokens/` | Fuentes DTCG 2025.10 (light + dark) |
 | `build-tokens.mjs` | Compila a CSS y TypeScript con Style Dictionary |
 | `registry/` | Catálogo UI (~35 componentes HTML/CSS BEM) |
+| `scripts/rzz-ui.mjs` | CLI público (`npx rzz-ui add …`) |
 | `scripts/add.mjs` | Copia un componente a `src/components/ui/` |
-| `index.html` | Playground visual (light/dark) |
+| `index.html` | Playground de desarrollo (light/dark) |
+| `docs/` | Landing de documentación técnica (catálogo + foundations) |
 
 El índice vivo de componentes está en `registry/registry.json` (formularios avanzados, SaaS Pro, banner, timeline, etc.).
 
