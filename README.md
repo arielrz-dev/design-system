@@ -1,4 +1,4 @@
-# Design tokens + UI registry
+# design-system
 
 Design system agnóstico (sin framework): tokens DTCG, variables CSS `--ds-*`, y componentes HTML/CSS copy-paste estilo shadcn.
 
