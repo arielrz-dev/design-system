@@ -44,6 +44,8 @@
     <link rel="stylesheet" href="src/components/ui/stat-card/stat-card.css" />
     <link rel="stylesheet" href="src/components/ui/copy-button/copy-button.css" />
     <link rel="stylesheet" href="src/components/ui/pagination/pagination.css" />
+    <link rel="stylesheet" href="src/components/ui/banner/banner.css" />
+    <link rel="stylesheet" href="src/components/ui/timeline/timeline.css" />
     <style>
       *,
       *::before,
@@ -440,6 +442,39 @@
         color: var(--ds-semantic-content-muted);
         font-size: var(--ds-primitive-font-size-xs-font-size);
         line-height: var(--ds-primitive-font-size-xs-line-height);
+      }
+
+      .playground__arch-demo {
+        display: grid;
+        gap: var(--ds-primitive-spacing-24);
+        padding: var(--ds-primitive-spacing-20);
+        border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
+        border-radius: var(--ds-primitive-radius-lg);
+        background-color: var(--ds-semantic-surface-card);
+        box-shadow: var(--ds-shadow-xs);
+        max-width: 48rem;
+      }
+
+      .playground__arch-demo h3 {
+        margin: 0 0 var(--ds-primitive-spacing-8);
+        color: var(--ds-semantic-content-primary);
+        font-size: var(--ds-primitive-font-size-sm-font-size);
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      .playground__arch-demo > div > p {
+        margin: 0 0 var(--ds-primitive-spacing-12);
+        color: var(--ds-semantic-content-muted);
+        font-size: var(--ds-primitive-font-size-xs-font-size);
+        line-height: var(--ds-primitive-font-size-xs-line-height);
+      }
+
+      .playground__banner-frame {
+        overflow: hidden;
+        border: 1px solid var(--ds-semantic-border-subtle);
+        border-radius: var(--ds-primitive-radius-md);
+        background-color: var(--ds-semantic-surface-canvas);
       }
     </style>
   </head>
@@ -2419,6 +2454,122 @@
                 Siguiente
               </button>
             </nav>
+          </div>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="arch-layer-heading">
+        <h2 id="arch-layer-heading">Capas, Banner y Timeline</h2>
+        <div class="playground__arch-demo">
+          <div>
+            <h3>Banner global</h3>
+            <p>Sticky con <code>z-index: var(--ds-z-banner)</code> y variantes semánticas.</p>
+            <div class="playground__banner-frame">
+              <aside
+                class="ds-banner ds-banner--warning"
+                role="status"
+                aria-live="polite"
+                id="pg-maintenance-banner"
+              >
+                <p class="ds-banner__message">
+                  Mantenimiento programado el sábado 02:00–04:00 UTC.
+                  <a class="ds-banner__link" href="#status">Ver estado</a>
+                </p>
+                <button
+                  type="button"
+                  class="ds-banner__close"
+                  aria-label="Cerrar anuncio"
+                  onclick="this.closest('.ds-banner').hidden = true"
+                >
+                  <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path
+                      d="M3 3l6 6M9 3L3 9"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </button>
+              </aside>
+              <div style="padding: 1rem; color: var(--ds-semantic-content-muted); font-size: 0.8125rem">
+                Contenido de página debajo del banner sticky…
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3>Activity Timeline</h3>
+            <p>Feed cronológico con nodos y meta tabular.</p>
+            <ol class="ds-timeline" aria-label="Actividad reciente">
+              <li class="ds-timeline__item">
+                <span class="ds-timeline__node ds-timeline__node--success" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M3.5 8.5l3 3 6-6.5"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <div class="ds-timeline__content">
+                  <div class="ds-timeline__header">
+                    <p class="ds-timeline__title">Cuenta creada</p>
+                    <time class="ds-timeline__time" datetime="2026-09-20T10:12:00Z">hace 6 días</time>
+                  </div>
+                  <p class="ds-timeline__description">
+                    Ana Ruiz registró el workspace “Acme Ops”.
+                  </p>
+                </div>
+              </li>
+              <li class="ds-timeline__item">
+                <span class="ds-timeline__node ds-timeline__node--info" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M11.5 2.5l2 2M3 10.5V13h2.5L12.5 6 10.5 4 3 10.5z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <div class="ds-timeline__content">
+                  <div class="ds-timeline__header">
+                    <p class="ds-timeline__title">Cambio de plan</p>
+                    <time class="ds-timeline__time" datetime="2026-09-24T15:40:00Z">hace 2 días</time>
+                  </div>
+                  <p class="ds-timeline__description">Plan actualizado de Starter a Pro.</p>
+                  <p class="ds-timeline__meta">starter → pro</p>
+                </div>
+              </li>
+              <li class="ds-timeline__item">
+                <span class="ds-timeline__node ds-timeline__node--warning" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M8 2.5L14 13.5H2L8 2.5z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M8 6.5v3.25M8 11.25h.01"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </span>
+                <div class="ds-timeline__content">
+                  <div class="ds-timeline__header">
+                    <p class="ds-timeline__title">Pago procesado</p>
+                    <time class="ds-timeline__time" datetime="2026-09-26T12:05:00Z">hace 4 h</time>
+                  </div>
+                  <p class="ds-timeline__description">Cobro mensual confirmado por la pasarela.</p>
+                  <p class="ds-timeline__meta">USD 49.00 · inv_88421</p>
+                </div>
+              </li>
+            </ol>
           </div>
         </div>
       </section>
