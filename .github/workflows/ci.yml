@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  tokens-and-guards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build tokens
+        run: npm run build:tokens
+
+      - name: Guard — no primitive tokens in components
+        run: npm run check:primitives
+
+      - name: Guard — dist must use --rzz- prefix
+        run: |
+          grep -q -- '--rzz-surface-canvas' dist/css/variables.css
+          ! grep -q -- '--ds-' dist/css/variables.css

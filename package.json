@@ -10,7 +10,10 @@
     "build:tokens": "node build-tokens.mjs",
     "add": "node scripts/add.mjs",
     "rzz-ui": "node scripts/rzz-ui.mjs",
-    "docs:dev": "npx --yes serve . -p 4173"
+    "docs:dev": "npx --yes serve . -p 4173",
+    "check:primitives": "node scripts/check-no-primitives.mjs",
+    "cleanup:legacy-ui": "node scripts/cleanup-legacy-ui.mjs",
+    "ci": "npm run build:tokens && npm run check:primitives"
   },
   "devDependencies": {
     "style-dictionary": "^5.0.0",

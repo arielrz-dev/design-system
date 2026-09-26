@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * CLI público: npx rzz-ui add <component>
- * Delega en scripts/add.mjs
+ * CLI: rzz-ui add <component> [--path <rel>]
+ * Delega en add.mjs preservando process.cwd() del consumidor.
  */
 import { spawn } from 'node:child_process';
 import path from 'node:path';
@@ -17,11 +17,13 @@ function printHelp() {
   console.log(`rzz-ui — CLI
 
 Uso:
-  npx rzz-ui add <component>
+  rzz-ui add <component> [--path <rel>]
 
-Ejemplos:
-  npx rzz-ui add button
-  npx rzz-ui add dialog
+Ejemplos (desde el proyecto consumidor):
+  rzz-ui add button
+  rzz-ui add dialog --path components/ui
+
+El registro se lee del paquete rzz-ui; los archivos se copian al cwd.
 `);
 }
 
@@ -36,14 +38,15 @@ if (command !== 'add') {
   process.exit(1);
 }
 
-if (rest.length === 0) {
-  console.error('Indicá un componente: npx rzz-ui add button');
+if (rest.length === 0 || rest[0]?.startsWith('-')) {
+  console.error('Indicá un componente: rzz-ui add button');
   process.exit(1);
 }
 
 const child = spawn(process.execPath, [addScript, ...rest], {
   stdio: 'inherit',
-  cwd: path.resolve(__dirname, '..'),
+  // Importante: cwd del consumidor, no la raíz del paquete
+  cwd: process.cwd(),
 });
 
 child.on('exit', (code) => {

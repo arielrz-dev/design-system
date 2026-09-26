@@ -8,9 +8,16 @@ Design system agnóstico (sin framework): tokens DTCG, variables CSS `--rzz-*`, 
 2. `npm run build:tokens` — genera `dist/css/variables.css` y `dist/ts/tokens.ts`
 3. `npm run docs:dev` — sirve el repo en `http://localhost:4173` (evita límites de `file://`)
 4. Abrí `http://localhost:4173/docs/` o el playground en `http://localhost:4173/`
-5. Instalá un componente en el monorepo: `npm run rzz-ui -- add button`
+5. Instalá un componente **en el proyecto actual** (cwd):
 
-> **Nota:** el bin `rzz-ui` es local (`private: true`). Todavía no hay paquete público en npm; no uses `npx rzz-ui` fuera de este clone.
+```bash
+npm run rzz-ui -- add button
+# o, desde otro proyecto que linkee este paquete:
+# rzz-ui add button
+# rzz-ui add dialog --path components/ui
+```
+
+> El CLI copia al **cwd** (`src/ui/` por defecto). El registry se lee desde este paquete. Aún `private: true` (no hay publish en npm); usalo vía clone/`npm link`/`file:`.
 
 ## Qué incluye
 
@@ -19,12 +26,12 @@ Design system agnóstico (sin framework): tokens DTCG, variables CSS `--rzz-*`, 
 | `tokens/` | Fuentes DTCG 2025.10 (primitive interno + API pública) |
 | `build-tokens.mjs` | Compila a CSS/TS con Style Dictionary (`--rzz-*`) |
 | `registry/` | **Fuente canónica** del catálogo UI (~35 componentes) |
-| `scripts/rzz-ui.mjs` | CLI local (`npm run rzz-ui -- add …`) |
-| `scripts/add.mjs` | Copia un componente a `src/ui/` |
-| `src/ui/` | Copia instalada local (salida de `add`) |
-| `index.html` / `docs/` | Playground y docs (cargan CSS/JS desde `registry/ui/`) |
+| `scripts/rzz-ui.mjs` | CLI (`add` → cwd del consumidor) |
+| `scripts/add.mjs` | Copia componentes (+ `variables.css` si falta) |
+| `src/ui/` | Copia instalada local de ejemplo |
+| `index.html` / `docs/` | Playground y docs (cargan desde `registry/ui/`) |
 
-> **Nota:** `src/components/ui/` es un árbol legacy bloqueado por ACL en Windows en esta máquina. El destino canónico de `add` es `src/ui/`.
+> **Legacy:** `src/components/ui/` puede existir bloqueado por ACL en Windows. Destino activo: `src/ui/`. Limpieza: `npm run cleanup:legacy-ui`.
 
 ## API pública de tokens (componentes)
 
@@ -38,6 +45,14 @@ Los componentes **solo** consumen tokens semánticos cortos:
 - Motion / capas: `--rzz-shadow-*`, `--rzz-z-*`, `--rzz-duration-*`, `--rzz-ease-*`
 
 `--rzz-primitive-*` existe en `dist/` como fuente interna del build; **no** usarlo en UI.
+
+## CI
+
+```bash
+npm run ci   # build:tokens + check:primitives
+```
+
+GitHub Actions: `.github/workflows/ci.yml` (push/PR).
 
 ## Capas y motion
 

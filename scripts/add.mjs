@@ -1,23 +1,26 @@
 #!/usr/bin/env node
 /**
- * CLI local estilo shadcn: copia un componente del registry a src/ui/.
+ * Instala un componente del registry en el proyecto actual (cwd).
  *
  * Uso:
  *   node scripts/add.mjs <component-name>
  *   node scripts/add.mjs button
- *   node scripts/add.mjs card
+ *   node scripts/add.mjs button --path components/ui
+ *
+ * El registry se lee desde el paquete rzz-ui (carpeta del monorepo / install).
+ * El destino por defecto es `<cwd>/src/ui`.
  */
 
-import { cp, mkdir, readFile, access } from 'node:fs/promises';
+import { cp, mkdir, readFile, access, writeFile } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(__dirname, '..');
-const REGISTRY_DIR = path.join(ROOT, 'registry');
+/** Raíz del paquete rzz-ui (donde viven registry/ y dist/). */
+const PACKAGE_ROOT = path.resolve(__dirname, '..');
+const REGISTRY_DIR = path.join(PACKAGE_ROOT, 'registry');
 const REGISTRY_JSON = path.join(REGISTRY_DIR, 'registry.json');
-const DEST_ROOT = path.join(ROOT, 'src', 'ui');
 
 const RESET = '\x1b[0m';
 const BOLD = '\x1b[1m';
@@ -35,6 +38,39 @@ function fail(message, code = 1) {
   process.exit(code);
 }
 
+/**
+ * @param {string[]} argv
+ */
+function parseArgs(argv) {
+  /** @type {{ name?: string, destRel: string, help: boolean }} */
+  const out = { destRel: 'src/ui', help: false };
+  const positional = [];
+
+  for (let i = 0; i < argv.length; i += 1) {
+    const arg = argv[i];
+    if (arg === '-h' || arg === '--help') {
+      out.help = true;
+      continue;
+    }
+    if (arg === '--path' || arg === '-p') {
+      const value = argv[i + 1];
+      if (!value || value.startsWith('-')) {
+        fail('Indicá un path relativo: --path src/ui');
+      }
+      out.destRel = value;
+      i += 1;
+      continue;
+    }
+    if (arg.startsWith('-')) {
+      fail(`Flag desconocido: ${arg}`);
+    }
+    positional.push(arg);
+  }
+
+  out.name = positional[0]?.trim();
+  return out;
+}
+
 async function pathExists(target) {
   try {
     await access(target, constants.F_OK);
@@ -46,7 +82,7 @@ async function pathExists(target) {
 
 async function loadRegistry() {
   if (!(await pathExists(REGISTRY_JSON))) {
-    fail(`No se encontró el registro en ${path.relative(ROOT, REGISTRY_JSON)}`);
+    fail(`No se encontró el registro en ${REGISTRY_JSON}`);
   }
 
   try {
@@ -69,7 +105,6 @@ function listAvailable(registry) {
 }
 
 /**
- * Resuelve dependencias del registro en orden topológico simple (deps primero).
  * @param {object} registry
  * @param {string} name
  * @param {Set<string>} [seen]
@@ -97,12 +132,16 @@ function resolveInstallOrder(registry, name, seen = new Set()) {
   return order;
 }
 
-async function copyComponent(name) {
+/**
+ * @param {string} name
+ * @param {string} destRoot
+ */
+async function copyComponent(name, destRoot) {
   const sourceDir = path.join(REGISTRY_DIR, 'ui', name);
-  const destDir = path.join(DEST_ROOT, name);
+  const destDir = path.join(destRoot, name);
 
   if (!(await pathExists(sourceDir))) {
-    fail(`No existe la carpeta fuente: ${path.relative(ROOT, sourceDir)}`);
+    fail(`No existe la carpeta fuente: ${sourceDir}`);
   }
 
   await mkdir(destDir, { recursive: true });
@@ -111,30 +150,60 @@ async function copyComponent(name) {
   return { sourceDir, destDir };
 }
 
-async function main() {
-  const name = process.argv[2]?.trim();
-
-  if (!name || name === '--help' || name === '-h') {
-    log(`${BOLD}Uso:${RESET} node scripts/add.mjs <component-name>`);
-    log(`${DIM}Ejemplo:${RESET} node scripts/add.mjs button`);
-    if (!name) process.exit(1);
-    process.exit(0);
+/**
+ * Copia variables.css al consumidor si aún no tiene dist/css/variables.css.
+ * @param {string} projectRoot
+ */
+async function ensureVariablesCss(projectRoot) {
+  const dest = path.join(projectRoot, 'dist', 'css', 'variables.css');
+  const source = path.join(PACKAGE_ROOT, 'dist', 'css', 'variables.css');
+  if (await pathExists(dest)) return { copied: false, dest };
+  if (!(await pathExists(source))) {
+    log(
+      `${YELLOW}⚠${RESET} No hay ${path.relative(PACKAGE_ROOT, source)} en el paquete. Corré build:tokens en rzz-ui.`,
+    );
+    return { copied: false, dest };
   }
+  await mkdir(path.dirname(dest), { recursive: true });
+  await cp(source, dest, { force: true });
+  return { copied: true, dest };
+}
+
+function printHelp() {
+  log(`${BOLD}Uso:${RESET} rzz-ui add <component> [--path <rel>]`);
+  log(`${DIM}Ejemplo:${RESET} rzz-ui add button`);
+  log(`${DIM}        ${RESET} rzz-ui add dialog --path components/ui`);
+  log('');
+  log('Instala en el directorio actual (cwd). El registry sale del paquete rzz-ui.');
+}
+
+async function main() {
+  const { name, destRel, help } = parseArgs(process.argv.slice(2));
+
+  if (help || !name) {
+    printHelp();
+    process.exit(help ? 0 : 1);
+  }
+
+  const projectRoot = process.cwd();
+  const destRoot = path.resolve(projectRoot, destRel);
 
   const registry = await loadRegistry();
   const installOrder = resolveInstallOrder(registry, name);
 
-  log(`${BOLD}Instalando${RESET} ${name} → ${path.relative(ROOT, DEST_ROOT)}`);
+  const destLabel = path.relative(projectRoot, destRoot) || '.';
+  log(`${BOLD}Instalando${RESET} ${name} → ${destLabel}`);
+  log(`${DIM}cwd${RESET} ${projectRoot}`);
+  log(`${DIM}pkg${RESET} ${PACKAGE_ROOT}`);
 
   for (const componentName of installOrder) {
     const item = findItem(registry, componentName);
     const isDep = componentName !== name;
-    const { destDir } = await copyComponent(componentName);
+    const { destDir } = await copyComponent(componentName, destRoot);
 
     const label = isDep ? `${DIM}(dep)${RESET} ` : '';
-    log(
-      `${GREEN}✔${RESET} ${label}${BOLD}${componentName}${RESET} → ${path.relative(ROOT, destDir)}`,
-    );
+    const shown = path.relative(projectRoot, destDir) || destDir;
+    log(`${GREEN}✔${RESET} ${label}${BOLD}${componentName}${RESET} → ${shown}`);
 
     if (item?.files?.length) {
       for (const file of item.files) {
@@ -150,7 +219,36 @@ async function main() {
     }
   }
 
-  log(`${GREEN}${BOLD}Listo.${RESET} Incluye dist/css/variables.css en tu página.`);
+  const vars = await ensureVariablesCss(projectRoot);
+  if (vars.copied) {
+    log(
+      `${GREEN}✔${RESET} ${BOLD}dist/css/variables.css${RESET} → ${path.relative(projectRoot, vars.dest)}`,
+    );
+  }
+
+  log(
+    `${GREEN}${BOLD}Listo.${RESET} Incluí dist/css/variables.css antes de los CSS del componente.`,
+  );
+
+  // Hint file for consumers (optional, non-fatal)
+  const hintPath = path.join(destRoot, '.rzz-ui');
+  try {
+    await writeFile(
+      hintPath,
+      JSON.stringify(
+        {
+          package: 'rzz-ui',
+          installedAt: new Date().toISOString(),
+          lastComponent: name,
+        },
+        null,
+        2,
+      ),
+      'utf8',
+    );
+  } catch {
+    /* ignore */
+  }
 }
 
 main().catch((error) => {

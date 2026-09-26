@@ -5,3 +5,7 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+# Legacy ACL-locked tree (Windows); use src/ui/
+src/components/ui/
+
