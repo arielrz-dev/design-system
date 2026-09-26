@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DS Playground — tokens + registry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dist/css/variables.css" />
+    <link rel="stylesheet" href="src/components/ui/button/button.css" />
+    <link rel="stylesheet" href="src/components/ui/card/card.css" />
+    <link rel="stylesheet" href="src/components/ui/input/input.css" />
+    <link rel="stylesheet" href="src/components/ui/dialog/dialog.css" />
+    <link rel="stylesheet" href="src/components/ui/checkbox/checkbox.css" />
+    <link rel="stylesheet" href="src/components/ui/switch/switch.css" />
+    <link rel="stylesheet" href="src/components/ui/select/select.css" />
+    <link rel="stylesheet" href="src/components/ui/badge/badge.css" />
+    <link rel="stylesheet" href="src/components/ui/alert/alert.css" />
+    <link rel="stylesheet" href="src/components/ui/toast/toast.css" />
+    <link rel="stylesheet" href="src/components/ui/breadcrumb/breadcrumb.css" />
+    <link rel="stylesheet" href="src/components/ui/tabs/tabs.css" />
+    <link rel="stylesheet" href="src/components/ui/popover/popover.css" />
+    <link rel="stylesheet" href="src/components/ui/accordion/accordion.css" />
+    <link rel="stylesheet" href="src/components/ui/data-table/data-table.css" />
+    <link rel="stylesheet" href="src/components/ui/avatar/avatar.css" />
+    <link rel="stylesheet" href="src/components/ui/skeleton/skeleton.css" />
+    <link rel="stylesheet" href="src/components/ui/tooltip/tooltip.css" />
+    <link rel="stylesheet" href="src/components/ui/textarea/textarea.css" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: var(--ds-semantic-surface-canvas);
+        color: var(--ds-semantic-content-primary);
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          sans-serif;
+        font-size: var(--ds-primitive-font-size-md-font-size);
+        line-height: var(--ds-primitive-font-size-md-line-height);
+        letter-spacing: -0.011em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      .playground {
+        max-width: 72rem;
+        margin-inline: auto;
+        padding: var(--ds-primitive-spacing-64) var(--ds-primitive-spacing-24)
+          var(--ds-primitive-spacing-48);
+      }
+
+      .playground__theme-toggle {
+        position: fixed;
+        top: var(--ds-primitive-spacing-16);
+        right: var(--ds-primitive-spacing-16);
+        z-index: 10;
+      }
+
+      .playground__intro {
+        margin-block-end: var(--ds-primitive-spacing-40);
+      }
+
+      .playground__intro h1 {
+        margin: 0 0 var(--ds-primitive-spacing-8);
+        font-size: var(--ds-primitive-font-size-3xl-font-size);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: var(--ds-primitive-font-size-3xl-line-height);
+      }
+
+      .playground__intro p {
+        margin: 0;
+        max-width: 40rem;
+        color: var(--ds-semantic-content-muted);
+        font-size: var(--ds-primitive-font-size-sm-font-size);
+        line-height: var(--ds-primitive-font-size-sm-line-height);
+      }
+
+      .playground__section {
+        margin-block-end: var(--ds-primitive-spacing-48);
+      }
+
+      .playground__section h2 {
+        margin: 0 0 var(--ds-primitive-spacing-16);
+        font-size: var(--ds-primitive-font-size-lg-font-size);
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        line-height: var(--ds-primitive-font-size-lg-line-height);
+        color: var(--ds-semantic-content-secondary);
+      }
+
+      .playground__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+        gap: var(--ds-primitive-spacing-12);
+      }
+
+      .playground__cell {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: var(--ds-primitive-spacing-16);
+        min-height: 6.5rem;
+        padding: var(--ds-primitive-spacing-20);
+        border: 1px solid var(--ds-semantic-border-subtle);
+        border-radius: var(--ds-primitive-radius-lg);
+        background-color: var(--ds-semantic-surface-card);
+        box-shadow: var(--ds-shadow-xs);
+      }
+
+      .playground__label {
+        color: var(--ds-semantic-content-muted);
+        font-size: var(--ds-primitive-font-size-xs-font-size);
+        line-height: var(--ds-primitive-font-size-xs-line-height);
+        font-weight: 500;
+        letter-spacing: 0.01em;
+      }
+
+      /* Hover simulado sin interacción real (validación visual estática). */
+      .ds-button--primary.is-hover-sim {
+        border-color: transparent;
+        background-color: var(--ds-semantic-action-primary-hover);
+        color: var(--ds-primitive-color-slate-50);
+        box-shadow: var(--ds-shadow-xs);
+      }
+
+      .ds-button--secondary.is-hover-sim {
+        border-color: var(--ds-semantic-border-subtle);
+        background-color: var(--ds-semantic-surface-elevated);
+        color: var(--ds-semantic-content-primary);
+      }
+
+      .ds-button--danger.is-hover-sim {
+        border-color: transparent;
+        background-color: var(--ds-semantic-action-danger-hover);
+        color: var(--ds-primitive-color-slate-50);
+        box-shadow: var(--ds-shadow-xs);
+      }
+
+      .ds-button--ghost.is-hover-sim {
+        border-color: transparent;
+        background-color: var(--ds-semantic-surface-subtle);
+        color: var(--ds-semantic-content-primary);
+      }
+
+      .playground__card-wrap {
+        max-width: 28rem;
+      }
+
+      .playground__stack {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+        gap: var(--ds-primitive-spacing-16);
+      }
+
+      .playground__stack-item {
+        padding: var(--ds-primitive-spacing-20);
+        border: 1px solid var(--ds-semantic-border-subtle);
+        border-radius: var(--ds-primitive-radius-lg);
+        background-color: var(--ds-semantic-surface-card);
+        box-shadow: var(--ds-shadow-xs);
+      }
+
+      .playground__dialog-demo {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--ds-primitive-spacing-12);
+        padding: var(--ds-primitive-spacing-20);
+        border: 1px solid var(--ds-semantic-border-subtle);
+        border-radius: var(--ds-primitive-radius-lg);
+        background-color: var(--ds-semantic-surface-card);
+        box-shadow: var(--ds-shadow-xs);
+        max-width: 28rem;
+      }
+
+      .playground__dialog-demo p {
+        margin: 0;
+        flex: 1 1 100%;
+        color: var(--ds-semantic-content-muted);
+        font-size: var(--ds-primitive-font-size-sm-font-size);
+        line-height: var(--ds-primitive-font-size-sm-line-height);
+      }
+
+      .playground__subsection {
+        margin-block-end: var(--ds-primitive-spacing-24);
+      }
+
+      .playground__subsection:last-child {
+        margin-block-end: 0;
+      }
+
+      .playground__subsection-title {
+        margin: 0 0 var(--ds-primitive-spacing-12);
+        color: var(--ds-semantic-content-muted);
+        font-size: var(--ds-primitive-font-size-sm-font-size);
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        line-height: var(--ds-primitive-font-size-sm-line-height);
+      }
+
+      .playground__controls-row {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--ds-primitive-spacing-16);
+        padding: var(--ds-primitive-spacing-20);
+        border: 1px solid var(--ds-semantic-border-subtle);
+        border-radius: var(--ds-primitive-radius-lg);
+        background-color: var(--ds-semantic-surface-card);
+        box-shadow: var(--ds-shadow-xs);
+      }
+
+      .playground__badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--ds-primitive-spacing-8);
+        padding: var(--ds-primitive-spacing-20);
+        border: 1px solid var(--ds-semantic-border-subtle);
+        border-radius: var(--ds-primitive-radius-lg);
+        background-color: var(--ds-semantic-surface-card);
+        box-shadow: var(--ds-shadow-xs);
+      }
+
+      .playground__alerts {
+        display: flex;
+        flex-direction: column;
+        gap: var(--ds-primitive-spacing-12);
+        max-width: 40rem;
+      }
+
+      .playground__toast-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--ds-primitive-spacing-8);
+        padding: var(--ds-primitive-spacing-20);
+        border: 1px solid var(--ds-semantic-border-subtle);
+        border-radius: var(--ds-primitive-radius-lg);
+        background-color: var(--ds-semantic-surface-card);
+        box-shadow: var(--ds-shadow-xs);
+        max-width: 40rem;
+      }
+
+      .playground__nav-demo,
+      .playground__tabs-demo {
+        padding: var(--ds-primitive-spacing-20);
+        border: 1px solid var(--ds-semantic-border-subtle);
+        border-radius: var(--ds-primitive-radius-lg);
+        background-color: var(--ds-semantic-surface-card);
+        box-shadow: var(--ds-shadow-xs);
+        max-width: 40rem;
+      }
+
+      .playground__tabs-demo .ds-tabs__content .ds-field {
+        margin-block-end: var(--ds-primitive-spacing-16);
+      }
+
+      .playground__tabs-demo .ds-tabs__actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: var(--ds-primitive-spacing-8);
+      }
+
+      .playground__popover-demo,
+      .playground__accordion-demo,
+      .playground__table-demo {
+        padding: var(--ds-primitive-spacing-20);
+        border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
+        border-radius: var(--ds-primitive-radius-lg);
+        background-color: var(--ds-semantic-surface-card);
+        box-shadow: var(--ds-shadow-xs);
+        max-width: 48rem;
+      }
+
+      .playground__menu-icon {
+        display: inline-flex;
+        width: 1rem;
+        height: 1rem;
+        color: var(--ds-semantic-content-muted);
+        flex-shrink: 0;
+      }
+
+      .playground__menu-icon svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .playground__complement-demo {
+        padding: var(--ds-primitive-spacing-20);
+        border: 1px solid color-mix(in srgb, var(--ds-semantic-content-primary) 10%, transparent);
+        border-radius: var(--ds-primitive-radius-lg);
+        background-color: var(--ds-semantic-surface-card);
+        box-shadow: var(--ds-shadow-xs);
+        max-width: 40rem;
+      }
+
+      .playground__avatar-row,
+      .playground__tooltip-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--ds-primitive-spacing-12);
+      }
+
+      .playground__skeleton-block + .playground__skeleton-block {
+        margin-block-start: var(--ds-primitive-spacing-16);
+      }
+
+      .playground__skeleton-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+    </style>
+  </head>
+  <body>
+    <button
+      type="button"
+      id="theme-toggle"
+      class="ds-button ds-button--secondary ds-button--sm playground__theme-toggle"
+      aria-pressed="false"
+      aria-label="Activar tema oscuro"
+    >
+      Tema: claro
+    </button>
+
+    <main class="playground">
+      <header class="playground__intro">
+        <h1>Playground del design system</h1>
+        <p>
+          Validación de tokens compilados (<code>--ds-*</code>), componentes del
+          registry y contraste en light / dark.
+        </p>
+      </header>
+
+      <section class="playground__section" aria-labelledby="buttons-heading">
+        <h2 id="buttons-heading">Botones</h2>
+        <div class="playground__grid">
+          <!-- Primary -->
+          <div class="playground__cell">
+            <span class="playground__label">primary · default</span>
+            <button type="button" class="ds-button ds-button--primary ds-button--md">
+              Primary
+            </button>
+          </div>
+          <div class="playground__cell">
+            <span class="playground__label">primary · hover</span>
+            <button
+              type="button"
+              class="ds-button ds-button--primary ds-button--md is-hover-sim"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              Primary
+            </button>
+          </div>
+          <div class="playground__cell">
+            <span class="playground__label">primary · disabled</span>
+            <button
+              type="button"
+              class="ds-button ds-button--primary ds-button--md"
+              disabled
+              aria-disabled="true"
+            >
+              Primary
+            </button>
+          </div>
+
+          <!-- Secondary -->
+          <div class="playground__cell">
+            <span class="playground__label">secondary · default</span>
+            <button type="button" class="ds-button ds-button--secondary ds-button--md">
+              Secondary
+            </button>
+          </div>
+          <div class="playground__cell">
+            <span class="playground__label">secondary · hover</span>
+            <button
+              type="button"
+              class="ds-button ds-button--secondary ds-button--md is-hover-sim"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              Secondary
+            </button>
+          </div>
+          <div class="playground__cell">
+            <span class="playground__label">secondary · disabled</span>
+            <button
+              type="button"
+              class="ds-button ds-button--secondary ds-button--md"
+              disabled
+              aria-disabled="true"
+            >
+              Secondary
+            </button>
+          </div>
+
+          <!-- Danger -->
+          <div class="playground__cell">
+            <span class="playground__label">danger · default</span>
+            <button type="button" class="ds-button ds-button--danger ds-button--md">
+              Danger
+            </button>
+          </div>
+          <div class="playground__cell">
+            <span class="playground__label">danger · hover</span>
+            <button
+              type="button"
+              class="ds-button ds-button--danger ds-button--md is-hover-sim"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              Danger
+            </button>
+          </div>
+          <div class="playground__cell">
+            <span class="playground__label">danger · disabled</span>
+            <button
+              type="button"
+              class="ds-button ds-button--danger ds-button--md"
+              disabled
+              aria-disabled="true"
+            >
+              Danger
+            </button>
+          </div>
+
+          <!-- Ghost -->
+          <div class="playground__cell">
+            <span class="playground__label">ghost · default</span>
+            <button type="button" class="ds-button ds-button--ghost ds-button--md">
+              Ghost
+            </button>
+          </div>
+          <div class="playground__cell">
+            <span class="playground__label">ghost · hover</span>
+            <button
+              type="button"
+              class="ds-button ds-button--ghost ds-button--md is-hover-sim"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              Ghost
+            </button>
+          </div>
+          <div class="playground__cell">
+            <span class="playground__label">ghost · disabled</span>
+            <button
+              type="button"
+              class="ds-button ds-button--ghost ds-button--md"
+              disabled
+              aria-disabled="true"
+            >
+              Ghost
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="card-heading">
+        <h2 id="card-heading">Card anidada</h2>
+        <div class="playground__card-wrap">
+          <article class="ds-card" aria-labelledby="nested-card-title">
+            <header class="ds-card__header">
+              <h3 id="nested-card-title" class="ds-card__title">
+                Superficies anidadas
+              </h3>
+              <p class="ds-card__description">
+                Card sobre canvas, con botón primary para validar contraste.
+              </p>
+            </header>
+            <div class="ds-card__body">
+              <p>
+                El fondo de la tarjeta usa
+                <code>--ds-semantic-surface-card</code>; el canvas de la página
+                usa <code>--ds-semantic-surface-canvas</code>. Ambos deben
+                invertirse al activar dark mode.
+              </p>
+            </div>
+            <footer class="ds-card__footer">
+              <button type="button" class="ds-button ds-button--ghost ds-button--sm">
+                Cancelar
+              </button>
+              <button type="button" class="ds-button ds-button--primary ds-button--sm">
+                Confirmar
+              </button>
+            </footer>
+          </article>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="input-heading">
+        <h2 id="input-heading">Inputs</h2>
+        <div class="playground__stack">
+          <div class="playground__stack-item">
+            <div class="ds-field">
+              <label class="ds-label" for="pg-email">Correo electrónico</label>
+              <input
+                id="pg-email"
+                class="ds-input ds-input--md"
+                type="email"
+                name="email"
+                autocomplete="email"
+                placeholder="nombre@empresa.com"
+                aria-describedby="pg-email-hint"
+              />
+              <p id="pg-email-hint" class="ds-field__hint">
+                Default · md con hint
+              </p>
+            </div>
+          </div>
+
+          <div class="playground__stack-item">
+            <div class="ds-field">
+              <label class="ds-label" for="pg-username">Nombre de usuario</label>
+              <input
+                id="pg-username"
+                class="ds-input ds-input--md ds-input--error"
+                type="text"
+                name="username"
+                autocomplete="username"
+                value="ab"
+                aria-invalid="true"
+                aria-describedby="pg-username-error"
+              />
+              <p id="pg-username-error" class="ds-field__error" role="alert">
+                Debe tener al menos 3 caracteres.
+              </p>
+            </div>
+          </div>
+
+          <div class="playground__stack-item">
+            <div class="ds-field">
+              <label class="ds-label" for="pg-search">Buscar (sm)</label>
+              <input
+                id="pg-search"
+                class="ds-input ds-input--sm"
+                type="search"
+                name="q"
+                placeholder="Buscar…"
+              />
+            </div>
+          </div>
+
+          <div class="playground__stack-item">
+            <div class="ds-field">
+              <label class="ds-label" for="pg-title">Título (lg)</label>
+              <input
+                id="pg-title"
+                class="ds-input ds-input--lg"
+                type="text"
+                name="title"
+                placeholder="Escribe un título"
+              />
+            </div>
+          </div>
+
+          <div class="playground__stack-item">
+            <div class="ds-field">
+              <label class="ds-label" for="pg-plan">Plan (disabled)</label>
+              <input
+                id="pg-plan"
+                class="ds-input ds-input--md"
+                type="text"
+                name="plan"
+                value="Pro"
+                disabled
+                aria-disabled="true"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="selection-heading">
+        <h2 id="selection-heading">Controles de Selección</h2>
+
+        <div class="playground__subsection">
+          <h3 class="playground__subsection-title">Checkboxes</h3>
+          <div class="playground__controls-row">
+            <label class="ds-checkbox-group" for="pg-cb-terms">
+              <input
+                id="pg-cb-terms"
+                class="ds-checkbox"
+                type="checkbox"
+                name="terms"
+              />
+              <span class="ds-checkbox-group__label">
+                Acepto los términos y condiciones
+              </span>
+            </label>
+
+            <label class="ds-checkbox-group" for="pg-cb-newsletter">
+              <input
+                id="pg-cb-newsletter"
+                class="ds-checkbox"
+                type="checkbox"
+                name="newsletter"
+                checked
+              />
+              <span class="ds-checkbox-group__label">Suscribirme al boletín</span>
+            </label>
+
+            <label class="ds-checkbox-group" for="pg-cb-legacy">
+              <input
+                id="pg-cb-legacy"
+                class="ds-checkbox"
+                type="checkbox"
+                name="legacy"
+                disabled
+                aria-disabled="true"
+              />
+              <span class="ds-checkbox-group__label">Opción no disponible</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="playground__subsection">
+          <h3 class="playground__subsection-title">Switches</h3>
+          <div class="playground__controls-row">
+            <label class="ds-switch" for="pg-sw-silent">
+              <span class="ds-switch__control">
+                <input
+                  id="pg-sw-silent"
+                  class="ds-switch__input"
+                  type="checkbox"
+                  role="switch"
+                  name="silent"
+                  aria-checked="false"
+                />
+                <span class="ds-switch__track" aria-hidden="true">
+                  <span class="ds-switch__thumb"></span>
+                </span>
+              </span>
+              <span>
+                <span class="ds-switch__label">Modo silencioso</span>
+                <span class="ds-switch__hint">Silenciar notificaciones push</span>
+              </span>
+            </label>
+
+            <label class="ds-switch" for="pg-sw-compact">
+              <span class="ds-switch__control">
+                <input
+                  id="pg-sw-compact"
+                  class="ds-switch__input"
+                  type="checkbox"
+                  role="switch"
+                  name="compact"
+                  checked
+                  aria-checked="true"
+                />
+                <span class="ds-switch__track" aria-hidden="true">
+                  <span class="ds-switch__thumb"></span>
+                </span>
+              </span>
+              <span class="ds-switch__label">Modo compacto</span>
+            </label>
+
+            <label class="ds-switch" for="pg-sw-beta">
+              <span class="ds-switch__control">
+                <input
+                  id="pg-sw-beta"
+                  class="ds-switch__input"
+                  type="checkbox"
+                  role="switch"
+                  name="beta"
+                  disabled
+                  aria-disabled="true"
+                  aria-checked="false"
+                />
+                <span class="ds-switch__track" aria-hidden="true">
+                  <span class="ds-switch__thumb"></span>
+                </span>
+              </span>
+              <span class="ds-switch__label">Funciones beta</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="playground__subsection">
+          <h3 class="playground__subsection-title">Selects</h3>
+          <div class="playground__stack">
+            <div class="playground__stack-item">
+              <div class="ds-field">
+                <label class="ds-label" for="pg-select-lang">Idioma</label>
+                <div class="ds-select-wrapper">
+                  <select
+                    id="pg-select-lang"
+                    class="ds-select ds-select--md"
+                    name="lang"
+                  >
+                    <option value="" disabled selected>Seleccioná un idioma</option>
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                    <option value="pt">Português</option>
+                  </select>
+                  <svg
+                    class="ds-select__icon"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="M4 6l4 4 4-4"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="playground__stack-item">
+              <div class="ds-field">
+                <label class="ds-label" for="pg-select-role">Rol</label>
+                <div class="ds-select-wrapper">
+                  <select
+                    id="pg-select-role"
+                    class="ds-select ds-select--md ds-select--error"
+                    name="role"
+                    aria-invalid="true"
+                    aria-describedby="pg-select-role-error"
+                  >
+                    <option value="" disabled selected>Elegí un rol</option>
+                    <option value="admin">Admin</option>
+                    <option value="editor">Editor</option>
+                    <option value="viewer">Viewer</option>
+                  </select>
+                  <svg
+                    class="ds-select__icon"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="M4 6l4 4 4-4"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <p id="pg-select-role-error" class="ds-field__error" role="alert">
+                  Seleccioná un rol para continuar.
+                </p>
+              </div>
+            </div>
+
+            <div class="playground__stack-item">
+              <div class="ds-field">
+                <label class="ds-label" for="pg-select-region">Región</label>
+                <div class="ds-select-wrapper">
+                  <select
+                    id="pg-select-region"
+                    class="ds-select ds-select--md"
+                    name="region"
+                    disabled
+                    aria-disabled="true"
+                  >
+                    <option value="latam" selected>LATAM</option>
+                    <option value="eu">EU</option>
+                    <option value="us">US</option>
+                  </select>
+                  <svg
+                    class="ds-select__icon"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="M4 6l4 4 4-4"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <p class="ds-field__hint">Deshabilitado · solo lectura</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="dialog-heading">
+        <h2 id="dialog-heading">Dialog</h2>
+        <div class="playground__dialog-demo">
+          <p>
+            Modal nativo con backdrop blur. Abrí el diálogo y probá Escape,
+            backdrop o los botones de acción.
+          </p>
+          <button
+            type="button"
+            class="ds-button ds-button--danger ds-button--md"
+            data-ds-dialog-open="confirm-delete"
+          >
+            Eliminar proyecto
+          </button>
+          <button
+            type="button"
+            class="ds-button ds-button--secondary ds-button--md"
+            data-ds-dialog-open="confirm-delete"
+          >
+            Abrir modal
+          </button>
+        </div>
+
+        <dialog
+          id="confirm-delete"
+          class="ds-dialog"
+          aria-labelledby="confirm-delete-title"
+          aria-describedby="confirm-delete-desc"
+        >
+          <header class="ds-dialog__header">
+            <button
+              type="button"
+              class="ds-button ds-button--ghost ds-button--sm ds-dialog__close"
+              data-ds-dialog-close
+              aria-label="Cerrar diálogo"
+            >
+              ✕
+            </button>
+            <h2 id="confirm-delete-title" class="ds-dialog__title">
+              ¿Eliminar este proyecto?
+            </h2>
+            <p id="confirm-delete-desc" class="ds-dialog__description">
+              Esta acción no se puede deshacer. El proyecto y sus datos asociados
+              se borrarán de forma permanente.
+            </p>
+          </header>
+
+          <div class="ds-dialog__body">
+            <div class="ds-field">
+              <label class="ds-label" for="pg-confirm-name">
+                Nombre del proyecto
+              </label>
+              <input
+                id="pg-confirm-name"
+                class="ds-input ds-input--md"
+                type="text"
+                name="confirm-name"
+                placeholder="mi-proyecto"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+
+          <footer class="ds-dialog__footer">
+            <button
+              type="button"
+              class="ds-button ds-button--secondary ds-button--md"
+              data-ds-dialog-close
+            >
+              Cancelar
+            </button>
+            <button
+              type="button"
+              class="ds-button ds-button--danger ds-button--md"
+              data-ds-dialog-confirm
+            >
+              Eliminar
+            </button>
+          </footer>
+        </dialog>
+      </section>
+
+      <section class="playground__section" aria-labelledby="badges-heading">
+        <h2 id="badges-heading">Badges</h2>
+        <div class="playground__badge-row">
+          <span class="ds-badge ds-badge--default ds-badge--md">Default</span>
+          <span class="ds-badge ds-badge--primary ds-badge--md">Primary</span>
+          <span class="ds-badge ds-badge--success ds-badge--md">Success</span>
+          <span class="ds-badge ds-badge--warning ds-badge--md">Warning</span>
+          <span class="ds-badge ds-badge--danger ds-badge--md">Danger</span>
+          <span class="ds-badge ds-badge--outline ds-badge--md">Outline</span>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="alerts-heading">
+        <h2 id="alerts-heading">Alerts</h2>
+        <div class="playground__alerts">
+          <div
+            class="ds-alert ds-alert--info"
+            role="alert"
+            aria-labelledby="pg-alert-info-title"
+          >
+            <span class="ds-alert__icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none">
+                <circle cx="8" cy="8" r="6.25" stroke="currentColor" stroke-width="1.5" />
+                <path d="M8 7v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <circle cx="8" cy="5" r="0.75" fill="currentColor" />
+              </svg>
+            </span>
+            <div class="ds-alert__content">
+              <p id="pg-alert-info-title" class="ds-alert__title">Información</p>
+              <p class="ds-alert__description">
+                Hay una nueva versión del design system lista para instalar.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="ds-alert ds-alert--success"
+            role="status"
+            aria-labelledby="pg-alert-ok-title"
+          >
+            <span class="ds-alert__icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none">
+                <circle cx="8" cy="8" r="6.25" stroke="currentColor" stroke-width="1.5" />
+                <path
+                  d="M5 8.2l2 2 4-4.5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+            <div class="ds-alert__content">
+              <p id="pg-alert-ok-title" class="ds-alert__title">
+                Cambios guardados con éxito
+              </p>
+              <p class="ds-alert__description">
+                Tu perfil se actualizó correctamente.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="ds-alert ds-alert--danger"
+            role="alert"
+            aria-labelledby="pg-alert-err-title"
+          >
+            <span class="ds-alert__icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none">
+                <circle cx="8" cy="8" r="6.25" stroke="currentColor" stroke-width="1.5" />
+                <path d="M8 5v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                <circle cx="8" cy="11" r="0.75" fill="currentColor" />
+              </svg>
+            </span>
+            <div class="ds-alert__content">
+              <p id="pg-alert-err-title" class="ds-alert__title">
+                Falló la conexión con el servidor
+              </p>
+              <p class="ds-alert__description">
+                Revisá tu red e intentá de nuevo en unos segundos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="toasts-heading">
+        <h2 id="toasts-heading">Sistema de Notificaciones (Toasts)</h2>
+        <div class="playground__toast-actions">
+          <button
+            type="button"
+            id="pg-toast-info"
+            class="ds-button ds-button--secondary ds-button--md"
+          >
+            Toast Info
+          </button>
+          <button
+            type="button"
+            id="pg-toast-success"
+            class="ds-button ds-button--primary ds-button--md"
+          >
+            Toast Éxito
+          </button>
+          <button
+            type="button"
+            id="pg-toast-danger"
+            class="ds-button ds-button--danger ds-button--md"
+          >
+            Toast Error
+          </button>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="breadcrumb-heading">
+        <h2 id="breadcrumb-heading">Navegación: Breadcrumbs</h2>
+        <div class="playground__nav-demo">
+          <nav class="ds-breadcrumb" aria-label="Breadcrumb">
+            <ol class="ds-breadcrumb__list">
+              <li class="ds-breadcrumb__item">
+                <a class="ds-breadcrumb__link" href="#inicio">Inicio</a>
+                <span class="ds-breadcrumb__separator" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" focusable="false">
+                    <path
+                      d="M6 4l4 4-4 4"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </li>
+              <li class="ds-breadcrumb__item">
+                <a class="ds-breadcrumb__link" href="#configuracion">Configuración</a>
+                <span class="ds-breadcrumb__separator" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" focusable="false">
+                    <path
+                      d="M6 4l4 4-4 4"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </li>
+              <li class="ds-breadcrumb__item">
+                <a class="ds-breadcrumb__link" href="#seguridad">Seguridad</a>
+                <span class="ds-breadcrumb__separator" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" focusable="false">
+                    <path
+                      d="M6 4l4 4-4 4"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </li>
+              <li class="ds-breadcrumb__item">
+                <span class="ds-breadcrumb__page" aria-current="page">
+                  Sesiones activas
+                </span>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="tabs-heading">
+        <h2 id="tabs-heading">Pestañas Accesibles (Tabs)</h2>
+        <div class="playground__tabs-demo">
+          <div class="ds-tabs" data-ds-tabs id="pg-settings-tabs">
+            <div
+              class="ds-tabs__list"
+              role="tablist"
+              aria-label="Preferencias de usuario"
+            >
+              <button
+                type="button"
+                class="ds-tabs__trigger"
+                role="tab"
+                id="pg-tab-account"
+                aria-controls="pg-panel-account"
+                aria-selected="true"
+                tabindex="0"
+              >
+                Cuenta
+              </button>
+              <button
+                type="button"
+                class="ds-tabs__trigger"
+                role="tab"
+                id="pg-tab-notifications"
+                aria-controls="pg-panel-notifications"
+                aria-selected="false"
+                tabindex="-1"
+              >
+                Notificaciones
+              </button>
+              <button
+                type="button"
+                class="ds-tabs__trigger"
+                role="tab"
+                id="pg-tab-billing"
+                aria-controls="pg-panel-billing"
+                aria-selected="false"
+                tabindex="-1"
+              >
+                Facturación
+              </button>
+            </div>
+
+            <div
+              class="ds-tabs__content"
+              role="tabpanel"
+              id="pg-panel-account"
+              aria-labelledby="pg-tab-account"
+              tabindex="0"
+            >
+              <div class="ds-field">
+                <label class="ds-label" for="pg-display-name">Nombre visible</label>
+                <input
+                  id="pg-display-name"
+                  class="ds-input ds-input--md"
+                  type="text"
+                  name="display-name"
+                  placeholder="Tu nombre"
+                  autocomplete="nickname"
+                  aria-describedby="pg-display-name-hint"
+                />
+                <p id="pg-display-name-hint" class="ds-field__hint">
+                  Se muestra en el workspace y en menciones.
+                </p>
+              </div>
+              <div class="ds-tabs__actions">
+                <button type="button" class="ds-button ds-button--primary ds-button--md">
+                  Guardar cambios
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="ds-tabs__content"
+              role="tabpanel"
+              id="pg-panel-notifications"
+              aria-labelledby="pg-tab-notifications"
+              tabindex="0"
+              hidden
+            >
+              <p>
+                Configurá alertas por correo y push. Usá las flechas ← → para
+                cambiar de pestaña sin salir del teclado.
+              </p>
+            </div>
+
+            <div
+              class="ds-tabs__content"
+              role="tabpanel"
+              id="pg-panel-billing"
+              aria-labelledby="pg-tab-billing"
+              tabindex="0"
+              hidden
+            >
+              <p>
+                Plan actual, método de pago y próximas facturas aparecen aquí.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="popover-heading">
+        <h2 id="popover-heading">Dropdowns y Menús (Popover API)</h2>
+        <div class="playground__popover-demo">
+          <button
+            type="button"
+            class="ds-button ds-button--secondary ds-button--md"
+            popovertarget="pg-account-menu"
+            popovertargetaction="toggle"
+          >
+            Opciones de cuenta
+          </button>
+
+          <div id="pg-account-menu" class="ds-popover" popover>
+            <div class="ds-menu" role="menu" aria-label="Opciones de cuenta">
+              <button type="button" class="ds-menu-item" role="menuitem">
+                <span class="playground__menu-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="5.5" r="2.25" stroke="currentColor" stroke-width="1.5" />
+                    <path
+                      d="M3.5 13c.6-2 2.2-3 4.5-3s3.9 1 4.5 3"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </span>
+                Perfil
+              </button>
+              <button type="button" class="ds-menu-item" role="menuitem">
+                <span class="playground__menu-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.5" />
+                    <path
+                      d="M8 2.5v1.2M8 12.3v1.2M2.5 8h1.2M12.3 8h1.2M4.1 4.1l.85.85M11.05 11.05l.85.85M11.9 4.1l-.85.85M4.95 11.05l-.85.85"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </span>
+                Configuración
+              </button>
+              <div class="ds-menu-separator" role="separator"></div>
+              <button type="button" class="ds-menu-item ds-menu-item--danger" role="menuitem">
+                <span class="playground__menu-icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none">
+                    <path
+                      d="M6 3.5h4M3.5 5.5h9M5.5 5.5V12a1 1 0 001 1h3a1 1 0 001-1V5.5"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                Cerrar sesión
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="accordion-heading">
+        <h2 id="accordion-heading">Acordeón Exclusivo (Details)</h2>
+        <div class="playground__accordion-demo">
+          <div class="ds-accordion-group" aria-label="Preguntas frecuentes">
+            <details class="ds-accordion" name="faq-group" open>
+              <summary class="ds-accordion__trigger">
+                <span>¿Cómo instalo un componente del registry?</span>
+                <svg
+                  class="ds-accordion__chevron"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 6l4 4 4-4"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </summary>
+              <div class="ds-accordion__content">
+                <p>
+                  Ejecutá <code>node scripts/add.mjs &lt;nombre&gt;</code>. El
+                  CLI copia los archivos a <code>src/components/ui/</code>.
+                </p>
+              </div>
+            </details>
+
+            <details class="ds-accordion" name="faq-group">
+              <summary class="ds-accordion__trigger">
+                <span>¿Los tokens soportan dark mode?</span>
+                <svg
+                  class="ds-accordion__chevron"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 6l4 4 4-4"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </summary>
+              <div class="ds-accordion__content">
+                <p>
+                  Sí. Con <code>data-theme="dark"</code> en
+                  <code>&lt;html&gt;</code> se aplican los overrides de
+                  <code>tokens.dark.json</code>.
+                </p>
+              </div>
+            </details>
+
+            <details class="ds-accordion" name="faq-group">
+              <summary class="ds-accordion__trigger">
+                <span>¿Puedo usar los componentes sin un framework?</span>
+                <svg
+                  class="ds-accordion__chevron"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 6l4 4 4-4"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </summary>
+              <div class="ds-accordion__content">
+                <p>
+                  Sí: HTML, CSS y módulos ESM opcionales. Sin React, Vue ni
+                  utilidades de clases.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="datatable-heading">
+        <h2 id="datatable-heading">Data Table Moderna</h2>
+        <div class="playground__table-demo">
+          <div
+            class="ds-table-container"
+            role="region"
+            aria-label="Clientes y órdenes"
+            tabindex="0"
+          >
+            <table class="ds-table">
+              <thead>
+                <tr>
+                  <th scope="col">
+                    <span class="ds-table__checkbox">
+                      <input
+                        class="ds-checkbox"
+                        type="checkbox"
+                        aria-label="Seleccionar todas las filas"
+                      />
+                    </span>
+                  </th>
+                  <th scope="col">Cliente</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col" class="ds-table__cell--numeric">Monto</th>
+                  <th scope="col">
+                    <span class="visually-hidden">Acciones</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="ds-table__row ds-table__row--selected">
+                  <td>
+                    <span class="ds-table__checkbox">
+                      <input
+                        class="ds-checkbox"
+                        type="checkbox"
+                        checked
+                        aria-label="Seleccionar Ana Ruiz"
+                      />
+                    </span>
+                  </td>
+                  <td>Ana Ruiz</td>
+                  <td>
+                    <span class="ds-badge ds-badge--success ds-badge--sm">Completado</span>
+                  </td>
+                  <td class="ds-table__cell--numeric">$1.240,00</td>
+                  <td class="ds-table__cell--actions">
+                    <button
+                      type="button"
+                      class="ds-button ds-button--ghost ds-button--sm"
+                      popovertarget="pg-row-menu-1"
+                      popovertargetaction="toggle"
+                      aria-label="Acciones de Ana Ruiz"
+                    >
+                      ⋯
+                    </button>
+                    <div id="pg-row-menu-1" class="ds-popover" popover>
+                      <div class="ds-menu" role="menu">
+                        <button type="button" class="ds-menu-item" role="menuitem">
+                          Ver detalle
+                        </button>
+                        <button type="button" class="ds-menu-item" role="menuitem">
+                          Descargar factura
+                        </button>
+                        <div class="ds-menu-separator" role="separator"></div>
+                        <button
+                          type="button"
+                          class="ds-menu-item ds-menu-item--danger"
+                          role="menuitem"
+                        >
+                          Anular
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr class="ds-table__row">
+                  <td>
+                    <span class="ds-table__checkbox">
+                      <input
+                        class="ds-checkbox"
+                        type="checkbox"
+                        aria-label="Seleccionar Luis Gómez"
+                      />
+                    </span>
+                  </td>
+                  <td>Luis Gómez</td>
+                  <td>
+                    <span class="ds-badge ds-badge--warning ds-badge--sm">Pendiente</span>
+                  </td>
+                  <td class="ds-table__cell--numeric">$380,50</td>
+                  <td class="ds-table__cell--actions">
+                    <button
+                      type="button"
+                      class="ds-button ds-button--ghost ds-button--sm"
+                      popovertarget="pg-row-menu-2"
+                      popovertargetaction="toggle"
+                      aria-label="Acciones de Luis Gómez"
+                    >
+                      ⋯
+                    </button>
+                    <div id="pg-row-menu-2" class="ds-popover" popover>
+                      <div class="ds-menu" role="menu">
+                        <button type="button" class="ds-menu-item" role="menuitem">
+                          Ver detalle
+                        </button>
+                        <button type="button" class="ds-menu-item" role="menuitem">
+                          Marcar pagado
+                        </button>
+                        <div class="ds-menu-separator" role="separator"></div>
+                        <button
+                          type="button"
+                          class="ds-menu-item ds-menu-item--danger"
+                          role="menuitem"
+                        >
+                          Anular
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr class="ds-table__row">
+                  <td>
+                    <span class="ds-table__checkbox">
+                      <input
+                        class="ds-checkbox"
+                        type="checkbox"
+                        aria-label="Seleccionar María Sol"
+                      />
+                    </span>
+                  </td>
+                  <td>María Sol</td>
+                  <td>
+                    <span class="ds-badge ds-badge--success ds-badge--sm">Completado</span>
+                  </td>
+                  <td class="ds-table__cell--numeric">$2.015,00</td>
+                  <td class="ds-table__cell--actions">
+                    <button
+                      type="button"
+                      class="ds-button ds-button--ghost ds-button--sm"
+                      popovertarget="pg-row-menu-3"
+                      popovertargetaction="toggle"
+                      aria-label="Acciones de María Sol"
+                    >
+                      ⋯
+                    </button>
+                    <div id="pg-row-menu-3" class="ds-popover" popover>
+                      <div class="ds-menu" role="menu">
+                        <button type="button" class="ds-menu-item" role="menuitem">
+                          Ver detalle
+                        </button>
+                        <button type="button" class="ds-menu-item" role="menuitem">
+                          Descargar factura
+                        </button>
+                        <div class="ds-menu-separator" role="separator"></div>
+                        <button
+                          type="button"
+                          class="ds-menu-item ds-menu-item--danger"
+                          role="menuitem"
+                        >
+                          Anular
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr class="ds-table__row">
+                  <td>
+                    <span class="ds-table__checkbox">
+                      <input
+                        class="ds-checkbox"
+                        type="checkbox"
+                        aria-label="Seleccionar Carla Díaz"
+                      />
+                    </span>
+                  </td>
+                  <td>Carla Díaz</td>
+                  <td>
+                    <span class="ds-badge ds-badge--danger ds-badge--sm">Fallido</span>
+                  </td>
+                  <td class="ds-table__cell--numeric">$95,00</td>
+                  <td class="ds-table__cell--actions">
+                    <button
+                      type="button"
+                      class="ds-button ds-button--ghost ds-button--sm"
+                      popovertarget="pg-row-menu-4"
+                      popovertargetaction="toggle"
+                      aria-label="Acciones de Carla Díaz"
+                    >
+                      ⋯
+                    </button>
+                    <div id="pg-row-menu-4" class="ds-popover" popover>
+                      <div class="ds-menu" role="menu">
+                        <button type="button" class="ds-menu-item" role="menuitem">
+                          Reintentar cobro
+                        </button>
+                        <button type="button" class="ds-menu-item" role="menuitem">
+                          Ver detalle
+                        </button>
+                        <div class="ds-menu-separator" role="separator"></div>
+                        <button
+                          type="button"
+                          class="ds-menu-item ds-menu-item--danger"
+                          role="menuitem"
+                        >
+                          Anular
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="avatar-heading">
+        <h2 id="avatar-heading">Avatar</h2>
+        <div class="playground__complement-demo">
+          <div class="playground__avatar-row">
+            <span class="ds-avatar ds-avatar--md" aria-label="Ana Ruiz">
+              <img
+                class="ds-avatar__image"
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=faces"
+                alt=""
+                width="40"
+                height="40"
+              />
+            </span>
+            <span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="Luis Gómez (en línea)">
+              <span class="ds-avatar__fallback" aria-hidden="true">LG</span>
+              <span class="ds-avatar__status" title="En línea"></span>
+            </span>
+            <span class="ds-avatar ds-avatar--sm" aria-label="María Sol">
+              <span class="ds-avatar__fallback" aria-hidden="true">MS</span>
+            </span>
+            <span class="ds-avatar ds-avatar--lg ds-avatar--with-status" aria-label="Carla Díaz (en línea)">
+              <img
+                class="ds-avatar__image"
+                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&h=96&fit=crop&crop=faces"
+                alt=""
+                width="48"
+                height="48"
+              />
+              <span class="ds-avatar__status" title="En línea"></span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="skeleton-heading">
+        <h2 id="skeleton-heading">Skeleton</h2>
+        <div class="playground__complement-demo">
+          <div
+            class="ds-skeleton-group playground__skeleton-block"
+            aria-busy="true"
+            aria-live="polite"
+            aria-label="Cargando contenido"
+          >
+            <span class="ds-skeleton ds-skeleton--circle" aria-hidden="true"></span>
+            <div class="ds-skeleton-group__lines" aria-hidden="true">
+              <span class="ds-skeleton ds-skeleton--text"></span>
+              <span class="ds-skeleton ds-skeleton--text-sm"></span>
+            </div>
+          </div>
+          <div class="playground__skeleton-actions playground__skeleton-block" aria-hidden="true">
+            <span class="ds-skeleton ds-skeleton--button"></span>
+            <span class="ds-skeleton ds-skeleton--button"></span>
+          </div>
+          <div class="playground__skeleton-block" aria-hidden="true">
+            <span class="ds-skeleton ds-skeleton--card"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="tooltip-heading">
+        <h2 id="tooltip-heading">Tooltip</h2>
+        <div class="playground__complement-demo">
+          <div class="playground__tooltip-row">
+            <button
+              type="button"
+              class="ds-button ds-button--ghost ds-button--sm"
+              data-tooltip="Más opciones"
+              aria-label="Más opciones"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="3.5" cy="8" r="1.25" fill="currentColor" />
+                <circle cx="8" cy="8" r="1.25" fill="currentColor" />
+                <circle cx="12.5" cy="8" r="1.25" fill="currentColor" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              class="ds-button ds-button--secondary ds-button--sm"
+              data-tooltip="Copiar al portapapeles"
+              data-tooltip-side="bottom"
+              aria-label="Copiar al portapapeles"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <rect
+                  x="5"
+                  y="5"
+                  width="7"
+                  height="8"
+                  rx="1.25"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="M4 10.5H3.25A1.25 1.25 0 012 9.25v-6A1.25 1.25 0 013.25 2h6A1.25 1.25 0 0110.5 3.25V4"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="playground__section" aria-labelledby="textarea-heading">
+        <h2 id="textarea-heading">Textarea</h2>
+        <div class="playground__complement-demo">
+          <div class="ds-field">
+            <label class="ds-label" for="pg-bio">Biografía</label>
+            <textarea
+              id="pg-bio"
+              class="ds-textarea"
+              name="bio"
+              rows="4"
+              placeholder="Contá un poco sobre vos…"
+              aria-describedby="pg-bio-hint"
+            ></textarea>
+            <p id="pg-bio-hint" class="ds-field__hint">Máximo 280 caracteres.</p>
+          </div>
+          <div class="ds-field" style="margin-block-start: var(--ds-primitive-spacing-16)">
+            <label class="ds-label" for="pg-notes-error">Notas internas</label>
+            <textarea
+              id="pg-notes-error"
+              class="ds-textarea ds-textarea--error"
+              name="notes"
+              rows="3"
+              aria-invalid="true"
+              aria-describedby="pg-notes-error-msg"
+            >Texto demasiado corto</textarea>
+            <p id="pg-notes-error-msg" class="ds-field__error" role="alert">
+              Completá al menos 20 caracteres.
+            </p>
+          </div>
+          <div class="ds-field" style="margin-block-start: var(--ds-primitive-spacing-16)">
+            <label class="ds-label" for="pg-notes-disabled">Comentario (disabled)</label>
+            <textarea
+              id="pg-notes-disabled"
+              class="ds-textarea"
+              name="comment"
+              rows="3"
+              disabled
+              aria-disabled="true"
+            >Solo lectura</textarea>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const toggle = document.getElementById('theme-toggle');
+        const storageKey = 'ds-theme';
+
+        function applyTheme(theme) {
+          const isDark = theme === 'dark';
+          if (isDark) {
+            root.setAttribute('data-theme', 'dark');
+          } else {
+            root.removeAttribute('data-theme');
+          }
+          toggle.setAttribute('aria-pressed', String(isDark));
+          toggle.setAttribute(
+            'aria-label',
+            isDark ? 'Activar tema claro' : 'Activar tema oscuro',
+          );
+          toggle.textContent = isDark ? 'Tema: oscuro' : 'Tema: claro';
+        }
+
+        const saved = localStorage.getItem(storageKey);
+        applyTheme(saved === 'dark' ? 'dark' : 'light');
+
+        toggle.addEventListener('click', function () {
+          const next =
+            root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          localStorage.setItem(storageKey, next);
+          applyTheme(next);
+        });
+      })();
+    </script>
+    <script type="module" src="src/components/ui/dialog/dialog.js"></script>
+    <script type="module" src="src/components/ui/tabs/tabs.js"></script>
+    <script type="module">
+      import { toast } from './src/components/ui/toast/toast.js';
+
+      document.querySelectorAll('.ds-switch__input[role="switch"]').forEach((el) => {
+        const sync = () => el.setAttribute('aria-checked', String(el.checked));
+        el.addEventListener('change', sync);
+        sync();
+      });
+
+      document.getElementById('pg-toast-info')?.addEventListener('click', () => {
+        toast.show({
+          title: 'Aviso',
+          description: 'Tienes una nueva actualización pendiente.',
+        });
+      });
+
+      document.getElementById('pg-toast-success')?.addEventListener('click', () => {
+        toast.show({
+          title: 'Operación completada',
+          description: 'El archivo se exportó correctamente.',
+          variant: 'success',
+        });
+      });
+
+      document.getElementById('pg-toast-danger')?.addEventListener('click', () => {
+        toast.show({
+          title: 'Error',
+          description: 'No se pudo procesar la solicitud.',
+          variant: 'danger',
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!--
+  ds-button — snippets de marcado accesible.
+  Requiere: dist/css/variables.css + button.css
+-->
+
+<!-- Primary / md (default) -->
+<button
+  type="button"
+  class="ds-button ds-button--primary ds-button--md"
+>
+  Guardar cambios
+</button>
+
+<!-- Secondary / sm -->
+<button
+  type="button"
+  class="ds-button ds-button--secondary ds-button--sm"
+>
+  Cancelar
+</button>
+
+<!-- Danger / lg -->
+<button
+  type="button"
+  class="ds-button ds-button--danger ds-button--lg"
+  aria-describedby="delete-hint"
+>
+  Eliminar cuenta
+</button>
+<span id="delete-hint" class="visually-hidden">
+  Esta acción no se puede deshacer.
+</span>
+
+<!-- Ghost -->
+<button
+  type="button"
+  class="ds-button ds-button--ghost ds-button--md"
+>
+  Más opciones
+</button>
+
+<!-- Disabled -->
+<button
+  type="button"
+  class="ds-button ds-button--primary ds-button--md"
+  disabled
+  aria-disabled="true"
+>
+  No disponible
+</button>
+
+<!-- Toggle / pressed -->
+<button
+  type="button"
+  class="ds-button ds-button--secondary ds-button--md"
+  aria-pressed="true"
+  aria-label="Notificaciones activadas"
+>
+  Notificaciones
+</button>
+
+<!-- Como enlace con rol de botón (navegación primaria) -->
+<a
+  href="/checkout"
+  class="ds-button ds-button--primary ds-button--md"
+  role="button"
+>
+  Continuar al pago
+</a>
+
+<!-- Loading (aria-busy) -->
+<button
+  type="button"
+  class="ds-button ds-button--primary ds-button--md"
+  aria-busy="true"
+  aria-live="polite"
+  disabled
+>
+  Procesando…
+</button>

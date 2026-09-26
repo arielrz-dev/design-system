@@ -1,0 +1,14 @@
+{
+  "name": "tokens",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:tokens": "node build-tokens.mjs",
+    "add": "node scripts/add.mjs"
+  },
+  "devDependencies": {
+    "style-dictionary": "^5.0.0",
+    "typescript": "^5.9.0"
+  }
+}

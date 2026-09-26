@@ -1,0 +1,422 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "ds",
+  "homepage": "",
+  "description": "Registro copy-paste agnóstico del design system. Componentes HTML/CSS con BEM y tokens --ds-*.",
+  "items": [
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Botón accesible con variantes primary, secondary, danger y ghost; tamaños sm, md y lg.",
+      "files": [
+        {
+          "path": "ui/button/button.css",
+          "type": "registry:style",
+          "target": "button.css"
+        },
+        {
+          "path": "ui/button/button.html",
+          "type": "registry:snippet",
+          "target": "button.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Requiere dist/css/variables.css cargado en la página."
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Contenedor de contenido con header, body y footer. Compatible con botones del registro en el footer.",
+      "files": [
+        {
+          "path": "ui/card/card.css",
+          "type": "registry:style",
+          "target": "card.css"
+        },
+        {
+          "path": "ui/card/card.html",
+          "type": "registry:snippet",
+          "target": "card.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["button"],
+      "docs": "Requiere dist/css/variables.css. Los snippets de footer usan .ds-button (instalar button)."
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Campo de formulario con label, hint, error y tamaños sm/md/lg. Estados focus, disabled y error accesibles.",
+      "files": [
+        {
+          "path": "ui/input/input.css",
+          "type": "registry:style",
+          "target": "input.css"
+        },
+        {
+          "path": "ui/input/input.html",
+          "type": "registry:snippet",
+          "target": "input.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Requiere dist/css/variables.css. Usa --ds-semantic-border-*, --ds-shadow-xs y --ds-semantic-action-danger-*."
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Modal nativo <dialog> con backdrop blur, animación de entrada y helper showModal/close.",
+      "files": [
+        {
+          "path": "ui/dialog/dialog.css",
+          "type": "registry:style",
+          "target": "dialog.css"
+        },
+        {
+          "path": "ui/dialog/dialog.html",
+          "type": "registry:snippet",
+          "target": "dialog.html"
+        },
+        {
+          "path": "ui/dialog/dialog.js",
+          "type": "registry:script",
+          "target": "dialog.js"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["button"],
+      "docs": "Requiere dist/css/variables.css y button. Usa <dialog>.showModal() / .close() vía dialog.js."
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Casilla nativa con appearance:none, check SVG en :checked, foco accesible y grupo horizontal .ds-checkbox-group.",
+      "files": [
+        {
+          "path": "ui/checkbox/checkbox.css",
+          "type": "registry:style",
+          "target": "checkbox.css"
+        },
+        {
+          "path": "ui/checkbox/checkbox.html",
+          "type": "registry:snippet",
+          "target": "checkbox.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Requiere dist/css/variables.css. Input nativo permanece en el árbol a11y."
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "Interruptor accesible (checkbox + role=switch) con track/thumb y transición 150ms.",
+      "files": [
+        {
+          "path": "ui/switch/switch.css",
+          "type": "registry:style",
+          "target": "switch.css"
+        },
+        {
+          "path": "ui/switch/switch.html",
+          "type": "registry:snippet",
+          "target": "switch.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Requiere dist/css/variables.css. Sincronizar aria-checked en change (snippet incluido)."
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Select nativo con appearance:none, chevron custom, tamaños sm/md/lg y estado error.",
+      "files": [
+        {
+          "path": "ui/select/select.css",
+          "type": "registry:style",
+          "target": "select.css"
+        },
+        {
+          "path": "ui/select/select.html",
+          "type": "registry:snippet",
+          "target": "select.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["input"],
+      "docs": "Requiere dist/css/variables.css e input (para .ds-field / .ds-label / hints)."
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Etiqueta pill con variantes default, primary, success, warning, danger y outline; tamaños sm/md.",
+      "files": [
+        {
+          "path": "ui/badge/badge.css",
+          "type": "registry:style",
+          "target": "badge.css"
+        },
+        {
+          "path": "ui/badge/badge.html",
+          "type": "registry:snippet",
+          "target": "badge.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Requiere dist/css/variables.css con tokens semantic.feedback-*."
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Mensaje de feedback en contexto con icono, título y descripción; variantes info/success/warning/danger.",
+      "files": [
+        {
+          "path": "ui/alert/alert.css",
+          "type": "registry:style",
+          "target": "alert.css"
+        },
+        {
+          "path": "ui/alert/alert.html",
+          "type": "registry:snippet",
+          "target": "alert.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Requiere dist/css/variables.css. Usar role=alert o role=status según criticidad."
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Notificaciones temporales con viewport fijo, auto-dismiss, pausa al hover y API toast.show().",
+      "files": [
+        {
+          "path": "ui/toast/toast.css",
+          "type": "registry:style",
+          "target": "toast.css"
+        },
+        {
+          "path": "ui/toast/toast.html",
+          "type": "registry:snippet",
+          "target": "toast.html"
+        },
+        {
+          "path": "ui/toast/toast.js",
+          "type": "registry:script",
+          "target": "toast.js"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["button"],
+      "docs": "Requiere dist/css/variables.css. Importar toast.js como módulo ESM."
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "title": "Breadcrumb",
+      "description": "Navegación jerárquica con nav/ol, separadores SVG y aria-current en la página activa.",
+      "files": [
+        {
+          "path": "ui/breadcrumb/breadcrumb.css",
+          "type": "registry:style",
+          "target": "breadcrumb.css"
+        },
+        {
+          "path": "ui/breadcrumb/breadcrumb.html",
+          "type": "registry:snippet",
+          "target": "breadcrumb.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Requiere dist/css/variables.css. Usar aria-label en el nav."
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Pestañas WAI-ARIA con tablist/tab/tabpanel, teclado flechas/Home/End y activación automática.",
+      "files": [
+        {
+          "path": "ui/tabs/tabs.css",
+          "type": "registry:style",
+          "target": "tabs.css"
+        },
+        {
+          "path": "ui/tabs/tabs.html",
+          "type": "registry:snippet",
+          "target": "tabs.html"
+        },
+        {
+          "path": "ui/tabs/tabs.js",
+          "type": "registry:script",
+          "target": "tabs.js"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Requiere dist/css/variables.css. Auto-init con data-ds-tabs o initTabs()."
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Menú flotante nativo (Popover API) con items, separator y variante danger. Sin JavaScript.",
+      "files": [
+        {
+          "path": "ui/popover/popover.css",
+          "type": "registry:style",
+          "target": "popover.css"
+        },
+        {
+          "path": "ui/popover/popover.html",
+          "type": "registry:snippet",
+          "target": "popover.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["button"],
+      "docs": "Requiere Popover API del navegador (popover / popovertarget)."
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Secciones colapsables con <details>/<summary> y name exclusivo para FAQ.",
+      "files": [
+        {
+          "path": "ui/accordion/accordion.css",
+          "type": "registry:style",
+          "target": "accordion.css"
+        },
+        {
+          "path": "ui/accordion/accordion.html",
+          "type": "registry:snippet",
+          "target": "accordion.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Usar name compartido en details para comportamiento exclusivo nativo."
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "Data Table",
+      "description": "Tabla scrollable con thead sticky, filas seleccionables, cifras tabular-nums y menú popover.",
+      "files": [
+        {
+          "path": "ui/data-table/data-table.css",
+          "type": "registry:style",
+          "target": "data-table.css"
+        },
+        {
+          "path": "ui/data-table/data-table.html",
+          "type": "registry:snippet",
+          "target": "data-table.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["checkbox", "badge", "button", "popover"],
+      "docs": "El snippet de órdenes integra checkbox, badge y popover."
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Avatar circular con imagen o iniciales, tamaños sm/md/lg e indicador de status online.",
+      "files": [
+        {
+          "path": "ui/avatar/avatar.css",
+          "type": "registry:style",
+          "target": "avatar.css"
+        },
+        {
+          "path": "ui/avatar/avatar.html",
+          "type": "registry:snippet",
+          "target": "avatar.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Usar .ds-avatar--with-status cuando hay indicador online."
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Placeholders de carga con pulso para texto, círculo, botón y tarjeta.",
+      "files": [
+        {
+          "path": "ui/skeleton/skeleton.css",
+          "type": "registry:style",
+          "target": "skeleton.css"
+        },
+        {
+          "path": "ui/skeleton/skeleton.html",
+          "type": "registry:snippet",
+          "target": "skeleton.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Respetar prefers-reduced-motion (animación desactivada)."
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Tooltip CSS-only con data-tooltip y flecha; aparece en hover/focus-visible.",
+      "files": [
+        {
+          "path": "ui/tooltip/tooltip.css",
+          "type": "registry:style",
+          "target": "tooltip.css"
+        },
+        {
+          "path": "ui/tooltip/tooltip.html",
+          "type": "registry:snippet",
+          "target": "tooltip.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["button"],
+      "docs": "Complementar con aria-label en el trigger para lectores de pantalla."
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "Área de texto alineada a input: focus ring, resize vertical, disabled y error.",
+      "files": [
+        {
+          "path": "ui/textarea/textarea.css",
+          "type": "registry:style",
+          "target": "textarea.css"
+        },
+        {
+          "path": "ui/textarea/textarea.html",
+          "type": "registry:snippet",
+          "target": "textarea.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["input"],
+      "docs": "Requiere input.css para .ds-field / .ds-label / hints."
+    }
+  ]
+}

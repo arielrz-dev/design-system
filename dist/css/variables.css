@@ -1,0 +1,152 @@
+/**
+ * Design tokens CSS variables — generado por `build-tokens.mjs`.
+ * Prefijo: --ds- (kebab-case). Light en :root; dark en [data-theme="dark"].
+ * No editar a mano; ejecutar `npm run build:tokens`.
+ */
+
+:root {
+  --ds-primitive-color-slate-50: #fafafa; /** Neutral más claro. */
+  --ds-primitive-color-slate-100: #f4f4f5; /** Neutral muy claro. */
+  --ds-primitive-color-slate-200: #e4e4e7; /** Neutral claro. */
+  --ds-primitive-color-slate-300: #d4d4d8; /** Neutral medio-claro. */
+  --ds-primitive-color-slate-400: #a1a1aa; /** Neutral medio. */
+  --ds-primitive-color-slate-500: #71717a; /** Neutral de referencia (punto medio). */
+  --ds-primitive-color-slate-600: #52525b; /** Neutral medio-oscuro. */
+  --ds-primitive-color-slate-700: #3f3f46; /** Neutral oscuro. */
+  --ds-primitive-color-slate-800: #27272a; /** Neutral muy oscuro. */
+  --ds-primitive-color-slate-900: #18181b; /** Neutral casi negro. */
+  --ds-primitive-color-slate-950: #09090b; /** Neutral más oscuro. */
+  --ds-primitive-color-blue-50: #eff6ff; /** Primario más claro. */
+  --ds-primitive-color-blue-100: #dbeafe; /** Primario muy claro. */
+  --ds-primitive-color-blue-200: #bfdbfe; /** Primario claro. */
+  --ds-primitive-color-blue-300: #93c5fd; /** Primario medio-claro. */
+  --ds-primitive-color-blue-400: #60a5fa; /** Primario medio. */
+  --ds-primitive-color-blue-500: #3b82f6; /** Primario de referencia. */
+  --ds-primitive-color-blue-600: #2563eb; /** Primario medio-oscuro (acción por defecto en light). */
+  --ds-primitive-color-blue-700: #1d4ed8; /** Primario oscuro (hover en light). */
+  --ds-primitive-color-blue-800: #1e40af; /** Primario muy oscuro (active en light). */
+  --ds-primitive-color-blue-900: #1e3a8a; /** Primario más oscuro. */
+  --ds-primitive-color-red-50: #fff1f3; /** Carmesí más claro (tinte danger). */
+  --ds-primitive-color-red-100: #ffe4e8; /** Carmesí muy claro. */
+  --ds-primitive-color-red-200: #fecdd5; /** Carmesí claro (borde danger). */
+  --ds-primitive-color-red-500: #f43f5e; /** Carmesí medio (peligro en dark). */
+  --ds-primitive-color-red-600: #e11d48; /** Carmesí medio-oscuro (peligro en light). */
+  --ds-primitive-color-red-700: #be123c; /** Carmesí oscuro (hover/active danger). */
+  --ds-primitive-color-red-950: #4c0519; /** Carmesí más oscuro (tinte danger dark). */
+  --ds-primitive-color-green-50: #f0fdf4; /** Verde más claro. */
+  --ds-primitive-color-green-100: #dcfce7; /** Verde muy claro (tinte success). */
+  --ds-primitive-color-green-200: #bbf7d0; /** Verde claro (borde success). */
+  --ds-primitive-color-green-300: #86efac; /** Verde medio-claro (texto success dark). */
+  --ds-primitive-color-green-600: #16a34a; /** Verde medio. */
+  --ds-primitive-color-green-700: #15803d; /** Verde oscuro (texto success light). */
+  --ds-primitive-color-green-950: #052e16; /** Verde más oscuro (tinte success dark). */
+  --ds-primitive-color-amber-50: #fffbeb; /** Ámbar más claro. */
+  --ds-primitive-color-amber-100: #fef3c7; /** Ámbar muy claro (tinte warning). */
+  --ds-primitive-color-amber-200: #fde68a; /** Ámbar claro (borde warning). */
+  --ds-primitive-color-amber-300: #fcd34d; /** Ámbar medio-claro (texto warning dark). */
+  --ds-primitive-color-amber-600: #d97706; /** Ámbar medio. */
+  --ds-primitive-color-amber-700: #b45309; /** Ámbar oscuro (texto warning light). */
+  --ds-primitive-color-amber-950: #451a03; /** Ámbar más oscuro (tinte warning dark). */
+  --ds-primitive-color-white: #ffffff; /** Blanco puro (superficies elevadas sobre canvas). */
+  --ds-primitive-shadow-xs: 0px 0px 0px 1px rgb(0% 0% 0% / 0.04), 0px 1px 2px 0px rgb(0% 0% 0% / 0.06); /** Contacto 1px + diffuse corta (botones/inputs). */
+  --ds-primitive-shadow-sm: 0px 0px 0px 1px rgb(0% 0% 0% / 0.04), 0px 2px 4px 0px rgb(0% 0% 0% / 0.05), 0px 4px 12px 0px rgb(0% 0% 0% / 0.04); /** Contacto + diffuse media (tarjetas). */
+  --ds-primitive-shadow-md: 0px 0px 0px 1px rgb(0% 0% 0% / 0.05), 0px 4px 8px 0px rgb(0% 0% 0% / 0.06), 0px 12px 24px 0px rgb(0% 0% 0% / 0.08); /** Contacto + diffuse amplia (popovers/toasts). */
+  --ds-primitive-spacing-4: 0.25rem; /** 4px → 0.25rem. */
+  --ds-primitive-spacing-8: 0.5rem; /** 8px → 0.5rem. */
+  --ds-primitive-spacing-12: 0.75rem; /** 12px → 0.75rem. */
+  --ds-primitive-spacing-16: 1rem; /** 16px → 1rem. */
+  --ds-primitive-spacing-20: 1.25rem; /** 20px → 1.25rem. */
+  --ds-primitive-spacing-24: 1.5rem; /** 24px → 1.5rem. */
+  --ds-primitive-spacing-32: 2rem; /** 32px → 2rem. */
+  --ds-primitive-spacing-40: 2.5rem; /** 40px → 2.5rem. */
+  --ds-primitive-spacing-48: 3rem; /** 48px → 3rem. */
+  --ds-primitive-spacing-56: 3.5rem; /** 56px → 3.5rem. */
+  --ds-primitive-spacing-64: 4rem; /** 64px → 4rem. */
+  --ds-primitive-radius-sm: 0.25rem; /** Radio pequeño (4px / 0.25rem). */
+  --ds-primitive-radius-md: 0.375rem; /** Radio base botones/inputs (6px / 0.375rem). */
+  --ds-primitive-radius-lg: 0.625rem; /** Radio grande (10px / 0.625rem). */
+  --ds-primitive-radius-full: 9999px; /** Radio píldora / circular (9999px). */
+  --ds-primitive-font-family-sans: Inter, ui-sans-serif, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif; /** Familia sans-serif del sistema. */
+  --ds-primitive-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; /** Familia monoespaciada del sistema. */
+  --ds-primitive-font-size-xs-font-size: 0.75rem; /** 12px → 0.75rem. */
+  --ds-primitive-font-size-xs-line-height: 1.333; /** Line-height relativo (~16px sobre 12px). */
+  --ds-primitive-font-size-sm-font-size: 0.875rem; /** 14px → 0.875rem. */
+  --ds-primitive-font-size-sm-line-height: 1.429; /** Line-height relativo (~20px sobre 14px). */
+  --ds-primitive-font-size-md-font-size: 1rem; /** 16px → 1rem (base). */
+  --ds-primitive-font-size-md-line-height: 1.5; /** Line-height relativo (24px sobre 16px). */
+  --ds-primitive-font-size-lg-font-size: 1.125rem; /** 18px → 1.125rem. */
+  --ds-primitive-font-size-lg-line-height: 1.556; /** Line-height relativo (~28px sobre 18px). */
+  --ds-primitive-font-size-xl-font-size: 1.25rem; /** 20px → 1.25rem. */
+  --ds-primitive-font-size-xl-line-height: 1.4; /** Line-height relativo (28px sobre 20px). */
+  --ds-primitive-font-size-2xl-font-size: 1.5rem; /** 24px → 1.5rem. */
+  --ds-primitive-font-size-2xl-line-height: 1.333; /** Line-height relativo (32px sobre 24px). */
+  --ds-primitive-font-size-3xl-font-size: 1.875rem; /** 30px → 1.875rem. */
+  --ds-primitive-font-size-3xl-line-height: 1.2; /** Line-height relativo (36px sobre 30px). */
+  --ds-semantic-surface-canvas: var(--ds-primitive-color-slate-50); /** Fondo de página (#fafafa zinc-50). */
+  --ds-semantic-surface-card: var(--ds-primitive-color-white); /** Superficie de tarjeta sobre el canvas. */
+  --ds-semantic-surface-elevated: var(--ds-primitive-color-white); /** Superficie elevada (modales, popovers, drawers). */
+  --ds-semantic-surface-subtle: var(--ds-primitive-color-slate-100); /** Fondo tenue neutro (botones secondary, chips). */
+  --ds-semantic-content-primary: var(--ds-primitive-color-slate-900); /** Texto principal de alto contraste. */
+  --ds-semantic-content-secondary: var(--ds-primitive-color-slate-700); /** Texto secundario. */
+  --ds-semantic-content-muted: var(--ds-primitive-color-slate-500); /** Texto atenuado / placeholder. */
+  --ds-semantic-content-inverse: var(--ds-primitive-color-slate-50); /** Texto sobre fondos oscuros o de acción. */
+  --ds-semantic-border-subtle: var(--ds-primitive-color-slate-200); /** Borde discreto / divisores. */
+  --ds-semantic-border-strong: var(--ds-primitive-color-slate-400); /** Borde con mayor énfasis. */
+  --ds-semantic-border-focus: var(--ds-primitive-color-blue-500); /** Anillo o borde de foco accesible. */
+  --ds-semantic-action-primary-default: var(--ds-primitive-color-blue-600); /** Acción primaria en estado por defecto. */
+  --ds-semantic-action-primary-hover: var(--ds-primitive-color-blue-700); /** Acción primaria en hover. */
+  --ds-semantic-action-primary-active: var(--ds-primitive-color-blue-800); /** Acción primaria en pressed/active. */
+  --ds-semantic-action-danger-default: var(--ds-primitive-color-red-600); /** Acción destructiva en estado por defecto. */
+  --ds-semantic-action-danger-hover: var(--ds-primitive-color-red-700); /** Acción destructiva en hover. */
+  --ds-semantic-action-danger-active: var(--ds-primitive-color-red-700); /** Acción destructiva en pressed/active. */
+  --ds-semantic-feedback-info-subtle: var(--ds-primitive-color-blue-50); /** Fondo tenue info. */
+  --ds-semantic-feedback-info-foreground: var(--ds-primitive-color-blue-700); /** Texto/icono info. */
+  --ds-semantic-feedback-info-border: var(--ds-primitive-color-blue-200); /** Borde info. */
+  --ds-semantic-feedback-success-subtle: var(--ds-primitive-color-green-100); /** Fondo tenue success. */
+  --ds-semantic-feedback-success-foreground: var(--ds-primitive-color-green-700); /** Texto/icono success. */
+  --ds-semantic-feedback-success-border: var(--ds-primitive-color-green-200); /** Borde success. */
+  --ds-semantic-feedback-warning-subtle: var(--ds-primitive-color-amber-100); /** Fondo tenue warning. */
+  --ds-semantic-feedback-warning-foreground: var(--ds-primitive-color-amber-700); /** Texto/icono warning. */
+  --ds-semantic-feedback-warning-border: var(--ds-primitive-color-amber-200); /** Borde warning. */
+  --ds-semantic-feedback-danger-subtle: var(--ds-primitive-color-red-100); /** Fondo tenue danger. */
+  --ds-semantic-feedback-danger-foreground: var(--ds-primitive-color-red-700); /** Texto/icono danger. */
+  --ds-semantic-feedback-danger-border: var(--ds-primitive-color-red-200); /** Borde danger. */
+  --ds-shadow-xs: var(--ds-primitive-shadow-xs); /** Elevación xs — botones e inputs. */
+  --ds-shadow-sm: var(--ds-primitive-shadow-sm); /** Elevación sm — tarjetas. */
+  --ds-shadow-md: var(--ds-primitive-shadow-md); /** Elevación md — popovers y overlays. */
+}
+
+[data-theme="dark"] {
+  --ds-shadow-xs: 0px 0px 0px 1px rgb(0% 0% 0% / 0.5), 0px 1px 2px 0px rgb(0% 0% 0% / 0.35); /** Sombra xs en dark. */
+  --ds-shadow-sm: 0px 0px 0px 1px rgb(0% 0% 0% / 0.55), 0px 2px 4px 0px rgb(0% 0% 0% / 0.4), 0px 8px 16px 0px rgb(0% 0% 0% / 0.3); /** Sombra sm en dark. */
+  --ds-shadow-md: 0px 0px 0px 1px rgb(0% 0% 0% / 0.6), 0px 4px 8px 0px rgb(0% 0% 0% / 0.45), 0px 16px 32px 0px rgb(0% 0% 0% / 0.35); /** Sombra md en dark. */
+  --ds-semantic-surface-canvas: var(--ds-primitive-color-slate-950); /** Fondo de página / viewport en dark. */
+  --ds-semantic-surface-card: var(--ds-primitive-color-slate-900); /** Superficie de tarjeta sobre el canvas dark. */
+  --ds-semantic-surface-elevated: var(--ds-primitive-color-slate-800); /** Superficie elevada (modales, popovers) en dark. */
+  --ds-semantic-surface-subtle: var(--ds-primitive-color-slate-800); /** Fondo tenue neutro en dark (secondary, chips). */
+  --ds-semantic-content-primary: var(--ds-primitive-color-slate-50); /** Texto principal claro sobre superficies oscuras. */
+  --ds-semantic-content-secondary: var(--ds-primitive-color-slate-300); /** Texto secundario en dark. */
+  --ds-semantic-content-muted: var(--ds-primitive-color-slate-400); /** Texto atenuado en dark. */
+  --ds-semantic-content-inverse: var(--ds-primitive-color-slate-900); /** Texto sobre fondos claros o chips claros en dark. */
+  --ds-semantic-border-subtle: var(--ds-primitive-color-slate-700); /** Borde discreto en dark. */
+  --ds-semantic-border-strong: var(--ds-primitive-color-slate-500); /** Borde enfatizado en dark. */
+  --ds-semantic-border-focus: var(--ds-primitive-color-blue-400); /** Anillo de foco más luminoso sobre fondos oscuros. */
+  --ds-semantic-action-primary-default: var(--ds-primitive-color-blue-500); /** Acción primaria por defecto en dark. */
+  --ds-semantic-action-primary-hover: var(--ds-primitive-color-blue-400); /** Acción primaria hover en dark. */
+  --ds-semantic-action-primary-active: var(--ds-primitive-color-blue-300); /** Acción primaria active en dark. */
+  --ds-semantic-action-danger-default: var(--ds-primitive-color-red-500); /** Acción destructiva por defecto en dark. */
+  --ds-semantic-action-danger-hover: var(--ds-primitive-color-red-600); /** Acción destructiva hover en dark. */
+  --ds-semantic-action-danger-active: var(--ds-primitive-color-red-600); /** Acción destructiva active en dark. */
+  --ds-semantic-feedback-info-subtle: var(--ds-primitive-color-blue-900); /** Fondo tenue info en dark. */
+  --ds-semantic-feedback-info-foreground: var(--ds-primitive-color-blue-300); /** Texto info en dark. */
+  --ds-semantic-feedback-info-border: var(--ds-primitive-color-blue-800); /** Borde info en dark. */
+  --ds-semantic-feedback-success-subtle: var(--ds-primitive-color-green-950); /** Fondo tenue success en dark. */
+  --ds-semantic-feedback-success-foreground: var(--ds-primitive-color-green-300); /** Texto success en dark. */
+  --ds-semantic-feedback-success-border: var(--ds-primitive-color-green-700); /** Borde success en dark. */
+  --ds-semantic-feedback-warning-subtle: var(--ds-primitive-color-amber-950); /** Fondo tenue warning en dark. */
+  --ds-semantic-feedback-warning-foreground: var(--ds-primitive-color-amber-300); /** Texto warning en dark. */
+  --ds-semantic-feedback-warning-border: var(--ds-primitive-color-amber-700); /** Borde warning en dark. */
+  --ds-semantic-feedback-danger-subtle: var(--ds-primitive-color-red-950); /** Fondo tenue danger en dark. */
+  --ds-semantic-feedback-danger-foreground: var(--ds-primitive-color-red-500); /** Texto danger en dark. */
+  --ds-semantic-feedback-danger-border: var(--ds-primitive-color-red-700); /** Borde danger en dark. */
+}

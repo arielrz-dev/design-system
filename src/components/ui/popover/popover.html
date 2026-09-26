@@ -1,0 +1,31 @@
+<!--
+  ds-popover — menú nativo sin JavaScript (Popover API).
+  Requiere: dist/css/variables.css + popover.css + button.css
+-->
+
+<button
+  type="button"
+  class="ds-button ds-button--secondary ds-button--sm"
+  popovertarget="demo-menu"
+  popovertargetaction="toggle"
+>
+  Opciones
+</button>
+
+<div id="demo-menu" class="ds-popover" popover>
+  <div class="ds-menu" role="menu" aria-label="Acciones">
+    <button type="button" class="ds-menu-item" role="menuitem">
+      Ver detalle
+    </button>
+    <button type="button" class="ds-menu-item" role="menuitem">
+      Duplicar
+    </button>
+    <button type="button" class="ds-menu-item" role="menuitem">
+      Compartir…
+    </button>
+    <div class="ds-menu-separator" role="separator"></div>
+    <button type="button" class="ds-menu-item ds-menu-item--danger" role="menuitem">
+      Eliminar
+    </button>
+  </div>
+</div>

@@ -1,0 +1,222 @@
+/**
+ * Design tokens — generado por `build-tokens.mjs`.
+ * No editar a mano; ejecutar `npm run build:tokens`.
+ */
+
+export const tokens = {
+  "primitive": {
+    "color": {
+      "slate": {
+        "50": "#fafafa",
+        "100": "#f4f4f5",
+        "200": "#e4e4e7",
+        "300": "#d4d4d8",
+        "400": "#a1a1aa",
+        "500": "#71717a",
+        "600": "#52525b",
+        "700": "#3f3f46",
+        "800": "#27272a",
+        "900": "#18181b",
+        "950": "#09090b",
+      },
+      "blue": {
+        "50": "#eff6ff",
+        "100": "#dbeafe",
+        "200": "#bfdbfe",
+        "300": "#93c5fd",
+        "400": "#60a5fa",
+        "500": "#3b82f6",
+        "600": "#2563eb",
+        "700": "#1d4ed8",
+        "800": "#1e40af",
+        "900": "#1e3a8a",
+      },
+      "red": {
+        "50": "#fff1f3",
+        "100": "#ffe4e8",
+        "200": "#fecdd5",
+        "500": "#f43f5e",
+        "600": "#e11d48",
+        "700": "#be123c",
+        "950": "#4c0519",
+      },
+      "green": {
+        "50": "#f0fdf4",
+        "100": "#dcfce7",
+        "200": "#bbf7d0",
+        "300": "#86efac",
+        "600": "#16a34a",
+        "700": "#15803d",
+        "950": "#052e16",
+      },
+      "amber": {
+        "50": "#fffbeb",
+        "100": "#fef3c7",
+        "200": "#fde68a",
+        "300": "#fcd34d",
+        "600": "#d97706",
+        "700": "#b45309",
+        "950": "#451a03",
+      },
+      "white": "#ffffff",
+    },
+    "shadow": {
+      "xs": [{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.04,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":0,"unit":"px"},"blur":{"value":0,"unit":"px"},"spread":{"value":1,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.06,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":1,"unit":"px"},"blur":{"value":2,"unit":"px"},"spread":{"value":0,"unit":"px"}}],
+      "sm": [{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.04,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":0,"unit":"px"},"blur":{"value":0,"unit":"px"},"spread":{"value":1,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.05,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":2,"unit":"px"},"blur":{"value":4,"unit":"px"},"spread":{"value":0,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.04,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":4,"unit":"px"},"blur":{"value":12,"unit":"px"},"spread":{"value":0,"unit":"px"}}],
+      "md": [{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.05,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":0,"unit":"px"},"blur":{"value":0,"unit":"px"},"spread":{"value":1,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.06,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":4,"unit":"px"},"blur":{"value":8,"unit":"px"},"spread":{"value":0,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.08,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":12,"unit":"px"},"blur":{"value":24,"unit":"px"},"spread":{"value":0,"unit":"px"}}],
+    },
+    "spacing": {
+      "4": "0.25rem",
+      "8": "0.5rem",
+      "12": "0.75rem",
+      "16": "1rem",
+      "20": "1.25rem",
+      "24": "1.5rem",
+      "32": "2rem",
+      "40": "2.5rem",
+      "48": "3rem",
+      "56": "3.5rem",
+      "64": "4rem",
+    },
+    "radius": {
+      "sm": "0.25rem",
+      "md": "0.375rem",
+      "lg": "0.625rem",
+      "full": "9999px",
+    },
+    "font": {
+      "family": {
+        "sans": ["Inter","ui-sans-serif","system-ui","Segoe UI","Roboto","Helvetica Neue","Arial","Noto Sans","sans-serif"],
+        "mono": ["ui-monospace","SFMono-Regular","Menlo","Monaco","Consolas","Liberation Mono","Courier New","monospace"],
+      },
+      "size": {
+        "xs": {
+          "fontSize": "0.75rem",
+          "lineHeight": 1.333,
+        },
+        "sm": {
+          "fontSize": "0.875rem",
+          "lineHeight": 1.429,
+        },
+        "md": {
+          "fontSize": "1rem",
+          "lineHeight": 1.5,
+        },
+        "lg": {
+          "fontSize": "1.125rem",
+          "lineHeight": 1.556,
+        },
+        "xl": {
+          "fontSize": "1.25rem",
+          "lineHeight": 1.4,
+        },
+        "2xl": {
+          "fontSize": "1.5rem",
+          "lineHeight": 1.333,
+        },
+        "3xl": {
+          "fontSize": "1.875rem",
+          "lineHeight": 1.2,
+        },
+      },
+    },
+  },
+  "semantic": {
+    "surface": {
+      "canvas": "#fafafa",
+      "card": "#ffffff",
+      "elevated": "#ffffff",
+      "subtle": "#f4f4f5",
+    },
+    "content": {
+      "primary": "#18181b",
+      "secondary": "#3f3f46",
+      "muted": "#71717a",
+      "inverse": "#fafafa",
+    },
+    "border": {
+      "subtle": "#e4e4e7",
+      "strong": "#a1a1aa",
+      "focus": "#3b82f6",
+    },
+    "action": {
+      "primary-default": "#2563eb",
+      "primary-hover": "#1d4ed8",
+      "primary-active": "#1e40af",
+      "danger-default": "#e11d48",
+      "danger-hover": "#be123c",
+      "danger-active": "#be123c",
+    },
+    "feedback": {
+      "info-subtle": "#eff6ff",
+      "info-foreground": "#1d4ed8",
+      "info-border": "#bfdbfe",
+      "success-subtle": "#dcfce7",
+      "success-foreground": "#15803d",
+      "success-border": "#bbf7d0",
+      "warning-subtle": "#fef3c7",
+      "warning-foreground": "#b45309",
+      "warning-border": "#fde68a",
+      "danger-subtle": "#ffe4e8",
+      "danger-foreground": "#be123c",
+      "danger-border": "#fecdd5",
+    },
+  },
+  "shadow": {
+    "xs": [{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.04,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":0,"unit":"px"},"blur":{"value":0,"unit":"px"},"spread":{"value":1,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.06,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":1,"unit":"px"},"blur":{"value":2,"unit":"px"},"spread":{"value":0,"unit":"px"}}],
+    "sm": [{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.04,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":0,"unit":"px"},"blur":{"value":0,"unit":"px"},"spread":{"value":1,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.05,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":2,"unit":"px"},"blur":{"value":4,"unit":"px"},"spread":{"value":0,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.04,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":4,"unit":"px"},"blur":{"value":12,"unit":"px"},"spread":{"value":0,"unit":"px"}}],
+    "md": [{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.05,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":0,"unit":"px"},"blur":{"value":0,"unit":"px"},"spread":{"value":1,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.06,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":4,"unit":"px"},"blur":{"value":8,"unit":"px"},"spread":{"value":0,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.08,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":12,"unit":"px"},"blur":{"value":24,"unit":"px"},"spread":{"value":0,"unit":"px"}}],
+  },
+} as const;
+
+export const tokensDark = {
+  "semantic": {
+    "surface": {
+      "canvas": "#09090b",
+      "card": "#18181b",
+      "elevated": "#27272a",
+      "subtle": "#27272a",
+    },
+    "content": {
+      "primary": "#fafafa",
+      "secondary": "#d4d4d8",
+      "muted": "#a1a1aa",
+      "inverse": "#18181b",
+    },
+    "border": {
+      "subtle": "#3f3f46",
+      "strong": "#71717a",
+      "focus": "#60a5fa",
+    },
+    "action": {
+      "primary-default": "#3b82f6",
+      "primary-hover": "#60a5fa",
+      "primary-active": "#93c5fd",
+      "danger-default": "#f43f5e",
+      "danger-hover": "#e11d48",
+      "danger-active": "#e11d48",
+    },
+    "feedback": {
+      "info-subtle": "#1e3a8a",
+      "info-foreground": "#93c5fd",
+      "info-border": "#1e40af",
+      "success-subtle": "#052e16",
+      "success-foreground": "#86efac",
+      "success-border": "#15803d",
+      "warning-subtle": "#451a03",
+      "warning-foreground": "#fcd34d",
+      "warning-border": "#b45309",
+      "danger-subtle": "#4c0519",
+      "danger-foreground": "#f43f5e",
+      "danger-border": "#be123c",
+    },
+  },
+  "shadow": {
+    "xs": [{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.5,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":0,"unit":"px"},"blur":{"value":0,"unit":"px"},"spread":{"value":1,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.35,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":1,"unit":"px"},"blur":{"value":2,"unit":"px"},"spread":{"value":0,"unit":"px"}}],
+    "sm": [{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.55,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":0,"unit":"px"},"blur":{"value":0,"unit":"px"},"spread":{"value":1,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.4,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":2,"unit":"px"},"blur":{"value":4,"unit":"px"},"spread":{"value":0,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.3,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":8,"unit":"px"},"blur":{"value":16,"unit":"px"},"spread":{"value":0,"unit":"px"}}],
+    "md": [{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.6,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":0,"unit":"px"},"blur":{"value":0,"unit":"px"},"spread":{"value":1,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.45,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":4,"unit":"px"},"blur":{"value":8,"unit":"px"},"spread":{"value":0,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.35,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":16,"unit":"px"},"blur":{"value":32,"unit":"px"},"spread":{"value":0,"unit":"px"}}],
+  },
+} as const;
+
+export type Tokens = typeof tokens;
+export type TokensDark = typeof tokensDark;

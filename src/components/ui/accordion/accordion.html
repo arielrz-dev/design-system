@@ -1,0 +1,71 @@
+<!--
+  ds-accordion — FAQ con <details name> (exclusivo nativo).
+  Requiere: dist/css/variables.css + accordion.css
+-->
+
+<div class="ds-accordion-group" aria-label="Preguntas frecuentes">
+  <details class="ds-accordion" name="faq-group" open>
+    <summary class="ds-accordion__trigger">
+      <span>¿Cómo instalo un componente del registry?</span>
+      <svg class="ds-accordion__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path
+          d="M4 6l4 4 4-4"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </summary>
+    <div class="ds-accordion__content">
+      <p>
+        Ejecutá <code>node scripts/add.mjs &lt;nombre&gt;</code>. El CLI copia
+        los archivos a <code>src/components/ui/</code> y resuelve dependencias
+        del registry.
+      </p>
+    </div>
+  </details>
+
+  <details class="ds-accordion" name="faq-group">
+    <summary class="ds-accordion__trigger">
+      <span>¿Los tokens soportan dark mode?</span>
+      <svg class="ds-accordion__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path
+          d="M4 6l4 4 4-4"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </summary>
+    <div class="ds-accordion__content">
+      <p>
+        Sí. Poné <code>data-theme="dark"</code> en <code>&lt;html&gt;</code>.
+        Los overrides semánticos viven en <code>tokens.dark.json</code> y se
+        emiten bajo ese selector en <code>variables.css</code>.
+      </p>
+    </div>
+  </details>
+
+  <details class="ds-accordion" name="faq-group">
+    <summary class="ds-accordion__trigger">
+      <span>¿Puedo usar los componentes sin un framework?</span>
+      <svg class="ds-accordion__chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path
+          d="M4 6l4 4 4-4"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </summary>
+    <div class="ds-accordion__content">
+      <p>
+        El registry es copy-paste agnóstico: HTML, CSS y módulos ESM opcionales.
+        No hay dependencia de React, Vue ni utilidades de clases.
+      </p>
+    </div>
+  </details>
+</div>
