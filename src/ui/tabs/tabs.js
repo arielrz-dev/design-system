@@ -1,5 +1,5 @@
 /**
- * Tabs agnóstico — patrón WAI-ARIA Tabs.
+ * Tabs agnóstico — patrón WAI-ARIA Tabs + píldora deslizante (WAAPI).
  *
  * Uso:
  *   import { initTabs } from './tabs.js';
@@ -28,13 +28,149 @@ function getPanelForTrigger(trigger) {
 }
 
 /**
+ * @returns {boolean}
+ */
+function prefersReducedMotion() {
+  if (
+    typeof document !== 'undefined' &&
+    document.documentElement?.getAttribute('data-rzz-motion') === 'force'
+  ) {
+    return false;
+  }
+  return (
+    typeof matchMedia === 'function' &&
+    matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
+}
+
+/**
+ * Resuelve la curva spring desde tokens CSS (WAAPI no acepta var()).
+ * @returns {string}
+ */
+function getSpringEasing() {
+  if (typeof getComputedStyle !== 'function' || !document.documentElement) {
+    return 'ease-out';
+  }
+  const root = getComputedStyle(document.documentElement);
+  const spring =
+    root.getPropertyValue('--rzz-primitive-motion-easing-spring').trim() ||
+    root.getPropertyValue('--rzz-ease-spring').trim();
+  return spring || 'ease-out';
+}
+
+/**
+ * @param {HTMLElement} list
+ * @returns {HTMLElement}
+ */
+function ensureIndicator(list) {
+  let indicator = list.querySelector(':scope > .ds-tabs__indicator');
+  if (!(indicator instanceof HTMLElement)) {
+    indicator = document.createElement('span');
+    indicator.className = 'ds-tabs__indicator';
+    indicator.setAttribute('aria-hidden', 'true');
+    list.prepend(indicator);
+  }
+  return indicator;
+}
+
+/**
+ * @param {HTMLElement} indicator
+ * @returns {{ x: number, y: number, width: number, height: number }}
+ */
+function readIndicatorBox(indicator) {
+  return {
+    x: Number.parseFloat(indicator.dataset.x || '0') || 0,
+    y: Number.parseFloat(indicator.dataset.y || '0') || 0,
+    width: Number.parseFloat(indicator.dataset.width || '0') || 0,
+    height: Number.parseFloat(indicator.dataset.height || '0') || 0,
+  };
+}
+
+/**
+ * @param {HTMLElement} indicator
+ * @param {{ x: number, y: number, width: number, height: number }} box
+ */
+function writeIndicatorBox(indicator, box) {
+  indicator.dataset.x = String(box.x);
+  indicator.dataset.y = String(box.y);
+  indicator.dataset.width = String(box.width);
+  indicator.dataset.height = String(box.height);
+  indicator.style.width = `${box.width}px`;
+  indicator.style.height = `${box.height}px`;
+  indicator.style.transform = `translate(${box.x}px, ${box.y}px)`;
+}
+
+/**
+ * FLIP de la píldora activa con Web Animations API.
+ * @param {HTMLElement} list
+ * @param {HTMLElement} trigger
+ * @param {{ animate?: boolean }} [options]
+ */
+function syncIndicator(list, trigger, options = {}) {
+  const { animate = true } = options;
+  const indicator = ensureIndicator(list);
+  const next = {
+    x: trigger.offsetLeft,
+    y: trigger.offsetTop,
+    width: trigger.offsetWidth,
+    height: trigger.offsetHeight,
+  };
+  const prev = readIndicatorBox(indicator);
+  const hasPrev = prev.width > 0 && prev.height > 0;
+  const reduced = prefersReducedMotion();
+  const canAnimate =
+    animate &&
+    hasPrev &&
+    !reduced &&
+    typeof indicator.animate === 'function';
+
+  if (!canAnimate) {
+    writeIndicatorBox(indicator, next);
+    return;
+  }
+
+  const easing = getSpringEasing();
+  const animation = indicator.animate(
+    [
+      {
+        width: `${prev.width}px`,
+        height: `${prev.height}px`,
+        transform: `translate(${prev.x}px, ${prev.y}px)`,
+      },
+      {
+        width: `${next.width}px`,
+        height: `${next.height}px`,
+        transform: `translate(${next.x}px, ${next.y}px)`,
+      },
+    ],
+    {
+      duration: 250,
+      easing,
+      fill: 'forwards',
+    },
+  );
+
+  writeIndicatorBox(indicator, next);
+
+  animation.finished
+    .then(() => {
+      animation.cancel();
+      writeIndicatorBox(indicator, next);
+    })
+    .catch(() => {
+      writeIndicatorBox(indicator, next);
+    });
+}
+
+/**
  * @param {HTMLElement} root
  * @param {HTMLElement} activeTrigger
- * @param {{ focus?: boolean }} [options]
+ * @param {{ focus?: boolean, animateIndicator?: boolean }} [options]
  */
 function activateTab(root, activeTrigger, options = {}) {
-  const { focus = false } = options;
+  const { focus = false, animateIndicator = true } = options;
   const triggers = getTriggers(root);
+  const list = root.querySelector('.ds-tabs__list, [role="tablist"]');
 
   triggers.forEach((trigger) => {
     const selected = trigger === activeTrigger;
@@ -51,6 +187,10 @@ function activateTab(root, activeTrigger, options = {}) {
       }
     }
   });
+
+  if (list instanceof HTMLElement) {
+    syncIndicator(list, activeTrigger, { animate: animateIndicator });
+  }
 
   if (focus) activeTrigger.focus();
 }
@@ -101,10 +241,26 @@ export function initTabs(elementOrSelector) {
     return root;
   }
 
+  if (!(list instanceof HTMLElement)) return root;
+
   // Estado inicial: respetar aria-selected="true" o activar el primero.
   const initiallySelected =
     triggers.find((t) => t.getAttribute('aria-selected') === 'true') || triggers[0];
-  activateTab(root, initiallySelected, { focus: false });
+  activateTab(root, initiallySelected, { focus: false, animateIndicator: false });
+
+  const ro =
+    typeof ResizeObserver === 'function'
+      ? new ResizeObserver(() => {
+          const selected =
+            triggers.find((t) => t.getAttribute('aria-selected') === 'true') ||
+            triggers[0];
+          if (selected) syncIndicator(list, selected, { animate: false });
+        })
+      : null;
+  if (ro) {
+    ro.observe(list);
+    triggers.forEach((t) => ro.observe(t));
+  }
 
   root.addEventListener('click', (event) => {
     const trigger = event.target.closest?.('.ds-tabs__trigger[role="tab"]');

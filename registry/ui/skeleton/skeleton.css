@@ -1,23 +1,31 @@
 /**
- * .ds-skeleton — placeholders de carga con pulso.
+ * .ds-skeleton — placeholders de carga con shimmer.
  * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
-@keyframes ds-skeleton-pulse {
-  0%,
-  100% {
-    opacity: 1;
+@keyframes ds-skeleton-shimmer {
+  0% {
+    background-position: 100% 0;
   }
-  50% {
-    opacity: 0.45;
+  100% {
+    background-position: -100% 0;
   }
 }
 
 .ds-skeleton {
   display: block;
-  background-color: var(--rzz-surface-elevated);
+  /* subtle ≠ white: evita hueso invisible sobre surface-card */
+  background-color: var(--rzz-surface-subtle);
+  background-image: linear-gradient(
+    90deg,
+    var(--rzz-surface-subtle) 0%,
+    color-mix(in srgb, var(--rzz-content-primary) 8%, var(--rzz-surface-card)) 45%,
+    var(--rzz-surface-subtle) 90%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
   border-radius: var(--rzz-radius-md);
-  animation: ds-skeleton-pulse 1.4s ease-in-out infinite;
+  animation: ds-skeleton-shimmer 1.35s var(--rzz-ease-standard) infinite;
 }
 
 .ds-skeleton--text {
@@ -66,8 +74,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ds-skeleton {
+  html:not([data-rzz-motion="force"]) .ds-skeleton {
     animation: none;
-    opacity: 0.7;
+    background-image: none;
+    background-color: var(--rzz-surface-subtle);
   }
 }

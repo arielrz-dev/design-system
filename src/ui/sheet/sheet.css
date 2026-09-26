@@ -23,10 +23,11 @@ dialog.ds-sheet {
   opacity: 0;
   transform: translateX(100%);
   transition:
-    opacity var(--rzz-duration-normal) var(--rzz-ease-standard),
-    transform var(--rzz-duration-normal) var(--rzz-ease-standard),
-    overlay var(--rzz-duration-normal) var(--rzz-ease-standard) allow-discrete,
-    display var(--rzz-duration-normal) var(--rzz-ease-standard) allow-discrete;
+    opacity var(--rzz-duration-enter) var(--rzz-ease-spring),
+    transform var(--rzz-duration-enter) var(--rzz-ease-spring),
+    overlay var(--rzz-duration-enter) var(--rzz-ease-spring) allow-discrete,
+    display var(--rzz-duration-enter) var(--rzz-ease-spring) allow-discrete;
+  transition-behavior: allow-discrete;
 }
 
 dialog.ds-sheet[open] {
@@ -51,7 +52,11 @@ dialog.ds-sheet::backdrop {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   opacity: 0;
-  transition: opacity var(--rzz-duration-normal) var(--rzz-ease-standard);
+  transition:
+    opacity var(--rzz-duration-enter) var(--rzz-ease-out-expo),
+    overlay var(--rzz-duration-enter) var(--rzz-ease-out-expo) allow-discrete,
+    display var(--rzz-duration-enter) var(--rzz-ease-out-expo) allow-discrete;
+  transition-behavior: allow-discrete;
 }
 
 dialog.ds-sheet[open]::backdrop {

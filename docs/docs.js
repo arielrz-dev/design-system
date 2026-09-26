@@ -2,6 +2,9 @@
  * Docs site interactions: theme, Cmd/Ctrl+K search, Preview/Code tabs, copy.
  */
 
+import { toast } from '../registry/ui/toast/toast.js';
+import { initThemeCustomizer } from '../src/styles/theme-customizer.js';
+
 const THEME_KEY = 'rzz-docs-theme';
 
 function applyTheme(theme) {
@@ -181,6 +184,7 @@ function initFileProtocolBanner() {
 function boot() {
   initFileProtocolBanner();
   initTheme();
+  initThemeCustomizer({ toast });
   initSearchHotkey();
   initCardTabs();
   initCopyButtons();

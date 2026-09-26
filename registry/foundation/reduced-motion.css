@@ -1,31 +1,46 @@
 /**
  * Reduced motion — cargar después de los CSS de componentes.
- * Respeta prefers-reduced-motion sin anular completamente el layout.
+ * Respeta prefers-reduced-motion sin dejar componentes invisibles.
+ *
+ * Escape hatch (showcase / QA):
+ *   <html data-rzz-motion="force">
  */
-
 @media (prefers-reduced-motion: reduce) {
-  .ds-button,
-  .ds-input,
-  .ds-select,
-  .ds-textarea,
-  .ds-tabs__trigger,
-  .ds-dialog,
-  .ds-sheet,
-  .ds-toast,
-  .ds-popover,
-  .ds-menu-item,
-  .ds-banner,
-  .ds-accordion,
-  .ds-skeleton,
-  [data-tooltip]::before,
-  [data-tooltip]::after {
+  html:not([data-rzz-motion="force"]) .ds-button,
+  html:not([data-rzz-motion="force"]) .ds-input,
+  html:not([data-rzz-motion="force"]) .ds-select,
+  html:not([data-rzz-motion="force"]) .ds-textarea,
+  html:not([data-rzz-motion="force"]) .ds-tabs__trigger,
+  html:not([data-rzz-motion="force"]) .ds-tabs__indicator,
+  html:not([data-rzz-motion="force"]) .ds-tabs__content,
+  html:not([data-rzz-motion="force"]) .ds-dialog,
+  html:not([data-rzz-motion="force"]) .ds-sheet,
+  html:not([data-rzz-motion="force"]) .ds-toast,
+  html:not([data-rzz-motion="force"]) .ds-popover,
+  html:not([data-rzz-motion="force"]) .ds-menu-item,
+  html:not([data-rzz-motion="force"]) .ds-banner,
+  html:not([data-rzz-motion="force"]) .ds-accordion,
+  html:not([data-rzz-motion="force"]) .ds-skeleton,
+  html:not([data-rzz-motion="force"]) [data-tooltip]::before,
+  html:not([data-rzz-motion="force"]) [data-tooltip]::after {
     transition: none !important;
     animation: none !important;
   }
 
-  .ds-dialog,
-  .ds-sheet,
-  .ds-popover {
+  html:not([data-rzz-motion="force"]) .ds-button:hover:not(:disabled):not([aria-disabled="true"]),
+  html:not([data-rzz-motion="force"]) .ds-button:active:not(:disabled):not([aria-disabled="true"]),
+  html:not([data-rzz-motion="force"]) .ds-dialog,
+  html:not([data-rzz-motion="force"]) .ds-sheet,
+  html:not([data-rzz-motion="force"]) .ds-popover {
     transform: none !important;
+  }
+
+  html:not([data-rzz-motion="force"]) .ds-popover:popover-open {
+    opacity: 1 !important;
+  }
+
+  /* Skeleton sigue visible (hueso estático) cuando el OS pide menos motion. */
+  html:not([data-rzz-motion="force"]) .ds-skeleton {
+    opacity: 1;
   }
 }

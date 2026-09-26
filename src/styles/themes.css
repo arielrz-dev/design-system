@@ -1,0 +1,153 @@
+/**
+ * Theme presets — colores de acento + radios.
+ * Aplicar en <html>: data-theme-color="…" data-radius="…"
+ * (data-theme="dark" sigue controlando light/dark).
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Color: blue (default del design system)                                     */
+/* -------------------------------------------------------------------------- */
+
+[data-theme-color="blue"] {
+  --rzz-action-primary-default: #2563eb;
+  --rzz-action-primary-hover: #1d4ed8;
+  --rzz-action-primary-active: #1e40af;
+  --rzz-content-inverse: #ffffff;
+  --rzz-border-focus: #3b82f6;
+}
+
+[data-theme="dark"][data-theme-color="blue"] {
+  --rzz-action-primary-default: #3b82f6;
+  --rzz-action-primary-hover: #60a5fa;
+  --rzz-action-primary-active: #93c5fd;
+  --rzz-content-inverse: #020617;
+  --rzz-border-focus: #60a5fa;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Color: violet                                                               */
+/* -------------------------------------------------------------------------- */
+
+[data-theme-color="violet"] {
+  --rzz-action-primary-default: #7c3aed;
+  --rzz-action-primary-hover: color-mix(in srgb, #7c3aed 82%, #000);
+  --rzz-action-primary-active: color-mix(in srgb, #7c3aed 68%, #000);
+  --rzz-content-inverse: #ffffff;
+  --rzz-border-focus: #7c3aed;
+}
+
+[data-theme="dark"][data-theme-color="violet"] {
+  --rzz-action-primary-default: #8b5cf6;
+  --rzz-action-primary-hover: color-mix(in srgb, #8b5cf6 78%, #fff);
+  --rzz-action-primary-active: color-mix(in srgb, #8b5cf6 62%, #fff);
+  --rzz-content-inverse: #ffffff;
+  --rzz-border-focus: #8b5cf6;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Color: emerald                                                              */
+/* -------------------------------------------------------------------------- */
+
+[data-theme-color="emerald"] {
+  --rzz-action-primary-default: #10b981;
+  --rzz-action-primary-hover: color-mix(in srgb, #10b981 82%, #000);
+  --rzz-action-primary-active: color-mix(in srgb, #10b981 68%, #000);
+  --rzz-content-inverse: #ffffff;
+  --rzz-border-focus: #10b981;
+}
+
+[data-theme="dark"][data-theme-color="emerald"] {
+  --rzz-action-primary-default: #34d399;
+  --rzz-action-primary-hover: color-mix(in srgb, #34d399 78%, #fff);
+  --rzz-action-primary-active: color-mix(in srgb, #34d399 62%, #fff);
+  --rzz-content-inverse: #022c22;
+  --rzz-border-focus: #34d399;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Color: rose                                                                 */
+/* -------------------------------------------------------------------------- */
+
+[data-theme-color="rose"] {
+  --rzz-action-primary-default: #f43f5e;
+  --rzz-action-primary-hover: color-mix(in srgb, #f43f5e 82%, #000);
+  --rzz-action-primary-active: color-mix(in srgb, #f43f5e 68%, #000);
+  --rzz-content-inverse: #ffffff;
+  --rzz-border-focus: #f43f5e;
+}
+
+[data-theme="dark"][data-theme-color="rose"] {
+  --rzz-action-primary-default: #fb7185;
+  --rzz-action-primary-hover: color-mix(in srgb, #fb7185 78%, #fff);
+  --rzz-action-primary-active: color-mix(in srgb, #fb7185 62%, #fff);
+  --rzz-content-inverse: #4c0519;
+  --rzz-border-focus: #fb7185;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Color: amber (texto oscuro sobre primario para contraste)                   */
+/* -------------------------------------------------------------------------- */
+
+[data-theme-color="amber"] {
+  --rzz-action-primary-default: #f59e0b;
+  --rzz-action-primary-hover: color-mix(in srgb, #f59e0b 82%, #000);
+  --rzz-action-primary-active: color-mix(in srgb, #f59e0b 68%, #000);
+  --rzz-content-inverse: #0f172a;
+  --rzz-border-focus: #f59e0b;
+}
+
+[data-theme="dark"][data-theme-color="amber"] {
+  --rzz-action-primary-default: #fbbf24;
+  --rzz-action-primary-hover: color-mix(in srgb, #fbbf24 78%, #fff);
+  --rzz-action-primary-active: color-mix(in srgb, #fbbf24 62%, #fff);
+  --rzz-content-inverse: #0f172a;
+  --rzz-border-focus: #fbbf24;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Color: zinc (neutro — invierte en dark)                                     */
+/* -------------------------------------------------------------------------- */
+
+[data-theme-color="zinc"] {
+  --rzz-action-primary-default: #18181b;
+  --rzz-action-primary-hover: #27272a;
+  --rzz-action-primary-active: #3f3f46;
+  --rzz-content-inverse: #fafafa;
+  --rzz-border-focus: #18181b;
+}
+
+[data-theme="dark"][data-theme-color="zinc"] {
+  --rzz-action-primary-default: #fafafa;
+  --rzz-action-primary-hover: #f4f4f5;
+  --rzz-action-primary-active: #e4e4e7;
+  --rzz-content-inverse: #18181b;
+  --rzz-border-focus: #fafafa;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Radius                                                                     */
+/* -------------------------------------------------------------------------- */
+
+[data-radius="none"] {
+  --rzz-radius-sm: 0px;
+  --rzz-radius-md: 0px;
+  --rzz-radius-lg: 0px;
+}
+
+[data-radius="sm"] {
+  --rzz-radius-sm: 2px;
+  --rzz-radius-md: 4px;
+  --rzz-radius-lg: 6px;
+}
+
+[data-radius="md"] {
+  --rzz-radius-sm: 4px;
+  --rzz-radius-md: 8px;
+  --rzz-radius-lg: 12px;
+}
+
+[data-radius="lg"] {
+  --rzz-radius-sm: 6px;
+  --rzz-radius-md: 12px;
+  --rzz-radius-lg: 16px;
+}

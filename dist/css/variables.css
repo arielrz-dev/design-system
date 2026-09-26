@@ -94,7 +94,11 @@
   --rzz-primitive-motion-duration-fast: 120ms; /** Microinteracciones rápidas. */
   --rzz-primitive-motion-duration-normal: 200ms; /** Apertura/cierre estándar. */
   --rzz-primitive-motion-duration-slow: 300ms; /** Transiciones enfatizadas. */
+  --rzz-primitive-motion-duration-enter: 250ms; /** Entrada de overlays (dialog/sheet/popover). */
   --rzz-primitive-motion-easing-standard: cubic-bezier(0.16, 1, 0.3, 1); /** Easing craft (ease-out expresivo). */
+  --rzz-primitive-motion-easing-spring: linear(0, 0.006, 0.025 2.8%, 0.101 6.1%, 0.539 18.9%, 0.721 25.3%, 0.849 31.5%, 0.937 38.1%, 0.968 41.8%, 0.991 45.7%, 1.006 50.1%, 1.015 55%, 1.017 63.9%, 1.001 83.5%, 1); /** Resorte elástico natural (CSS linear()). */
+  --rzz-primitive-motion-easing-bounce: cubic-bezier(0.34, 1.56, 0.64, 1); /** Overshoot sutil. */
+  --rzz-primitive-motion-easing-out-expo: cubic-bezier(0.16, 1, 0.3, 1); /** Ease-out exponencial (entrada de overlays). */
   --rzz-shadow-xs: var(--rzz-primitive-shadow-xs); /** Elevación xs — botones e inputs. */
   --rzz-shadow-sm: var(--rzz-primitive-shadow-sm); /** Elevación sm — tarjetas. */
   --rzz-shadow-md: var(--rzz-primitive-shadow-md); /** Elevación md — popovers y overlays. */
@@ -108,7 +112,11 @@
   --rzz-duration-fast: var(--rzz-primitive-motion-duration-fast); /** Rápida. */
   --rzz-duration-normal: var(--rzz-primitive-motion-duration-normal); /** Normal. */
   --rzz-duration-slow: var(--rzz-primitive-motion-duration-slow); /** Lenta. */
+  --rzz-duration-enter: var(--rzz-primitive-motion-duration-enter); /** Entrada de overlays. */
   --rzz-ease-standard: var(--rzz-primitive-motion-easing-standard); /** Estándar craft. */
+  --rzz-ease-spring: var(--rzz-primitive-motion-easing-spring); /** Resorte elástico. */
+  --rzz-ease-bounce: var(--rzz-primitive-motion-easing-bounce); /** Overshoot sutil. */
+  --rzz-ease-out-expo: var(--rzz-primitive-motion-easing-out-expo); /** Ease-out expo. */
   --rzz-surface-canvas: var(--rzz-primitive-color-slate-50); /** Fondo de página (#fafafa zinc-50). */
   --rzz-surface-card: var(--rzz-primitive-color-white); /** Superficie de tarjeta sobre el canvas. */
   --rzz-surface-elevated: var(--rzz-primitive-color-white); /** Superficie elevada (modales, popovers, drawers). */

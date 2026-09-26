@@ -38,6 +38,21 @@ StyleDictionary.registerTransform({
 });
 
 /**
+ * Springs CSS `linear(...)` — strings sin $type cubicBezier.
+ * Garantiza que el valor raw sobreviva al pipeline CSS.
+ */
+StyleDictionary.registerTransform({
+  name: 'rzz/ease/linear-spring',
+  type: 'value',
+  transitive: true,
+  filter: (token) => {
+    const v = token.$value ?? token.value;
+    return typeof v === 'string' && v.trimStart().startsWith('linear(');
+  },
+  transform: (token) => token.$value ?? token.value,
+});
+
+/**
  * @param {object} config
  * @param {'css' | 'js'} platform
  */
@@ -59,10 +74,14 @@ async function getTransformedDictionary(config, platform) {
   };
 
   if (platform === 'css') {
-    // Append after group so DTCG duration objects become `120ms`.
+    // Append after group: duration objects + spring linear() strings.
     const groupTransforms =
       StyleDictionary.hooks.transformGroups[transformGroups.css] ?? [];
-    platformConfig.transforms = [...groupTransforms, 'rzz/duration/css'];
+    platformConfig.transforms = [
+      ...groupTransforms,
+      'rzz/duration/css',
+      'rzz/ease/linear-spring',
+    ];
     delete platformConfig.transformGroup;
   }
 

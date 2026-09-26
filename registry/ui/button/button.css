@@ -23,7 +23,13 @@
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
-  transition: all 140ms ease-out;
+  transition:
+    background-color var(--rzz-duration-fast) var(--rzz-ease-out-expo),
+    border-color var(--rzz-duration-fast) var(--rzz-ease-out-expo),
+    color var(--rzz-duration-fast) var(--rzz-ease-out-expo),
+    box-shadow var(--rzz-duration-fast) var(--rzz-ease-out-expo),
+    transform var(--rzz-duration-fast) var(--rzz-ease-bounce),
+    opacity var(--rzz-duration-fast) var(--rzz-ease-out-expo);
 }
 
 .ds-button:focus {
@@ -35,8 +41,13 @@
   outline-offset: 2px;
 }
 
+.ds-button:hover:not(:disabled):not([aria-disabled="true"]) {
+  transform: translateY(-1px);
+}
+
 .ds-button:active:not(:disabled):not([aria-disabled="true"]) {
-  transform: scale(0.98);
+  transform: scale(0.97);
+  transition-timing-function: var(--rzz-ease-bounce);
 }
 
 .ds-button:disabled,
