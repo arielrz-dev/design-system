@@ -120,6 +120,25 @@ export const tokens = {
         },
       },
     },
+    "z-index": {
+      "base": 0,
+      "sticky": 100,
+      "banner": 200,
+      "dropdown": 1000,
+      "modal": 1050,
+      "toast": 1070,
+      "tooltip": 1080,
+    },
+    "motion": {
+      "duration": {
+        "fast": "120ms",
+        "normal": "200ms",
+        "slow": "300ms",
+      },
+      "easing": {
+        "standard": [0.16,1,0.3,1],
+      },
+    },
   },
   "semantic": {
     "surface": {
@@ -161,11 +180,43 @@ export const tokens = {
       "danger-foreground": "#be123c",
       "danger-border": "#fecdd5",
     },
+    "layer": {
+      "base": 0,
+      "sticky": 100,
+      "banner": 200,
+      "dropdown": 1000,
+      "modal": 1050,
+      "toast": 1070,
+      "tooltip": 1080,
+    },
+    "motion": {
+      "duration-fast": "120ms",
+      "duration-normal": "200ms",
+      "duration-slow": "300ms",
+      "ease-standard": [0.16,1,0.3,1],
+    },
   },
   "shadow": {
     "xs": [{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.04,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":0,"unit":"px"},"blur":{"value":0,"unit":"px"},"spread":{"value":1,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.06,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":1,"unit":"px"},"blur":{"value":2,"unit":"px"},"spread":{"value":0,"unit":"px"}}],
     "sm": [{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.04,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":0,"unit":"px"},"blur":{"value":0,"unit":"px"},"spread":{"value":1,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.05,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":2,"unit":"px"},"blur":{"value":4,"unit":"px"},"spread":{"value":0,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.04,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":4,"unit":"px"},"blur":{"value":12,"unit":"px"},"spread":{"value":0,"unit":"px"}}],
     "md": [{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.05,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":0,"unit":"px"},"blur":{"value":0,"unit":"px"},"spread":{"value":1,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.06,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":4,"unit":"px"},"blur":{"value":8,"unit":"px"},"spread":{"value":0,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.08,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":12,"unit":"px"},"blur":{"value":24,"unit":"px"},"spread":{"value":0,"unit":"px"}}],
+  },
+  "z": {
+    "base": 0,
+    "sticky": 100,
+    "banner": 200,
+    "dropdown": 1000,
+    "modal": 1050,
+    "toast": 1070,
+    "tooltip": 1080,
+  },
+  "duration": {
+    "fast": "120ms",
+    "normal": "200ms",
+    "slow": "300ms",
+  },
+  "ease": {
+    "standard": [0.16,1,0.3,1],
   },
 } as const;
 
