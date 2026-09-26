@@ -1,0 +1,101 @@
+/**
+ * .ds-alert — mensaje de feedback en contexto.
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ */
+
+.ds-alert {
+  box-sizing: border-box;
+  display: flex;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
+  box-shadow: var(--rzz-shadow-xs);
+}
+
+.ds-alert__icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-block-start: 0.125rem;
+  color: currentColor;
+}
+
+.ds-alert__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ds-alert__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rzz-space-4);
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.ds-alert__title {
+  margin: 0;
+  color: inherit;
+  font-size: var(--rzz-text-sm);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: var(--rzz-leading-sm);
+}
+
+.ds-alert__description {
+  margin: 0;
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-sm);
+  font-weight: 400;
+  line-height: var(--rzz-leading-sm);
+}
+
+.ds-alert--info {
+  border-color: var(--rzz-feedback-info-border);
+  background-color: var(--rzz-feedback-info-subtle);
+  color: var(--rzz-feedback-info-foreground);
+}
+
+.ds-alert--info .ds-alert__description {
+  color: var(--rzz-feedback-info-foreground);
+  opacity: 0.85;
+}
+
+.ds-alert--success {
+  border-color: var(--rzz-feedback-success-border);
+  background-color: var(--rzz-feedback-success-subtle);
+  color: var(--rzz-feedback-success-foreground);
+}
+
+.ds-alert--success .ds-alert__description {
+  color: var(--rzz-feedback-success-foreground);
+  opacity: 0.85;
+}
+
+.ds-alert--warning {
+  border-color: var(--rzz-feedback-warning-border);
+  background-color: var(--rzz-feedback-warning-subtle);
+  color: var(--rzz-feedback-warning-foreground);
+}
+
+.ds-alert--warning .ds-alert__description {
+  color: var(--rzz-feedback-warning-foreground);
+  opacity: 0.85;
+}
+
+.ds-alert--danger {
+  border-color: var(--rzz-feedback-danger-border);
+  background-color: var(--rzz-feedback-danger-subtle);
+  color: var(--rzz-feedback-danger-foreground);
+}
+
+.ds-alert--danger .ds-alert__description {
+  color: var(--rzz-feedback-danger-foreground);
+  opacity: 0.85;
+}

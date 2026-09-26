@@ -1,0 +1,117 @@
+/**
+ * .ds-stat-card — KPI / métrica con tendencia y sparkline.
+ * Solo consume variables CSS `--rzz-*`.
+ */
+
+.ds-stat-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--rzz-space-12);
+  margin: 0;
+  padding: var(--rzz-space-20);
+  border: 1px solid var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-lg);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
+  box-shadow: var(--rzz-shadow-xs);
+}
+
+.ds-stat-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rzz-space-8);
+}
+
+.ds-stat-card__label {
+  margin: 0;
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-sm);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: var(--rzz-leading-sm);
+}
+
+.ds-stat-card__range {
+  margin: 0;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-sm);
+  background-color: var(--rzz-surface-elevated);
+  color: var(--rzz-content-secondary);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.ds-stat-card__value {
+  margin: 0;
+  color: var(--rzz-content-primary);
+  font-size: 1.75rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.ds-stat-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--rzz-space-12);
+}
+
+.ds-stat-card__trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid transparent;
+  border-radius: var(--rzz-radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.ds-stat-card__trend--up {
+  border-color: var(--rzz-feedback-success-border);
+  background-color: var(--rzz-feedback-success-subtle);
+  color: var(--rzz-feedback-success-foreground);
+}
+
+.ds-stat-card__trend--down {
+  border-color: var(--rzz-feedback-danger-border);
+  background-color: var(--rzz-feedback-danger-subtle);
+  color: var(--rzz-feedback-danger-foreground);
+}
+
+.ds-stat-card__sparkline {
+  display: block;
+  width: 5.5rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.ds-stat-card__sparkline path {
+  fill: none;
+  stroke: var(--rzz-action-primary-default);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ds-stat-card__sparkline--down path {
+  stroke: var(--rzz-action-danger-default);
+}
+
+.ds-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--rzz-space-12);
+}

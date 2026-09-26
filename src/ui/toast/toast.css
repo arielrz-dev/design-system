@@ -1,0 +1,134 @@
+/**
+ * .ds-toast — notificaciones temporales (viewport + ítems).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ */
+
+.ds-toast-viewport {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: var(--rzz-z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: calc(100% - 3rem);
+  max-width: 400px;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+.ds-toast {
+  box-sizing: border-box;
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
+  box-shadow: var(--rzz-shadow-md);
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: all var(--rzz-duration-normal) var(--rzz-ease-standard);
+}
+
+.ds-toast--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ds-toast--leaving {
+  opacity: 0;
+  transform: translateY(0.5rem) scale(0.98);
+}
+
+.ds-toast__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rzz-space-4);
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.ds-toast__title {
+  margin: 0;
+  font-size: var(--rzz-text-sm);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: var(--rzz-leading-sm);
+}
+
+.ds-toast__description {
+  margin: 0;
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-xs);
+  font-weight: 400;
+  line-height: var(--rzz-leading-xs);
+}
+
+.ds-toast__close {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin: -0.25rem -0.25rem 0 0;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--rzz-radius-md);
+  background: transparent;
+  color: var(--rzz-content-muted);
+  font: inherit;
+  cursor: pointer;
+  transition: all var(--rzz-duration-fast) var(--rzz-ease-standard);
+}
+
+.ds-toast__close:hover {
+  background-color: var(--rzz-surface-subtle);
+  color: var(--rzz-content-primary);
+}
+
+.ds-toast__close:focus {
+  outline: none;
+}
+
+.ds-toast__close:focus-visible {
+  outline: 2px solid var(--rzz-border-focus);
+  outline-offset: 2px;
+}
+
+.ds-toast--default {
+  border-color: var(--rzz-border-subtle);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+}
+
+.ds-toast--success {
+  border-color: var(--rzz-feedback-success-border);
+  background-color: var(--rzz-feedback-success-subtle);
+  color: var(--rzz-feedback-success-foreground);
+}
+
+.ds-toast--success .ds-toast__description {
+  color: var(--rzz-feedback-success-foreground);
+  opacity: 0.85;
+}
+
+.ds-toast--danger {
+  border-color: var(--rzz-feedback-danger-border);
+  background-color: var(--rzz-feedback-danger-subtle);
+  color: var(--rzz-feedback-danger-foreground);
+}
+
+.ds-toast--danger .ds-toast__description {
+  color: var(--rzz-feedback-danger-foreground);
+  opacity: 0.85;
+}

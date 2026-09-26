@@ -1,0 +1,105 @@
+/**
+ * Tooltip CSS-only vía [data-tooltip] (+ tooltip.js para role="tooltip" SR).
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ */
+
+[data-tooltip] {
+  position: relative;
+}
+
+/* Texto accesible generado por tooltip.js — oculto visualmente */
+.ds-tooltip-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.5rem);
+  z-index: var(--rzz-z-tooltip);
+  box-sizing: border-box;
+  max-width: 16rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-radius: var(--rzz-radius-sm);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
+  font-size: var(--rzz-text-xs);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: var(--rzz-leading-xs);
+  white-space: nowrap;
+  box-shadow: var(--rzz-shadow-xs);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%) translateY(0.15rem);
+  transition:
+    opacity var(--rzz-duration-fast) var(--rzz-ease-standard),
+    transform var(--rzz-duration-fast) var(--rzz-ease-standard);
+}
+
+[data-tooltip]::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.2rem);
+  z-index: calc(var(--rzz-z-tooltip) + 1);
+  width: 0.4rem;
+  height: 0.4rem;
+  border-right: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  background-color: var(--rzz-surface-card);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%) rotate(45deg);
+  transition: opacity var(--rzz-duration-fast) var(--rzz-ease-standard);
+}
+
+[data-tooltip]:hover::after,
+[data-tooltip]:hover::before,
+[data-tooltip]:focus-visible::after,
+[data-tooltip]:focus-visible::before {
+  opacity: 1;
+}
+
+[data-tooltip]:hover::after,
+[data-tooltip]:focus-visible::after {
+  transform: translateX(-50%) translateY(0);
+}
+
+[data-tooltip][data-tooltip-side="bottom"]::after {
+  top: calc(100% + 0.5rem);
+  bottom: auto;
+  transform: translateX(-50%) translateY(-0.15rem);
+}
+
+[data-tooltip][data-tooltip-side="bottom"]::before {
+  top: calc(100% + 0.2rem);
+  bottom: auto;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+}
+
+[data-tooltip][data-tooltip-side="bottom"]:hover::after,
+[data-tooltip][data-tooltip-side="bottom"]:focus-visible::after {
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-tooltip]::after,
+  [data-tooltip]::before {
+    transition: none;
+  }
+}

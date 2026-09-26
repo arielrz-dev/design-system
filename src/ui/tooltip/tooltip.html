@@ -1,0 +1,35 @@
+<!--
+  ds-tooltip — CSS visual + tooltip.js (role="tooltip" / aria-describedby).
+  Requiere: dist/css/variables.css + tooltip.css + button.css + tooltip.js
+-->
+
+<button
+  type="button"
+  class="ds-button ds-button--ghost ds-button--sm"
+  data-tooltip="Más opciones"
+  aria-label="Más opciones"
+>
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <circle cx="3.5" cy="8" r="1.25" fill="currentColor" />
+    <circle cx="8" cy="8" r="1.25" fill="currentColor" />
+    <circle cx="12.5" cy="8" r="1.25" fill="currentColor" />
+  </svg>
+</button>
+
+<button
+  type="button"
+  class="ds-button ds-button--secondary ds-button--sm"
+  data-tooltip="Copiar al portapapeles"
+  data-tooltip-side="bottom"
+  aria-label="Copiar al portapapeles"
+>
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <rect x="5" y="5" width="7" height="8" rx="1.25" stroke="currentColor" stroke-width="1.5" />
+    <path d="M4 10.5H3.25A1.25 1.25 0 012 9.25v-6A1.25 1.25 0 013.25 2h6A1.25 1.25 0 0110.5 3.25V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+  </svg>
+</button>
+
+<script type="module">
+  import { bindTooltips } from './tooltip.js';
+  bindTooltips();
+</script>

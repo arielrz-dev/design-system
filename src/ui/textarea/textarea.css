@@ -1,0 +1,83 @@
+/**
+ * .ds-textarea — área de texto alineada con .ds-input.
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Usar junto a input.css para .ds-field / .ds-label / hints.
+ */
+
+.ds-textarea {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  min-height: 6.5rem;
+  margin: 0;
+  padding: var(--rzz-space-8) var(--rzz-space-12);
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
+  font-size: var(--rzz-text-sm);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: var(--rzz-leading-sm);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  box-shadow: var(--rzz-shadow-xs);
+  resize: vertical;
+  transition: all 140ms ease-out;
+  appearance: none;
+}
+
+.ds-textarea::placeholder {
+  color: var(--rzz-content-muted);
+  font-weight: 400;
+  opacity: 1;
+}
+
+.ds-textarea:hover:not(:disabled):not(:focus-visible) {
+  border-color: color-mix(in srgb, var(--rzz-content-primary) 20%, transparent);
+}
+
+.ds-textarea:focus {
+  outline: none;
+}
+
+.ds-textarea:focus-visible {
+  border-color: var(--rzz-border-focus);
+  outline: 2px solid var(--rzz-border-focus);
+  outline-offset: 2px;
+  box-shadow: var(--rzz-shadow-xs);
+}
+
+.ds-textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  background-color: var(--rzz-surface-subtle);
+  color: var(--rzz-content-muted);
+  box-shadow: none;
+  resize: none;
+}
+
+.ds-textarea--error,
+.ds-textarea[aria-invalid="true"] {
+  border-color: color-mix(in srgb, var(--rzz-action-danger-default) 55%, transparent);
+}
+
+.ds-textarea--error:focus-visible,
+.ds-textarea[aria-invalid="true"]:focus-visible {
+  border-color: var(--rzz-action-danger-default);
+  outline-color: var(--rzz-action-danger-default);
+}
+
+.ds-textarea--sm {
+  min-height: 4.5rem;
+  padding: var(--rzz-space-4) var(--rzz-space-8);
+}
+
+.ds-textarea--lg {
+  min-height: 9rem;
+  padding: var(--rzz-space-12) var(--rzz-space-16);
+  border-radius: var(--rzz-radius-lg);
+  font-size: var(--rzz-text-md);
+  line-height: var(--rzz-leading-md);
+}

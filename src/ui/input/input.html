@@ -1,0 +1,79 @@
+<!--
+  ds-input — snippets de marcado accesible.
+  Requiere: dist/css/variables.css + input.css
+-->
+
+<!-- Campo default (md) con hint -->
+<div class="ds-field">
+  <label class="ds-label" for="email">Correo electrónico</label>
+  <input
+    id="email"
+    class="ds-input ds-input--md"
+    type="email"
+    name="email"
+    autocomplete="email"
+    placeholder="nombre@empresa.com"
+    aria-describedby="email-hint"
+  />
+  <p id="email-hint" class="ds-field__hint">
+    Usaremos este correo para notificaciones de cuenta.
+  </p>
+</div>
+
+<!-- Campo con error (aria-invalid + aria-describedby) -->
+<div class="ds-field">
+  <label class="ds-label" for="username">Nombre de usuario</label>
+  <input
+    id="username"
+    class="ds-input ds-input--md ds-input--error"
+    type="text"
+    name="username"
+    autocomplete="username"
+    value="ab"
+    aria-invalid="true"
+    aria-describedby="username-error"
+  />
+  <p id="username-error" class="ds-field__error" role="alert">
+    El nombre de usuario debe tener al menos 3 caracteres.
+  </p>
+</div>
+
+<!-- Tamaño sm -->
+<div class="ds-field">
+  <label class="ds-label" for="search-sm">Buscar</label>
+  <input
+    id="search-sm"
+    class="ds-input ds-input--sm"
+    type="search"
+    name="q"
+    placeholder="Buscar…"
+    aria-describedby="search-sm-hint"
+  />
+  <p id="search-sm-hint" class="ds-field__hint">Atajo: Ctrl + K</p>
+</div>
+
+<!-- Tamaño lg -->
+<div class="ds-field">
+  <label class="ds-label" for="title-lg">Título</label>
+  <input
+    id="title-lg"
+    class="ds-input ds-input--lg"
+    type="text"
+    name="title"
+    placeholder="Escribe un título"
+  />
+</div>
+
+<!-- Disabled -->
+<div class="ds-field">
+  <label class="ds-label" for="plan-disabled">Plan actual</label>
+  <input
+    id="plan-disabled"
+    class="ds-input ds-input--md"
+    type="text"
+    name="plan"
+    value="Pro"
+    disabled
+    aria-disabled="true"
+  />
+</div>

@@ -1,0 +1,115 @@
+/**
+ * .ds-copy-button — copiar al portapapeles con feedback.
+ * Solo consume variables CSS `--rzz-*`.
+ */
+
+.ds-copy-button {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--rzz-space-8);
+  min-height: var(--rzz-space-32);
+  margin: 0;
+  padding: var(--rzz-space-4) var(--rzz-space-8);
+  border: 1px solid var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-secondary);
+  font-family: var(--rzz-font-sans);
+  font-size: var(--rzz-text-xs);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--rzz-shadow-xs);
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.ds-copy-button:hover {
+  color: var(--rzz-content-primary);
+  background-color: var(--rzz-surface-elevated);
+  border-color: color-mix(in srgb, var(--rzz-content-primary) 18%, transparent);
+}
+
+.ds-copy-button:focus {
+  outline: none;
+}
+
+.ds-copy-button:focus-visible {
+  outline: 2px solid var(--rzz-border-focus);
+  outline-offset: 2px;
+}
+
+.ds-copy-button__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.ds-copy-button__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ds-copy-button__icon--check {
+  display: none;
+  color: var(--rzz-feedback-success-foreground);
+}
+
+.ds-copy-button--copied {
+  color: var(--rzz-feedback-success-foreground);
+  border-color: var(--rzz-feedback-success-border);
+  background-color: var(--rzz-feedback-success-subtle);
+}
+
+.ds-copy-button--copied .ds-copy-button__icon--copy {
+  display: none;
+}
+
+.ds-copy-button--copied .ds-copy-button__icon--check {
+  display: inline-grid;
+}
+
+.ds-copy-button__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ds-copy-field {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rzz-space-8);
+  max-width: 100%;
+  padding: var(--rzz-space-4) var(--rzz-space-4) var(--rzz-space-4)
+    var(--rzz-space-12);
+  border: 1px solid var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-elevated);
+  box-shadow: var(--rzz-shadow-xs);
+}
+
+.ds-copy-field__value {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--rzz-content-secondary);
+  font-family: var(--rzz-font-mono);
+  font-size: var(--rzz-text-xs);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

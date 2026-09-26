@@ -1,0 +1,32 @@
+<!--
+  ds-pagination — Anterior / páginas / Siguiente.
+  Requiere: variables.css + pagination.css
+-->
+
+<nav class="ds-pagination" aria-label="Paginación">
+  <button type="button" class="ds-pagination__nav" disabled aria-label="Página anterior">
+    Anterior
+  </button>
+  <ul class="ds-pagination__list">
+    <li>
+      <button type="button" class="ds-pagination__page ds-pagination__page--active" aria-current="page">
+        1
+      </button>
+    </li>
+    <li>
+      <button type="button" class="ds-pagination__page">2</button>
+    </li>
+    <li>
+      <button type="button" class="ds-pagination__page">3</button>
+    </li>
+    <li>
+      <span class="ds-pagination__ellipsis" aria-hidden="true">…</span>
+    </li>
+    <li>
+      <button type="button" class="ds-pagination__page">12</button>
+    </li>
+  </ul>
+  <button type="button" class="ds-pagination__nav" aria-label="Página siguiente">
+    Siguiente
+  </button>
+</nav>

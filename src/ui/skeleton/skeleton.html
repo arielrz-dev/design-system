@@ -1,0 +1,21 @@
+<!--
+  ds-skeleton — layout de carga (avatar + líneas).
+  Requiere: dist/css/variables.css + skeleton.css
+-->
+
+<div class="ds-skeleton-group" aria-busy="true" aria-live="polite" aria-label="Cargando contenido">
+  <span class="ds-skeleton ds-skeleton--circle" aria-hidden="true"></span>
+  <div class="ds-skeleton-group__lines" aria-hidden="true">
+    <span class="ds-skeleton ds-skeleton--text"></span>
+    <span class="ds-skeleton ds-skeleton--text-sm"></span>
+  </div>
+</div>
+
+<div style="display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap;" aria-hidden="true">
+  <span class="ds-skeleton ds-skeleton--button"></span>
+  <span class="ds-skeleton ds-skeleton--button"></span>
+</div>
+
+<div style="margin-top: 1rem;" aria-hidden="true">
+  <span class="ds-skeleton ds-skeleton--card"></span>
+</div>

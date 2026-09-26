@@ -1,0 +1,117 @@
+<!--
+  ds-select — select nativo accesible.
+  Requiere: dist/css/variables.css + select.css
+  Opcional: input.css si usás .ds-label / .ds-field / .ds-field__*
+-->
+
+<div class="ds-field">
+  <label class="ds-label" for="country">País</label>
+  <div class="ds-select-wrapper">
+    <select
+      id="country"
+      class="ds-select ds-select--md"
+      name="country"
+      aria-describedby="country-hint"
+    >
+      <option value="" disabled selected>Seleccioná un país</option>
+      <option value="ar">Argentina</option>
+      <option value="cl">Chile</option>
+      <option value="mx">México</option>
+      <option value="es">España</option>
+    </select>
+    <svg
+      class="ds-select__icon"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </div>
+  <p id="country-hint" class="ds-field__hint">Usado para facturación regional.</p>
+</div>
+
+<!-- Error -->
+<div class="ds-field">
+  <label class="ds-label" for="plan">Plan</label>
+  <div class="ds-select-wrapper">
+    <select
+      id="plan"
+      class="ds-select ds-select--md ds-select--error"
+      name="plan"
+      aria-invalid="true"
+      aria-describedby="plan-error"
+    >
+      <option value="" disabled selected>Elegí un plan</option>
+      <option value="free">Free</option>
+      <option value="pro">Pro</option>
+      <option value="team">Team</option>
+    </select>
+    <svg
+      class="ds-select__icon"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        d="M4 6l4 4 4-4"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </div>
+  <p id="plan-error" class="ds-field__error" role="alert">
+    Seleccioná un plan para continuar.
+  </p>
+</div>
+
+<!-- sm / lg / disabled -->
+<div class="ds-field">
+  <label class="ds-label" for="lang-sm">Idioma (sm)</label>
+  <div class="ds-select-wrapper">
+    <select id="lang-sm" class="ds-select ds-select--sm" name="lang-sm">
+      <option value="es" selected>Español</option>
+      <option value="en">English</option>
+    </select>
+    <svg class="ds-select__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+      <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </div>
+</div>
+
+<div class="ds-field">
+  <label class="ds-label" for="role-lg">Rol (lg)</label>
+  <div class="ds-select-wrapper">
+    <select id="role-lg" class="ds-select ds-select--lg" name="role-lg">
+      <option value="" disabled selected>Seleccioná un rol</option>
+      <option value="admin">Admin</option>
+      <option value="editor">Editor</option>
+      <option value="viewer">Viewer</option>
+    </select>
+    <svg class="ds-select__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+      <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </div>
+</div>
+
+<div class="ds-field">
+  <label class="ds-label" for="region-disabled">Región (disabled)</label>
+  <div class="ds-select-wrapper">
+    <select id="region-disabled" class="ds-select ds-select--md" name="region" disabled aria-disabled="true">
+      <option value="latam" selected>LATAM</option>
+    </select>
+    <svg class="ds-select__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+      <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </div>
+</div>

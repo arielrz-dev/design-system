@@ -1,0 +1,54 @@
+<!--
+  ds-toast — notificaciones temporales.
+  Requiere: dist/css/variables.css + toast.css + toast.js
+-->
+
+<div class="ds-toast-demo">
+  <button type="button" class="ds-button ds-button--secondary ds-button--md" id="toast-default">
+    Toast default
+  </button>
+  <button type="button" class="ds-button ds-button--primary ds-button--md" id="toast-success">
+    Toast success
+  </button>
+  <button type="button" class="ds-button ds-button--danger ds-button--md" id="toast-danger">
+    Toast danger
+  </button>
+</div>
+
+<!-- El viewport se crea automáticamente por toast.js si no existe. -->
+<div
+  class="ds-toast-viewport"
+  role="region"
+  aria-live="polite"
+  aria-label="Notificaciones"
+  aria-relevant="additions text"
+></div>
+
+<script type="module">
+  import { toast } from './toast.js';
+
+  document.getElementById('toast-default')?.addEventListener('click', () => {
+    toast.show({
+      title: 'Cambios pendientes',
+      description: 'Recordá guardar antes de salir.',
+      variant: 'default',
+    });
+  });
+
+  document.getElementById('toast-success')?.addEventListener('click', () => {
+    toast.show({
+      title: 'Guardado',
+      description: 'Los cambios se aplicaron correctamente.',
+      variant: 'success',
+    });
+  });
+
+  document.getElementById('toast-danger')?.addEventListener('click', () => {
+    toast.show({
+      title: 'Error de red',
+      description: 'No pudimos conectar con el servidor.',
+      variant: 'danger',
+      duration: 6000,
+    });
+  });
+</script>

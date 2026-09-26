@@ -1,0 +1,130 @@
+/**
+ * .ds-timeline — activity feed / registro cronológico.
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ */
+
+.ds-timeline {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--rzz-font-sans);
+}
+
+.ds-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0.75rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  width: 1px;
+  background-color: var(--rzz-border-subtle);
+  transform: translateX(-50%);
+}
+
+.ds-timeline__item {
+  position: relative;
+  display: flex;
+  gap: 0.875rem;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 1.5rem;
+}
+
+.ds-timeline__item:last-child {
+  padding-bottom: 0;
+}
+
+.ds-timeline__node {
+  box-sizing: border-box;
+  position: relative;
+  z-index: var(--rzz-z-base);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-full);
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-muted);
+  box-shadow: var(--rzz-shadow-xs);
+}
+
+.ds-timeline__node svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.ds-timeline__node--success {
+  color: var(--rzz-feedback-success-foreground);
+  border-color: var(--rzz-feedback-success-border);
+  background-color: var(--rzz-feedback-success-subtle);
+}
+
+.ds-timeline__node--warning {
+  color: var(--rzz-feedback-warning-foreground);
+  border-color: var(--rzz-feedback-warning-border);
+  background-color: var(--rzz-feedback-warning-subtle);
+}
+
+.ds-timeline__node--info {
+  color: var(--rzz-feedback-info-foreground);
+  border-color: var(--rzz-feedback-info-border);
+  background-color: var(--rzz-feedback-info-subtle);
+}
+
+.ds-timeline__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+  flex: 1 1 auto;
+  padding-block-start: 0.1rem;
+}
+
+.ds-timeline__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.75rem;
+}
+
+.ds-timeline__title {
+  margin: 0;
+  color: var(--rzz-content-primary);
+  font-size: var(--rzz-text-sm);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: var(--rzz-leading-sm);
+}
+
+.ds-timeline__time {
+  margin: 0;
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-xs);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+  line-height: var(--rzz-leading-xs);
+}
+
+.ds-timeline__description {
+  margin: 0;
+  color: var(--rzz-content-secondary);
+  font-size: var(--rzz-text-sm);
+  font-weight: 400;
+  line-height: var(--rzz-leading-sm);
+}
+
+.ds-timeline__meta {
+  margin: 0;
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-xs);
+  font-family: var(--rzz-font-mono);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.4;
+}

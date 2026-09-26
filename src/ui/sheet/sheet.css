@@ -1,0 +1,121 @@
+/**
+ * dialog.ds-sheet — panel lateral (drawer) nativo.
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ */
+
+dialog.ds-sheet {
+  box-sizing: border-box;
+  flex-direction: column;
+  width: 100%;
+  max-width: 440px;
+  height: 100vh;
+  max-height: 100vh;
+  margin: 0 0 0 auto;
+  padding: 0;
+  border: none;
+  border-left: 1px solid var(--rzz-border-subtle);
+  border-radius: 0;
+  background-color: var(--rzz-surface-card);
+  color: var(--rzz-content-primary);
+  font-family: var(--rzz-font-sans);
+  box-shadow: var(--rzz-shadow-md);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(100%);
+  transition:
+    opacity var(--rzz-duration-normal) var(--rzz-ease-standard),
+    transform var(--rzz-duration-normal) var(--rzz-ease-standard),
+    overlay var(--rzz-duration-normal) var(--rzz-ease-standard) allow-discrete,
+    display var(--rzz-duration-normal) var(--rzz-ease-standard) allow-discrete;
+}
+
+dialog.ds-sheet[open] {
+  display: flex;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@starting-style {
+  dialog.ds-sheet[open] {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+dialog.ds-sheet::backdrop {
+  background-color: color-mix(
+    in srgb,
+    var(--rzz-surface-scrim) 55%,
+    transparent
+  );
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity var(--rzz-duration-normal) var(--rzz-ease-standard);
+}
+
+dialog.ds-sheet[open]::backdrop {
+  opacity: 1;
+}
+
+@starting-style {
+  dialog.ds-sheet[open]::backdrop {
+    opacity: 0;
+  }
+}
+
+.ds-sheet__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rzz-space-4);
+  flex-shrink: 0;
+  padding: var(--rzz-space-20) var(--rzz-space-24);
+  padding-block-end: var(--rzz-space-12);
+  border-bottom: 1px solid var(--rzz-border-subtle);
+  position: relative;
+}
+
+.ds-sheet__close {
+  position: absolute;
+  top: var(--rzz-space-16);
+  right: var(--rzz-space-16);
+}
+
+.ds-sheet__title {
+  margin: 0;
+  padding-inline-end: var(--rzz-space-32);
+  color: var(--rzz-content-primary);
+  font-size: var(--rzz-text-lg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: var(--rzz-leading-lg);
+}
+
+.ds-sheet__description {
+  margin: 0;
+  color: var(--rzz-content-muted);
+  font-size: var(--rzz-text-sm);
+  font-weight: 400;
+  line-height: var(--rzz-leading-sm);
+}
+
+.ds-sheet__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rzz-space-16);
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: var(--rzz-space-20) var(--rzz-space-24);
+  overflow: auto;
+}
+
+.ds-sheet__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--rzz-space-8);
+  flex-shrink: 0;
+  padding: var(--rzz-space-16) var(--rzz-space-24);
+  border-top: 1px solid var(--rzz-border-subtle);
+  background-color: var(--rzz-surface-card);
+}

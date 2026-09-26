@@ -1,0 +1,22 @@
+<!--
+  ds-empty-state — vacío con CTA.
+  Requiere: variables.css + button.css + empty-state.css
+-->
+
+<div class="ds-empty-state" role="status">
+  <span class="ds-empty-state__icon" aria-hidden="true">
+    <svg viewBox="0 0 16 16" fill="none">
+      <rect x="2.5" y="3.5" width="11" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5" />
+      <path d="M5 7.5h6M5 10h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  </span>
+  <h3 class="ds-empty-state__title">Todavía no hay proyectos</h3>
+  <p class="ds-empty-state__description">
+    Creá tu primer proyecto para empezar a invitar al equipo y ver métricas en vivo.
+  </p>
+  <div class="ds-empty-state__action">
+    <button type="button" class="ds-button ds-button--primary ds-button--md">
+      Crear proyecto
+    </button>
+  </div>
+</div>

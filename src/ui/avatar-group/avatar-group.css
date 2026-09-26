@@ -1,0 +1,98 @@
+/**
+ * .ds-avatar-group + .ds-status-dot — avatares apilados e indicador de estado.
+ * Extiende .ds-avatar (instalar avatar). Solo `--rzz-*`.
+ */
+
+.ds-avatar-group {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--rzz-font-sans);
+}
+
+.ds-avatar-group > .ds-avatar,
+.ds-avatar-group > li {
+  margin: 0;
+  padding: 0;
+}
+
+.ds-avatar-group > .ds-avatar + .ds-avatar,
+.ds-avatar-group > li + li {
+  margin-left: -0.5rem;
+}
+
+.ds-avatar-group > .ds-avatar,
+.ds-avatar-group .ds-avatar {
+  border: 2px solid var(--rzz-surface-card);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--rzz-content-primary) 6%, transparent);
+}
+
+.ds-avatar-group__more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  margin-left: -0.5rem;
+  padding: 0 0.5rem;
+  border: 2px solid var(--rzz-surface-card);
+  border-radius: var(--rzz-radius-full);
+  background-color: var(--rzz-surface-subtle);
+  color: var(--rzz-content-secondary);
+  font-size: var(--rzz-text-xs);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--rzz-content-primary) 6%, transparent);
+}
+
+.ds-avatar-group--sm > .ds-avatar,
+.ds-avatar-group--sm .ds-avatar {
+  width: 2rem;
+  height: 2rem;
+  font-size: var(--rzz-text-xs);
+}
+
+.ds-avatar-group--sm .ds-avatar-group__more {
+  min-width: 2rem;
+  height: 2rem;
+}
+
+/* --- Status dot (standalone o sobre avatar) --- */
+
+.ds-status-dot {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 0.625rem;
+  height: 0.625rem;
+  border: 2px solid var(--rzz-surface-card);
+  border-radius: var(--rzz-radius-full);
+  background-color: var(--rzz-content-muted);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--rzz-content-primary) 8%, transparent);
+  vertical-align: middle;
+}
+
+.ds-status-dot--online {
+  background-color: var(--rzz-feedback-success-foreground);
+}
+
+.ds-status-dot--offline {
+  background-color: var(--rzz-content-muted);
+}
+
+.ds-status-dot--busy {
+  background-color: var(--rzz-feedback-danger-foreground);
+}
+
+.ds-status-dot--away {
+  background-color: var(--rzz-feedback-warning-foreground);
+}
+
+.ds-avatar--with-status .ds-status-dot,
+.ds-avatar .ds-status-dot {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}

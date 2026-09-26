@@ -20,8 +20,11 @@ Design system agnóstico (sin framework): tokens DTCG, variables CSS `--rzz-*`, 
 | `build-tokens.mjs` | Compila a CSS/TS con Style Dictionary (`--rzz-*`) |
 | `registry/` | **Fuente canónica** del catálogo UI (~35 componentes) |
 | `scripts/rzz-ui.mjs` | CLI local (`npm run rzz-ui -- add …`) |
-| `scripts/add.mjs` | Copia un componente a `src/components/ui/` |
+| `scripts/add.mjs` | Copia un componente a `src/ui/` |
+| `src/ui/` | Copia instalada local (salida de `add`) |
 | `index.html` / `docs/` | Playground y docs (cargan CSS/JS desde `registry/ui/`) |
+
+> **Nota:** `src/components/ui/` es un árbol legacy bloqueado por ACL en Windows en esta máquina. El destino canónico de `add` es `src/ui/`.
 
 ## API pública de tokens (componentes)
 

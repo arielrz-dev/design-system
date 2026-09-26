@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * CLI local estilo shadcn: copia un componente del registry a src/components/ui/.
+ * CLI local estilo shadcn: copia un componente del registry a src/ui/.
  *
  * Uso:
  *   node scripts/add.mjs <component-name>
@@ -17,7 +17,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const REGISTRY_DIR = path.join(ROOT, 'registry');
 const REGISTRY_JSON = path.join(REGISTRY_DIR, 'registry.json');
-const DEST_ROOT = path.join(ROOT, 'src', 'components', 'ui');
+const DEST_ROOT = path.join(ROOT, 'src', 'ui');
 
 const RESET = '\x1b[0m';
 const BOLD = '\x1b[1m';

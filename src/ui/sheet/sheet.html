@@ -1,0 +1,40 @@
+<!--
+  ds-sheet — drawer lateral derecho.
+  Requiere: variables.css + button.css + sheet.css + sheet.js
+-->
+
+<button
+  type="button"
+  class="ds-button ds-button--secondary ds-button--md"
+  data-ds-sheet-open="demo-sheet"
+>
+  Abrir panel
+</button>
+
+<dialog id="demo-sheet" class="ds-sheet" aria-labelledby="demo-sheet-title">
+  <div class="ds-sheet__header">
+    <h2 id="demo-sheet-title" class="ds-sheet__title">Filtros</h2>
+    <p class="ds-sheet__description">Ajustá el alcance de la vista actual.</p>
+    <button
+      type="button"
+      class="ds-button ds-button--ghost ds-button--sm ds-sheet__close"
+      data-ds-sheet-close
+      aria-label="Cerrar panel"
+    >
+      ✕
+    </button>
+  </div>
+  <div class="ds-sheet__body">
+    <p style="margin: 0; color: var(--rzz-content-secondary)">
+      Contenido scrollable del sheet. Escape o clic en el backdrop cierran el panel.
+    </p>
+  </div>
+  <div class="ds-sheet__footer">
+    <button type="button" class="ds-button ds-button--ghost ds-button--md" data-ds-sheet-close>
+      Cancelar
+    </button>
+    <button type="button" class="ds-button ds-button--primary ds-button--md" data-ds-sheet-close="confirm">
+      Aplicar
+    </button>
+  </div>
+</dialog>

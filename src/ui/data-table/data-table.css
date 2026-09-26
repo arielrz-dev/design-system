@@ -1,0 +1,91 @@
+/**
+ * .ds-table — tabla de datos craft.
+ * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ */
+
+.ds-table-container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-card);
+  box-shadow: var(--rzz-shadow-xs);
+  font-family: var(--rzz-font-sans);
+}
+
+.ds-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  text-align: left;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ds-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
+  background-color: var(--rzz-surface-subtle);
+  color: var(--rzz-content-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.ds-table tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--rzz-content-primary) 8%, transparent);
+  color: var(--rzz-content-primary);
+  vertical-align: middle;
+}
+
+.ds-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.ds-table__cell--numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.ds-table__cell--actions {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.ds-table__row {
+  transition: background-color 140ms ease-out;
+}
+
+.ds-table__row:hover {
+  background-color: color-mix(in srgb, var(--rzz-surface-subtle) 80%, transparent);
+}
+
+.ds-table__row--selected {
+  background-color: color-mix(
+    in srgb,
+    var(--rzz-action-primary-default) 8%,
+    var(--rzz-surface-card)
+  );
+}
+
+.ds-table__row--selected:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--rzz-action-primary-default) 12%,
+    var(--rzz-surface-card)
+  );
+}
+
+.ds-table__checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
