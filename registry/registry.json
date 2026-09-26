@@ -631,6 +631,121 @@
       "dependencies": [],
       "registryDependencies": [],
       "docs": "Usá el mismo name en todos los radios del grupo."
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "Drawer lateral derecho sobre dialog nativo con slide-in, Escape y backdrop blur.",
+      "files": [
+        {
+          "path": "ui/sheet/sheet.css",
+          "type": "registry:style",
+          "target": "sheet.css"
+        },
+        {
+          "path": "ui/sheet/sheet.html",
+          "type": "registry:snippet",
+          "target": "sheet.html"
+        },
+        {
+          "path": "ui/sheet/sheet.js",
+          "type": "registry:script",
+          "target": "sheet.js"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["button"],
+      "docs": "Triggers: data-ds-sheet-open / data-ds-sheet-close. API: openSheet/closeSheet."
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:ui",
+      "title": "Empty State",
+      "description": "Estado vacío centrado con icono, título, descripción y CTA primaria.",
+      "files": [
+        {
+          "path": "ui/empty-state/empty-state.css",
+          "type": "registry:style",
+          "target": "empty-state.css"
+        },
+        {
+          "path": "ui/empty-state/empty-state.html",
+          "type": "registry:snippet",
+          "target": "empty-state.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": ["button"],
+      "docs": "Variante --borderless para incrustar sin borde punteado."
+    },
+    {
+      "name": "stat-card",
+      "type": "registry:ui",
+      "title": "Stat Card",
+      "description": "KPI con valor tabular, badge de tendencia y sparkline SVG tokenizado.",
+      "files": [
+        {
+          "path": "ui/stat-card/stat-card.css",
+          "type": "registry:style",
+          "target": "stat-card.css"
+        },
+        {
+          "path": "ui/stat-card/stat-card.html",
+          "type": "registry:snippet",
+          "target": "stat-card.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Usá --up/--down en trend y sparkline para success/danger."
+    },
+    {
+      "name": "copy-button",
+      "type": "registry:ui",
+      "title": "Copy Button",
+      "description": "Botón compacto que copia al clipboard y muestra check success 2s con aria-live.",
+      "files": [
+        {
+          "path": "ui/copy-button/copy-button.css",
+          "type": "registry:style",
+          "target": "copy-button.css"
+        },
+        {
+          "path": "ui/copy-button/copy-button.html",
+          "type": "registry:snippet",
+          "target": "copy-button.html"
+        },
+        {
+          "path": "ui/copy-button/copy-button.js",
+          "type": "registry:script",
+          "target": "copy-button.js"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "data-ds-copy o data-ds-copy-target=\"#id\"."
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "title": "Pagination",
+      "description": "Nav de paginación con Anterior/Siguiente y páginas numeradas activas.",
+      "files": [
+        {
+          "path": "ui/pagination/pagination.css",
+          "type": "registry:style",
+          "target": "pagination.css"
+        },
+        {
+          "path": "ui/pagination/pagination.html",
+          "type": "registry:snippet",
+          "target": "pagination.html"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "docs": "Marcá la página actual con --active y aria-current=\"page\"."
     }
   ]
 }
