@@ -516,6 +516,35 @@
         border-radius: var(--rzz-radius-md);
         background-color: var(--rzz-surface-canvas);
       }
+
+      .playground__file-banner {
+        position: fixed;
+        inset: auto 0 0 0;
+        z-index: 50;
+        padding: var(--rzz-space-12) var(--rzz-space-24);
+        border-top: 1px solid var(--rzz-feedback-warning-border);
+        background-color: var(--rzz-feedback-warning-subtle);
+        color: var(--rzz-feedback-warning-foreground);
+        font-size: var(--rzz-text-sm);
+        line-height: var(--rzz-leading-sm);
+      }
+
+      .playground__file-banner[hidden] {
+        display: none;
+      }
+
+      .playground__file-banner a {
+        color: inherit;
+        font-weight: 600;
+      }
+
+      .playground [id$="-heading"] {
+        scroll-margin-top: var(--rzz-space-64);
+      }
+
+      .playground [id$="-heading"]:target {
+        color: var(--rzz-action-primary-default);
+      }
     </style>
     <script>
       try {
@@ -532,6 +561,18 @@
     </script>
   </head>
   <body>
+    <div id="pg-file-protocol" class="playground__file-banner" hidden role="status">
+      Estás abriendo el playground vía <code>file://</code>: el navegador bloquea los módulos JS
+      (toasts, dialogs, tabs, personalizar). Corré <code>npm run docs:dev</code> y abrí
+      <a id="pg-file-protocol-link" href="http://localhost:4173/">http://localhost:4173/</a>.
+    </div>
+    <script>
+      if (location.protocol === 'file:') {
+        document.getElementById('pg-file-protocol').hidden = false;
+        document.getElementById('pg-file-protocol-link').href =
+          'http://localhost:4173/' + location.hash;
+      }
+    </script>
     <div class="rzz-theme-toolbar">
       <button
         type="button"
@@ -967,7 +1008,7 @@
         <h2 id="selection-heading">Controles de Selección</h2>
 
         <div class="playground__subsection">
-          <h3 class="playground__subsection-title">Checkboxes</h3>
+          <h3 id="checkbox-heading" class="playground__subsection-title">Checkboxes</h3>
           <div class="playground__controls-row">
             <label class="ds-checkbox-group" for="pg-cb-terms">
               <input
@@ -1007,7 +1048,7 @@
         </div>
 
         <div class="playground__subsection">
-          <h3 class="playground__subsection-title">Switches</h3>
+          <h3 id="switch-heading" class="playground__subsection-title">Switches</h3>
           <div class="playground__controls-row">
             <label class="ds-switch" for="pg-sw-silent">
               <span class="ds-switch__control">
@@ -1069,7 +1110,7 @@
         </div>
 
         <div class="playground__subsection">
-          <h3 class="playground__subsection-title">Selects</h3>
+          <h3 id="select-heading" class="playground__subsection-title">Selects</h3>
           <div class="playground__stack">
             <div class="playground__stack-item">
               <div class="ds-field">
@@ -2057,7 +2098,7 @@
         <h2 id="advanced-forms-heading">Formularios Avanzados</h2>
         <div class="playground__advanced-demo">
           <div class="playground__advanced-block">
-            <h3>SearchKbdInput</h3>
+            <h3 id="search-kbd-input-heading">SearchKbdInput</h3>
             <p>Atajo global <kbd>Ctrl</kbd>+<kbd>K</kbd> / <kbd>⌘</kbd>+<kbd>K</kbd>. El badge se oculta en mobile.</p>
             <div class="ds-search-kbd" data-ds-search-kbd>
               <span class="ds-search-kbd__icon" aria-hidden="true">
@@ -2087,7 +2128,7 @@
           </div>
 
           <div class="playground__advanced-block">
-            <h3>FloatingLabelInput</h3>
+            <h3 id="floating-label-input-heading">FloatingLabelInput</h3>
             <p>Label como placeholder; se eleva en focus o con valor / autofill.</p>
             <div class="ds-floating">
               <input
@@ -2114,7 +2155,7 @@
           </div>
 
           <div class="playground__advanced-block">
-            <h3>CurrencyCounterInput</h3>
+            <h3 id="currency-counter-input-heading">CurrencyCounterInput</h3>
             <p>Prefijo monetario + contador con umbral 90% → danger.</p>
             <div class="ds-field">
               <label class="ds-label" for="pg-amount">Importe</label>
@@ -2148,7 +2189,7 @@
           </div>
 
           <div class="playground__advanced-block">
-            <h3>PasswordStrengthInput</h3>
+            <h3 id="password-strength-input-heading">PasswordStrengthInput</h3>
             <p>Toggle accesible + medidor role=meter (4 niveles).</p>
             <div class="ds-password">
               <label class="ds-label" for="pg-new-password">Contraseña</label>
@@ -2204,7 +2245,7 @@
           </div>
 
           <div class="playground__advanced-block">
-            <h3>PinCodeInput / OTP</h3>
+            <h3 id="pin-code-input-heading">PinCodeInput / OTP</h3>
             <p>inputMode numeric, paste de 6 dígitos y autofill SMS.</p>
             <div class="ds-pin" role="group" aria-labelledby="pg-otp-label">
               <span id="pg-otp-label" class="ds-label">Código de verificación</span>
@@ -2220,7 +2261,7 @@
           </div>
 
           <div class="playground__advanced-block">
-            <h3>AsyncValidationInput</h3>
+            <h3 id="async-validation-input-heading">AsyncValidationInput</h3>
             <p>Debounce 400ms. Probá <code>admin</code> / <code>taken</code> vs un username libre.</p>
             <div class="ds-async" data-state="idle">
               <label class="ds-label" for="pg-username-async">Nombre de usuario</label>
@@ -2256,7 +2297,7 @@
           </div>
 
           <div class="playground__advanced-block">
-            <h3>AvatarGroup &amp; StatusDot</h3>
+            <h3 id="avatar-group-heading">AvatarGroup &amp; StatusDot</h3>
             <p>Overlap −0.5rem y anillo con surface-card.</p>
             <ul class="ds-avatar-group" aria-label="Equipo en línea">
               <li>
@@ -2307,7 +2348,7 @@
         <h2 id="settings-patterns-heading">Patrones de Ajustes y Configuración</h2>
         <div class="playground__settings-demo">
           <div>
-            <h3>Toggle Rows</h3>
+            <h3 id="setting-row-heading">Toggle Rows</h3>
             <p>Toda el área de la fila activa el switch o checkbox (sin JS).</p>
             <div class="ds-setting-list" role="list">
               <label class="ds-setting-row" role="listitem">
@@ -2378,7 +2419,7 @@
           </div>
 
           <div>
-            <h3>Radio Cards — Densidad de Interfaz</h3>
+            <h3 id="radio-card-heading">Radio Cards — Densidad de Interfaz</h3>
             <p>Opciones mutuamente excluyentes; clic en cualquier parte de la tarjeta.</p>
             <div class="ds-radio-grid" role="radiogroup" aria-label="Densidad de interfaz">
               <label class="ds-radio-card">
@@ -2472,7 +2513,7 @@
         <h2 id="saas-pro-heading">Pack SaaS Pro</h2>
         <div class="playground__saas-demo">
           <div>
-            <h3>Sheet / Drawer</h3>
+            <h3 id="sheet-heading">Sheet / Drawer</h3>
             <p>Panel lateral con showModal, Escape y backdrop blur.</p>
             <button
               type="button"
@@ -2531,7 +2572,7 @@
           </div>
 
           <div>
-            <h3>Empty State</h3>
+            <h3 id="empty-state-heading">Empty State</h3>
             <p>Placeholder de lista vacía con CTA.</p>
             <div class="ds-empty-state" role="status">
               <span class="ds-empty-state__icon" aria-hidden="true">
@@ -2566,7 +2607,7 @@
           </div>
 
           <div>
-            <h3>Stat Cards</h3>
+            <h3 id="stat-card-heading">Stat Cards</h3>
             <p>KPIs con tendencia y sparkline tokenizado.</p>
             <div class="ds-stat-grid">
               <article class="ds-stat-card">
@@ -2603,7 +2644,7 @@
           </div>
 
           <div>
-            <h3>Copy Button</h3>
+            <h3 id="copy-button-heading">Copy Button</h3>
             <p>Clipboard API + check success 2s con aria-live.</p>
             <div class="ds-copy-field">
               <code id="pg-api-key" class="ds-copy-field__value">ds_live_9f3a2c8e1b7d4a60</code>
@@ -2649,7 +2690,7 @@
           </div>
 
           <div>
-            <h3>Pagination</h3>
+            <h3 id="pagination-heading">Pagination</h3>
             <p>Navegación numerada con estado activo.</p>
             <nav class="ds-pagination" aria-label="Paginación de ejemplo">
               <button type="button" class="ds-pagination__nav" disabled aria-label="Página anterior">
@@ -2690,7 +2731,7 @@
         <h2 id="arch-layer-heading">Capas, Banner y Timeline</h2>
         <div class="playground__arch-demo">
           <div>
-            <h3>Banner global</h3>
+            <h3 id="banner-heading">Banner global</h3>
             <p>Sticky con <code>z-index: var(--rzz-z-banner)</code> y variantes semánticas.</p>
             <div class="playground__banner-frame">
               <aside
@@ -2726,7 +2767,7 @@
           </div>
 
           <div>
-            <h3>Activity Timeline</h3>
+            <h3 id="timeline-heading">Activity Timeline</h3>
             <p>Feed cronológico con nodos y meta tabular.</p>
             <ol class="ds-timeline" aria-label="Actividad reciente">
               <li class="ds-timeline__item">

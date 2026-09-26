@@ -173,16 +173,7 @@ function initNavCurrent() {
   sections.forEach(({ section }) => observer.observe(section));
 }
 
-function initFileProtocolBanner() {
-  const banner = document.getElementById('docs-file-protocol');
-  if (!(banner instanceof HTMLElement)) return;
-  if (window.location.protocol === 'file:') {
-    banner.hidden = false;
-  }
-}
-
 function boot() {
-  initFileProtocolBanner();
   initTheme();
   initThemeCustomizer({ toast });
   initSearchHotkey();

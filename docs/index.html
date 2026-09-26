@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="es" data-theme-color="blue" data-radius="md">
   <head>
+    <script>
+      if (location.protocol !== 'file:' && /\/docs$/.test(location.pathname)) {
+        location.replace(location.pathname + '/' + location.search + location.hash);
+      }
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>rzz-ui — Docs</title>
@@ -46,9 +51,17 @@
   </head>
   <body>
     <div id="docs-file-protocol" class="docs-file-banner" hidden role="status">
-      Estás abriendo docs vía <code>file://</code>. Los módulos ES y el portapapeles pueden fallar.
-      Corré <code>npm run docs:dev</code> y abrí <code>http://localhost:4173/docs/</code>.
+      Estás abriendo docs vía <code>file://</code>: el navegador bloquea los módulos JS
+      (toasts, dialogs, tabs, personalizar). Corré <code>npm run docs:dev</code> y abrí
+      <a id="docs-file-protocol-link" href="http://localhost:4173/docs/">http://localhost:4173/docs/</a>.
     </div>
+    <script>
+      if (location.protocol === 'file:') {
+        document.getElementById('docs-file-protocol').hidden = false;
+        document.getElementById('docs-file-protocol-link').href =
+          'http://localhost:4173/docs/' + location.hash;
+      }
+    </script>
     <header class="docs-header">
       <a class="docs-brand" href="#introduccion">
         <span class="docs-brand__mark" aria-hidden="true">rz</span>
@@ -1073,15 +1086,15 @@
               <code class="docs-catalog__cmd">npm run rzz-ui -- add dialog</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="checkbox">
-              <a class="docs-catalog__link" href="../index.html#selection-heading">checkbox</a>
+              <a class="docs-catalog__link" href="../index.html#checkbox-heading">checkbox</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add checkbox</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="switch">
-              <a class="docs-catalog__link" href="../index.html#selection-heading">switch</a>
+              <a class="docs-catalog__link" href="../index.html#switch-heading">switch</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add switch</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="select">
-              <a class="docs-catalog__link" href="../index.html#selection-heading">select</a>
+              <a class="docs-catalog__link" href="../index.html#select-heading">select</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add select</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="badge">
@@ -1133,67 +1146,67 @@
               <code class="docs-catalog__cmd">npm run rzz-ui -- add textarea</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="search-kbd-input">
-              <a class="docs-catalog__link" href="../index.html#advanced-forms-heading">search-kbd-input</a>
+              <a class="docs-catalog__link" href="../index.html#search-kbd-input-heading">search-kbd-input</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add search-kbd-input</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="floating-label-input">
-              <a class="docs-catalog__link" href="../index.html#advanced-forms-heading">floating-label-input</a>
+              <a class="docs-catalog__link" href="../index.html#floating-label-input-heading">floating-label-input</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add floating-label-input</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="currency-counter-input">
-              <a class="docs-catalog__link" href="../index.html#advanced-forms-heading">currency-counter-input</a>
+              <a class="docs-catalog__link" href="../index.html#currency-counter-input-heading">currency-counter-input</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add currency-counter-input</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="password-strength-input">
-              <a class="docs-catalog__link" href="../index.html#advanced-forms-heading">password-strength-input</a>
+              <a class="docs-catalog__link" href="../index.html#password-strength-input-heading">password-strength-input</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add password-strength-input</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="pin-code-input">
-              <a class="docs-catalog__link" href="../index.html#advanced-forms-heading">pin-code-input</a>
+              <a class="docs-catalog__link" href="../index.html#pin-code-input-heading">pin-code-input</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add pin-code-input</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="async-validation-input">
-              <a class="docs-catalog__link" href="../index.html#advanced-forms-heading">async-validation-input</a>
+              <a class="docs-catalog__link" href="../index.html#async-validation-input-heading">async-validation-input</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add async-validation-input</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="avatar-group">
-              <a class="docs-catalog__link" href="../index.html#advanced-forms-heading">avatar-group</a>
+              <a class="docs-catalog__link" href="../index.html#avatar-group-heading">avatar-group</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add avatar-group</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="setting-row">
-              <a class="docs-catalog__link" href="../index.html#settings-patterns-heading">setting-row</a>
+              <a class="docs-catalog__link" href="../index.html#setting-row-heading">setting-row</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add setting-row</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="radio-card">
-              <a class="docs-catalog__link" href="../index.html#settings-patterns-heading">radio-card</a>
+              <a class="docs-catalog__link" href="../index.html#radio-card-heading">radio-card</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add radio-card</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="sheet">
-              <a class="docs-catalog__link" href="../index.html#saas-pro-heading">sheet</a>
+              <a class="docs-catalog__link" href="../index.html#sheet-heading">sheet</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add sheet</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="empty-state">
-              <a class="docs-catalog__link" href="../index.html#saas-pro-heading">empty-state</a>
+              <a class="docs-catalog__link" href="../index.html#empty-state-heading">empty-state</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add empty-state</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="stat-card">
-              <a class="docs-catalog__link" href="../index.html#saas-pro-heading">stat-card</a>
+              <a class="docs-catalog__link" href="../index.html#stat-card-heading">stat-card</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add stat-card</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="copy-button">
-              <a class="docs-catalog__link" href="../index.html#saas-pro-heading">copy-button</a>
+              <a class="docs-catalog__link" href="../index.html#copy-button-heading">copy-button</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add copy-button</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="pagination">
-              <a class="docs-catalog__link" href="../index.html#saas-pro-heading">pagination</a>
+              <a class="docs-catalog__link" href="../index.html#pagination-heading">pagination</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add pagination</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="banner">
-              <a class="docs-catalog__link" href="../index.html#arch-layer-heading">banner</a>
+              <a class="docs-catalog__link" href="../index.html#banner-heading">banner</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add banner</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="timeline">
-              <a class="docs-catalog__link" href="../index.html#arch-layer-heading">timeline</a>
+              <a class="docs-catalog__link" href="../index.html#timeline-heading">timeline</a>
               <code class="docs-catalog__cmd">npm run rzz-ui -- add timeline</code>
             </li>
           </ul>
