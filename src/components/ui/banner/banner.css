@@ -1,0 +1,117 @@
+/**
+ * .ds-banner — anuncio global sticky.
+ * Solo consume variables CSS `--ds-*` (ver dist/css/variables.css).
+ */
+
+.ds-banner {
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: var(--ds-z-banner);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0;
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid var(--ds-semantic-border-subtle);
+  background-color: var(--ds-semantic-surface-card);
+  color: var(--ds-semantic-content-primary);
+  font-family: var(--ds-primitive-font-family-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  box-shadow: var(--ds-shadow-xs);
+}
+
+.ds-banner--info {
+  background-color: var(--ds-semantic-feedback-info-subtle);
+  border-bottom-color: var(--ds-semantic-feedback-info-border);
+  color: var(--ds-semantic-feedback-info-foreground);
+}
+
+.ds-banner--warning {
+  background-color: var(--ds-semantic-feedback-warning-subtle);
+  border-bottom-color: var(--ds-semantic-feedback-warning-border);
+  color: var(--ds-semantic-feedback-warning-foreground);
+}
+
+.ds-banner--danger {
+  background-color: var(--ds-semantic-feedback-danger-subtle);
+  border-bottom-color: var(--ds-semantic-feedback-danger-border);
+  color: var(--ds-semantic-feedback-danger-foreground);
+}
+
+.ds-banner__message {
+  margin: 0;
+  text-align: center;
+}
+
+.ds-banner__link {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.ds-banner__link:hover {
+  opacity: 0.85;
+}
+
+.ds-banner__link:focus {
+  outline: none;
+}
+
+.ds-banner__link:focus-visible {
+  outline: 2px solid var(--ds-semantic-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--ds-primitive-radius-sm);
+}
+
+.ds-banner__close {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin: 0;
+  margin-inline-start: auto;
+  padding: 0;
+  border: 0;
+  border-radius: var(--ds-primitive-radius-sm);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.75;
+  transition:
+    opacity var(--ds-duration-fast) var(--ds-ease-standard),
+    background-color var(--ds-duration-fast) var(--ds-ease-standard);
+}
+
+.ds-banner__close:hover {
+  opacity: 1;
+  background-color: color-mix(in srgb, var(--ds-semantic-content-primary) 8%, transparent);
+}
+
+.ds-banner__close:focus {
+  outline: none;
+}
+
+.ds-banner__close:focus-visible {
+  outline: 2px solid var(--ds-semantic-border-focus);
+  outline-offset: 2px;
+  opacity: 1;
+}
+
+.ds-banner__close svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.ds-banner[hidden] {
+  display: none;
+}

@@ -1,0 +1,22 @@
+<!--
+  ds-banner — anuncio global sticky.
+  Requiere: variables.css + banner.css
+  Cierre: JS mínimo o [hidden] vía onclick inline en demos.
+-->
+
+<aside class="ds-banner ds-banner--warning" role="status" aria-live="polite" id="maintenance-banner">
+  <p class="ds-banner__message">
+    Mantenimiento programado el sábado 02:00–04:00 UTC.
+    <a class="ds-banner__link" href="#status">Ver estado</a>
+  </p>
+  <button
+    type="button"
+    class="ds-banner__close"
+    aria-label="Cerrar anuncio"
+    onclick="this.closest('.ds-banner').hidden = true"
+  >
+    <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
+      <path d="M3 3l6 6M9 3L3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  </button>
+</aside>
