@@ -19,11 +19,16 @@
           "path": "ui/button/button.html",
           "type": "registry:snippet",
           "target": "button.html"
+        },
+        {
+          "path": "ui/button/button.js",
+          "type": "registry:script",
+          "target": "button.js"
         }
       ],
       "dependencies": [],
       "registryDependencies": [],
-      "docs": "Requiere dist/css/variables.css cargado en la página."
+      "docs": "Requiere dist/css/variables.css cargado en la página. Incluí button.js para bloquear la activación de aria-disabled=\"true\"."
     },
     {
       "name": "card",

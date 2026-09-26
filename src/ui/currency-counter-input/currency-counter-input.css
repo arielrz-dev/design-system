@@ -28,6 +28,16 @@
   outline-offset: 2px;
 }
 
+/* --- Dark: control boundary needs 3:1 against the card (WCAG 1.4.11) --- */
+
+[data-theme="dark"] .ds-currency:not(:focus-within) {
+  border-color: var(--rzz-border-control);
+}
+
+[data-theme="dark"] .ds-currency:hover:not(:focus-within) {
+  border-color: var(--rzz-content-muted);
+}
+
 .ds-currency__prefix {
   display: inline-flex;
   align-items: center;

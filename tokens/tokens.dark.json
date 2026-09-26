@@ -253,22 +253,27 @@
     "canvas": {
       "$value": "{primitive.color.slate.950}",
       "$type": "color",
-      "$description": "Fondo de página / viewport en dark."
+      "$description": "Fondo base en dark (#09090b)."
     },
     "card": {
-      "$value": "{primitive.color.slate.900}",
+      "$value": "{primitive.color.slate.925}",
       "$type": "color",
-      "$description": "Superficie de tarjeta sobre el canvas dark."
+      "$description": "Tarjetas y acordeones: un escalón sobre el canvas (#121215)."
     },
     "elevated": {
-      "$value": "{primitive.color.slate.800}",
+      "$value": "{primitive.color.slate.900}",
       "$type": "color",
-      "$description": "Superficie elevada (modales, popovers) en dark."
+      "$description": "Dropdowns, popovers y modales: más claro que card (#18181b)."
     },
     "subtle": {
       "$value": "{primitive.color.slate.800}",
       "$type": "color",
       "$description": "Fondo tenue neutro en dark (secondary, chips)."
+    },
+    "muted": {
+      "$value": "{primitive.color.slate.800}",
+      "$type": "color",
+      "$description": "Fondo de controles deshabilitados en dark."
     },
     "scrim": {
       "$value": "{primitive.color.slate.950}",
@@ -304,14 +309,19 @@
     "$type": "color",
     "$description": "Bordes adaptados a superficies oscuras.",
     "subtle": {
-      "$value": "{primitive.color.slate.700}",
+      "$value": "{primitive.color.white-alpha.10}",
       "$type": "color",
-      "$description": "Borde discreto en dark."
+      "$description": "Borde discreto en dark (blanco 10%, visible en cualquier superficie)."
     },
     "strong": {
       "$value": "{primitive.color.slate.500}",
       "$type": "color",
       "$description": "Borde enfatizado en dark."
+    },
+    "control": {
+      "$value": "{primitive.color.slate.500}",
+      "$type": "color",
+      "$description": "Borde de controles de formulario en dark (≥ 3:1 sobre superficies)."
     },
     "focus": {
       "$value": "{primitive.color.blue.400}",
@@ -407,9 +417,9 @@
       "$description": "Fondo tenue danger en dark."
     },
     "danger-foreground": {
-      "$value": "{primitive.color.red.500}",
+      "$value": "{primitive.color.red.400}",
       "$type": "color",
-      "$description": "Texto danger en dark."
+      "$description": "Texto danger en dark (AA sobre danger-subtle y superficies)."
     },
     "danger-border": {
       "$value": "{primitive.color.red.700}",

@@ -105,3 +105,18 @@
   border-color: var(--rzz-action-danger-default);
   outline-color: var(--rzz-action-danger-default);
 }
+
+/* --- Dark: control boundary needs 3:1 against the card (WCAG 1.4.11) --- */
+
+[data-theme="dark"] .ds-floating:not(.ds-floating--error):not(:focus-within) .ds-floating__input:not(:disabled):not([aria-invalid='true']) {
+  border-color: var(--rzz-border-control);
+}
+
+[data-theme="dark"] .ds-floating:not(.ds-floating--error):not(:focus-within) .ds-floating__input:hover:not(:disabled):not([aria-invalid='true']) {
+  border-color: var(--rzz-content-muted);
+}
+
+[data-theme="dark"] .ds-floating--error:not(:focus-within) .ds-floating__input:not(:disabled),
+[data-theme="dark"] .ds-floating:not(:focus-within) .ds-floating__input[aria-invalid='true']:not(:disabled) {
+  border-color: var(--rzz-feedback-danger-foreground);
+}

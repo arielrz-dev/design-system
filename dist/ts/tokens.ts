@@ -17,6 +17,7 @@ export const tokens = {
         "700": "#3f3f46",
         "800": "#27272a",
         "900": "#18181b",
+        "925": "#121215",
         "950": "#09090b",
       },
       "blue": {
@@ -35,6 +36,7 @@ export const tokens = {
         "50": "#fff1f3",
         "100": "#ffe4e8",
         "200": "#fecdd5",
+        "400": "#fb7185",
         "500": "#f43f5e",
         "600": "#e11d48",
         "700": "#be123c",
@@ -59,6 +61,9 @@ export const tokens = {
         "950": "#451a03",
       },
       "white": "#ffffff",
+      "white-alpha": {
+        "10": "#ffffff1a",
+      },
     },
     "shadow": {
       "xs": [{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.04,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":0,"unit":"px"},"blur":{"value":0,"unit":"px"},"spread":{"value":1,"unit":"px"}},{"color":{"colorSpace":"srgb","components":[0,0,0],"alpha":0.06,"hex":"#000000"},"offsetX":{"value":0,"unit":"px"},"offsetY":{"value":1,"unit":"px"},"blur":{"value":2,"unit":"px"},"spread":{"value":0,"unit":"px"}}],
@@ -199,6 +204,7 @@ export const tokens = {
     "card": "#ffffff",
     "elevated": "#ffffff",
     "subtle": "#f4f4f5",
+    "muted": "#f4f4f5",
     "scrim": "#09090b",
   },
   "content": {
@@ -210,6 +216,7 @@ export const tokens = {
   "border": {
     "subtle": "#e4e4e7",
     "strong": "#a1a1aa",
+    "control": "#e4e4e7",
     "focus": "#3b82f6",
   },
   "action": {
@@ -285,9 +292,10 @@ export const tokensDark = {
   },
   "surface": {
     "canvas": "#09090b",
-    "card": "#18181b",
-    "elevated": "#27272a",
+    "card": "#121215",
+    "elevated": "#18181b",
     "subtle": "#27272a",
+    "muted": "#27272a",
     "scrim": "#09090b",
   },
   "content": {
@@ -297,8 +305,9 @@ export const tokensDark = {
     "inverse": "#09090b",
   },
   "border": {
-    "subtle": "#3f3f46",
+    "subtle": "#ffffff1a",
     "strong": "#71717a",
+    "control": "#71717a",
     "focus": "#60a5fa",
   },
   "action": {
@@ -320,7 +329,7 @@ export const tokensDark = {
     "warning-foreground": "#fcd34d",
     "warning-border": "#b45309",
     "danger-subtle": "#4c0519",
-    "danger-foreground": "#f43f5e",
+    "danger-foreground": "#fb7185",
     "danger-border": "#be123c",
   },
 } as const;

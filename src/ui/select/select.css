@@ -19,7 +19,7 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  border: 1px solid var(--rzz-border-subtle);
+  border: 1px solid var(--rzz-border-control);
   border-radius: var(--rzz-radius-md);
   background-color: var(--rzz-surface-card);
   color: var(--rzz-content-primary);
@@ -35,8 +35,12 @@
   padding-inline-end: var(--rzz-space-40);
 }
 
-.ds-select:hover:not(:disabled):not(:focus-visible) {
+.ds-select:hover:not(:disabled):not(:focus-visible):not(.ds-select--error):not([aria-invalid="true"]) {
   border-color: var(--rzz-border-strong);
+}
+
+[data-theme="dark"] .ds-select:hover:not(:disabled):not(:focus-visible):not(.ds-select--error):not([aria-invalid="true"]) {
+  border-color: var(--rzz-content-muted);
 }
 
 .ds-select:focus {

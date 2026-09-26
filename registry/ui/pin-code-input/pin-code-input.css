@@ -38,7 +38,7 @@
   appearance: none;
 }
 
-.ds-pin__cell:hover:not(:disabled):not(:focus-visible) {
+.ds-pin:not(.ds-pin--error) .ds-pin__cell:hover:not(:disabled):not(:focus-visible) {
   border-color: color-mix(in srgb, var(--rzz-content-primary) 20%, transparent);
 }
 
@@ -54,4 +54,27 @@
 
 .ds-pin--error .ds-pin__cell {
   border-color: color-mix(in srgb, var(--rzz-action-danger-default) 55%, transparent);
+}
+
+/* --- Dark: cells need a 3:1 boundary against the card (WCAG 1.4.11) --- */
+
+[data-theme="dark"] .ds-pin__cell {
+  border-color: var(--rzz-border-control);
+  background-color: var(--rzz-surface-canvas);
+}
+
+[data-theme="dark"] .ds-pin:not(.ds-pin--error) .ds-pin__cell:hover:not(:disabled):not(:focus-visible) {
+  border-color: var(--rzz-content-muted);
+}
+
+[data-theme="dark"] .ds-pin--error .ds-pin__cell {
+  border-color: var(--rzz-feedback-danger-foreground);
+}
+
+[data-theme="dark"] .ds-pin__cell:focus-visible {
+  border-color: var(--rzz-border-focus);
+}
+
+[data-theme="dark"] .ds-pin--error .ds-pin__cell:focus-visible {
+  border-color: var(--rzz-feedback-danger-foreground);
 }

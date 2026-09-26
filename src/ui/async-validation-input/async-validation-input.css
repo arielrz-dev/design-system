@@ -61,6 +61,25 @@
   border-color: color-mix(in srgb, var(--rzz-feedback-success-foreground) 45%, transparent);
 }
 
+/* --- Dark: control boundary needs 3:1 against the card (WCAG 1.4.11) --- */
+
+[data-theme="dark"] .ds-async:not([data-state='error']):not([data-state='success']) .ds-async__input:not(:disabled):not(:focus-visible):not([aria-invalid='true']) {
+  border-color: var(--rzz-border-control);
+}
+
+[data-theme="dark"] .ds-async:not([data-state='error']):not([data-state='success']) .ds-async__input:hover:not(:disabled):not(:focus-visible):not([aria-invalid='true']) {
+  border-color: var(--rzz-content-muted);
+}
+
+[data-theme="dark"] .ds-async[data-state='error'] .ds-async__input:not(:disabled),
+[data-theme="dark"] .ds-async__input[aria-invalid='true']:not(:disabled) {
+  border-color: var(--rzz-feedback-danger-foreground);
+}
+
+[data-theme="dark"] .ds-async[data-state='success'] .ds-async__input:not(:disabled) {
+  border-color: var(--rzz-feedback-success-foreground);
+}
+
 .ds-async__status {
   position: absolute;
   right: var(--rzz-space-8);

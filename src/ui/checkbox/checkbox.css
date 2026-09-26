@@ -37,7 +37,7 @@
   width: 1.125rem;
   height: 1.125rem;
   margin: 0;
-  border: 1px solid var(--rzz-border-subtle);
+  border: 1px solid var(--rzz-border-control);
   border-radius: var(--rzz-radius-sm);
   background-color: var(--rzz-surface-card);
   background-position: center;
@@ -49,8 +49,12 @@
   vertical-align: middle;
 }
 
-.ds-checkbox:hover:not(:disabled):not(:checked) {
+.ds-checkbox:hover:not(:disabled):not(:checked):not(:indeterminate) {
   border-color: var(--rzz-border-strong);
+}
+
+[data-theme="dark"] .ds-checkbox:hover:not(:disabled):not(:checked):not(:indeterminate) {
+  border-color: var(--rzz-content-muted);
 }
 
 .ds-checkbox:checked {

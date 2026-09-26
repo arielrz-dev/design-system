@@ -50,15 +50,6 @@
   transition-timing-function: var(--rzz-ease-bounce);
 }
 
-.ds-button:disabled,
-.ds-button[aria-disabled="true"] {
-  cursor: not-allowed;
-  opacity: 0.5;
-  pointer-events: none;
-  box-shadow: none;
-  transform: none;
-}
-
 /* --- Tamaños --- */
 
 .ds-button--sm {
@@ -185,4 +176,28 @@
 .ds-button--ghost[aria-pressed="true"] {
   background-color: color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
   color: var(--rzz-content-secondary);
+}
+
+/* --- Disabled (universal) --- */
+/* Must stay last: overrides every variant with equal specificity. */
+
+.ds-button:is(:disabled, [aria-disabled="true"]) {
+  border-color: transparent;
+  background-color: var(--rzz-surface-muted);
+  color: var(--rzz-content-muted);
+  box-shadow: none;
+  opacity: 1;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ds-button--ghost:is(:disabled, [aria-disabled="true"]) {
+  background-color: transparent;
+}
+
+@media (forced-colors: active) {
+  .ds-button:is(:disabled, [aria-disabled="true"]) {
+    color: GrayText;
+    border-color: GrayText;
+  }
 }

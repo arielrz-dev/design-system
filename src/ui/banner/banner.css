@@ -44,6 +44,34 @@
   color: var(--rzz-feedback-danger-foreground);
 }
 
+/* --- Dark: opaque surface with a ~10% semantic tint (content scrolls under the sticky bar) --- */
+
+[data-theme="dark"] .ds-banner:is(.ds-banner--info, .ds-banner--warning, .ds-banner--danger) {
+  background-color: color-mix(
+    in srgb,
+    var(--ds-banner-tint, var(--rzz-content-muted)) 10%,
+    var(--rzz-surface-card)
+  );
+  border-bottom-color: color-mix(
+    in srgb,
+    var(--ds-banner-tint, var(--rzz-content-muted)) 28%,
+    transparent
+  );
+  color: var(--ds-banner-tint, var(--rzz-content-muted));
+}
+
+[data-theme="dark"] .ds-banner--info {
+  --ds-banner-tint: var(--rzz-feedback-info-foreground);
+}
+
+[data-theme="dark"] .ds-banner--warning {
+  --ds-banner-tint: var(--rzz-feedback-warning-foreground);
+}
+
+[data-theme="dark"] .ds-banner--danger {
+  --ds-banner-tint: var(--rzz-feedback-danger-foreground);
+}
+
 .ds-banner__message {
   margin: 0;
   text-align: center;

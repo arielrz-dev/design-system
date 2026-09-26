@@ -17,6 +17,7 @@
   --rzz-primitive-color-slate-700: #3f3f46; /** Neutral oscuro. */
   --rzz-primitive-color-slate-800: #27272a; /** Neutral muy oscuro. */
   --rzz-primitive-color-slate-900: #18181b; /** Neutral casi negro. */
+  --rzz-primitive-color-slate-925: #121215; /** Neutral entre 900 y 950 (tarjetas en dark). */
   --rzz-primitive-color-slate-950: #09090b; /** Neutral más oscuro. */
   --rzz-primitive-color-blue-50: #eff6ff; /** Primario más claro. */
   --rzz-primitive-color-blue-100: #dbeafe; /** Primario muy claro. */
@@ -31,6 +32,7 @@
   --rzz-primitive-color-red-50: #fff1f3; /** Carmesí más claro (tinte danger). */
   --rzz-primitive-color-red-100: #ffe4e8; /** Carmesí muy claro. */
   --rzz-primitive-color-red-200: #fecdd5; /** Carmesí claro (borde danger). */
+  --rzz-primitive-color-red-400: #fb7185; /** Carmesí claro (texto danger sobre fondos dark, AA). */
   --rzz-primitive-color-red-500: #f43f5e; /** Carmesí medio (peligro en dark). */
   --rzz-primitive-color-red-600: #e11d48; /** Carmesí medio-oscuro (peligro en light). */
   --rzz-primitive-color-red-700: #be123c; /** Carmesí oscuro (hover/active danger). */
@@ -50,6 +52,7 @@
   --rzz-primitive-color-amber-700: #b45309; /** Ámbar oscuro (texto warning light). */
   --rzz-primitive-color-amber-950: #451a03; /** Ámbar más oscuro (tinte warning dark). */
   --rzz-primitive-color-white: #ffffff; /** Blanco puro (superficies elevadas sobre canvas). */
+  --rzz-primitive-color-white-alpha-10: rgba(255, 255, 255, 0.1); /** Blanco al 10% (divisores y bordes en dark). */
   --rzz-primitive-shadow-xs: 0px 0px 0px 1px rgb(0% 0% 0% / 0.04), 0px 1px 2px 0px rgb(0% 0% 0% / 0.06); /** Contacto 1px + diffuse corta (botones/inputs). */
   --rzz-primitive-shadow-sm: 0px 0px 0px 1px rgb(0% 0% 0% / 0.04), 0px 2px 4px 0px rgb(0% 0% 0% / 0.05), 0px 4px 12px 0px rgb(0% 0% 0% / 0.04); /** Contacto + diffuse media (tarjetas). */
   --rzz-primitive-shadow-md: 0px 0px 0px 1px rgb(0% 0% 0% / 0.05), 0px 4px 8px 0px rgb(0% 0% 0% / 0.06), 0px 12px 24px 0px rgb(0% 0% 0% / 0.08); /** Contacto + diffuse amplia (popovers/toasts). */
@@ -121,6 +124,7 @@
   --rzz-surface-card: var(--rzz-primitive-color-white); /** Superficie de tarjeta sobre el canvas. */
   --rzz-surface-elevated: var(--rzz-primitive-color-white); /** Superficie elevada (modales, popovers, drawers). */
   --rzz-surface-subtle: var(--rzz-primitive-color-slate-100); /** Fondo tenue neutro (botones secondary, chips). */
+  --rzz-surface-muted: var(--rzz-primitive-color-slate-100); /** Fondo de controles deshabilitados (sin color de marca). */
   --rzz-surface-scrim: var(--rzz-primitive-color-slate-950); /** Base de overlay/scrim (usar con color-mix/opacity). */
   --rzz-content-primary: var(--rzz-primitive-color-slate-900); /** Texto principal de alto contraste. */
   --rzz-content-secondary: var(--rzz-primitive-color-slate-700); /** Texto secundario. */
@@ -128,6 +132,7 @@
   --rzz-content-inverse: var(--rzz-primitive-color-white); /** Texto/icono sobre superficies de acción o fondos oscuros. */
   --rzz-border-subtle: var(--rzz-primitive-color-slate-200); /** Borde discreto / divisores. */
   --rzz-border-strong: var(--rzz-primitive-color-slate-400); /** Borde con mayor énfasis. */
+  --rzz-border-control: var(--rzz-primitive-color-slate-200); /** Borde en reposo de controles de formulario. */
   --rzz-border-focus: var(--rzz-primitive-color-blue-500); /** Anillo o borde de foco accesible. */
   --rzz-action-primary-default: var(--rzz-primitive-color-blue-600); /** Acción primaria en estado por defecto. */
   --rzz-action-primary-hover: var(--rzz-primitive-color-blue-700); /** Acción primaria en hover. */
@@ -184,17 +189,19 @@
   --rzz-shadow-xs: 0px 0px 0px 1px rgb(0% 0% 0% / 0.5), 0px 1px 2px 0px rgb(0% 0% 0% / 0.35); /** Sombra xs en dark. */
   --rzz-shadow-sm: 0px 0px 0px 1px rgb(0% 0% 0% / 0.55), 0px 2px 4px 0px rgb(0% 0% 0% / 0.4), 0px 8px 16px 0px rgb(0% 0% 0% / 0.3); /** Sombra sm en dark. */
   --rzz-shadow-md: 0px 0px 0px 1px rgb(0% 0% 0% / 0.6), 0px 4px 8px 0px rgb(0% 0% 0% / 0.45), 0px 16px 32px 0px rgb(0% 0% 0% / 0.35); /** Sombra md en dark. */
-  --rzz-surface-canvas: var(--rzz-primitive-color-slate-950); /** Fondo de página / viewport en dark. */
-  --rzz-surface-card: var(--rzz-primitive-color-slate-900); /** Superficie de tarjeta sobre el canvas dark. */
-  --rzz-surface-elevated: var(--rzz-primitive-color-slate-800); /** Superficie elevada (modales, popovers) en dark. */
+  --rzz-surface-canvas: var(--rzz-primitive-color-slate-950); /** Fondo base en dark (#09090b). */
+  --rzz-surface-card: var(--rzz-primitive-color-slate-925); /** Tarjetas y acordeones: un escalón sobre el canvas (#121215). */
+  --rzz-surface-elevated: var(--rzz-primitive-color-slate-900); /** Dropdowns, popovers y modales: más claro que card (#18181b). */
   --rzz-surface-subtle: var(--rzz-primitive-color-slate-800); /** Fondo tenue neutro en dark (secondary, chips). */
+  --rzz-surface-muted: var(--rzz-primitive-color-slate-800); /** Fondo de controles deshabilitados en dark. */
   --rzz-surface-scrim: var(--rzz-primitive-color-slate-950); /** Base de overlay/scrim en dark. */
   --rzz-content-primary: var(--rzz-primitive-color-slate-50); /** Texto principal claro sobre superficies oscuras. */
   --rzz-content-secondary: var(--rzz-primitive-color-slate-300); /** Texto secundario en dark. */
   --rzz-content-muted: var(--rzz-primitive-color-slate-400); /** Texto atenuado en dark. */
   --rzz-content-inverse: var(--rzz-primitive-color-slate-950); /** Texto sobre fondos claros / acciones claras en dark. */
-  --rzz-border-subtle: var(--rzz-primitive-color-slate-700); /** Borde discreto en dark. */
+  --rzz-border-subtle: var(--rzz-primitive-color-white-alpha-10); /** Borde discreto en dark (blanco 10%, visible en cualquier superficie). */
   --rzz-border-strong: var(--rzz-primitive-color-slate-500); /** Borde enfatizado en dark. */
+  --rzz-border-control: var(--rzz-primitive-color-slate-500); /** Borde de controles de formulario en dark (≥ 3:1 sobre superficies). */
   --rzz-border-focus: var(--rzz-primitive-color-blue-400); /** Anillo de foco más luminoso sobre fondos oscuros. */
   --rzz-action-primary-default: var(--rzz-primitive-color-blue-500); /** Acción primaria por defecto en dark. */
   --rzz-action-primary-hover: var(--rzz-primitive-color-blue-400); /** Acción primaria hover en dark. */
@@ -212,6 +219,6 @@
   --rzz-feedback-warning-foreground: var(--rzz-primitive-color-amber-300); /** Texto warning en dark. */
   --rzz-feedback-warning-border: var(--rzz-primitive-color-amber-700); /** Borde warning en dark. */
   --rzz-feedback-danger-subtle: var(--rzz-primitive-color-red-950); /** Fondo tenue danger en dark. */
-  --rzz-feedback-danger-foreground: var(--rzz-primitive-color-red-500); /** Texto danger en dark. */
+  --rzz-feedback-danger-foreground: var(--rzz-primitive-color-red-400); /** Texto danger en dark (AA sobre danger-subtle y superficies). */
   --rzz-feedback-danger-border: var(--rzz-primitive-color-red-700); /** Borde danger en dark. */
 }
