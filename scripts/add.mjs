@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * Instala un componente del registry en el proyecto actual (cwd).
+ * Instala uno o más componentes del registry en el proyecto actual (cwd).
  *
  * Uso:
- *   node scripts/add.mjs <component-name>
+ *   node scripts/add.mjs <component-name...>
  *   node scripts/add.mjs button
- *   node scripts/add.mjs button --path components/ui
+ *   node scripts/add.mjs button dialog --path components/ui
  *
  * El registry se lee desde el paquete rzz-ui (carpeta del monorepo / install).
  * El destino por defecto es `<cwd>/src/ui`.
@@ -42,8 +42,8 @@ function fail(message, code = 1) {
  * @param {string[]} argv
  */
 function parseArgs(argv) {
-  /** @type {{ name?: string, destRel: string, help: boolean }} */
-  const out = { destRel: 'src/ui', help: false };
+  /** @type {{ names: string[], destRel: string, help: boolean }} */
+  const out = { names: [], destRel: 'src/ui', help: false };
   const positional = [];
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -67,7 +67,7 @@ function parseArgs(argv) {
     positional.push(arg);
   }
 
-  out.name = positional[0]?.trim();
+  out.names = [...new Set(positional.map((arg) => arg.trim()).filter(Boolean))];
   return out;
 }
 
@@ -170,17 +170,17 @@ async function ensureVariablesCss(projectRoot) {
 }
 
 function printHelp() {
-  log(`${BOLD}Uso:${RESET} rzz-ui add <component> [--path <rel>]`);
+  log(`${BOLD}Uso:${RESET} rzz-ui add <component...> [--path <rel>]`);
   log(`${DIM}Ejemplo:${RESET} rzz-ui add button`);
-  log(`${DIM}        ${RESET} rzz-ui add dialog --path components/ui`);
+  log(`${DIM}        ${RESET} rzz-ui add button dialog --path components/ui`);
   log('');
   log('Instala en el directorio actual (cwd). El registry sale del paquete rzz-ui.');
 }
 
 async function main() {
-  const { name, destRel, help } = parseArgs(process.argv.slice(2));
+  const { names, destRel, help } = parseArgs(process.argv.slice(2));
 
-  if (help || !name) {
+  if (help || names.length === 0) {
     printHelp();
     process.exit(help ? 0 : 1);
   }
@@ -189,16 +189,17 @@ async function main() {
   const destRoot = path.resolve(projectRoot, destRel);
 
   const registry = await loadRegistry();
-  const installOrder = resolveInstallOrder(registry, name);
+  const seen = new Set();
+  const installOrder = names.flatMap((name) => resolveInstallOrder(registry, name, seen));
 
   const destLabel = path.relative(projectRoot, destRoot) || '.';
-  log(`${BOLD}Instalando${RESET} ${name} → ${destLabel}`);
+  log(`${BOLD}Instalando${RESET} ${names.join(', ')} → ${destLabel}`);
   log(`${DIM}cwd${RESET} ${projectRoot}`);
   log(`${DIM}pkg${RESET} ${PACKAGE_ROOT}`);
 
   for (const componentName of installOrder) {
     const item = findItem(registry, componentName);
-    const isDep = componentName !== name;
+    const isDep = !names.includes(componentName);
     const { destDir } = await copyComponent(componentName, destRoot);
 
     const label = isDep ? `${DIM}(dep)${RESET} ` : '';
@@ -239,7 +240,7 @@ async function main() {
         {
           package: 'rzz-ui',
           installedAt: new Date().toISOString(),
-          lastComponent: name,
+          lastComponent: names[names.length - 1],
         },
         null,
         2,

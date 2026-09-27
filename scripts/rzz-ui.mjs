@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * CLI: rzz-ui add <component> [--path <rel>]
+ * CLI: rzz-ui add <component...> [--path <rel>]
  * Delega en add.mjs preservando process.cwd() del consumidor.
  */
 import { spawn } from 'node:child_process';
@@ -17,11 +17,11 @@ function printHelp() {
   console.log(`rzz-ui — CLI
 
 Uso:
-  rzz-ui add <component> [--path <rel>]
+  rzz-ui add <component...> [--path <rel>]
 
 Ejemplos (desde el proyecto consumidor):
-  rzz-ui add button
-  rzz-ui add dialog --path components/ui
+  npx github:arielrz-dev/design-system add button
+  npx github:arielrz-dev/design-system add button dialog --path components/ui
 
 El registro se lee del paquete rzz-ui; los archivos se copian al cwd.
 `);
@@ -38,7 +38,8 @@ if (command !== 'add') {
   process.exit(1);
 }
 
-if (rest.length === 0 || rest[0]?.startsWith('-')) {
+const wantsHelp = rest.includes('-h') || rest.includes('--help');
+if (!wantsHelp && !rest.some((arg) => !arg.startsWith('-'))) {
   console.error('Indicá un componente: rzz-ui add button');
   process.exit(1);
 }

@@ -2,22 +2,39 @@
 
 Design system agnóstico (sin framework): tokens DTCG, variables CSS `--rzz-*`, y componentes HTML/CSS copy-paste estilo shadcn.
 
-## Quick path
+## Usar en tu proyecto
 
-1. `npm install`
-2. `npm run build:tokens` — genera `dist/css/variables.css` y `dist/ts/tokens.ts`
-3. `npm run docs:dev` — sirve el repo en `http://localhost:4173` (evita límites de `file://`)
-4. Abrí `http://localhost:4173/docs/` o el playground en `http://localhost:4173/`
-5. Instalá un componente **en el proyecto actual** (cwd):
+Se distribuye desde GitHub (no está publicado en npm). Desde la raíz de tu proyecto:
 
 ```bash
-npm run rzz-ui -- add button
-# o, desde otro proyecto que linkee este paquete:
-# rzz-ui add button
-# rzz-ui add dialog --path components/ui
+npx github:arielrz-dev/design-system add button
+npx github:arielrz-dev/design-system add button dialog --path components/ui
 ```
 
-> El CLI copia al **cwd** (`src/ui/` por defecto). El registry se lee desde este paquete. Aún `private: true` (no hay publish en npm); usalo vía clone/`npm link`/`file:`.
+Para fijar una versión, instalalo como dependencia de desarrollo y usá el bin:
+
+```bash
+npm i -D github:arielrz-dev/design-system#v0.1.0
+npx rzz-ui add button
+```
+
+El CLI copia cada componente (y sus dependencias) a `src/ui/` y agrega `dist/css/variables.css` si no existe. Cargá los estilos en este orden:
+
+```html
+<link rel="stylesheet" href="dist/css/variables.css" />
+<link rel="stylesheet" href="src/ui/button/button.css" />
+<script type="module" src="src/ui/button/button.js"></script>
+```
+
+Solo algunos componentes traen `.js`. Requiere Node ≥ 18.
+
+## Desarrollar este repo
+
+1. `npm install`
+2. `npm run build:tokens`: genera `dist/css/variables.css` y `dist/ts/tokens.ts`
+3. `npm run docs:dev`: sirve el repo en `http://localhost:4173` (evita límites de `file://`)
+4. Abrí `http://localhost:4173/docs/` o el playground en `http://localhost:4173/`
+5. `npm run rzz-ui -- add button` instala en el `src/ui/` de este mismo repo
 
 ## Qué incluye
 
@@ -66,5 +83,6 @@ GitHub Actions: `.github/workflows/ci.yml` (push/PR).
 
 ## Requisitos
 
-- Node.js (Style Dictionary 5 recomienda ≥ 22; en 20 puede instalarse con warning)
+- Consumir: Node.js ≥ 18
+- Desarrollar: Node.js ≥ 22 (Style Dictionary 5; en 20 puede instalarse con warning)
 - Sin dependencias de runtime en los artefactos de `dist/`

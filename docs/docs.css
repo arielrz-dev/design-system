@@ -395,6 +395,28 @@ pre {
   line-height: 1.6;
 }
 
+.docs-prose h3 {
+  margin: 1.25rem 0 0.5rem;
+  color: var(--rzz-content-primary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.docs-prose h3:first-child {
+  margin-top: 0;
+}
+
+.docs-prose ol {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 42rem;
+  margin: 0 0 0.85rem;
+  padding-left: 1.25rem;
+  color: var(--rzz-content-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
 .docs-prose code {
   padding: 0.1rem 0.3rem;
   border-radius: var(--rzz-radius-sm);

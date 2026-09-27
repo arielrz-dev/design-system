@@ -66,7 +66,7 @@
       <a class="docs-brand" href="#introduccion">
         <span class="docs-brand__mark" aria-hidden="true">rz</span>
         <span>rzz-ui</span>
-        <span class="docs-badge">v1.0.0</span>
+        <span class="docs-badge">v0.1.0</span>
       </a>
 
       <div class="docs-header__search">
@@ -268,12 +268,12 @@
           </p>
           <div class="docs-command">
             <code class="docs-command__code" id="docs-install-cmd"
-              ><span>$</span> npm run rzz-ui -- add button</code
+              ><span>$</span> npx github:arielrz-dev/design-system add button</code
             >
             <button
               type="button"
               class="docs-copy"
-              data-docs-copy="npm run rzz-ui -- add button"
+              data-docs-copy="npx github:arielrz-dev/design-system add button"
               aria-label="Copiar comando de instalación"
             >
               <span data-docs-copy-label>Copiar</span>
@@ -284,19 +284,38 @@
         <section class="docs-section" id="instalacion" aria-labelledby="instalacion-title">
           <h2 class="docs-section__title" id="instalacion-title">Instalación CLI</h2>
           <p class="docs-section__lead">
-            En este monorepo: <code>npm run rzz-ui -- add button</code> (bin local). El paquete aún no está publicado en npm.
+            Se distribuye desde GitHub, sin publicar en npm. Corré el CLI desde la raíz de tu
+            proyecto: copia los componentes y sus dependencias a <code>src/ui/</code>.
           </p>
           <div class="docs-prose">
-            <p>
-              1. <code>npm install</code> · 2. <code>npm run build:tokens</code> · 3.
-              <code>npm run docs:dev</code> · 4.
-              <code>npm run rzz-ui -- add button</code> copia el componente a
-              <code>src/ui/</code> (fuente canónica: <code>registry/ui/</code>).
-            </p>
-            <p>
-              Incluí <code>dist/css/variables.css</code> en tu página antes de los CSS del
-              registry. Docs y playground cargan estilos desde <code>registry/ui/</code>.
-            </p>
+            <h3>Usar en tu proyecto</h3>
+            <ol>
+              <li>
+                <code>npx github:arielrz-dev/design-system add button dialog</code> instala uno o
+                varios componentes. Con <code>--path components/ui</code> cambiás el destino.
+              </li>
+              <li>
+                Para fijar una versión:
+                <code>npm i -D github:arielrz-dev/design-system#v0.1.0</code> y después
+                <code>npx rzz-ui add button</code>.
+              </li>
+              <li>
+                Cargá <code>dist/css/variables.css</code> antes de los CSS de los componentes, y
+                los <code>.js</code> como <code>&lt;script type="module"&gt;</code>.
+              </li>
+            </ol>
+            <h3>Desarrollar este repo</h3>
+            <ol>
+              <li><code>npm install</code> y <code>npm run build:tokens</code></li>
+              <li>
+                <code>npm run docs:dev</code> sirve docs y playground en
+                <code>http://localhost:4173</code>
+              </li>
+              <li>
+                <code>npm run rzz-ui -- add button</code> instala en el <code>src/ui/</code> de
+                este repo (fuente canónica: <code>registry/ui/</code>).
+              </li>
+            </ol>
           </div>
         </section>
 
@@ -625,7 +644,7 @@
   Guardar cambios
 &lt;/button&gt;
 
-&lt;!-- npm run rzz-ui -- add button --&gt;</code></pre>
+&lt;!-- npx github:arielrz-dev/design-system add button --&gt;</code></pre>
             </div>
           </article>
         </section>
@@ -1056,7 +1075,7 @@
               <pre class="docs-code" id="code-table"><code>&lt;div class="ds-table-container" role="region" tabindex="0"&gt;
   &lt;table class="ds-table"&gt;…&lt;/table&gt;
 &lt;/div&gt;
-&lt;!-- npm run rzz-ui -- add data-table --&gt;</code></pre>
+&lt;!-- npx github:arielrz-dev/design-system add data-table --&gt;</code></pre>
             </div>
           </article>
         </section>
@@ -1065,155 +1084,155 @@
           <h2 class="docs-section__title" id="catalogo-title">Catálogo completo</h2>
           <p class="docs-section__lead">
             Índice del registry (~35). Instalá con
-            <code>npm run rzz-ui -- add &lt;name&gt;</code>. Fuente de verdad:
+            <code>npx github:arielrz-dev/design-system add &lt;name&gt;</code>. Fuente de verdad:
             <code>registry/registry.json</code>.
           </p>
                     <ul class="docs-catalog" id="docs-catalog-list">
             <li class="docs-catalog__item" data-docs-searchable="button">
               <a class="docs-catalog__link" href="../index.html#buttons-heading">button</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add button</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add button</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="card">
               <a class="docs-catalog__link" href="../index.html#card-heading">card</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add card</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add card</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="input">
               <a class="docs-catalog__link" href="../index.html#input-heading">input</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add input</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add input</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="dialog">
               <a class="docs-catalog__link" href="../index.html#dialog-heading">dialog</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add dialog</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add dialog</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="checkbox">
               <a class="docs-catalog__link" href="../index.html#checkbox-heading">checkbox</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add checkbox</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add checkbox</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="switch">
               <a class="docs-catalog__link" href="../index.html#switch-heading">switch</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add switch</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add switch</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="select">
               <a class="docs-catalog__link" href="../index.html#select-heading">select</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add select</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add select</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="badge">
               <a class="docs-catalog__link" href="../index.html#badges-heading">badge</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add badge</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add badge</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="alert">
               <a class="docs-catalog__link" href="../index.html#alerts-heading">alert</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add alert</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add alert</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="toast">
               <a class="docs-catalog__link" href="../index.html#toasts-heading">toast</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add toast</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add toast</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="breadcrumb">
               <a class="docs-catalog__link" href="../index.html#breadcrumb-heading">breadcrumb</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add breadcrumb</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add breadcrumb</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="tabs">
               <a class="docs-catalog__link" href="../index.html#tabs-heading">tabs</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add tabs</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add tabs</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="popover">
               <a class="docs-catalog__link" href="../index.html#popover-heading">popover</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add popover</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add popover</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="accordion">
               <a class="docs-catalog__link" href="../index.html#accordion-heading">accordion</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add accordion</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add accordion</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="data-table">
               <a class="docs-catalog__link" href="../index.html#datatable-heading">data-table</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add data-table</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add data-table</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="avatar">
               <a class="docs-catalog__link" href="../index.html#avatar-heading">avatar</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add avatar</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add avatar</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="skeleton">
               <a class="docs-catalog__link" href="../index.html#skeleton-heading">skeleton</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add skeleton</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add skeleton</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="tooltip">
               <a class="docs-catalog__link" href="../index.html#tooltip-heading">tooltip</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add tooltip</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add tooltip</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="textarea">
               <a class="docs-catalog__link" href="../index.html#textarea-heading">textarea</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add textarea</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add textarea</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="search-kbd-input">
               <a class="docs-catalog__link" href="../index.html#search-kbd-input-heading">search-kbd-input</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add search-kbd-input</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add search-kbd-input</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="floating-label-input">
               <a class="docs-catalog__link" href="../index.html#floating-label-input-heading">floating-label-input</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add floating-label-input</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add floating-label-input</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="currency-counter-input">
               <a class="docs-catalog__link" href="../index.html#currency-counter-input-heading">currency-counter-input</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add currency-counter-input</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add currency-counter-input</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="password-strength-input">
               <a class="docs-catalog__link" href="../index.html#password-strength-input-heading">password-strength-input</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add password-strength-input</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add password-strength-input</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="pin-code-input">
               <a class="docs-catalog__link" href="../index.html#pin-code-input-heading">pin-code-input</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add pin-code-input</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add pin-code-input</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="async-validation-input">
               <a class="docs-catalog__link" href="../index.html#async-validation-input-heading">async-validation-input</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add async-validation-input</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add async-validation-input</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="avatar-group">
               <a class="docs-catalog__link" href="../index.html#avatar-group-heading">avatar-group</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add avatar-group</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add avatar-group</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="setting-row">
               <a class="docs-catalog__link" href="../index.html#setting-row-heading">setting-row</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add setting-row</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add setting-row</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="radio-card">
               <a class="docs-catalog__link" href="../index.html#radio-card-heading">radio-card</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add radio-card</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add radio-card</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="sheet">
               <a class="docs-catalog__link" href="../index.html#sheet-heading">sheet</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add sheet</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add sheet</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="empty-state">
               <a class="docs-catalog__link" href="../index.html#empty-state-heading">empty-state</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add empty-state</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add empty-state</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="stat-card">
               <a class="docs-catalog__link" href="../index.html#stat-card-heading">stat-card</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add stat-card</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add stat-card</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="copy-button">
               <a class="docs-catalog__link" href="../index.html#copy-button-heading">copy-button</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add copy-button</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add copy-button</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="pagination">
               <a class="docs-catalog__link" href="../index.html#pagination-heading">pagination</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add pagination</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add pagination</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="banner">
               <a class="docs-catalog__link" href="../index.html#banner-heading">banner</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add banner</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add banner</code>
             </li>
             <li class="docs-catalog__item" data-docs-searchable="timeline">
               <a class="docs-catalog__link" href="../index.html#timeline-heading">timeline</a>
-              <code class="docs-catalog__cmd">npm run rzz-ui -- add timeline</code>
+              <code class="docs-catalog__cmd">npx github:arielrz-dev/design-system add timeline</code>
             </li>
           </ul>
         </section>
 
         <footer class="docs-footer">
-          rzz-ui v1.0.0 ·
+          rzz-ui v0.1.0 ·
           <a href="https://github.com/arielrz-dev/design-system">GitHub</a>
           · playground raíz
           <a href="../index.html">index.html</a>
