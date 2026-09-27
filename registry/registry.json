@@ -5,6 +5,23 @@
   "description": "Registro copy-paste agnóstico de rzz-ui. Componentes HTML/CSS con BEM y tokens --rzz-*.",
   "items": [
     {
+      "name": "reduced-motion",
+      "type": "registry:style",
+      "title": "Reduced Motion",
+      "description": "Foundation: desactiva transiciones y animaciones de los componentes con prefers-reduced-motion sin dejarlos invisibles.",
+      "files": [
+        {
+          "path": "foundation/reduced-motion.css",
+          "type": "registry:style",
+          "target": "reduced-motion.css"
+        }
+      ],
+      "dependencies": [],
+      "registryDependencies": [],
+      "meta": { "foundation": true },
+      "docs": "El CLI lo instala siempre junto a variables.css. Cargalo después de los CSS de componentes. Escape hatch: <html data-rzz-motion=\"force\">."
+    },
+    {
       "name": "button",
       "type": "registry:ui",
       "title": "Button",
@@ -390,7 +407,7 @@
       "name": "tooltip",
       "type": "registry:ui",
       "title": "Tooltip",
-      "description": "Tooltip CSS con data-tooltip; tooltip.js añade role=tooltip y aria-describedby.",
+      "description": "Tooltip CSS con data-rzz-tooltip; tooltip.js añade role=tooltip, aria-describedby, cierre con Escape y hover sobre la burbuja.",
       "files": [
         {
           "path": "ui/tooltip/tooltip.css",
@@ -603,7 +620,7 @@
       ],
       "dependencies": [],
       "registryDependencies": ["avatar"],
-      "docs": "El borde del stack usa --rzz-semantic-surface-card para separar del fondo."
+      "docs": "El borde del stack usa --rzz-surface-card para separar del fondo. Leyenda de estados con .ds-status-legend (sin depender de input)."
     },
     {
       "name": "setting-row",
@@ -777,11 +794,16 @@
           "path": "ui/banner/banner.html",
           "type": "registry:snippet",
           "target": "banner.html"
+        },
+        {
+          "path": "ui/banner/banner.js",
+          "type": "registry:script",
+          "target": "banner.js"
         }
       ],
       "dependencies": [],
       "registryDependencies": [],
-      "docs": "Usa z-index var(--rzz-z-banner). Variantes: --info, --warning, --danger."
+      "docs": "Usa z-index var(--rzz-z-banner). Variantes: --info, --warning, --danger. Cierre con [data-banner-close] vía banner.js (sin handlers inline, compatible con CSP)."
     },
     {
       "name": "timeline",

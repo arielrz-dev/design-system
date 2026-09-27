@@ -2,6 +2,7 @@
   ds-avatar-group + ds-status-dot.
   Requiere: variables.css + avatar.css + avatar-group.css
   El estado se anuncia con texto .ds-sr-only; el punto de color es aria-hidden.
+  .ds-status-legend es la leyenda opcional de colores (no requiere input).
 -->
 
 <ul class="ds-avatar-group" aria-label="Equipo">
@@ -53,10 +54,9 @@
   </li>
 </ul>
 
-<p class="ds-field__hint" style="margin-top: 0.75rem">
-  Status:
-  <span class="ds-status-dot ds-status-dot--online" aria-hidden="true"></span> En línea
-  <span class="ds-status-dot ds-status-dot--away" aria-hidden="true"></span> Ausente
-  <span class="ds-status-dot ds-status-dot--busy" aria-hidden="true"></span> Ocupada
-  <span class="ds-status-dot ds-status-dot--offline" aria-hidden="true"></span> Desconectada
-</p>
+<ul class="ds-status-legend" aria-label="Leyenda de estados">
+  <li><span class="ds-status-dot ds-status-dot--online" aria-hidden="true"></span> En línea</li>
+  <li><span class="ds-status-dot ds-status-dot--away" aria-hidden="true"></span> Ausente</li>
+  <li><span class="ds-status-dot ds-status-dot--busy" aria-hidden="true"></span> Ocupada</li>
+  <li><span class="ds-status-dot ds-status-dot--offline" aria-hidden="true"></span> Desconectada</li>
+</ul>

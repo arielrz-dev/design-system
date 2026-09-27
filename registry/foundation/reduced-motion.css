@@ -21,8 +21,8 @@
   html:not([data-rzz-motion="force"]) .ds-banner,
   html:not([data-rzz-motion="force"]) .ds-accordion,
   html:not([data-rzz-motion="force"]) .ds-skeleton,
-  html:not([data-rzz-motion="force"]) [data-tooltip]::before,
-  html:not([data-rzz-motion="force"]) [data-tooltip]::after {
+  html:not([data-rzz-motion="force"]) [data-rzz-tooltip]::before,
+  html:not([data-rzz-motion="force"]) [data-rzz-tooltip]::after {
     transition: none !important;
     animation: none !important;
   }

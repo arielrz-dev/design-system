@@ -305,13 +305,19 @@
                 <code>npx rzz-ui add button</code>.
               </li>
               <li>
-                Cargá <code>dist/css/variables.css</code> antes de los CSS de los componentes, y
-                los <code>.js</code> como <code>&lt;script type="module"&gt;</code>.
+                No pisa archivos que ya existan y difieran: los omite con un aviso.
+                <code>--overwrite</code> los reemplaza, <code>--tokens</code> actualiza solo los
+                estilos base y <code>--dry-run</code> muestra qué haría sin escribir nada.
               </li>
               <li>
-                La fuente Inter viene incluida en <code>dist/fonts/</code> y la carga
-                <code>variables.css</code>: mantené esas dos carpetas juntas. Para usar otra,
-                redefiní <code>--rzz-font-sans</code>.
+                Cargá <code>src/ui/styles/variables.css</code> antes de los CSS de los componentes,
+                <code>src/ui/styles/reduced-motion.css</code> después, y los <code>.js</code> como
+                <code>&lt;script type="module"&gt;</code>.
+              </li>
+              <li>
+                La fuente Inter viene incluida en <code>src/ui/fonts/</code> y la carga
+                <code>variables.css</code>: mantené <code>styles/</code> y <code>fonts/</code> como
+                carpetas hermanas. Para usar otra, redefiní <code>--rzz-font-sans</code>.
               </li>
               <li>
                 Si cambiaste color o radio en "Personalizar", copiá el CSS del panel y pegalo

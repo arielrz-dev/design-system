@@ -18,17 +18,27 @@ npm i -D github:arielrz-dev/design-system#v0.3.0
 npx rzz-ui add button
 ```
 
-El CLI copia cada componente (y sus dependencias) a `src/ui/`, y agrega `dist/css/variables.css` y la fuente Inter en `dist/fonts/` si no existen. Cargá los estilos en este orden:
+El CLI copia cada componente (y sus dependencias) a `src/ui/<componente>/`, los estilos base (`variables.css` y `reduced-motion.css`) a `src/ui/styles/` y la fuente Inter a `src/ui/fonts/`. Cargá los estilos en este orden:
 
 ```html
-<link rel="stylesheet" href="dist/css/variables.css" />
+<link rel="stylesheet" href="src/ui/styles/variables.css" />
 <link rel="stylesheet" href="src/ui/button/button.css" />
+<link rel="stylesheet" href="src/ui/styles/reduced-motion.css" />
 <script type="module" src="src/ui/button/button.js"></script>
 ```
 
 Solo algunos componentes traen `.js`. Requiere Node ≥ 18.
 
-`variables.css` ya carga Inter (variable, licencia SIL OFL en `dist/fonts/OFL.txt`) desde `../fonts/`, así que mantené `dist/css/` y `dist/fonts/` juntos. Para usar otra fuente, redefiní `--rzz-font-sans` después de `variables.css`; Inter deja de descargarse.
+| Flag | Efecto |
+|------|--------|
+| `--path <rel>` (`-p`) | Carpeta base en vez de `src/ui` (componentes, `styles/` y `fonts/` quedan debajo) |
+| `--overwrite` (`-f`) | Reemplaza archivos existentes que difieran del paquete |
+| `--tokens` | Actualiza solo `variables.css`, `reduced-motion.css` y las fuentes (`add --tokens` funciona sin componentes) |
+| `--dry-run` | Lista qué se crearía o reemplazaría, sin escribir nada |
+
+Por defecto el CLI **no pisa** archivos existentes que hayas editado: los omite con un aviso. Los que son idénticos al paquete figuran como "sin cambios". Si instalaste con una versión ≤ 0.3, tus estilos base están en `dist/css/` y el CLI los sigue usando ahí mientras no pases `--path`.
+
+`variables.css` ya carga Inter (variable, licencia SIL OFL en `fonts/OFL.txt`) desde `../fonts/`, así que mantené `styles/` y `fonts/` como carpetas hermanas. Para usar otra fuente, redefiní `--rzz-font-sans` después de `variables.css`; Inter deja de descargarse.
 
 Si el tema elegido en el personalizador de las docs no es el default, usá "Copiar CSS" y pegalo después de `variables.css`.
 
@@ -48,7 +58,7 @@ Si el tema elegido en el personalizador de las docs no es el default, usá "Copi
 | `build-tokens.mjs` | Compila a CSS/TS con Style Dictionary (`--rzz-*`) |
 | `registry/` | **Fuente canónica** del catálogo UI (~35 componentes) |
 | `scripts/rzz-ui.mjs` | CLI (`add` → cwd del consumidor) |
-| `scripts/add.mjs` | Copia componentes (+ `variables.css` si falta) |
+| `scripts/add.mjs` | Copia componentes, estilos base y fuentes sin pisar archivos editados |
 | `src/ui/` | Copia instalada local de ejemplo |
 | `index.html` / `docs/` | Playground y docs (cargan desde `registry/ui/`) |
 

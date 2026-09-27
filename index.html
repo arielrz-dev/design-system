@@ -2009,7 +2009,7 @@
             <button
               type="button"
               class="ds-button ds-button--ghost ds-button--sm"
-              data-tooltip="Más opciones"
+              data-rzz-tooltip="Más opciones"
               aria-label="Más opciones"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -2021,8 +2021,8 @@
             <button
               type="button"
               class="ds-button ds-button--secondary ds-button--sm"
-              data-tooltip="Copiar al portapapeles"
-              data-tooltip-side="bottom"
+              data-rzz-tooltip="Copiar al portapapeles"
+              data-rzz-tooltip-side="bottom"
               aria-label="Copiar al portapapeles"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -2752,7 +2752,7 @@
                   type="button"
                   class="ds-banner__close"
                   aria-label="Cerrar anuncio"
-                  onclick="this.closest('.ds-banner').hidden = true"
+                  data-banner-close
                 >
                   <svg viewBox="0 0 12 12" fill="none" aria-hidden="true">
                     <path
@@ -2921,6 +2921,7 @@
     <script type="module" src="registry/ui/tooltip/tooltip.js"></script>
     <script type="module" src="registry/ui/sheet/sheet.js"></script>
     <script type="module" src="registry/ui/copy-button/copy-button.js"></script>
+    <script type="module" src="registry/ui/banner/banner.js"></script>
     <script type="module" src="registry/ui/search-kbd-input/search-kbd-input.js"></script>
     <script type="module" src="registry/ui/currency-counter-input/currency-counter-input.js"></script>
     <script type="module" src="registry/ui/password-strength-input/password-strength-input.js"></script>

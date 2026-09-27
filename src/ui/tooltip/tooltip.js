@@ -1,11 +1,11 @@
 /**
- * Tooltip: sincroniza data-tooltip → aria-describedby + nodo role="tooltip".
- * El chrome visual sigue siendo CSS ([data-tooltip]::after).
+ * Tooltip: sincroniza data-rzz-tooltip → aria-describedby + nodo role="tooltip".
+ * El chrome visual sigue siendo CSS ([data-rzz-tooltip]::after).
  *
  * WCAG 1.4.13 (contenido en hover/focus):
- * - Hoverable: data-tooltip-open mantiene la burbuja visible con un período de
+ * - Hoverable: data-rzz-tooltip-open mantiene la burbuja visible con un período de
  *   gracia al salir, para poder mover el puntero del trigger a la burbuja.
- * - Dismissable: Escape agrega data-tooltip-dismissed sin mover foco ni puntero.
+ * - Dismissable: Escape agrega data-rzz-tooltip-dismissed sin mover foco ni puntero.
  *
  * Uso:
  *   import { bindTooltips } from './tooltip.js';
@@ -14,8 +14,8 @@
 
 const TIP_ATTR = 'data-rzz-tooltip-id';
 const BOUND_ATTR = 'data-rzz-tooltip-bound';
-const OPEN_ATTR = 'data-tooltip-open';
-const DISMISSED_ATTR = 'data-tooltip-dismissed';
+const OPEN_ATTR = 'data-rzz-tooltip-open';
+const DISMISSED_ATTR = 'data-rzz-tooltip-dismissed';
 const CLOSE_GRACE_MS = 150;
 
 /** @type {WeakMap<HTMLElement, number>} */
@@ -26,7 +26,7 @@ let escapeBound = false;
  * @param {HTMLElement} trigger
  */
 function ensureDescribedBy(trigger) {
-  const text = (trigger.getAttribute('data-tooltip') || '').trim();
+  const text = (trigger.getAttribute('data-rzz-tooltip') || '').trim();
   if (!text) return;
 
   if (!trigger.getAttribute('aria-label') && !trigger.textContent?.trim()) {
@@ -109,7 +109,7 @@ function bindEscape() {
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Escape') return;
     const visible = document.querySelectorAll(
-      `[data-tooltip][${OPEN_ATTR}]:not([${DISMISSED_ATTR}]), [data-tooltip]:focus-visible:not([${DISMISSED_ATTR}])`,
+      `[data-rzz-tooltip][${OPEN_ATTR}]:not([${DISMISSED_ATTR}]), [data-rzz-tooltip]:focus-visible:not([${DISMISSED_ATTR}])`,
     );
     if (visible.length === 0) return;
     visible.forEach((trigger) => trigger.setAttribute(DISMISSED_ATTR, ''));
@@ -122,7 +122,7 @@ function bindEscape() {
  * @param {ParentNode} [root=document]
  */
 export function bindTooltips(root = document) {
-  root.querySelectorAll('[data-tooltip]').forEach((node) => {
+  root.querySelectorAll('[data-rzz-tooltip]').forEach((node) => {
     if (!(node instanceof HTMLElement)) return;
     ensureDescribedBy(node);
     bindPointer(node);

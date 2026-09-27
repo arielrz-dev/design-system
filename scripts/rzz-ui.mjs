@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * CLI: rzz-ui add <component...> [--path <rel>]
+ * CLI: rzz-ui add <component...> [--path <rel>] [--overwrite] [--dry-run] | add --tokens
  * Delega en add.mjs preservando process.cwd() del consumidor.
  */
 import { spawn } from 'node:child_process';
@@ -17,13 +17,18 @@ function printHelp() {
   console.log(`rzz-ui — CLI
 
 Uso:
-  rzz-ui add <component...> [--path <rel>]
+  rzz-ui add <component...> [--path <rel>] [--overwrite | -f] [--dry-run]
+  rzz-ui add --tokens [--path <rel>] [--dry-run]
 
 Ejemplos (desde el proyecto consumidor):
   npx github:arielrz-dev/design-system add button
   npx github:arielrz-dev/design-system add button dialog --path components/ui
+  npx github:arielrz-dev/design-system add button --dry-run
+  npx github:arielrz-dev/design-system add --tokens
 
 El registro se lee del paquete rzz-ui; los archivos se copian al cwd.
+Los archivos existentes que difieran no se reemplazan sin --overwrite
+(o --tokens para variables.css, reduced-motion.css y fuentes).
 `);
 }
 
@@ -35,12 +40,6 @@ if (!command || command === '-h' || command === '--help') {
 if (command !== 'add') {
   console.error(`Comando desconocido: ${command}`);
   printHelp();
-  process.exit(1);
-}
-
-const wantsHelp = rest.includes('-h') || rest.includes('--help');
-if (!wantsHelp && !rest.some((arg) => !arg.startsWith('-'))) {
-  console.error('Indicá un componente: rzz-ui add button');
   process.exit(1);
 }
 

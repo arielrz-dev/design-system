@@ -96,3 +96,25 @@
   right: 0;
   bottom: 0;
 }
+
+/* --- Leyenda de estados --- */
+
+.ds-status-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--rzz-space-4) var(--rzz-space-12);
+  margin: var(--rzz-space-12) 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--rzz-content-muted);
+  font-family: var(--rzz-font-sans);
+  font-size: var(--rzz-text-xs);
+  line-height: var(--rzz-leading-xs);
+}
+
+.ds-status-legend > li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--rzz-space-4);
+}

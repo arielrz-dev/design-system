@@ -3,10 +3,9 @@
  * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
-[popover] {
+/* Solo popovers de rzz-ui: no resetear [popover] ajenos del proyecto consumidor. */
+.ds-popover[popover] {
   margin: 0;
-  padding: 0;
-  border: none;
   inset: unset;
 }
 

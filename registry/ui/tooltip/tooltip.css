@@ -1,9 +1,9 @@
 /**
- * Tooltip CSS-only vía [data-tooltip] (+ tooltip.js para role="tooltip" SR).
+ * Tooltip CSS-only vía [data-rzz-tooltip] (+ tooltip.js para role="tooltip" SR).
  * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
  */
 
-[data-tooltip] {
+[data-rzz-tooltip] {
   position: relative;
 }
 
@@ -20,8 +20,8 @@
   border: 0;
 }
 
-[data-tooltip]::after {
-  content: attr(data-tooltip);
+[data-rzz-tooltip]::after {
+  content: attr(data-rzz-tooltip);
   position: absolute;
   left: 50%;
   bottom: calc(100% + 0.5rem);
@@ -48,7 +48,7 @@
     transform var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
-[data-tooltip]::before {
+[data-rzz-tooltip]::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -65,40 +65,40 @@
   transition: opacity var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
-[data-tooltip]:hover::after,
-[data-tooltip]:hover::before,
-[data-tooltip][data-tooltip-open]::after,
-[data-tooltip][data-tooltip-open]::before,
-[data-tooltip]:focus-visible::after,
-[data-tooltip]:focus-visible::before {
+[data-rzz-tooltip]:hover::after,
+[data-rzz-tooltip]:hover::before,
+[data-rzz-tooltip][data-rzz-tooltip-open]::after,
+[data-rzz-tooltip][data-rzz-tooltip-open]::before,
+[data-rzz-tooltip]:focus-visible::after,
+[data-rzz-tooltip]:focus-visible::before {
   opacity: 1;
 }
 
-[data-tooltip]:hover::after,
-[data-tooltip][data-tooltip-open]::after,
-[data-tooltip]:focus-visible::after {
+[data-rzz-tooltip]:hover::after,
+[data-rzz-tooltip][data-rzz-tooltip-open]::after,
+[data-rzz-tooltip]:focus-visible::after {
   transform: translateX(-50%) translateY(0);
 }
 
 /* WCAG 1.4.13: la burbuja visible recibe el puntero (cuenta como hover del trigger). */
-[data-tooltip][data-tooltip-open]::after {
+[data-rzz-tooltip][data-rzz-tooltip-open]::after {
   pointer-events: auto;
 }
 
 /* WCAG 1.4.13: Escape la descarta sin mover foco ni puntero (tooltip.js). */
-[data-tooltip][data-tooltip-dismissed]::after,
-[data-tooltip][data-tooltip-dismissed]::before {
+[data-rzz-tooltip][data-rzz-tooltip-dismissed]::after,
+[data-rzz-tooltip][data-rzz-tooltip-dismissed]::before {
   opacity: 0;
   pointer-events: none;
 }
 
-[data-tooltip][data-tooltip-side="bottom"]::after {
+[data-rzz-tooltip][data-rzz-tooltip-side="bottom"]::after {
   top: calc(100% + 0.5rem);
   bottom: auto;
   transform: translateX(-50%) translateY(-0.15rem);
 }
 
-[data-tooltip][data-tooltip-side="bottom"]::before {
+[data-rzz-tooltip][data-rzz-tooltip-side="bottom"]::before {
   top: calc(100% + 0.2rem);
   bottom: auto;
   border-right: 0;
@@ -107,15 +107,15 @@
   border-top: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
 }
 
-[data-tooltip][data-tooltip-side="bottom"]:hover::after,
-[data-tooltip][data-tooltip-side="bottom"][data-tooltip-open]::after,
-[data-tooltip][data-tooltip-side="bottom"]:focus-visible::after {
+[data-rzz-tooltip][data-rzz-tooltip-side="bottom"]:hover::after,
+[data-rzz-tooltip][data-rzz-tooltip-side="bottom"][data-rzz-tooltip-open]::after,
+[data-rzz-tooltip][data-rzz-tooltip-side="bottom"]:focus-visible::after {
   transform: translateX(-50%) translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-tooltip]::after,
-  [data-tooltip]::before {
+  [data-rzz-tooltip]::after,
+  [data-rzz-tooltip]::before {
     transition: none;
   }
 }
