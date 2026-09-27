@@ -36,7 +36,7 @@ Solo algunos componentes traen `.js`. Requiere Node ≥ 18.
 | `--tokens` | Actualiza solo `variables.css`, `reduced-motion.css` y las fuentes (`add --tokens` funciona sin componentes) |
 | `--dry-run` | Lista qué se crearía o reemplazaría, sin escribir nada |
 
-Por defecto el CLI **no pisa** archivos existentes que hayas editado: los omite con un aviso. Los que son idénticos al paquete figuran como "sin cambios". Si instalaste con una versión ≤ 0.3, tus estilos base están en `dist/css/` y el CLI los sigue usando ahí mientras no pases `--path`.
+Por defecto el CLI **no pisa** archivos existentes que hayas editado: los omite con un aviso. Los que son idénticos al paquete figuran como "sin cambios". Si instalaste con una versión ≤ 0.3, tus estilos base están en `dist/css/` y el CLI los sigue usando ahí mientras no pases `--path`. Los cambios incompatibles entre versiones y cómo migrar están en [CHANGELOG.md](CHANGELOG.md).
 
 `variables.css` ya carga Inter (variable, licencia SIL OFL en `fonts/OFL.txt`) desde `../fonts/`, así que mantené `styles/` y `fonts/` como carpetas hermanas. Para usar otra fuente, redefiní `--rzz-font-sans` después de `variables.css`; Inter deja de descargarse.
 

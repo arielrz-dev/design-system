@@ -1,6 +1,6 @@
 /**
  * .ds-toast — notificaciones temporales (viewport + ítems).
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 .ds-toast-viewport {

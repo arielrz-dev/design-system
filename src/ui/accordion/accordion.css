@@ -1,6 +1,6 @@
 /**
  * .ds-accordion — FAQ / secciones colapsables nativas (<details>).
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 .ds-accordion-group {

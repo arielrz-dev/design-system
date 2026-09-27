@@ -1,6 +1,6 @@
 /**
  * .ds-badge — etiqueta de estado / categoría.
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 .ds-badge {

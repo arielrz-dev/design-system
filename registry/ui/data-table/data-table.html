@@ -1,8 +1,8 @@
 <!--
   ds-table — tabla de órdenes con selección, badges y popover.
   Requiere:
-    dist/css/variables.css
-    data-table.css + checkbox.css + badge.css + button.css + popover.css
+    styles/variables.css
+    data-table.css + checkbox.css + badge.css + button.css + popover.css + popover.js
 -->
 
 <div class="ds-table-container" role="region" aria-label="Órdenes recientes" tabindex="0">
@@ -54,7 +54,7 @@
           >
             ⋯
           </button>
-          <div id="order-menu-1042" class="ds-popover" popover>
+          <div id="order-menu-1042" class="ds-popover" popover data-rzz-popover-align="end">
             <div class="ds-menu" role="menu">
               <button type="button" class="ds-menu-item" role="menuitem">Ver detalle</button>
               <button type="button" class="ds-menu-item" role="menuitem">Descargar factura</button>
@@ -93,7 +93,7 @@
           >
             ⋯
           </button>
-          <div id="order-menu-1043" class="ds-popover" popover>
+          <div id="order-menu-1043" class="ds-popover" popover data-rzz-popover-align="end">
             <div class="ds-menu" role="menu">
               <button type="button" class="ds-menu-item" role="menuitem">Ver detalle</button>
               <button type="button" class="ds-menu-item" role="menuitem">Marcar pagado</button>
@@ -132,7 +132,7 @@
           >
             ⋯
           </button>
-          <div id="order-menu-1044" class="ds-popover" popover>
+          <div id="order-menu-1044" class="ds-popover" popover data-rzz-popover-align="end">
             <div class="ds-menu" role="menu">
               <button type="button" class="ds-menu-item" role="menuitem">Ver detalle</button>
               <button type="button" class="ds-menu-item" role="menuitem">Descargar factura</button>
@@ -147,3 +147,8 @@
     </tbody>
   </table>
 </div>
+
+<script type="module">
+  import { bindPopoverMenus } from '../popover/popover.js';
+  bindPopoverMenus();
+</script>

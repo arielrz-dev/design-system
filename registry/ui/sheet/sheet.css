@@ -1,6 +1,6 @@
 /**
  * dialog.ds-sheet — panel lateral (drawer) nativo.
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 dialog.ds-sheet {

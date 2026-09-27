@@ -1,6 +1,6 @@
 /**
  * .ds-search-kbd — búsqueda global con atajo ⌘K / Ctrl+K.
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 .ds-search-kbd {

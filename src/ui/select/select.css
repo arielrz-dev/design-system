@@ -1,6 +1,6 @@
 /**
  * .ds-select — select nativo con chevron custom.
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 .ds-select-wrapper {

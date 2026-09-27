@@ -1,6 +1,6 @@
 /**
  * Tooltip CSS-only vía [data-rzz-tooltip] (+ tooltip.js para role="tooltip" SR).
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 [data-rzz-tooltip] {

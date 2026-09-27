@@ -1,6 +1,6 @@
 /**
  * .ds-textarea — área de texto alineada con .ds-input.
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  * Usar junto a input.css para .ds-field / .ds-label / hints.
  */
 

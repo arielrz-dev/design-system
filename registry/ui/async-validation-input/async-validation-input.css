@@ -1,6 +1,6 @@
 /**
  * .ds-async — input con validación asíncrona (debounce + estados).
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 .ds-async {

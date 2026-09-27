@@ -1,6 +1,6 @@
 /**
  * .ds-skeleton — placeholders de carga con shimmer.
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 @keyframes ds-skeleton-shimmer {

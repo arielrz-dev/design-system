@@ -1,6 +1,6 @@
 /**
  * .ds-radio-card — tarjetas de opción mutuamente excluyentes.
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 .ds-radio-grid {

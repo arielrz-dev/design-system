@@ -1,6 +1,6 @@
 /**
  * .ds-switch — interruptor accesible (checkbox + role="switch").
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 .ds-switch {

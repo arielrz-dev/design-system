@@ -1,6 +1,6 @@
 /**
  * dialog.ds-dialog — modal nativo del design system.
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 dialog.ds-dialog {

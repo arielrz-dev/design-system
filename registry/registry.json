@@ -45,7 +45,7 @@
       ],
       "dependencies": [],
       "registryDependencies": [],
-      "docs": "Requiere dist/css/variables.css cargado en la página. Incluí button.js para bloquear la activación de aria-disabled=\"true\"."
+      "docs": "Requiere styles/variables.css cargado en la página. Incluí button.js para bloquear la activación de aria-disabled=\"true\"."
     },
     {
       "name": "card",
@@ -66,7 +66,7 @@
       ],
       "dependencies": [],
       "registryDependencies": ["button"],
-      "docs": "Requiere dist/css/variables.css. Los snippets de footer usan .ds-button (instalar button)."
+      "docs": "Requiere styles/variables.css. Los snippets de footer usan .ds-button (instalar button)."
     },
     {
       "name": "input",
@@ -87,7 +87,7 @@
       ],
       "dependencies": [],
       "registryDependencies": [],
-      "docs": "Requiere dist/css/variables.css. Usa --rzz-semantic-border-*, --rzz-shadow-xs y --rzz-semantic-action-danger-*."
+      "docs": "Requiere styles/variables.css. Usa --rzz-border-*, --rzz-shadow-xs y --rzz-action-danger-*."
     },
     {
       "name": "dialog",
@@ -113,7 +113,7 @@
       ],
       "dependencies": [],
       "registryDependencies": ["button"],
-      "docs": "Requiere dist/css/variables.css y button. Usa <dialog>.showModal() / .close() vía dialog.js."
+      "docs": "Requiere styles/variables.css y button. Usa <dialog>.showModal() / .close() vía dialog.js."
     },
     {
       "name": "checkbox",
@@ -134,7 +134,7 @@
       ],
       "dependencies": [],
       "registryDependencies": [],
-      "docs": "Requiere dist/css/variables.css. Input nativo permanece en el árbol a11y."
+      "docs": "Requiere styles/variables.css. Input nativo permanece en el árbol a11y."
     },
     {
       "name": "switch",
@@ -155,7 +155,7 @@
       ],
       "dependencies": [],
       "registryDependencies": [],
-      "docs": "Requiere dist/css/variables.css. Sincronizar aria-checked en change (snippet incluido)."
+      "docs": "Requiere styles/variables.css. Sincronizar aria-checked en change (snippet incluido)."
     },
     {
       "name": "select",
@@ -176,7 +176,7 @@
       ],
       "dependencies": [],
       "registryDependencies": ["input"],
-      "docs": "Requiere dist/css/variables.css e input (para .ds-field / .ds-label / hints)."
+      "docs": "Requiere styles/variables.css e input (para .ds-field / .ds-label / hints)."
     },
     {
       "name": "badge",
@@ -197,7 +197,7 @@
       ],
       "dependencies": [],
       "registryDependencies": [],
-      "docs": "Requiere dist/css/variables.css con tokens semantic.feedback-*."
+      "docs": "Requiere styles/variables.css con tokens semantic.feedback-*."
     },
     {
       "name": "alert",
@@ -218,7 +218,7 @@
       ],
       "dependencies": [],
       "registryDependencies": [],
-      "docs": "Requiere dist/css/variables.css. Usar role=alert o role=status según criticidad."
+      "docs": "Requiere styles/variables.css. Usar role=alert o role=status según criticidad."
     },
     {
       "name": "toast",
@@ -244,7 +244,7 @@
       ],
       "dependencies": [],
       "registryDependencies": ["button"],
-      "docs": "Requiere dist/css/variables.css. Importar toast.js como módulo ESM."
+      "docs": "Requiere styles/variables.css. Importar toast.js como módulo ESM."
     },
     {
       "name": "breadcrumb",
@@ -265,7 +265,7 @@
       ],
       "dependencies": [],
       "registryDependencies": [],
-      "docs": "Requiere dist/css/variables.css. Usar aria-label en el nav."
+      "docs": "Requiere styles/variables.css. Usar aria-label en el nav."
     },
     {
       "name": "tabs",
@@ -291,7 +291,7 @@
       ],
       "dependencies": [],
       "registryDependencies": [],
-      "docs": "Requiere dist/css/variables.css. Auto-init con data-ds-tabs o initTabs()."
+      "docs": "Requiere styles/variables.css. Auto-init con data-ds-tabs o initTabs()."
     },
     {
       "name": "popover",
@@ -317,7 +317,7 @@
       ],
       "dependencies": [],
       "registryDependencies": ["button"],
-      "docs": "Popover API + popover.js (aria-expanded, flechas, Escape). Incluí el script en la página."
+      "docs": "Popover API + popover.js (posición junto al trigger, aria-expanded, flechas, Escape). Incluí el script en la página: sin él el menú no se posiciona. data-rzz-popover-align=\"end\" alinea el menú al borde derecho del trigger."
     },
     {
       "name": "accordion",
@@ -359,7 +359,7 @@
       ],
       "dependencies": [],
       "registryDependencies": ["checkbox", "badge", "button", "popover"],
-      "docs": "El snippet de órdenes integra checkbox, badge y popover."
+      "docs": "El snippet de órdenes integra checkbox, badge y popover (carga popover.js; los menús de fila usan data-rzz-popover-align=\"end\")."
     },
     {
       "name": "avatar",

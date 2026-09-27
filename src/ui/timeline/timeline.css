@@ -1,6 +1,6 @@
 /**
  * .ds-timeline — activity feed / registro cronológico.
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 .ds-timeline {

@@ -1,6 +1,6 @@
 /**
  * .ds-checkbox — casilla nativa con appearance: none.
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 .ds-checkbox-group {

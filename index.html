@@ -897,8 +897,8 @@
             <div class="ds-card__body">
               <p>
                 El fondo de la tarjeta usa
-                <code>--rzz-semantic-surface-card</code>; el canvas de la página
-                usa <code>--rzz-semantic-surface-canvas</code>. Ambos deben
+                <code>--rzz-surface-card</code>; el canvas de la página
+                usa <code>--rzz-surface-canvas</code>. Ambos deben
                 invertirse al activar dark mode.
               </p>
             </div>
@@ -1658,8 +1658,10 @@
               </summary>
               <div class="ds-accordion__content">
                 <p>
-                  Ejecutá <code>node scripts/add.mjs &lt;nombre&gt;</code>. El
-                  CLI copia los archivos a <code>registry/ui/</code>.
+                  Ejecutá
+                  <code>npx github:arielrz-dev/design-system add &lt;nombre&gt;</code>
+                  en tu proyecto. El CLI copia los archivos a <code>src/ui/</code>
+                  (o a la carpeta de <code>--path</code>) y no pisa los que editaste.
                 </p>
               </div>
             </details>
@@ -1776,7 +1778,7 @@
                     >
                       ⋯
                     </button>
-                    <div id="pg-row-menu-1" class="ds-popover" popover>
+                    <div id="pg-row-menu-1" class="ds-popover" popover data-rzz-popover-align="end">
                       <div class="ds-menu" role="menu">
                         <button type="button" class="ds-menu-item" role="menuitem">
                           Ver detalle
@@ -1822,7 +1824,7 @@
                     >
                       ⋯
                     </button>
-                    <div id="pg-row-menu-2" class="ds-popover" popover>
+                    <div id="pg-row-menu-2" class="ds-popover" popover data-rzz-popover-align="end">
                       <div class="ds-menu" role="menu">
                         <button type="button" class="ds-menu-item" role="menuitem">
                           Ver detalle
@@ -1868,7 +1870,7 @@
                     >
                       ⋯
                     </button>
-                    <div id="pg-row-menu-3" class="ds-popover" popover>
+                    <div id="pg-row-menu-3" class="ds-popover" popover data-rzz-popover-align="end">
                       <div class="ds-menu" role="menu">
                         <button type="button" class="ds-menu-item" role="menuitem">
                           Ver detalle
@@ -1914,7 +1916,7 @@
                     >
                       ⋯
                     </button>
-                    <div id="pg-row-menu-4" class="ds-popover" popover>
+                    <div id="pg-row-menu-4" class="ds-popover" popover data-rzz-popover-align="end">
                       <div class="ds-menu" role="menu">
                         <button type="button" class="ds-menu-item" role="menuitem">
                           Reintentar cobro

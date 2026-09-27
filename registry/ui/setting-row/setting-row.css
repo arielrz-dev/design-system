@@ -1,6 +1,6 @@
 /**
  * .ds-setting-row — fila de ajustes clickeable (label + switch/checkbox).
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  * Anidá .ds-switch__control o .ds-checkbox en .ds-setting-row__control (sin label anidado).
  */
 

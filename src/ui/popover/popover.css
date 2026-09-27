@@ -1,6 +1,6 @@
 /**
  * Popover / menú nativo (HTML Popover API).
- * Solo consume variables CSS `--rzz-*` (ver dist/css/variables.css).
+ * Solo consume variables CSS `--rzz-*` (ver ../styles/variables.css).
  */
 
 /* Solo popovers de rzz-ui: no resetear [popover] ajenos del proyecto consumidor. */
@@ -41,6 +41,21 @@
   .ds-popover:popover-open {
     opacity: 0;
     transform: translateY(-6px) scale(0.96);
+  }
+}
+
+/* popover.js lo abre hacia arriba cuando no entra abajo: la entrada sube. */
+.ds-popover[data-rzz-popover-side='top'] {
+  transform: translateY(6px) scale(0.96);
+}
+
+.ds-popover[data-rzz-popover-side='top']:popover-open {
+  transform: translateY(0) scale(1);
+}
+
+@starting-style {
+  .ds-popover[data-rzz-popover-side='top']:popover-open {
+    transform: translateY(6px) scale(0.96);
   }
 }
 
@@ -121,7 +136,8 @@
     transition: none;
   }
 
-  .ds-popover {
+  .ds-popover,
+  .ds-popover[data-rzz-popover-side='top'] {
     transform: none;
     opacity: 1;
   }
