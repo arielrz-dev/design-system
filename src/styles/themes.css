@@ -68,7 +68,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* Color: rose (600 en light; en dark 500, distinto del danger #fb7185)        */
+/* Color: rose (600 en light; 500 en dark, mismo tono que danger-default)      */
 /* -------------------------------------------------------------------------- */
 
 [data-theme-color="rose"] {

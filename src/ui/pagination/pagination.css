@@ -101,3 +101,12 @@
   font-size: var(--rzz-text-sm);
   user-select: none;
 }
+
+@media (forced-colors: active) {
+  .ds-pagination__page--active,
+  .ds-pagination__page[aria-current="page"] {
+    outline: 2px solid Highlight;
+    background: Highlight;
+    color: HighlightText;
+  }
+}

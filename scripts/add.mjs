@@ -157,7 +157,13 @@ async function copyComponent(name, destRoot) {
 async function ensureVariablesCss(projectRoot) {
   const dest = path.join(projectRoot, 'dist', 'css', 'variables.css');
   const source = path.join(PACKAGE_ROOT, 'dist', 'css', 'variables.css');
-  if (await pathExists(dest)) return { copied: false, dest };
+  if (await pathExists(dest)) {
+    const [current, packaged] = await Promise.all([
+      readFile(dest, 'utf8').catch(() => ''),
+      readFile(source, 'utf8').catch(() => null),
+    ]);
+    return { copied: false, dest, stale: packaged != null && current !== packaged };
+  }
   if (!(await pathExists(source))) {
     log(
       `${YELLOW}⚠${RESET} No hay ${path.relative(PACKAGE_ROOT, source)} en el paquete. Corré build:tokens en rzz-ui.`,
@@ -246,9 +252,9 @@ async function main() {
     log(
       `${GREEN}✔${RESET} ${BOLD}dist/css/variables.css${RESET} → ${path.relative(projectRoot, vars.dest)}`,
     );
-  } else if (!(await readFile(vars.dest, 'utf8').catch(() => '')).includes('@font-face')) {
+  } else if (vars.stale) {
     log(
-      `${YELLOW}⚠${RESET} ${path.relative(projectRoot, vars.dest)} es de una versión anterior (no carga Inter). Borralo y volvé a correr add para actualizarlo.`,
+      `${YELLOW}⚠${RESET} ${path.relative(projectRoot, vars.dest)} difiere del de esta versión de rzz-ui (tokens, Inter, color-scheme o .visually-hidden pueden faltar). Si no lo editaste a mano, borralo y volvé a correr add.`,
     );
   }
 

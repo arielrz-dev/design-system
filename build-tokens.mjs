@@ -211,17 +211,32 @@ function buildCssFile(lightBlock, darkBlock) {
  * API pública: surface/content/border/action/feedback/space/radius/font/text/leading/shadow/z/duration/ease.
  * primitive queda en dist solo como fuente interna del build.
  * Inter se sirve desde ../fonts/ (copiado por el CLI junto a este archivo).
+ * Incluye la utilidad global .visually-hidden (texto solo para lectores de pantalla).
  * No editar a mano; ejecutar \`npm run build:tokens\`.
  */
 
 ${buildFontFaces()}
 
 :root {
+  color-scheme: light;
 ${lightBlock}
 }
 
 [data-theme="dark"] {
+  color-scheme: dark;
 ${darkBlock}
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 `;
 }

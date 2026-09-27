@@ -13,19 +13,22 @@ const LEAVING_CLASS = 'ds-toast--leaving';
 const VARIANTS = new Set(['default', 'success', 'danger']);
 
 /**
+ * Única live region de la página: los toasts se agregan como contenido plano
+ * (sin role status/alert propio) para no anidar regiones que se pisen.
+ * Debe existir antes del primer toast o el primer anuncio se pierde.
  * @returns {HTMLElement}
  */
 function ensureViewport() {
   let viewport = document.querySelector(`.${VIEWPORT_CLASS}`);
-  if (viewport) return viewport;
-
-  viewport = document.createElement('div');
-  viewport.className = VIEWPORT_CLASS;
+  if (!(viewport instanceof HTMLElement)) {
+    viewport = document.createElement('div');
+    viewport.className = VIEWPORT_CLASS;
+    document.body.appendChild(viewport);
+  }
   viewport.setAttribute('role', 'region');
   viewport.setAttribute('aria-live', 'polite');
-  viewport.setAttribute('aria-label', 'Notificaciones');
+  if (!viewport.hasAttribute('aria-label')) viewport.setAttribute('aria-label', 'Notificaciones');
   viewport.setAttribute('aria-relevant', 'additions text');
-  document.body.appendChild(viewport);
   return viewport;
 }
 
@@ -76,7 +79,6 @@ function show(options = {}) {
 
   const toastEl = document.createElement('div');
   toastEl.className = `${TOAST_CLASS} ${TOAST_CLASS}--${variant}`;
-  toastEl.setAttribute('role', variant === 'danger' ? 'alert' : 'status');
 
   const body = document.createElement('div');
   body.className = 'ds-toast__body';
@@ -166,6 +168,14 @@ function show(options = {}) {
       dismissToast(toastEl);
     },
   };
+}
+
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => ensureViewport(), { once: true });
+  } else {
+    ensureViewport();
+  }
 }
 
 export const toast = { show, ensureViewport };

@@ -36,6 +36,7 @@ export const tokens = {
         "50": "#fff1f3",
         "100": "#ffe4e8",
         "200": "#fecdd5",
+        "300": "#fda4af",
         "400": "#fb7185",
         "500": "#f43f5e",
         "600": "#e11d48",
@@ -317,8 +318,8 @@ export const tokensDark = {
     "primary-active": "#93c5fd",
     "primary-foreground": "#09090b",
     "danger-default": "#f43f5e",
-    "danger-hover": "#e11d48",
-    "danger-active": "#e11d48",
+    "danger-hover": "#fb7185",
+    "danger-active": "#fda4af",
   },
   "feedback": {
     "info-subtle": "#1e3a8a",

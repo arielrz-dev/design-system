@@ -1,26 +1,39 @@
 /**
- * CopyButton — clipboard + estado --copied (2s) + aria-live.
+ * CopyButton — clipboard + estado --copied (2s) + anuncio en role="status".
  *
  * Markup:
  *   <button type="button" class="ds-copy-button" data-ds-copy="texto a copiar">…</button>
+ *   <span class="ds-copy-button__status visually-hidden" role="status"></span>
  *   o data-ds-copy-target="#selector" para leer textContent/value del target.
+ *
+ * El status va como hermano inmediato del botón (si falta, se crea): una live
+ * region dentro de un botón con aria-label no se anuncia de forma fiable.
  */
 
 const COPIED_MS = 2000;
+const STATUS_CLASS = 'ds-copy-button__status';
+
+/**
+ * @param {HTMLButtonElement} button
+ * @returns {HTMLElement}
+ */
+function ensureStatus(button) {
+  const next = button.nextElementSibling;
+  if (next instanceof HTMLElement && next.classList.contains(STATUS_CLASS)) return next;
+
+  const live = document.createElement('span');
+  live.className = `${STATUS_CLASS} visually-hidden`;
+  live.setAttribute('role', 'status');
+  button.insertAdjacentElement('afterend', live);
+  return live;
+}
 
 /**
  * @param {HTMLButtonElement} button
  * @param {string} message
  */
 function announce(button, message) {
-  let live = button.querySelector('.ds-copy-button__status');
-  if (!(live instanceof HTMLElement)) {
-    live = document.createElement('span');
-    live.className = 'ds-copy-button__status';
-    live.setAttribute('aria-live', 'polite');
-    live.setAttribute('aria-atomic', 'true');
-    button.appendChild(live);
-  }
+  const live = ensureStatus(button);
   live.textContent = '';
   // Forzar anuncio en lecturas consecutivas
   requestAnimationFrame(() => {
@@ -38,7 +51,12 @@ function resolveCopyText(button) {
 
   const targetSel = button.getAttribute('data-ds-copy-target');
   if (targetSel) {
-    const target = document.querySelector(targetSel);
+    let target = null;
+    try {
+      target = document.querySelector(targetSel);
+    } catch {
+      console.warn(`[ds-copy-button] Selector inválido en data-ds-copy-target: "${targetSel}"`);
+    }
     if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) {
       return target.value;
     }
@@ -76,13 +94,11 @@ async function handleCopy(button) {
   }
 
   button.classList.add('ds-copy-button--copied');
-  button.setAttribute('aria-pressed', 'true');
   announce(button, 'Copiado al portapapeles');
 
   window.clearTimeout(Number(button.dataset.dsCopyTimer || 0));
   const timer = window.setTimeout(() => {
     button.classList.remove('ds-copy-button--copied');
-    button.setAttribute('aria-pressed', 'false');
     announce(button, '');
   }, COPIED_MS);
   button.dataset.dsCopyTimer = String(timer);
@@ -95,7 +111,7 @@ export function bindCopyButtons(root = document) {
   root.querySelectorAll('.ds-copy-button').forEach((el) => {
     if (!(el instanceof HTMLButtonElement) || el.dataset.dsCopyBound === 'true') return;
     el.dataset.dsCopyBound = 'true';
-    el.setAttribute('aria-pressed', 'false');
+    ensureStatus(el);
     el.addEventListener('click', () => {
       void handleCopy(el);
     });

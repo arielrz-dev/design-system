@@ -358,14 +358,14 @@
       "$description": "Acción destructiva por defecto en dark."
     },
     "danger-hover": {
-      "$value": "{primitive.color.red.600}",
+      "$value": "{primitive.color.red.400}",
       "$type": "color",
-      "$description": "Acción destructiva hover en dark."
+      "$description": "Acción destructiva hover en dark: aclara (no oscurece) para mantener ≥4.5:1 con content-inverse."
     },
     "danger-active": {
-      "$value": "{primitive.color.red.600}",
+      "$value": "{primitive.color.red.300}",
       "$type": "color",
-      "$description": "Acción destructiva active en dark."
+      "$description": "Acción destructiva active en dark: aclara (no oscurece) para mantener ≥4.5:1 con content-inverse."
     }
   },
   "feedback": {

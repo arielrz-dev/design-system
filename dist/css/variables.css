@@ -4,6 +4,7 @@
  * API pública: surface/content/border/action/feedback/space/radius/font/text/leading/shadow/z/duration/ease.
  * primitive queda en dist solo como fuente interna del build.
  * Inter se sirve desde ../fonts/ (copiado por el CLI junto a este archivo).
+ * Incluye la utilidad global .visually-hidden (texto solo para lectores de pantalla).
  * No editar a mano; ejecutar `npm run build:tokens`.
  */
 
@@ -26,6 +27,7 @@
 }
 
 :root {
+  color-scheme: light;
   --rzz-primitive-color-slate-50: #fafafa; /** Neutral más claro. */
   --rzz-primitive-color-slate-100: #f4f4f5; /** Neutral muy claro. */
   --rzz-primitive-color-slate-200: #e4e4e7; /** Neutral claro. */
@@ -51,6 +53,7 @@
   --rzz-primitive-color-red-50: #fff1f3; /** Carmesí más claro (tinte danger). */
   --rzz-primitive-color-red-100: #ffe4e8; /** Carmesí muy claro. */
   --rzz-primitive-color-red-200: #fecdd5; /** Carmesí claro (borde danger). */
+  --rzz-primitive-color-red-300: #fda4af; /** Carmesí suave (active danger en dark). */
   --rzz-primitive-color-red-400: #fb7185; /** Carmesí claro (texto danger sobre fondos dark, AA). */
   --rzz-primitive-color-red-500: #f43f5e; /** Carmesí medio (peligro en dark). */
   --rzz-primitive-color-red-600: #e11d48; /** Carmesí medio-oscuro (peligro en light). */
@@ -206,6 +209,7 @@
 }
 
 [data-theme="dark"] {
+  color-scheme: dark;
   --rzz-shadow-xs: 0px 0px 0px 1px rgb(0% 0% 0% / 0.5), 0px 1px 2px 0px rgb(0% 0% 0% / 0.35); /** Sombra xs en dark. */
   --rzz-shadow-sm: 0px 0px 0px 1px rgb(0% 0% 0% / 0.55), 0px 2px 4px 0px rgb(0% 0% 0% / 0.4), 0px 8px 16px 0px rgb(0% 0% 0% / 0.3); /** Sombra sm en dark. */
   --rzz-shadow-md: 0px 0px 0px 1px rgb(0% 0% 0% / 0.6), 0px 4px 8px 0px rgb(0% 0% 0% / 0.45), 0px 16px 32px 0px rgb(0% 0% 0% / 0.35); /** Sombra md en dark. */
@@ -228,8 +232,8 @@
   --rzz-action-primary-active: var(--rzz-primitive-color-blue-300); /** Acción primaria active en dark. */
   --rzz-action-primary-foreground: var(--rzz-primitive-color-slate-950); /** Texto e iconos sobre la acción primaria en dark. */
   --rzz-action-danger-default: var(--rzz-primitive-color-red-500); /** Acción destructiva por defecto en dark. */
-  --rzz-action-danger-hover: var(--rzz-primitive-color-red-600); /** Acción destructiva hover en dark. */
-  --rzz-action-danger-active: var(--rzz-primitive-color-red-600); /** Acción destructiva active en dark. */
+  --rzz-action-danger-hover: var(--rzz-primitive-color-red-400); /** Acción destructiva hover en dark: aclara (no oscurece) para mantener ≥4.5:1 con content-inverse. */
+  --rzz-action-danger-active: var(--rzz-primitive-color-red-300); /** Acción destructiva active en dark: aclara (no oscurece) para mantener ≥4.5:1 con content-inverse. */
   --rzz-feedback-info-subtle: var(--rzz-primitive-color-blue-900); /** Fondo tenue info en dark. */
   --rzz-feedback-info-foreground: var(--rzz-primitive-color-blue-300); /** Texto info en dark. */
   --rzz-feedback-info-border: var(--rzz-primitive-color-blue-800); /** Borde info en dark. */
@@ -242,4 +246,16 @@
   --rzz-feedback-danger-subtle: var(--rzz-primitive-color-red-950); /** Fondo tenue danger en dark. */
   --rzz-feedback-danger-foreground: var(--rzz-primitive-color-red-400); /** Texto danger en dark (AA sobre danger-subtle y superficies). */
   --rzz-feedback-danger-border: var(--rzz-primitive-color-red-700); /** Borde danger en dark. */
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

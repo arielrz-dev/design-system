@@ -15,7 +15,10 @@
   </button>
 </div>
 
-<!-- El viewport se crea automáticamente por toast.js si no existe. -->
+<!--
+  Única live region de la página. Dejala estática en el DOM (toast.js la crea
+  al cargar si falta). Los toasts entran como contenido plano, sin role propio.
+-->
 <div
   class="ds-toast-viewport"
   role="region"
