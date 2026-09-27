@@ -9,7 +9,7 @@
   align-items: stretch;
   width: 100%;
   margin: 0;
-  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border: 1px solid var(--rzz-border-control);
   border-radius: var(--rzz-radius-md);
   background-color: var(--rzz-surface-card);
   box-shadow: var(--rzz-shadow-xs);
@@ -19,7 +19,7 @@
 }
 
 .ds-currency:hover:not(:focus-within) {
-  border-color: color-mix(in srgb, var(--rzz-content-primary) 20%, transparent);
+  border-color: var(--rzz-content-secondary);
 }
 
 .ds-currency:focus-within {

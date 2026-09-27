@@ -47,7 +47,7 @@
 .ds-badge--primary {
   border-color: transparent;
   background-color: var(--rzz-action-primary-default);
-  color: var(--rzz-content-inverse);
+  color: var(--rzz-action-primary-foreground);
 }
 
 .ds-badge--success {

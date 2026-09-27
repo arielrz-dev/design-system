@@ -24,7 +24,7 @@
   height: 2.75rem;
   margin: 0;
   padding: 0;
-  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border: 1px solid var(--rzz-border-control);
   border-radius: var(--rzz-radius-md);
   background-color: var(--rzz-surface-card);
   color: var(--rzz-content-primary);
@@ -39,7 +39,7 @@
 }
 
 .ds-pin:not(.ds-pin--error) .ds-pin__cell:hover:not(:disabled):not(:focus-visible) {
-  border-color: color-mix(in srgb, var(--rzz-content-primary) 20%, transparent);
+  border-color: var(--rzz-content-secondary);
 }
 
 .ds-pin__cell:focus {
@@ -53,7 +53,7 @@
 }
 
 .ds-pin--error .ds-pin__cell {
-  border-color: color-mix(in srgb, var(--rzz-action-danger-default) 55%, transparent);
+  border-color: var(--rzz-action-danger-default);
 }
 
 /* --- Dark: cells need a 3:1 boundary against the card (WCAG 1.4.11) --- */

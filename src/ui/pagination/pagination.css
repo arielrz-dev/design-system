@@ -72,25 +72,17 @@
 }
 
 .ds-pagination__page--active {
-  color: var(--rzz-content-inverse);
+  color: var(--rzz-action-primary-foreground);
   background-color: var(--rzz-action-primary-default);
   border-color: var(--rzz-action-primary-default);
   box-shadow: none;
   pointer-events: none;
 }
 
-[data-theme='dark'] .ds-pagination__page--active {
-  color: var(--rzz-content-primary);
-}
-
 .ds-pagination__page--active:hover {
-  color: var(--rzz-content-inverse);
+  color: var(--rzz-action-primary-foreground);
   background-color: var(--rzz-action-primary-default);
   border-color: var(--rzz-action-primary-default);
-}
-
-[data-theme='dark'] .ds-pagination__page--active:hover {
-  color: var(--rzz-content-primary);
 }
 
 .ds-pagination__nav:disabled,

@@ -54,10 +54,10 @@ Solo algunos componentes traen `.js`. Requiere Node ≥ 18.
 
 Los componentes **solo** consumen tokens semánticos cortos:
 
-- Superficies: `--rzz-surface-canvas|card|elevated|subtle|scrim`
+- Superficies: `--rzz-surface-canvas|card|elevated|subtle|muted|scrim`
 - Contenido: `--rzz-content-primary|secondary|muted|inverse`
-- Bordes: `--rzz-border-subtle|strong|focus`
-- Acciones: `--rzz-action-primary-*`, `--rzz-action-danger-*`
+- Bordes: `--rzz-border-subtle|strong|control|focus`
+- Acciones: `--rzz-action-primary-default|hover|active|foreground`, `--rzz-action-danger-*`
 - Feedback, espacio, radio, tipografía: `--rzz-feedback-*`, `--rzz-space-*`, `--rzz-radius-*`, `--rzz-font-*`, `--rzz-text-*`, `--rzz-leading-*`
 - Motion / capas: `--rzz-shadow-*`, `--rzz-z-*`, `--rzz-duration-*`, `--rzz-ease-*`
 

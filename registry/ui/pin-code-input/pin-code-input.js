@@ -42,9 +42,31 @@ export function bindPinCodeInputs(root = document) {
     const cells = getCells(el);
     if (cells.length === 0) return;
 
+    /**
+     * @param {string} digits
+     * @param {number} start
+     */
+    const fill = (digits, start) => {
+      const chars = digits.slice(0, cells.length - start).split('');
+      chars.forEach((d, i) => {
+        cells[start + i].value = d;
+      });
+      const next = Math.min(start + chars.length, cells.length - 1);
+      cells[next].focus();
+      cells[next].select();
+      emitComplete(el, cells);
+    };
+
     cells.forEach((cell, index) => {
-      cell.addEventListener('input', () => {
-        const digit = cell.value.replace(/\D/g, '').slice(-1);
+      cell.addEventListener('input', (event) => {
+        // SMS autofill (one-time-code) y teclados predictivos insertan el código entero en una celda.
+        const inserted = event instanceof InputEvent && event.data != null ? event.data : cell.value;
+        const incoming = inserted.replace(/\D/g, '');
+        if (incoming.length > 1) {
+          fill(incoming, incoming.length >= cells.length ? 0 : index);
+          return;
+        }
+        const digit = incoming || cell.value.replace(/\D/g, '').slice(-1);
         cell.value = digit;
         if (digit && index < cells.length - 1) {
           cells[index + 1].focus();
@@ -74,13 +96,9 @@ export function bindPinCodeInputs(root = document) {
       cell.addEventListener('paste', (event) => {
         event.preventDefault();
         const text = (event.clipboardData || window.clipboardData)?.getData('text') || '';
-        const digits = text.replace(/\D/g, '').slice(0, cells.length).split('');
-        digits.forEach((d, i) => {
-          cells[i].value = d;
-        });
-        const focusIndex = Math.min(digits.length, cells.length - 1);
-        cells[focusIndex].focus();
-        emitComplete(el, cells);
+        const digits = text.replace(/\D/g, '');
+        if (!digits) return;
+        fill(digits, digits.length >= cells.length ? 0 : index);
       });
     });
   });

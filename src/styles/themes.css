@@ -2,6 +2,9 @@
  * Theme presets — colores de acento + radios.
  * Aplicar en <html>: data-theme-color="…" data-radius="…"
  * (data-theme="dark" sigue controlando light/dark).
+ *
+ * Contrato por preset: primary-foreground ≥ 4.5:1 sobre default/hover/active
+ * y border-focus ≥ 3:1 sobre la card del tema.
  */
 
 /* -------------------------------------------------------------------------- */
@@ -12,7 +15,7 @@
   --rzz-action-primary-default: #2563eb;
   --rzz-action-primary-hover: #1d4ed8;
   --rzz-action-primary-active: #1e40af;
-  --rzz-content-inverse: #ffffff;
+  --rzz-action-primary-foreground: #ffffff;
   --rzz-border-focus: #3b82f6;
 }
 
@@ -20,7 +23,7 @@
   --rzz-action-primary-default: #3b82f6;
   --rzz-action-primary-hover: #60a5fa;
   --rzz-action-primary-active: #93c5fd;
-  --rzz-content-inverse: #020617;
+  --rzz-action-primary-foreground: #09090b;
   --rzz-border-focus: #60a5fa;
 }
 
@@ -30,77 +33,77 @@
 
 [data-theme-color="violet"] {
   --rzz-action-primary-default: #7c3aed;
-  --rzz-action-primary-hover: color-mix(in srgb, #7c3aed 82%, #000);
-  --rzz-action-primary-active: color-mix(in srgb, #7c3aed 68%, #000);
-  --rzz-content-inverse: #ffffff;
+  --rzz-action-primary-hover: #6d28d9;
+  --rzz-action-primary-active: #5b21b6;
+  --rzz-action-primary-foreground: #ffffff;
   --rzz-border-focus: #7c3aed;
 }
 
 [data-theme="dark"][data-theme-color="violet"] {
   --rzz-action-primary-default: #8b5cf6;
-  --rzz-action-primary-hover: color-mix(in srgb, #8b5cf6 78%, #fff);
-  --rzz-action-primary-active: color-mix(in srgb, #8b5cf6 62%, #fff);
-  --rzz-content-inverse: #ffffff;
-  --rzz-border-focus: #8b5cf6;
+  --rzz-action-primary-hover: #a78bfa;
+  --rzz-action-primary-active: #c4b5fd;
+  --rzz-action-primary-foreground: #09090b;
+  --rzz-border-focus: #a78bfa;
 }
 
 /* -------------------------------------------------------------------------- */
-/* Color: emerald                                                              */
+/* Color: emerald (700 en light: el 500 da 2.54:1 con texto blanco)            */
 /* -------------------------------------------------------------------------- */
 
 [data-theme-color="emerald"] {
-  --rzz-action-primary-default: #10b981;
-  --rzz-action-primary-hover: color-mix(in srgb, #10b981 82%, #000);
-  --rzz-action-primary-active: color-mix(in srgb, #10b981 68%, #000);
-  --rzz-content-inverse: #ffffff;
-  --rzz-border-focus: #10b981;
+  --rzz-action-primary-default: #047857;
+  --rzz-action-primary-hover: #065f46;
+  --rzz-action-primary-active: #064e3b;
+  --rzz-action-primary-foreground: #ffffff;
+  --rzz-border-focus: #047857;
 }
 
 [data-theme="dark"][data-theme-color="emerald"] {
   --rzz-action-primary-default: #34d399;
-  --rzz-action-primary-hover: color-mix(in srgb, #34d399 78%, #fff);
-  --rzz-action-primary-active: color-mix(in srgb, #34d399 62%, #fff);
-  --rzz-content-inverse: #022c22;
+  --rzz-action-primary-hover: #6ee7b7;
+  --rzz-action-primary-active: #a7f3d0;
+  --rzz-action-primary-foreground: #09090b;
   --rzz-border-focus: #34d399;
 }
 
 /* -------------------------------------------------------------------------- */
-/* Color: rose                                                                 */
+/* Color: rose (600 en light; en dark 500, distinto del danger #fb7185)        */
 /* -------------------------------------------------------------------------- */
 
 [data-theme-color="rose"] {
-  --rzz-action-primary-default: #f43f5e;
-  --rzz-action-primary-hover: color-mix(in srgb, #f43f5e 82%, #000);
-  --rzz-action-primary-active: color-mix(in srgb, #f43f5e 68%, #000);
-  --rzz-content-inverse: #ffffff;
-  --rzz-border-focus: #f43f5e;
+  --rzz-action-primary-default: #e11d48;
+  --rzz-action-primary-hover: #be123c;
+  --rzz-action-primary-active: #9f1239;
+  --rzz-action-primary-foreground: #ffffff;
+  --rzz-border-focus: #e11d48;
 }
 
 [data-theme="dark"][data-theme-color="rose"] {
-  --rzz-action-primary-default: #fb7185;
-  --rzz-action-primary-hover: color-mix(in srgb, #fb7185 78%, #fff);
-  --rzz-action-primary-active: color-mix(in srgb, #fb7185 62%, #fff);
-  --rzz-content-inverse: #4c0519;
-  --rzz-border-focus: #fb7185;
+  --rzz-action-primary-default: #f43f5e;
+  --rzz-action-primary-hover: #f75d77;
+  --rzz-action-primary-active: #fda4af;
+  --rzz-action-primary-foreground: #09090b;
+  --rzz-border-focus: #f43f5e;
 }
 
 /* -------------------------------------------------------------------------- */
-/* Color: amber (texto oscuro sobre primario para contraste)                   */
+/* Color: amber (texto oscuro; foco 700 para ser visible sobre blanco)         */
 /* -------------------------------------------------------------------------- */
 
 [data-theme-color="amber"] {
   --rzz-action-primary-default: #f59e0b;
-  --rzz-action-primary-hover: color-mix(in srgb, #f59e0b 82%, #000);
-  --rzz-action-primary-active: color-mix(in srgb, #f59e0b 68%, #000);
-  --rzz-content-inverse: #0f172a;
-  --rzz-border-focus: #f59e0b;
+  --rzz-action-primary-hover: #fbbf24;
+  --rzz-action-primary-active: #d97706;
+  --rzz-action-primary-foreground: #09090b;
+  --rzz-border-focus: #b45309;
 }
 
 [data-theme="dark"][data-theme-color="amber"] {
   --rzz-action-primary-default: #fbbf24;
-  --rzz-action-primary-hover: color-mix(in srgb, #fbbf24 78%, #fff);
-  --rzz-action-primary-active: color-mix(in srgb, #fbbf24 62%, #fff);
-  --rzz-content-inverse: #0f172a;
+  --rzz-action-primary-hover: #fcd34d;
+  --rzz-action-primary-active: #f59e0b;
+  --rzz-action-primary-foreground: #09090b;
   --rzz-border-focus: #fbbf24;
 }
 
@@ -112,7 +115,7 @@
   --rzz-action-primary-default: #18181b;
   --rzz-action-primary-hover: #27272a;
   --rzz-action-primary-active: #3f3f46;
-  --rzz-content-inverse: #fafafa;
+  --rzz-action-primary-foreground: #fafafa;
   --rzz-border-focus: #18181b;
 }
 
@@ -120,34 +123,34 @@
   --rzz-action-primary-default: #fafafa;
   --rzz-action-primary-hover: #f4f4f5;
   --rzz-action-primary-active: #e4e4e7;
-  --rzz-content-inverse: #18181b;
+  --rzz-action-primary-foreground: #18181b;
   --rzz-border-focus: #fafafa;
 }
 
 /* -------------------------------------------------------------------------- */
-/* Radius                                                                     */
+/* Radius (rem, misma escala que --rzz-radius-*; md = valores del token)      */
 /* -------------------------------------------------------------------------- */
 
 [data-radius="none"] {
-  --rzz-radius-sm: 0px;
-  --rzz-radius-md: 0px;
-  --rzz-radius-lg: 0px;
+  --rzz-radius-sm: 0rem;
+  --rzz-radius-md: 0rem;
+  --rzz-radius-lg: 0rem;
 }
 
 [data-radius="sm"] {
-  --rzz-radius-sm: 2px;
-  --rzz-radius-md: 4px;
-  --rzz-radius-lg: 6px;
+  --rzz-radius-sm: 0.125rem;
+  --rzz-radius-md: 0.25rem;
+  --rzz-radius-lg: 0.375rem;
 }
 
 [data-radius="md"] {
-  --rzz-radius-sm: 4px;
-  --rzz-radius-md: 8px;
-  --rzz-radius-lg: 12px;
+  --rzz-radius-sm: 0.25rem;
+  --rzz-radius-md: 0.375rem;
+  --rzz-radius-lg: 0.625rem;
 }
 
 [data-radius="lg"] {
-  --rzz-radius-sm: 6px;
-  --rzz-radius-md: 12px;
-  --rzz-radius-lg: 16px;
+  --rzz-radius-sm: 0.5rem;
+  --rzz-radius-md: 0.75rem;
+  --rzz-radius-lg: 1rem;
 }

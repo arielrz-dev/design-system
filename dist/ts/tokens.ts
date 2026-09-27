@@ -216,13 +216,14 @@ export const tokens = {
   "border": {
     "subtle": "#e4e4e7",
     "strong": "#a1a1aa",
-    "control": "#e4e4e7",
+    "control": "#71717a",
     "focus": "#3b82f6",
   },
   "action": {
     "primary-default": "#2563eb",
     "primary-hover": "#1d4ed8",
     "primary-active": "#1e40af",
+    "primary-foreground": "#ffffff",
     "danger-default": "#e11d48",
     "danger-hover": "#be123c",
     "danger-active": "#be123c",
@@ -314,6 +315,7 @@ export const tokensDark = {
     "primary-default": "#3b82f6",
     "primary-hover": "#60a5fa",
     "primary-active": "#93c5fd",
+    "primary-foreground": "#09090b",
     "danger-default": "#f43f5e",
     "danger-hover": "#e11d48",
     "danger-active": "#e11d48",

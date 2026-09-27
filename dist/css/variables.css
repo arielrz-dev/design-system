@@ -132,11 +132,12 @@
   --rzz-content-inverse: var(--rzz-primitive-color-white); /** Texto/icono sobre superficies de acción o fondos oscuros. */
   --rzz-border-subtle: var(--rzz-primitive-color-slate-200); /** Borde discreto / divisores. */
   --rzz-border-strong: var(--rzz-primitive-color-slate-400); /** Borde con mayor énfasis. */
-  --rzz-border-control: var(--rzz-primitive-color-slate-200); /** Borde en reposo de controles de formulario. */
+  --rzz-border-control: var(--rzz-primitive-color-slate-500); /** Borde en reposo de controles de formulario (≥ 3:1 sobre card y canvas). */
   --rzz-border-focus: var(--rzz-primitive-color-blue-500); /** Anillo o borde de foco accesible. */
   --rzz-action-primary-default: var(--rzz-primitive-color-blue-600); /** Acción primaria en estado por defecto. */
   --rzz-action-primary-hover: var(--rzz-primitive-color-blue-700); /** Acción primaria en hover. */
   --rzz-action-primary-active: var(--rzz-primitive-color-blue-800); /** Acción primaria en pressed/active. */
+  --rzz-action-primary-foreground: var(--rzz-primitive-color-white); /** Texto e iconos sobre la acción primaria (≥ 4.5:1 en sus tres estados). */
   --rzz-action-danger-default: var(--rzz-primitive-color-red-600); /** Acción destructiva en estado por defecto. */
   --rzz-action-danger-hover: var(--rzz-primitive-color-red-700); /** Acción destructiva en hover. */
   --rzz-action-danger-active: var(--rzz-primitive-color-red-700); /** Acción destructiva en pressed/active. */
@@ -206,6 +207,7 @@
   --rzz-action-primary-default: var(--rzz-primitive-color-blue-500); /** Acción primaria por defecto en dark. */
   --rzz-action-primary-hover: var(--rzz-primitive-color-blue-400); /** Acción primaria hover en dark. */
   --rzz-action-primary-active: var(--rzz-primitive-color-blue-300); /** Acción primaria active en dark. */
+  --rzz-action-primary-foreground: var(--rzz-primitive-color-slate-950); /** Texto e iconos sobre la acción primaria en dark. */
   --rzz-action-danger-default: var(--rzz-primitive-color-red-500); /** Acción destructiva por defecto en dark. */
   --rzz-action-danger-hover: var(--rzz-primitive-color-red-600); /** Acción destructiva hover en dark. */
   --rzz-action-danger-active: var(--rzz-primitive-color-red-600); /** Acción destructiva active en dark. */

@@ -27,7 +27,7 @@
   min-height: var(--rzz-space-40);
   margin: 0;
   padding: var(--rzz-space-8) 5.5rem var(--rzz-space-8) 2.5rem;
-  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border: 1px solid var(--rzz-border-control);
   border-radius: var(--rzz-radius-md);
   background-color: var(--rzz-surface-card);
   color: var(--rzz-content-primary);
@@ -48,7 +48,7 @@
 }
 
 .ds-search-kbd__input:hover:not(:disabled):not(:focus-visible) {
-  border-color: color-mix(in srgb, var(--rzz-content-primary) 20%, transparent);
+  border-color: var(--rzz-content-secondary);
 }
 
 .ds-search-kbd__input:focus {

@@ -25,7 +25,7 @@
   margin: 0;
   padding: var(--rzz-space-8) 2.75rem var(--rzz-space-8)
     var(--rzz-space-12);
-  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border: 1px solid var(--rzz-border-control);
   border-radius: var(--rzz-radius-md);
   background-color: var(--rzz-surface-card);
   color: var(--rzz-content-primary);
@@ -39,7 +39,7 @@
 }
 
 .ds-async__input:hover:not(:disabled):not(:focus-visible) {
-  border-color: color-mix(in srgb, var(--rzz-content-primary) 20%, transparent);
+  border-color: var(--rzz-content-secondary);
 }
 
 .ds-async__input:focus {
@@ -54,11 +54,11 @@
 
 .ds-async[data-state='error'] .ds-async__input,
 .ds-async__input[aria-invalid='true'] {
-  border-color: color-mix(in srgb, var(--rzz-action-danger-default) 55%, transparent);
+  border-color: var(--rzz-action-danger-default);
 }
 
 .ds-async[data-state='success'] .ds-async__input {
-  border-color: color-mix(in srgb, var(--rzz-feedback-success-foreground) 45%, transparent);
+  border-color: var(--rzz-feedback-success-foreground);
 }
 
 /* --- Dark: control boundary needs 3:1 against the card (WCAG 1.4.11) --- */

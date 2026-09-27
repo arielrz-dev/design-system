@@ -19,7 +19,7 @@
   min-height: 3.25rem;
   margin: 0;
   padding: 1.35rem var(--rzz-space-12) 0.55rem;
-  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border: 1px solid var(--rzz-border-control);
   border-radius: var(--rzz-radius-md);
   background-color: var(--rzz-surface-card);
   color: var(--rzz-content-primary);
@@ -97,7 +97,7 @@
 
 .ds-floating--error .ds-floating__input,
 .ds-floating__input[aria-invalid='true'] {
-  border-color: color-mix(in srgb, var(--rzz-action-danger-default) 55%, transparent);
+  border-color: var(--rzz-action-danger-default);
 }
 
 .ds-floating--error:focus-within .ds-floating__input,

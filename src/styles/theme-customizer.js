@@ -23,65 +23,6 @@ export const THEME_COLORS = Object.freeze([
 export const THEME_RADII = Object.freeze(['none', 'sm', 'md', 'lg']);
 
 /**
- * Valores canónicos light (para "Copiar Variables CSS").
- * @type {Record<string, { primary: string, inverse: string, focus: string, hover: string, active: string }>}
- */
-const COLOR_CSS = {
-  blue: {
-    primary: '#2563eb',
-    hover: '#1d4ed8',
-    active: '#1e40af',
-    inverse: '#ffffff',
-    focus: '#3b82f6',
-  },
-  violet: {
-    primary: '#7c3aed',
-    hover: '#6d28d9',
-    active: '#5b21b6',
-    inverse: '#ffffff',
-    focus: '#7c3aed',
-  },
-  emerald: {
-    primary: '#10b981',
-    hover: '#059669',
-    active: '#047857',
-    inverse: '#ffffff',
-    focus: '#10b981',
-  },
-  rose: {
-    primary: '#f43f5e',
-    hover: '#e11d48',
-    active: '#be123c',
-    inverse: '#ffffff',
-    focus: '#f43f5e',
-  },
-  amber: {
-    primary: '#f59e0b',
-    hover: '#d97706',
-    active: '#b45309',
-    inverse: '#0f172a',
-    focus: '#f59e0b',
-  },
-  zinc: {
-    primary: '#18181b',
-    hover: '#27272a',
-    active: '#3f3f46',
-    inverse: '#fafafa',
-    focus: '#18181b',
-  },
-};
-
-/**
- * @type {Record<string, { sm: string, md: string, lg: string }>}
- */
-const RADIUS_CSS = {
-  none: { sm: '0px', md: '0px', lg: '0px' },
-  sm: { sm: '2px', md: '4px', lg: '6px' },
-  md: { sm: '4px', md: '8px', lg: '12px' },
-  lg: { sm: '6px', md: '12px', lg: '16px' },
-};
-
-/**
  * @param {string | null | undefined} value
  * @param {readonly string[]} allowed
  * @param {string} fallback
@@ -137,6 +78,30 @@ function syncRadiusButtons(radius) {
 }
 
 /**
+ * Lee las custom properties declaradas en themes.css para un selector exacto,
+ * así el snippet nunca diverge de los presets.
+ * @param {string} selector
+ * @returns {string[]}
+ */
+function readPresetDeclarations(selector) {
+  for (const sheet of Array.from(document.styleSheets)) {
+    let rules;
+    try {
+      rules = sheet.cssRules;
+    } catch {
+      continue;
+    }
+    for (const rule of Array.from(rules)) {
+      if (!(rule instanceof CSSStyleRule) || rule.selectorText !== selector) continue;
+      return Array.from(rule.style)
+        .filter((prop) => prop.startsWith('--rzz-'))
+        .map((prop) => `  ${prop}: ${rule.style.getPropertyValue(prop).trim()};`);
+    }
+  }
+  return [];
+}
+
+/**
  * @returns {string}
  */
 export function buildThemeCssSnippet() {
@@ -150,20 +115,19 @@ export function buildThemeCssSnippet() {
     THEME_RADII,
     'md',
   );
-  const c = COLOR_CSS[color];
-  const r = RADIUS_CSS[radius];
+  const light = readPresetDeclarations(`[data-theme-color="${color}"]`);
+  const dark = readPresetDeclarations(`[data-theme="dark"][data-theme-color="${color}"]`);
+  const radii = readPresetDeclarations(`[data-radius="${radius}"]`);
 
   return [
-    `/* rzz-ui theme — color: ${color}, radius: ${radius} */`,
+    `/* rzz-ui theme — color: ${color}, radius: ${radius}. Pegar después de variables.css. */`,
     ':root {',
-    `  --rzz-action-primary-default: ${c.primary};`,
-    `  --rzz-action-primary-hover: ${c.hover};`,
-    `  --rzz-action-primary-active: ${c.active};`,
-    `  --rzz-content-inverse: ${c.inverse};`,
-    `  --rzz-border-focus: ${c.focus};`,
-    `  --rzz-radius-sm: ${r.sm};`,
-    `  --rzz-radius-md: ${r.md};`,
-    `  --rzz-radius-lg: ${r.lg};`,
+    ...light,
+    ...radii,
+    '}',
+    '',
+    '[data-theme="dark"] {',
+    ...dark,
     '}',
     '',
   ].join('\n');

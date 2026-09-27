@@ -129,6 +129,23 @@
   display: none;
 }
 
+@media (forced-colors: active) {
+  .ds-tabs__indicator {
+    display: none;
+  }
+
+  .ds-tabs__trigger[aria-selected="true"] {
+    forced-color-adjust: none;
+    border-color: Highlight;
+    background-color: Highlight;
+    color: HighlightText;
+  }
+
+  .ds-tabs__trigger:is(:disabled, [aria-disabled="true"]) {
+    color: GrayText;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ds-tabs__indicator {
     transition: none;

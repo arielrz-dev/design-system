@@ -1,34 +1,39 @@
 <!--
   ds-avatar — imagen o iniciales + status online.
   Requiere: dist/css/variables.css + avatar.css
+  El nombre va en el alt (imagen) o en .ds-sr-only (iniciales); el estado,
+  como texto .ds-sr-only localizable. El punto de color es aria-hidden.
 -->
 
-<span class="ds-avatar ds-avatar--md" aria-label="Ana Ruiz">
+<span class="ds-avatar ds-avatar--md">
   <img
     class="ds-avatar__image"
     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=faces"
-    alt=""
+    alt="Ana Ruiz"
     width="40"
     height="40"
   />
 </span>
 
-<span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="Luis Gómez (en línea)">
+<span class="ds-avatar ds-avatar--md ds-avatar--with-status">
   <span class="ds-avatar__fallback" aria-hidden="true">LG</span>
-  <span class="ds-avatar__status" title="En línea"></span>
+  <span class="ds-sr-only">Luis Gómez, en línea</span>
+  <span class="ds-avatar__status" aria-hidden="true" title="En línea"></span>
 </span>
 
-<span class="ds-avatar ds-avatar--sm" aria-label="María Sol">
+<span class="ds-avatar ds-avatar--sm">
   <span class="ds-avatar__fallback" aria-hidden="true">MS</span>
+  <span class="ds-sr-only">María Sol</span>
 </span>
 
-<span class="ds-avatar ds-avatar--lg ds-avatar--with-status" aria-label="Carla Díaz (en línea)">
+<span class="ds-avatar ds-avatar--lg ds-avatar--with-status">
   <img
     class="ds-avatar__image"
     src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&h=96&fit=crop&crop=faces"
-    alt=""
+    alt="Carla Díaz"
     width="48"
     height="48"
   />
-  <span class="ds-avatar__status" title="En línea"></span>
+  <span class="ds-sr-only">en línea</span>
+  <span class="ds-avatar__status" aria-hidden="true" title="En línea"></span>
 </span>

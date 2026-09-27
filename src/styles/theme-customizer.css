@@ -141,16 +141,16 @@
 }
 
 .rzz-theme-swatch[data-theme-swatch="emerald"] {
-  --swatch: #10b981;
+  --swatch: #047857;
 }
 
 .rzz-theme-swatch[data-theme-swatch="rose"] {
-  --swatch: #f43f5e;
+  --swatch: #e11d48;
 }
 
 .rzz-theme-swatch[data-theme-swatch="amber"] {
   --swatch: #f59e0b;
-  color: #0f172a;
+  color: #09090b;
 }
 
 .rzz-theme-swatch[data-theme-swatch="zinc"] {

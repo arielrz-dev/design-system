@@ -11,7 +11,7 @@
   min-height: 6.5rem;
   margin: 0;
   padding: var(--rzz-space-8) var(--rzz-space-12);
-  border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 12%, transparent);
+  border: 1px solid var(--rzz-border-control);
   border-radius: var(--rzz-radius-md);
   background-color: var(--rzz-surface-card);
   color: var(--rzz-content-primary);
@@ -35,7 +35,7 @@
 }
 
 .ds-textarea:hover:not(:disabled):not([aria-disabled="true"]):not(:focus-visible):not(.ds-textarea--error):not([aria-invalid="true"]) {
-  border-color: color-mix(in srgb, var(--rzz-content-primary) 20%, transparent);
+  border-color: var(--rzz-content-secondary);
 }
 
 .ds-textarea:focus {
@@ -60,7 +60,7 @@
 
 .ds-textarea--error,
 .ds-textarea[aria-invalid="true"] {
-  border-color: color-mix(in srgb, var(--rzz-action-danger-default) 55%, transparent);
+  border-color: var(--rzz-action-danger-default);
 }
 
 .ds-textarea--error:focus-visible,

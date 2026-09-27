@@ -1,54 +1,62 @@
 <!--
   ds-avatar-group + ds-status-dot.
   Requiere: variables.css + avatar.css + avatar-group.css
+  El estado se anuncia con texto .ds-sr-only; el punto de color es aria-hidden.
 -->
 
-<ul class="ds-avatar-group" aria-label="Equipo en línea">
+<ul class="ds-avatar-group" aria-label="Equipo">
   <li>
-    <span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="Ana Ruiz (en línea)">
+    <span class="ds-avatar ds-avatar--md ds-avatar--with-status">
       <img
         class="ds-avatar__image"
         src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=faces"
-        alt=""
+        alt="Ana Ruiz"
         width="40"
         height="40"
       />
-      <span class="ds-status-dot ds-status-dot--online" title="En línea"></span>
+      <span class="ds-sr-only">en línea</span>
+      <span class="ds-status-dot ds-status-dot--online" aria-hidden="true" title="En línea"></span>
     </span>
   </li>
   <li>
-    <span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="Luis Gómez (ausente)">
+    <span class="ds-avatar ds-avatar--md ds-avatar--with-status">
       <span class="ds-avatar__fallback" aria-hidden="true">LG</span>
-      <span class="ds-status-dot ds-status-dot--away" title="Ausente"></span>
+      <span class="ds-sr-only">Luis Gómez, ausente</span>
+      <span class="ds-status-dot ds-status-dot--away" aria-hidden="true" title="Ausente"></span>
     </span>
   </li>
   <li>
-    <span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="María Sol (ocupada)">
+    <span class="ds-avatar ds-avatar--md ds-avatar--with-status">
       <img
         class="ds-avatar__image"
         src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=faces"
-        alt=""
+        alt="María Sol"
         width="40"
         height="40"
       />
-      <span class="ds-status-dot ds-status-dot--busy" title="Ocupada"></span>
+      <span class="ds-sr-only">ocupada</span>
+      <span class="ds-status-dot ds-status-dot--busy" aria-hidden="true" title="Ocupada"></span>
     </span>
   </li>
   <li>
-    <span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="Carla Díaz (offline)">
+    <span class="ds-avatar ds-avatar--md ds-avatar--with-status">
       <span class="ds-avatar__fallback" aria-hidden="true">CD</span>
-      <span class="ds-status-dot ds-status-dot--offline" title="Desconectada"></span>
+      <span class="ds-sr-only">Carla Díaz, desconectada</span>
+      <span class="ds-status-dot ds-status-dot--offline" aria-hidden="true" title="Desconectada"></span>
     </span>
   </li>
   <li>
-    <span class="ds-avatar-group__more" aria-label="3 personas más">+3</span>
+    <span class="ds-avatar-group__more">
+      <span aria-hidden="true">+3</span>
+      <span class="ds-sr-only">3 personas más</span>
+    </span>
   </li>
 </ul>
 
 <p class="ds-field__hint" style="margin-top: 0.75rem">
   Status:
-  <span class="ds-status-dot ds-status-dot--online" aria-label="online"></span>
-  <span class="ds-status-dot ds-status-dot--away" aria-label="away"></span>
-  <span class="ds-status-dot ds-status-dot--busy" aria-label="busy"></span>
-  <span class="ds-status-dot ds-status-dot--offline" aria-label="offline"></span>
+  <span class="ds-status-dot ds-status-dot--online" aria-hidden="true"></span> En línea
+  <span class="ds-status-dot ds-status-dot--away" aria-hidden="true"></span> Ausente
+  <span class="ds-status-dot ds-status-dot--busy" aria-hidden="true"></span> Ocupada
+  <span class="ds-status-dot ds-status-dot--offline" aria-hidden="true"></span> Desconectada
 </p>

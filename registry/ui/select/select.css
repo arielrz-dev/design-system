@@ -36,7 +36,7 @@
 }
 
 .ds-select:hover:not(:disabled):not(:focus-visible):not(.ds-select--error):not([aria-invalid="true"]) {
-  border-color: var(--rzz-border-strong);
+  border-color: var(--rzz-content-secondary);
 }
 
 [data-theme="dark"] .ds-select:hover:not(:disabled):not(:focus-visible):not(.ds-select--error):not([aria-invalid="true"]) {

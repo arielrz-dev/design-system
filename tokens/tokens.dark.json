@@ -347,6 +347,11 @@
       "$type": "color",
       "$description": "Acción primaria active en dark."
     },
+    "primary-foreground": {
+      "$value": "{primitive.color.slate.950}",
+      "$type": "color",
+      "$description": "Texto e iconos sobre la acción primaria en dark."
+    },
     "danger-default": {
       "$value": "{primitive.color.red.500}",
       "$type": "color",

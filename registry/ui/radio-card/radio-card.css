@@ -94,10 +94,10 @@
   margin-inline-start: auto;
   width: 1.125rem;
   height: 1.125rem;
-  border: 1.5px solid color-mix(in srgb, var(--rzz-content-primary) 22%, transparent);
+  border: 1.5px solid var(--rzz-border-control);
   border-radius: var(--rzz-radius-full);
   background-color: var(--rzz-surface-card);
-  color: var(--rzz-content-inverse);
+  color: var(--rzz-action-primary-foreground);
   transition:
     border-color 150ms ease,
     background-color 150ms ease,
@@ -161,4 +161,36 @@
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.2;
+}
+
+@media (forced-colors: active) {
+  .ds-radio-card {
+    border-color: CanvasText;
+  }
+
+  .ds-radio-card__indicator {
+    border-color: CanvasText;
+  }
+
+  .ds-radio-card:has(.ds-radio-card__input:checked) {
+    border-color: Highlight;
+    outline: 2px solid Highlight;
+  }
+
+  .ds-radio-card:has(.ds-radio-card__input:checked) .ds-radio-card__indicator {
+    forced-color-adjust: none;
+    border-color: Highlight;
+    background-color: Highlight;
+    color: HighlightText;
+  }
+
+  .ds-radio-card:has(.ds-radio-card__input:focus-visible) {
+    outline: 2px solid CanvasText;
+    outline-offset: 4px;
+  }
+
+  .ds-radio-card:has(.ds-radio-card__input:disabled) {
+    border-color: GrayText;
+    color: GrayText;
+  }
 }

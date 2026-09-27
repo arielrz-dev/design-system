@@ -1951,31 +1951,34 @@
         <h2 id="avatar-heading">Avatar</h2>
         <div class="playground__complement-demo">
           <div class="playground__avatar-row">
-            <span class="ds-avatar ds-avatar--md" aria-label="Ana Ruiz">
+            <span class="ds-avatar ds-avatar--md">
               <img
                 class="ds-avatar__image"
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=faces"
-                alt=""
+                alt="Ana Ruiz"
                 width="40"
                 height="40"
               />
             </span>
-            <span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="Luis Gómez (en línea)">
+            <span class="ds-avatar ds-avatar--md ds-avatar--with-status">
               <span class="ds-avatar__fallback" aria-hidden="true">LG</span>
-              <span class="ds-avatar__status" title="En línea"></span>
+              <span class="ds-sr-only">Luis Gómez, en línea</span>
+              <span class="ds-avatar__status" aria-hidden="true" title="En línea"></span>
             </span>
-            <span class="ds-avatar ds-avatar--sm" aria-label="María Sol">
+            <span class="ds-avatar ds-avatar--sm">
               <span class="ds-avatar__fallback" aria-hidden="true">MS</span>
+              <span class="ds-sr-only">María Sol</span>
             </span>
-            <span class="ds-avatar ds-avatar--lg ds-avatar--with-status" aria-label="Carla Díaz (en línea)">
+            <span class="ds-avatar ds-avatar--lg ds-avatar--with-status">
               <img
                 class="ds-avatar__image"
                 src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&h=96&fit=crop&crop=faces"
-                alt=""
+                alt="Carla Díaz"
                 width="48"
                 height="48"
               />
-              <span class="ds-avatar__status" title="En línea"></span>
+              <span class="ds-sr-only">en línea</span>
+              <span class="ds-avatar__status" aria-hidden="true" title="En línea"></span>
             </span>
           </div>
         </div>
@@ -2250,12 +2253,12 @@
             <div class="ds-pin" role="group" aria-labelledby="pg-otp-label">
               <span id="pg-otp-label" class="ds-label">Código de verificación</span>
               <div class="ds-pin__cells">
-                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" autocomplete="one-time-code" aria-label="Dígito 1" />
-                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Dígito 2" />
-                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Dígito 3" />
-                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Dígito 4" />
-                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Dígito 5" />
-                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1" aria-label="Dígito 6" />
+                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" aria-label="Dígito 1" />
+                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" aria-label="Dígito 2" />
+                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" aria-label="Dígito 3" />
+                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" aria-label="Dígito 4" />
+                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" aria-label="Dígito 5" />
+                <input class="ds-pin__cell" type="text" inputmode="numeric" pattern="[0-9]*" aria-label="Dígito 6" />
               </div>
             </div>
           </div>
@@ -2299,45 +2302,52 @@
           <div class="playground__advanced-block">
             <h3 id="avatar-group-heading">AvatarGroup &amp; StatusDot</h3>
             <p>Overlap −0.5rem y anillo con surface-card.</p>
-            <ul class="ds-avatar-group" aria-label="Equipo en línea">
+            <ul class="ds-avatar-group" aria-label="Equipo">
               <li>
-                <span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="Ana Ruiz (en línea)">
+                <span class="ds-avatar ds-avatar--md ds-avatar--with-status">
                   <img
                     class="ds-avatar__image"
                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=faces"
-                    alt=""
+                    alt="Ana Ruiz"
                     width="40"
                     height="40"
                   />
-                  <span class="ds-status-dot ds-status-dot--online" title="En línea"></span>
+                  <span class="ds-sr-only">en línea</span>
+                  <span class="ds-status-dot ds-status-dot--online" aria-hidden="true" title="En línea"></span>
                 </span>
               </li>
               <li>
-                <span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="Luis Gómez (ausente)">
+                <span class="ds-avatar ds-avatar--md ds-avatar--with-status">
                   <span class="ds-avatar__fallback" aria-hidden="true">LG</span>
-                  <span class="ds-status-dot ds-status-dot--away" title="Ausente"></span>
+                  <span class="ds-sr-only">Luis Gómez, ausente</span>
+                  <span class="ds-status-dot ds-status-dot--away" aria-hidden="true" title="Ausente"></span>
                 </span>
               </li>
               <li>
-                <span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="María Sol (ocupada)">
+                <span class="ds-avatar ds-avatar--md ds-avatar--with-status">
                   <img
                     class="ds-avatar__image"
                     src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=faces"
-                    alt=""
+                    alt="María Sol"
                     width="40"
                     height="40"
                   />
-                  <span class="ds-status-dot ds-status-dot--busy" title="Ocupada"></span>
+                  <span class="ds-sr-only">ocupada</span>
+                  <span class="ds-status-dot ds-status-dot--busy" aria-hidden="true" title="Ocupada"></span>
                 </span>
               </li>
               <li>
-                <span class="ds-avatar ds-avatar--md ds-avatar--with-status" aria-label="Carla Díaz (offline)">
+                <span class="ds-avatar ds-avatar--md ds-avatar--with-status">
                   <span class="ds-avatar__fallback" aria-hidden="true">CD</span>
-                  <span class="ds-status-dot ds-status-dot--offline" title="Desconectada"></span>
+                  <span class="ds-sr-only">Carla Díaz, desconectada</span>
+                  <span class="ds-status-dot ds-status-dot--offline" aria-hidden="true" title="Desconectada"></span>
                 </span>
               </li>
               <li>
-                <span class="ds-avatar-group__more" aria-label="3 personas más">+3</span>
+                <span class="ds-avatar-group__more">
+                  <span aria-hidden="true">+3</span>
+                  <span class="ds-sr-only">3 personas más</span>
+                </span>
               </li>
             </ul>
           </div>
