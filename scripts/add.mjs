@@ -11,7 +11,7 @@
  * El destino por defecto es `<cwd>/src/ui`.
  */
 
-import { cp, mkdir, readFile, access, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, readdir, access, writeFile } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -169,6 +169,27 @@ async function ensureVariablesCss(projectRoot) {
   return { copied: true, dest };
 }
 
+/**
+ * Copia dist/fonts/ (Inter + licencia) sin pisar archivos existentes.
+ * variables.css las referencia como ../fonts/*.woff2.
+ * @param {string} projectRoot
+ * @returns {Promise<string[]>} archivos copiados
+ */
+async function ensureFonts(projectRoot) {
+  const sourceDir = path.join(PACKAGE_ROOT, 'dist', 'fonts');
+  const destDir = path.join(projectRoot, 'dist', 'fonts');
+  if (!(await pathExists(sourceDir))) return [];
+  const copied = [];
+  for (const file of await readdir(sourceDir)) {
+    const dest = path.join(destDir, file);
+    if (await pathExists(dest)) continue;
+    await mkdir(destDir, { recursive: true });
+    await cp(path.join(sourceDir, file), dest);
+    copied.push(file);
+  }
+  return copied;
+}
+
 function printHelp() {
   log(`${BOLD}Uso:${RESET} rzz-ui add <component...> [--path <rel>]`);
   log(`${DIM}Ejemplo:${RESET} rzz-ui add button`);
@@ -225,6 +246,15 @@ async function main() {
     log(
       `${GREEN}✔${RESET} ${BOLD}dist/css/variables.css${RESET} → ${path.relative(projectRoot, vars.dest)}`,
     );
+  } else if (!(await readFile(vars.dest, 'utf8').catch(() => '')).includes('@font-face')) {
+    log(
+      `${YELLOW}⚠${RESET} ${path.relative(projectRoot, vars.dest)} es de una versión anterior (no carga Inter). Borralo y volvé a correr add para actualizarlo.`,
+    );
+  }
+
+  const fonts = await ensureFonts(projectRoot);
+  if (fonts.length > 0) {
+    log(`${GREEN}✔${RESET} ${BOLD}dist/fonts${RESET} → ${fonts.join(', ')}`);
   }
 
   log(

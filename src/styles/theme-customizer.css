@@ -13,9 +13,11 @@
   gap: var(--rzz-space-8);
 }
 
-.rzz-theme-customizer {
+/* .ds-popover y .ds-button cargan después; el doble selector evita que pisen el panel. */
+.ds-popover.rzz-theme-customizer {
   box-sizing: border-box;
   width: min(22rem, calc(100vw - 2rem));
+  max-width: none;
   padding: var(--rzz-space-16);
   border: 1px solid color-mix(in srgb, var(--rzz-content-primary) 10%, transparent);
   border-radius: var(--rzz-radius-lg);
@@ -210,9 +212,71 @@
   outline-offset: 1px;
 }
 
-.rzz-theme-customizer__copy {
+.ds-button.rzz-theme-customizer__copy {
   width: 100%;
   margin-block-start: var(--rzz-space-16);
+}
+
+.rzz-theme-customizer__custom {
+  display: grid;
+  gap: var(--rzz-space-8);
+  margin-block-start: var(--rzz-space-16);
+  padding: var(--rzz-space-12);
+  border: 1px solid var(--rzz-border-subtle);
+  border-radius: var(--rzz-radius-md);
+  background-color: var(--rzz-surface-subtle);
+  color: var(--rzz-content-secondary);
+  font-size: var(--rzz-text-xs);
+  line-height: var(--rzz-leading-xs);
+}
+
+.rzz-theme-customizer__custom[hidden] {
+  display: none;
+}
+
+.rzz-theme-customizer__custom p {
+  margin: 0;
+}
+
+.rzz-theme-customizer__reset {
+  appearance: none;
+  justify-self: start;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--rzz-content-primary);
+  font: inherit;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  cursor: pointer;
+}
+
+.rzz-theme-customizer__reset:focus-visible {
+  outline: 2px solid var(--rzz-border-focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Punto en el botón "Personalizar" cuando el tema difiere del default. */
+.rzz-theme-custom-dot {
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: var(--rzz-action-primary-default);
+}
+
+.rzz-theme-custom-dot[hidden] {
+  display: none;
+}
+
+@media (forced-colors: active) {
+  .rzz-theme-custom-dot {
+    forced-color-adjust: none;
+    background-color: Highlight;
+  }
 }
 
 /* Docs: botón texto + icono en header */

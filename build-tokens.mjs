@@ -13,6 +13,36 @@ const TOKEN_SOURCE_DARK = ['tokens/tokens.dark.json'];
 const CSS_OUT = 'dist/css/variables.css';
 const TS_OUT = 'dist/ts/tokens.ts';
 
+/**
+ * Inter variable (SIL OFL, ver dist/fonts/OFL.txt), subsets de Google Fonts.
+ * Las URLs son relativas a dist/css/: el CLI copia dist/fonts/ al lado.
+ */
+const FONT_FACES = [
+  {
+    file: 'inter-latin.woff2',
+    range:
+      'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD',
+  },
+  {
+    file: 'inter-latin-ext.woff2',
+    range:
+      'U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF',
+  },
+];
+
+function buildFontFaces() {
+  return FONT_FACES.map(
+    ({ file, range }) => `@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/${file}') format('woff2');
+  unicode-range: ${range};
+}`,
+  ).join('\n\n');
+}
+
 const DARK_OVERRIDE_ROOTS = [
   'surface',
   'content',
@@ -180,8 +210,11 @@ function buildCssFile(lightBlock, darkBlock) {
  * Prefijo: --rzz- (kebab-case). Light en :root; dark en [data-theme="dark"].
  * API pública: surface/content/border/action/feedback/space/radius/font/text/leading/shadow/z/duration/ease.
  * primitive queda en dist solo como fuente interna del build.
+ * Inter se sirve desde ../fonts/ (copiado por el CLI junto a este archivo).
  * No editar a mano; ejecutar \`npm run build:tokens\`.
  */
+
+${buildFontFaces()}
 
 :root {
 ${lightBlock}

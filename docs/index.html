@@ -13,12 +13,6 @@
       name="description"
       content="Documentación técnica de rzz-ui: tokens --rzz-*, foundations y playground de componentes."
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="../dist/css/variables.css" />
     <link rel="stylesheet" href="../src/styles/themes.css" />
     <link rel="stylesheet" href="../src/styles/theme-customizer.css" />
@@ -122,6 +116,7 @@
             <circle cx="5.6" cy="9" r="1" fill="currentColor" />
           </svg>
           <span class="docs-customize-btn__label">Personalizar</span>
+          <span class="rzz-theme-custom-dot" data-theme-custom-indicator aria-hidden="true" hidden></span>
         </button>
         <a
           class="docs-icon-btn"
@@ -204,6 +199,16 @@
           <button type="button" class="rzz-theme-radius__btn" data-theme-radius="md" role="radio" aria-checked="true">0.5</button>
           <button type="button" class="rzz-theme-radius__btn" data-theme-radius="lg" role="radio" aria-checked="false">0.75</button>
         </div>
+      </div>
+
+      <div class="rzz-theme-customizer__custom" data-theme-custom-notice hidden>
+        <p>
+          Estás viendo un tema personalizado. Lo que instala el CLI usa azul y radio 0.5 hasta que
+          pegues el CSS copiado después de <code>variables.css</code>.
+        </p>
+        <button type="button" class="rzz-theme-customizer__reset" data-theme-reset>
+          Restablecer tema por defecto
+        </button>
       </div>
 
       <button
@@ -302,6 +307,15 @@
               <li>
                 Cargá <code>dist/css/variables.css</code> antes de los CSS de los componentes, y
                 los <code>.js</code> como <code>&lt;script type="module"&gt;</code>.
+              </li>
+              <li>
+                La fuente Inter viene incluida en <code>dist/fonts/</code> y la carga
+                <code>variables.css</code>: mantené esas dos carpetas juntas. Para usar otra,
+                redefiní <code>--rzz-font-sans</code>.
+              </li>
+              <li>
+                Si cambiaste color o radio en "Personalizar", copiá el CSS del panel y pegalo
+                después de <code>variables.css</code>.
               </li>
             </ol>
             <h3>Desarrollar este repo</h3>

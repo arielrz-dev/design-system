@@ -9,6 +9,10 @@
 const COLOR_KEY = 'rzz-theme-color';
 const RADIUS_KEY = 'rzz-theme-radius';
 
+/** Valores equivalentes a variables.css sin overrides (lo que instala el CLI). */
+const DEFAULT_COLOR = 'blue';
+const DEFAULT_RADIUS = 'md';
+
 /** @type {readonly string[]} */
 export const THEME_COLORS = Object.freeze([
   'blue',
@@ -35,10 +39,11 @@ function pick(value, allowed, fallback) {
  * @param {string} color
  */
 export function applyThemeColor(color) {
-  const next = pick(color, THEME_COLORS, 'blue');
+  const next = pick(color, THEME_COLORS, DEFAULT_COLOR);
   document.documentElement.setAttribute('data-theme-color', next);
   localStorage.setItem(COLOR_KEY, next);
   syncSwatches(next);
+  syncCustomIndicator();
   return next;
 }
 
@@ -46,13 +51,36 @@ export function applyThemeColor(color) {
  * @param {string} radius
  */
 export function applyThemeRadius(radius) {
-  let next = pick(radius, THEME_RADII, 'md');
+  let next = pick(radius, THEME_RADII, DEFAULT_RADIUS);
   // Migración: preferencias viejas con "full"
   if (radius === 'full') next = 'lg';
   document.documentElement.setAttribute('data-radius', next);
   localStorage.setItem(RADIUS_KEY, next);
   syncRadiusButtons(next);
+  syncCustomIndicator();
   return next;
+}
+
+export function isCustomTheme() {
+  const root = document.documentElement;
+  return (
+    pick(root.getAttribute('data-theme-color'), THEME_COLORS, DEFAULT_COLOR) !== DEFAULT_COLOR ||
+    pick(root.getAttribute('data-radius'), THEME_RADII, DEFAULT_RADIUS) !== DEFAULT_RADIUS
+  );
+}
+
+export function resetTheme() {
+  applyThemeColor(DEFAULT_COLOR);
+  applyThemeRadius(DEFAULT_RADIUS);
+}
+
+function syncCustomIndicator() {
+  const custom = isCustomTheme();
+  document
+    .querySelectorAll('[data-theme-custom-indicator], [data-theme-custom-notice]')
+    .forEach((el) => {
+      if (el instanceof HTMLElement) el.hidden = !custom;
+    });
 }
 
 /**
@@ -108,12 +136,12 @@ export function buildThemeCssSnippet() {
   const color = pick(
     document.documentElement.getAttribute('data-theme-color'),
     THEME_COLORS,
-    'blue',
+    DEFAULT_COLOR,
   );
   const radius = pick(
     document.documentElement.getAttribute('data-radius'),
     THEME_RADII,
-    'md',
+    DEFAULT_RADIUS,
   );
   const light = readPresetDeclarations(`[data-theme-color="${color}"]`);
   const dark = readPresetDeclarations(`[data-theme="dark"][data-theme-color="${color}"]`);
@@ -160,10 +188,10 @@ export async function copyThemeCss(options = {}) {
  * Restaura preferencias guardadas (llamar antes del primer paint si es posible).
  */
 export function restoreThemePreferences() {
-  const color = pick(localStorage.getItem(COLOR_KEY), THEME_COLORS, 'blue');
+  const color = pick(localStorage.getItem(COLOR_KEY), THEME_COLORS, DEFAULT_COLOR);
   let radiusRaw = localStorage.getItem(RADIUS_KEY);
   if (radiusRaw === 'full') radiusRaw = 'lg';
-  const radius = pick(radiusRaw, THEME_RADII, 'md');
+  const radius = pick(radiusRaw, THEME_RADII, DEFAULT_RADIUS);
   document.documentElement.setAttribute('data-theme-color', color);
   document.documentElement.setAttribute('data-radius', radius);
   localStorage.setItem(RADIUS_KEY, radius);
@@ -178,6 +206,11 @@ export function initThemeCustomizer(options = {}) {
   const { color, radius } = restoreThemePreferences();
   syncSwatches(color);
   syncRadiusButtons(radius);
+  syncCustomIndicator();
+
+  root.querySelectorAll('[data-theme-reset]').forEach((btn) => {
+    btn.addEventListener('click', resetTheme);
+  });
 
   root.querySelectorAll('[data-theme-swatch]').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -207,6 +240,8 @@ export default {
   THEME_RADII,
   applyThemeColor,
   applyThemeRadius,
+  isCustomTheme,
+  resetTheme,
   buildThemeCssSnippet,
   copyThemeCss,
   restoreThemePreferences,

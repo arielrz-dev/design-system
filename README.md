@@ -18,7 +18,7 @@ npm i -D github:arielrz-dev/design-system#v0.2.0
 npx rzz-ui add button
 ```
 
-El CLI copia cada componente (y sus dependencias) a `src/ui/` y agrega `dist/css/variables.css` si no existe. Cargá los estilos en este orden:
+El CLI copia cada componente (y sus dependencias) a `src/ui/`, y agrega `dist/css/variables.css` y la fuente Inter en `dist/fonts/` si no existen. Cargá los estilos en este orden:
 
 ```html
 <link rel="stylesheet" href="dist/css/variables.css" />
@@ -27,6 +27,10 @@ El CLI copia cada componente (y sus dependencias) a `src/ui/` y agrega `dist/css
 ```
 
 Solo algunos componentes traen `.js`. Requiere Node ≥ 18.
+
+`variables.css` ya carga Inter (variable, licencia SIL OFL en `dist/fonts/OFL.txt`) desde `../fonts/`, así que mantené `dist/css/` y `dist/fonts/` juntos. Para usar otra fuente, redefiní `--rzz-font-sans` después de `variables.css`; Inter deja de descargarse.
+
+Si el tema elegido en el personalizador de las docs no es el default, usá "Copiar CSS" y pegalo después de `variables.css`.
 
 ## Desarrollar este repo
 
