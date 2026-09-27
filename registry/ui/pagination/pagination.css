@@ -48,9 +48,9 @@
   cursor: pointer;
   box-shadow: var(--rzz-shadow-xs);
   transition:
-    color 120ms ease,
-    background-color 120ms ease,
-    border-color 120ms ease;
+    color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    border-color var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .ds-pagination__page:hover,
@@ -88,7 +88,7 @@
 .ds-pagination__nav:disabled,
 .ds-pagination__page:disabled {
   cursor: not-allowed;
-  opacity: 0.45;
+  opacity: var(--rzz-opacity-disabled);
   pointer-events: none;
 }
 
@@ -105,6 +105,7 @@
 @media (forced-colors: active) {
   .ds-pagination__page--active,
   .ds-pagination__page[aria-current="page"] {
+    forced-color-adjust: none;
     outline: 2px solid Highlight;
     background: Highlight;
     color: HighlightText;

@@ -118,3 +118,11 @@
   align-items: center;
   gap: var(--rzz-space-4);
 }
+
+/* El color es el dato: se conserva y el aro toma el fondo del sistema. */
+@media (forced-colors: active) {
+  .ds-status-dot {
+    forced-color-adjust: none;
+    border-color: Canvas;
+  }
+}

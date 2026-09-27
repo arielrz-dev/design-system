@@ -138,3 +138,9 @@
 .ds-banner[hidden] {
   display: none;
 }
+
+@media (forced-colors: active) {
+  .ds-banner {
+    border-bottom: 1px solid CanvasText;
+  }
+}

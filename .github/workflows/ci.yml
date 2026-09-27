@@ -51,6 +51,9 @@ jobs:
       - name: Sin primitivos en CSS de componentes
         run: npm run check:primitives
 
+      - name: Motion y disabled vía tokens
+        run: npm run check:literals
+
       - name: dist/ usa el prefijo --rzz-
         run: |
           grep -q -- '--rzz-surface-canvas' dist/css/variables.css

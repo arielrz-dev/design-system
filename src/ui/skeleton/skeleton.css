@@ -80,3 +80,10 @@
     background-color: var(--rzz-surface-subtle);
   }
 }
+
+@media (forced-colors: active) {
+  .ds-skeleton {
+    background-image: none;
+    background-color: GrayText;
+  }
+}

@@ -14,7 +14,7 @@
   background-color: var(--rzz-surface-card);
   box-shadow: var(--rzz-shadow-xs);
   overflow: hidden;
-  transition: border-color 140ms ease-out, box-shadow 140ms ease-out;
+  transition: border-color var(--rzz-duration-fast) var(--rzz-ease-standard), box-shadow var(--rzz-duration-fast) var(--rzz-ease-standard);
   font-family: var(--rzz-font-sans);
 }
 
@@ -101,7 +101,7 @@
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
   line-height: var(--rzz-leading-xs);
-  transition: color 160ms ease-out;
+  transition: color var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .ds-counter__count--warn {

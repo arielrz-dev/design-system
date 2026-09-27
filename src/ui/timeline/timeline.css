@@ -128,3 +128,9 @@
   font-variant-numeric: tabular-nums;
   line-height: 1.4;
 }
+
+@media (forced-colors: active) {
+  .ds-timeline::before {
+    background-color: CanvasText;
+  }
+}

@@ -135,6 +135,9 @@ export const tokens = {
       "toast": 1070,
       "tooltip": 1080,
     },
+    "opacity": {
+      "50": 0.5,
+    },
     "motion": {
       "duration": {
         "fast": {
@@ -175,6 +178,9 @@ export const tokens = {
     "modal": 1050,
     "toast": 1070,
     "tooltip": 1080,
+  },
+  "opacity": {
+    "disabled": 0.5,
   },
   "duration": {
     "fast": {

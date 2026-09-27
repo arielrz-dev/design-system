@@ -24,7 +24,11 @@
   -webkit-font-smoothing: antialiased;
   box-shadow: var(--rzz-shadow-xs);
   resize: vertical;
-  transition: all 140ms ease-out;
+  transition:
+    border-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    box-shadow var(--rzz-duration-fast) var(--rzz-ease-standard);
   appearance: none;
 }
 
@@ -47,15 +51,6 @@
   outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
   box-shadow: var(--rzz-shadow-xs);
-}
-
-.ds-textarea:is(:disabled, [aria-disabled="true"]) {
-  cursor: not-allowed;
-  opacity: 0.5;
-  background-color: var(--rzz-surface-subtle);
-  color: var(--rzz-content-muted);
-  box-shadow: none;
-  resize: none;
 }
 
 .ds-textarea--error,
@@ -94,4 +89,24 @@
 
 [data-theme="dark"] .ds-textarea:is(.ds-textarea--error, [aria-invalid="true"]):not(:focus-visible):not(:disabled):not([aria-disabled="true"]) {
   border-color: var(--rzz-feedback-danger-foreground);
+}
+
+/* --- Disabled (universal) --- */
+/* Must stay last: overrides every variant with equal specificity. */
+
+.ds-textarea:is(:disabled, [aria-disabled="true"]) {
+  cursor: not-allowed;
+  opacity: 1; /* anula el opacity del UA (Safari) */
+  border-color: transparent;
+  background-color: var(--rzz-surface-muted);
+  color: var(--rzz-content-muted);
+  box-shadow: none;
+  resize: none;
+}
+
+@media (forced-colors: active) {
+  .ds-textarea:is(:disabled, [aria-disabled="true"]) {
+    color: GrayText;
+    border-color: GrayText;
+  }
 }

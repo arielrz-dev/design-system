@@ -21,9 +21,9 @@
   cursor: pointer;
   user-select: none;
   transition:
-    background-color 120ms ease,
-    border-color 120ms ease,
-    box-shadow 120ms ease;
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    border-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    box-shadow var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .ds-setting-row:hover {
@@ -40,7 +40,13 @@
 .ds-setting-row:has(:disabled),
 .ds-setting-row:has([aria-disabled='true']) {
   cursor: not-allowed;
-  opacity: 0.55;
+  opacity: var(--rzz-opacity-disabled);
+}
+
+/* La fila ya atenúa: el switch o la casilla no vuelven a multiplicar la opacidad. */
+.ds-setting-row:has(:disabled) .ds-switch__input:disabled + .ds-switch__track,
+.ds-setting-row:has(:disabled) .ds-checkbox:disabled {
+  opacity: 1;
 }
 
 .ds-setting-row:has(:disabled):hover,

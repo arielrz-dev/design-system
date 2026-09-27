@@ -25,9 +25,9 @@
   cursor: pointer;
   box-shadow: var(--rzz-shadow-xs);
   transition:
-    color 160ms ease,
-    background-color 160ms ease,
-    border-color 160ms ease;
+    color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    border-color var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .ds-copy-button:hover {

@@ -16,7 +16,12 @@
 
 .ds-checkbox-group:has(.ds-checkbox:disabled) {
   cursor: not-allowed;
-  opacity: 0.7;
+  opacity: var(--rzz-opacity-disabled);
+}
+
+/* El grupo ya atenúa: la casilla no vuelve a multiplicar la opacidad. */
+.ds-checkbox-group:has(.ds-checkbox:disabled) .ds-checkbox:disabled {
+  opacity: 1;
 }
 
 .ds-checkbox-group__label {
@@ -44,7 +49,10 @@
   background-color: var(--rzz-surface-card);
   box-shadow: var(--rzz-shadow-xs);
   cursor: pointer;
-  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    border-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    box-shadow var(--rzz-duration-fast) var(--rzz-ease-standard);
   vertical-align: middle;
 }
 
@@ -85,7 +93,7 @@
 
 .ds-checkbox:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: var(--rzz-opacity-disabled);
   box-shadow: none;
 }
 

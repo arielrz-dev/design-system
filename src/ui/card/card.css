@@ -17,7 +17,7 @@
   font-family: var(--rzz-font-sans);
   box-shadow: var(--rzz-shadow-sm);
   overflow: hidden;
-  transition: border-color 140ms ease-out, box-shadow 140ms ease-out;
+  transition: border-color var(--rzz-duration-fast) var(--rzz-ease-standard), box-shadow var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .ds-card:focus-within {

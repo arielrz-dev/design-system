@@ -27,7 +27,10 @@
   color: var(--rzz-content-primary);
   cursor: pointer;
   user-select: none;
-  transition: all 150ms ease;
+  transition:
+    border-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    box-shadow var(--rzz-duration-fast) var(--rzz-ease-standard);
   box-shadow: var(--rzz-shadow-xs);
 }
 
@@ -67,7 +70,7 @@
 
 .ds-radio-card:has(.ds-radio-card__input:disabled) {
   cursor: not-allowed;
-  opacity: 0.55;
+  opacity: var(--rzz-opacity-disabled);
 }
 
 .ds-radio-card__header {
@@ -99,9 +102,9 @@
   background-color: var(--rzz-surface-card);
   color: var(--rzz-action-primary-foreground);
   transition:
-    border-color 150ms ease,
-    background-color 150ms ease,
-    box-shadow 150ms ease;
+    border-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    box-shadow var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .ds-radio-card__indicator svg {
@@ -110,8 +113,8 @@
   opacity: 0;
   transform: scale(0.85);
   transition:
-    opacity 150ms ease,
-    transform 150ms ease;
+    opacity var(--rzz-duration-fast) var(--rzz-ease-standard),
+    transform var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .ds-radio-card:has(.ds-radio-card__input:checked) .ds-radio-card__indicator {

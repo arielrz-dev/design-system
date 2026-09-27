@@ -1,7 +1,7 @@
 <!--
   ds-avatar-group + ds-status-dot.
   Requiere: variables.css + avatar.css + avatar-group.css
-  El estado se anuncia con texto .ds-sr-only; el punto de color es aria-hidden.
+  El estado se anuncia con texto .visually-hidden; el punto de color es aria-hidden.
   .ds-status-legend es la leyenda opcional de colores (no requiere input).
 -->
 
@@ -15,14 +15,14 @@
         width="40"
         height="40"
       />
-      <span class="ds-sr-only">en línea</span>
+      <span class="visually-hidden">en línea</span>
       <span class="ds-status-dot ds-status-dot--online" aria-hidden="true" title="En línea"></span>
     </span>
   </li>
   <li>
     <span class="ds-avatar ds-avatar--md ds-avatar--with-status">
       <span class="ds-avatar__fallback" aria-hidden="true">LG</span>
-      <span class="ds-sr-only">Luis Gómez, ausente</span>
+      <span class="visually-hidden">Luis Gómez, ausente</span>
       <span class="ds-status-dot ds-status-dot--away" aria-hidden="true" title="Ausente"></span>
     </span>
   </li>
@@ -35,21 +35,21 @@
         width="40"
         height="40"
       />
-      <span class="ds-sr-only">ocupada</span>
+      <span class="visually-hidden">ocupada</span>
       <span class="ds-status-dot ds-status-dot--busy" aria-hidden="true" title="Ocupada"></span>
     </span>
   </li>
   <li>
     <span class="ds-avatar ds-avatar--md ds-avatar--with-status">
       <span class="ds-avatar__fallback" aria-hidden="true">CD</span>
-      <span class="ds-sr-only">Carla Díaz, desconectada</span>
+      <span class="visually-hidden">Carla Díaz, desconectada</span>
       <span class="ds-status-dot ds-status-dot--offline" aria-hidden="true" title="Desconectada"></span>
     </span>
   </li>
   <li>
     <span class="ds-avatar-group__more">
       <span aria-hidden="true">+3</span>
-      <span class="ds-sr-only">3 personas más</span>
+      <span class="visually-hidden">3 personas más</span>
     </span>
   </li>
 </ul>

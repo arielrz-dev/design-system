@@ -142,3 +142,15 @@
     opacity: 1;
   }
 }
+
+@media (forced-colors: active) {
+  .ds-menu-item:is(:hover, :focus-visible) {
+    forced-color-adjust: none;
+    background-color: Highlight;
+    color: HighlightText;
+  }
+
+  .ds-menu-separator {
+    background-color: CanvasText;
+  }
+}

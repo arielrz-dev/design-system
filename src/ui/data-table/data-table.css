@@ -66,7 +66,7 @@
 }
 
 .ds-table__row {
-  transition: background-color 140ms ease-out;
+  transition: background-color var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .ds-table__row:hover {
@@ -93,4 +93,21 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (forced-colors: active) {
+  .ds-table tbody .ds-table__row--selected > td {
+    forced-color-adjust: none;
+    background-color: Highlight;
+    color: HighlightText;
+  }
+
+  /* Badges, casillas y botones de la fila siguen adaptándose al tema del sistema. */
+  .ds-table tbody .ds-table__row--selected > td > * {
+    forced-color-adjust: auto;
+  }
+
+  .ds-table tbody .ds-table__row--selected .ds-button {
+    background-color: ButtonFace;
+  }
 }

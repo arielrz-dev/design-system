@@ -30,7 +30,11 @@
   -webkit-font-smoothing: antialiased;
   box-shadow: var(--rzz-shadow-xs);
   cursor: pointer;
-  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    border-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    box-shadow var(--rzz-duration-fast) var(--rzz-ease-standard);
   /* Espacio para el chevron a la derecha (~2.5rem). */
   padding-inline-end: var(--rzz-space-40);
 }
@@ -52,14 +56,6 @@
   outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
   box-shadow: var(--rzz-shadow-xs);
-}
-
-.ds-select:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-  background-color: var(--rzz-surface-subtle);
-  color: var(--rzz-content-muted);
-  box-shadow: none;
 }
 
 .ds-select--error,
@@ -119,10 +115,29 @@
   pointer-events: none;
 }
 
-.ds-select-wrapper:has(.ds-select:disabled) .ds-select__icon {
-  opacity: 0.5;
-}
-
 .ds-select-wrapper:has(.ds-select--lg) .ds-select__icon {
   right: var(--rzz-space-16);
+}
+
+/* --- Disabled (universal) --- */
+/* Must stay last: overrides every variant with equal specificity. */
+
+.ds-select:disabled {
+  cursor: not-allowed;
+  opacity: 1; /* anula el opacity del UA (Chrome 0.7) */
+  border-color: transparent;
+  background-color: var(--rzz-surface-muted);
+  color: var(--rzz-content-muted);
+  box-shadow: none;
+}
+
+@media (forced-colors: active) {
+  .ds-select:disabled {
+    color: GrayText;
+    border-color: GrayText;
+  }
+
+  .ds-select-wrapper:has(.ds-select:disabled) .ds-select__icon {
+    color: GrayText;
+  }
 }

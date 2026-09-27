@@ -39,7 +39,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   box-shadow: var(--rzz-shadow-xs);
-  transition: all 140ms ease-out;
+  transition:
+    border-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    box-shadow var(--rzz-duration-fast) var(--rzz-ease-standard);
   appearance: none;
 }
 

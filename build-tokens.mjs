@@ -207,7 +207,7 @@ function buildCssFile(lightBlock, darkBlock) {
   return `/**
  * Design tokens CSS variables — generado por \`build-tokens.mjs\`.
  * Prefijo: --rzz- (kebab-case). Light en :root; dark en [data-theme="dark"].
- * API pública: surface/content/border/action/feedback/space/radius/font/text/leading/shadow/z/duration/ease.
+ * API pública: surface/content/border/action/feedback/space/radius/font/text/leading/shadow/z/opacity/duration/ease.
  * primitive queda en dist solo como fuente interna del build.
  * Inter se sirve desde ../fonts/ (copiado por el CLI junto a este archivo).
  * Incluye la utilidad global .visually-hidden (texto solo para lectores de pantalla).

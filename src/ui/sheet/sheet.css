@@ -124,3 +124,9 @@ dialog.ds-sheet[open]::backdrop {
   border-top: 1px solid var(--rzz-border-subtle);
   background-color: var(--rzz-surface-card);
 }
+
+@media (forced-colors: active) {
+  .ds-sheet {
+    border: 1px solid CanvasText;
+  }
+}

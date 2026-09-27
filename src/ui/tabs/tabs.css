@@ -94,7 +94,7 @@
 .ds-tabs__trigger:disabled,
 .ds-tabs__trigger[aria-disabled="true"] {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: var(--rzz-opacity-disabled);
 }
 
 .ds-tabs__content {

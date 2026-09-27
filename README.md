@@ -62,6 +62,7 @@ Si el tema elegido en el personalizador de las docs no es el default, usá "Copi
 | `scripts/add.mjs` | Copia componentes, estilos base y fuentes sin pisar archivos editados |
 | `scripts/check-contrast.mjs` | Contraste WCAG AA de pares críticos y presets (`npm run test:contrast`) |
 | `scripts/validate-registry.mjs` | Integridad de `registry.json`, disco y `src/ui/` (`npm run test:registry`) |
+| `scripts/check-css-literals.mjs` | Motion y disabled de componentes solo vía tokens (`npm run check:literals`) |
 | `scripts/lib/tokens.mjs` | Validación y resolución de tokens compartida por el build y los tests |
 | `src/ui/` | Copia instalada local de ejemplo |
 | `index.html` / `docs/` | Playground y docs (cargan desde `registry/ui/`) |
@@ -78,8 +79,15 @@ Los componentes **solo** consumen tokens semánticos cortos:
 - Acciones: `--rzz-action-primary-default|hover|active|foreground`, `--rzz-action-danger-*`
 - Feedback, espacio, radio, tipografía: `--rzz-feedback-*`, `--rzz-space-*`, `--rzz-radius-*`, `--rzz-font-*`, `--rzz-text-*`, `--rzz-leading-*`
 - Motion / capas: `--rzz-shadow-*`, `--rzz-z-*`, `--rzz-duration-*`, `--rzz-ease-*`
+- Estados: `--rzz-opacity-disabled`
 
-`--rzz-primitive-*` existe en `dist/` como fuente interna del build; **no** usarlo en UI.
+`--rzz-primitive-*` existe en `dist/` como fuente interna del build; **no** usarlo en UI. Tampoco duraciones en `ms`, `cubic-bezier()` ni `transition: all`: la CI lo rechaza (`check:literals`).
+
+### Estados deshabilitados
+
+- **Campos de texto** (input, textarea, select) y botones: valor legible sobre `--rzz-surface-muted`, texto `--rzz-content-muted`, sin borde ni opacidad.
+- **Controles de selección y navegación** (checkbox, switch, radio-card, tabs, pagination, setting-row): `opacity: var(--rzz-opacity-disabled)` una sola vez; si el contenedor ya atenúa, el control interno no vuelve a hacerlo.
+- En alto contraste (`forced-colors`), campos, botones, checkbox, switch, radio-card y tabs marcan el deshabilitado con `GrayText`; la opacidad del resto se mantiene.
 
 ## CI
 
@@ -92,8 +100,8 @@ GitHub Actions: `.github/workflows/ci.yml` (push/PR).
 ## Capas y motion
 
 - **Z-index:** `--rzz-z-base` … `--rzz-z-tooltip`
-- **Duración:** `--rzz-duration-fast|normal|slow`
-- **Easing:** `--rzz-ease-standard`
+- **Duración:** `--rzz-duration-fast` (hover, color, borde), `--rzz-duration-normal` (despliegues, toasts), `--rzz-duration-slow`, `--rzz-duration-enter` (overlays)
+- **Easing:** `--rzz-ease-standard` para transiciones; `--rzz-ease-spring` y `--rzz-ease-bounce` para entradas con rebote
 
 ## Temas
 

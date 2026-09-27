@@ -1,8 +1,8 @@
 <!--
   ds-avatar — imagen o iniciales + status online.
   Requiere: ../styles/variables.css + avatar.css
-  El nombre va en el alt (imagen) o en .ds-sr-only (iniciales); el estado,
-  como texto .ds-sr-only localizable. El punto de color es aria-hidden.
+  El nombre va en el alt (imagen) o en .visually-hidden (iniciales); el estado,
+  como texto .visually-hidden localizable. El punto de color es aria-hidden.
 -->
 
 <span class="ds-avatar ds-avatar--md">
@@ -17,13 +17,13 @@
 
 <span class="ds-avatar ds-avatar--md ds-avatar--with-status">
   <span class="ds-avatar__fallback" aria-hidden="true">LG</span>
-  <span class="ds-sr-only">Luis Gómez, en línea</span>
+  <span class="visually-hidden">Luis Gómez, en línea</span>
   <span class="ds-avatar__status" aria-hidden="true" title="En línea"></span>
 </span>
 
 <span class="ds-avatar ds-avatar--sm">
   <span class="ds-avatar__fallback" aria-hidden="true">MS</span>
-  <span class="ds-sr-only">María Sol</span>
+  <span class="visually-hidden">María Sol</span>
 </span>
 
 <span class="ds-avatar ds-avatar--lg ds-avatar--with-status">
@@ -34,6 +34,6 @@
     width="48"
     height="48"
   />
-  <span class="ds-sr-only">en línea</span>
+  <span class="visually-hidden">en línea</span>
   <span class="ds-avatar__status" aria-hidden="true" title="En línea"></span>
 </span>

@@ -21,10 +21,11 @@
     "rzz-ui": "node scripts/rzz-ui.mjs",
     "docs:dev": "npx --yes serve . -p 4173",
     "check:primitives": "node scripts/check-no-primitives.mjs",
+    "check:literals": "node scripts/check-css-literals.mjs",
     "cleanup:legacy-ui": "node scripts/cleanup-legacy-ui.mjs",
     "test:contrast": "node scripts/check-contrast.mjs",
     "test:registry": "node scripts/validate-registry.mjs",
-    "test": "npm run build:tokens && git diff --exit-code dist/ && npm run test:registry && npm run test:contrast && npm run check:primitives",
+    "test": "npm run build:tokens && git diff --exit-code dist/ && npm run test:registry && npm run test:contrast && npm run check:primitives && npm run check:literals",
     "ci": "npm run build:tokens && npm run check:primitives"
   },
   "devDependencies": {

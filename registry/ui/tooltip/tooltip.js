@@ -40,7 +40,7 @@ function ensureDescribedBy(trigger) {
     tip = document.createElement('span');
     tip.id = tipId || `rzz-tip-${Math.random().toString(36).slice(2, 9)}`;
     tip.setAttribute('role', 'tooltip');
-    tip.className = 'ds-tooltip-sr';
+    tip.className = 'visually-hidden';
     tip.hidden = true;
     document.body.appendChild(tip);
     tipId = tip.id;

@@ -35,7 +35,9 @@
   box-shadow: var(--rzz-shadow-md);
   opacity: 0;
   transform: translateY(1rem);
-  transition: all var(--rzz-duration-normal) var(--rzz-ease-standard);
+  transition:
+    opacity var(--rzz-duration-normal) var(--rzz-ease-standard),
+    transform var(--rzz-duration-normal) var(--rzz-ease-standard);
 }
 
 .ds-toast--visible {
@@ -88,7 +90,9 @@
   color: var(--rzz-content-muted);
   font: inherit;
   cursor: pointer;
-  transition: all var(--rzz-duration-fast) var(--rzz-ease-standard);
+  transition:
+    background-color var(--rzz-duration-fast) var(--rzz-ease-standard),
+    color var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .ds-toast__close:hover {
