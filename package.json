@@ -22,6 +22,9 @@
     "docs:dev": "npx --yes serve . -p 4173",
     "check:primitives": "node scripts/check-no-primitives.mjs",
     "cleanup:legacy-ui": "node scripts/cleanup-legacy-ui.mjs",
+    "test:contrast": "node scripts/check-contrast.mjs",
+    "test:registry": "node scripts/validate-registry.mjs",
+    "test": "npm run build:tokens && git diff --exit-code dist/ && npm run test:registry && npm run test:contrast && npm run check:primitives",
     "ci": "npm run build:tokens && npm run check:primitives"
   },
   "devDependencies": {

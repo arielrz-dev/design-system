@@ -5,27 +5,73 @@ on:
     branches: [master, main]
   pull_request:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  tokens-and-guards:
+  validate:
+    name: Tokens, registry, contraste y CLI
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: 22
           cache: npm
 
-      - name: Install
+      - name: Instalar dependencias
         run: npm ci
 
-      - name: Build tokens
+      - name: Compilar tokens (valida colores, duraciones y referencias)
         run: npm run build:tokens
 
-      - name: Guard — no primitive tokens in components
+      - name: dist/ al día con tokens/
+        run: |
+          git diff --exit-code dist/
+          untracked="$(git status --porcelain dist/)"
+          if [ -n "$untracked" ]; then
+            echo "::error::build:tokens generó archivos sin commitear en dist/:"
+            echo "$untracked"
+            exit 1
+          fi
+
+      - name: Integridad del registry
+        run: node scripts/validate-registry.mjs
+
+      - name: Contraste WCAG AA
+        run: node scripts/check-contrast.mjs
+
+      - name: Sin primitivos en CSS de componentes
         run: npm run check:primitives
 
-      - name: Guard — dist must use --rzz- prefix
+      - name: dist/ usa el prefijo --rzz-
         run: |
           grep -q -- '--rzz-surface-canvas' dist/css/variables.css
           ! grep -q -- '--ds-' dist/css/variables.css
+
+      - name: Smoke test del CLI (proyecto vacío)
+        working-directory: ${{ runner.temp }}
+        run: |
+          mkdir cli-smoke && cd cli-smoke
+          cli="$GITHUB_WORKSPACE/scripts/rzz-ui.mjs"
+
+          node "$cli" add button --dry-run
+          if [ -n "$(ls -A)" ]; then echo "::error::--dry-run escribió archivos"; exit 1; fi
+
+          node "$cli" add button
+          test -f src/ui/button/button.css
+          test -f src/ui/styles/variables.css
+          test -f src/ui/styles/reduced-motion.css
+          test -f src/ui/fonts/inter-latin.woff2
+
+          echo "/* edición local */" >> src/ui/button/button.css
+          node "$cli" add button | tee rerun.log
+          grep -q "1 omitidos" rerun.log
+          grep -q "edición local" src/ui/button/button.css

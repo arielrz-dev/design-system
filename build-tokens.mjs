@@ -1,14 +1,22 @@
 /**
  * Compila tokens DTCG → CSS variables + TypeScript (`as const`).
  * Sin dependencias de runtime en los artefactos generados.
+ * Valida los JSON antes de compilar: colores/duraciones mal formados o
+ * referencias rotas cortan el build (Style Dictionary los pasaría a #000000).
  */
 import { mkdir, writeFile } from 'node:fs/promises';
 import StyleDictionary from 'style-dictionary';
 import { formats, transformGroups } from 'style-dictionary/enums';
 import { formattedVariables } from 'style-dictionary/utils';
+import {
+  DARK_OVERRIDE_ROOTS,
+  TOKEN_FILE_DARK,
+  TOKEN_FILE_LIGHT,
+  loadAndValidateTokens,
+} from './scripts/lib/tokens.mjs';
 
-const TOKEN_SOURCE_LIGHT = ['tokens/tokens.json'];
-const TOKEN_SOURCE_DARK = ['tokens/tokens.dark.json'];
+const TOKEN_SOURCE_LIGHT = [TOKEN_FILE_LIGHT];
+const TOKEN_SOURCE_DARK = [TOKEN_FILE_DARK];
 
 const CSS_OUT = 'dist/css/variables.css';
 const TS_OUT = 'dist/ts/tokens.ts';
@@ -42,15 +50,6 @@ function buildFontFaces() {
 }`,
   ).join('\n\n');
 }
-
-const DARK_OVERRIDE_ROOTS = [
-  'surface',
-  'content',
-  'border',
-  'action',
-  'feedback',
-  'shadow',
-];
 
 /** DTCG duration `{ value, unit }` → CSS (`120ms`). SD 5 no lo serializa solo. */
 StyleDictionary.registerTransform({
@@ -241,7 +240,18 @@ ${darkBlock}
 `;
 }
 
+async function validateSources() {
+  const { errors } = await loadAndValidateTokens();
+  if (errors.length > 0) {
+    throw new Error(
+      `${errors.length} token(s) inválido(s); no se generó dist/:\n  - ${errors.join('\n  - ')}`,
+    );
+  }
+}
+
 async function main() {
+  await validateSources();
+
   const lightCssDict = await getTransformedDictionary(
     { source: TOKEN_SOURCE_LIGHT },
     'css',
@@ -307,6 +317,6 @@ async function main() {
 }
 
 main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
+  console.error(`✖ ${error.message}`);
+  process.exit(1);
 });

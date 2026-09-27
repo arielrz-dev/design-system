@@ -44,11 +44,12 @@ Si el tema elegido en el personalizador de las docs no es el default, usá "Copi
 
 ## Desarrollar este repo
 
-1. `npm install`
-2. `npm run build:tokens`: genera `dist/css/variables.css` y `dist/ts/tokens.ts`
+1. `npm install` (Node ≥ 22: lo exige Style Dictionary 5; el CLI para consumidores sigue funcionando con Node ≥ 18)
+2. `npm run build:tokens`: valida los JSON (colores, duraciones, referencias) y genera `dist/css/variables.css` y `dist/ts/tokens.ts`
 3. `npm run docs:dev`: sirve el repo en `http://localhost:4173` (evita límites de `file://`)
 4. Abrí `http://localhost:4173/docs/` o el playground en `http://localhost:4173/`
 5. `npm run rzz-ui -- add button` instala en el `src/ui/` de este mismo repo
+6. `npm test` antes de commitear: compila tokens, exige `dist/` commiteado, valida el registry (incluida la paridad con `src/ui/`), el contraste WCAG AA de tokens y presets, y que no haya primitivos en los CSS de componentes. Es lo mismo que corre el CI (`.github/workflows/ci.yml`) en cada push a `master` y en cada PR.
 
 ## Qué incluye
 
@@ -59,6 +60,9 @@ Si el tema elegido en el personalizador de las docs no es el default, usá "Copi
 | `registry/` | **Fuente canónica** del catálogo UI (~35 componentes) |
 | `scripts/rzz-ui.mjs` | CLI (`add` → cwd del consumidor) |
 | `scripts/add.mjs` | Copia componentes, estilos base y fuentes sin pisar archivos editados |
+| `scripts/check-contrast.mjs` | Contraste WCAG AA de pares críticos y presets (`npm run test:contrast`) |
+| `scripts/validate-registry.mjs` | Integridad de `registry.json`, disco y `src/ui/` (`npm run test:registry`) |
+| `scripts/lib/tokens.mjs` | Validación y resolución de tokens compartida por el build y los tests |
 | `src/ui/` | Copia instalada local de ejemplo |
 | `index.html` / `docs/` | Playground y docs (cargan desde `registry/ui/`) |
 
