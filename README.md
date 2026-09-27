@@ -14,7 +14,7 @@ npx github:arielrz-dev/design-system add button dialog --path components/ui
 Para fijar una versión, instalalo como dependencia de desarrollo y usá el bin:
 
 ```bash
-npm i -D github:arielrz-dev/design-system#v0.2.0
+npm i -D github:arielrz-dev/design-system#v0.3.0
 npx rzz-ui add button
 ```
 
