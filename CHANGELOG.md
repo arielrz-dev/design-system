@@ -2,7 +2,7 @@
 
 Las versiones anteriores a 0.4.0 están en los tags de git (`v0.1.0` a `v0.3.0`).
 
-## 0.4.0 (sin publicar)
+## 0.4.0 (2026-09-27)
 
 Incluye cambios incompatibles con 0.3: revisá **Migración** antes de actualizar componentes con `--overwrite`.
 
