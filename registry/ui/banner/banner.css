@@ -85,7 +85,7 @@
 }
 
 .ds-banner__link:hover {
-  opacity: 0.85;
+  text-decoration-thickness: 2px;
 }
 
 .ds-banner__link:focus {
@@ -114,14 +114,10 @@
   background: transparent;
   color: inherit;
   cursor: pointer;
-  opacity: 0.75;
-  transition:
-    opacity var(--rzz-duration-fast) var(--rzz-ease-standard),
-    background-color var(--rzz-duration-fast) var(--rzz-ease-standard);
+  transition: background-color var(--rzz-duration-fast) var(--rzz-ease-standard);
 }
 
 .ds-banner__close:hover {
-  opacity: 1;
   background-color: color-mix(in srgb, var(--rzz-content-primary) 8%, transparent);
 }
 
@@ -132,7 +128,6 @@
 .ds-banner__close:focus-visible {
   outline: 2px solid var(--rzz-border-focus);
   outline-offset: 2px;
-  opacity: 1;
 }
 
 .ds-banner__close svg {

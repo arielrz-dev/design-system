@@ -64,7 +64,6 @@
 
 .ds-alert--info .ds-alert__description {
   color: var(--rzz-feedback-info-foreground);
-  opacity: 0.85;
 }
 
 .ds-alert--success {
@@ -75,7 +74,6 @@
 
 .ds-alert--success .ds-alert__description {
   color: var(--rzz-feedback-success-foreground);
-  opacity: 0.85;
 }
 
 .ds-alert--warning {
@@ -86,7 +84,6 @@
 
 .ds-alert--warning .ds-alert__description {
   color: var(--rzz-feedback-warning-foreground);
-  opacity: 0.85;
 }
 
 .ds-alert--danger {
@@ -97,7 +94,6 @@
 
 .ds-alert--danger .ds-alert__description {
   color: var(--rzz-feedback-danger-foreground);
-  opacity: 0.85;
 }
 
 /* --- Dark: neutral surface, semantic color only on inline-start edge + icon --- */
@@ -133,7 +129,6 @@
 
 [data-theme="dark"] .ds-alert:is(.ds-alert--info, .ds-alert--success, .ds-alert--warning, .ds-alert--danger) .ds-alert__description {
   color: var(--rzz-content-muted);
-  opacity: 1;
 }
 
 @media (forced-colors: active) {

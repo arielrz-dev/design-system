@@ -119,7 +119,6 @@
 
 .ds-toast--success .ds-toast__description {
   color: var(--rzz-feedback-success-foreground);
-  opacity: 0.85;
 }
 
 .ds-toast--danger {
@@ -130,5 +129,4 @@
 
 .ds-toast--danger .ds-toast__description {
   color: var(--rzz-feedback-danger-foreground);
-  opacity: 0.85;
 }
